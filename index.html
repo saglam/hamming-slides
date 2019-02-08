@@ -30,12 +30,12 @@
         </section>
 
         <section class=lefty>
-          <h2>Hamming distance in</h2>
+          <h2>Hamming distance defined</h2>
         </section>
 
         <section class="lefty texnify" id=outline>
-          <h2>$k$-Hamming distance is hard in models:</h2>
-          <ol class=widelist>
+          <h2>$k$-Hamming distance is hard to compute:</h2>
+          <ol class=outline-list>
             <li class=fragment><b>Comunication complexity.</b> Any $k$-Hamming 
             distance protocol requires $\Omega(k \log k)$ bits</li>
             <li class=fragment><b>Parity decision trees.</b> Any randomized parity 
@@ -48,9 +48,18 @@
         <section class="lefty" id="communication-intro">
           <h2>Communication complexity</h2>
           <table><tr>
-            <td><img width=300 height=200 src=img/alice1.svg></td>
+            <td><img width=300 height=200 src=img/alice1.svg></td><td width=100></td>
             <td><img width=300 height=200 src=img/bob2.svg></td>
+          </tr><tr border=0>
+            <td class=fragment data-fragment-index=1>x=010010101010101110</td><td></td>
+            <td class=fragment data-fragment-index=2>y=010010101010010100</td>
           </tr></table>
+          <ul class="texnify comm-list">
+            <li class=fragment data-fragment-index=1>Alice receives $x\in\{0,1\}^n$.</li>
+            <li class=fragment data-fragment-index=2>Bob receives $y\in\{0,1\}^n$.</li>
+            <li class=fragment data-fragment-index=3>With the promise: $\Ham(x,y)\le k$.
+            <li class=fragment data-fragment-index=5>Goal: output <b>$\Ham(x,y)$</b>
+          </ul>
         </section>
 			</div>
 		</div>

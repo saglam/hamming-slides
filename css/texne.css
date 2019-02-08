@@ -25,7 +25,7 @@
 
 .mssup {
   position: absolute;
-  top: -0.25em;
+  top: -0.1em;
 }
 
 .mssub {
@@ -75,11 +75,14 @@
 }
 
 .msl, .msr,
-.mal, .mar,
-.mcl, .mcr {
+.mal, .mar{
   font-size: 118%;
   position: relative;
   top: 0.07em;
+}
+
+.mcl, .mcr {
+  font-size: 118%;
 }
 
 .msl {
