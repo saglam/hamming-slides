@@ -82,6 +82,8 @@
 }
 
 .mcl, .mcr {
+  position: relative;
+  top: -0.06em;
   font-size: 118%;
 }
 

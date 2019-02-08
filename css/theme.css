@@ -86,7 +86,6 @@ body {
   line-height: 1.3; }
 
 /* Ensure certain elements are never larger than the slide itself */
-.reveal img,
 .reveal video,
 .reveal iframe {
   max-width: 95%;
@@ -259,6 +258,11 @@ body {
   background: rgba(255, 255, 255, 0.2);
   border-color: #42affa;
   box-shadow: 0 0 20px rgba(0, 0, 0, 0.55); }
+
+.reveal .rand {
+  color: orange;
+  font-weight: 700;
+}
 
 /*********************************************
  * NAVIGATION CONTROLS

@@ -12,7 +12,7 @@ html, body, .reveal div, .reveal span, .reveal applet, .reveal object, .reveal i
 .reveal h1, .reveal h2, .reveal h3, .reveal h4, .reveal h5, .reveal h6, .reveal p, .reveal blockquote, .reveal pre,
 .reveal a, .reveal abbr, .reveal acronym, .reveal address, .reveal big, .reveal cite, .reveal code,
 .reveal del, .reveal dfn, .reveal em, .reveal img, .reveal ins, .reveal kbd, .reveal q, .reveal s, .reveal samp,
-.reveal small, .reveal strike, .reveal strong, .reveal sub, .reveal sup, .reveal tt, .reveal var,
+.reveal small, .reveal strike, .reveal strong, .reveal tt, .reveal var,
 .reveal b, .reveal u, .reveal center,
 .reveal dl, .reveal dt, .reveal dd, .reveal ol, .reveal ul, .reveal li,
 .reveal fieldset, .reveal form, .reveal label, .reveal legend,
@@ -131,8 +131,9 @@ body {
 
 .reveal .slides section .fragment.fade-in-then-out,
 .reveal .slides section .fragment.current-visible {
-  opacity: 0;
-  visibility: hidden; }
+  opacity: 0.5;
+  /* visibility: hidden; */
+  }
   .reveal .slides section .fragment.fade-in-then-out.current-fragment,
   .reveal .slides section .fragment.current-visible.current-fragment {
     opacity: 1;

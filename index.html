@@ -46,7 +46,7 @@
         </section>
 				
         <section class="lefty" id="communication-intro">
-          <h2>Communication complexity</h2>
+          <h3 class=texnify>Communication complexity: $k$-Hamming distance</h3>
           <table><tr>
             <td><img width=300 height=200 src=img/alice1.svg></td><td width=100></td>
             <td><img width=300 height=200 src=img/bob2.svg></td>
@@ -55,14 +55,20 @@
             <td class=fragment data-fragment-index=2>y=010010101010010100</td>
           </tr></table>
           <ul class="texnify comm-list">
-            <li class=fragment data-fragment-index=1>Alice receives $x\in\{0,1\}^n$.</li>
-            <li class=fragment data-fragment-index=2>Bob receives $y\in\{0,1\}^n$.</li>
-            <li class=fragment data-fragment-index=3>With the promise: $\Ham(x,y)\le k$.
+            <li class="fragment fade-in-then-out" data-fragment-index=1>Alice receives $x\in\{0,1\}^n$.</li>
+            <li class="fragment fade-in-then-out" data-fragment-index=2>Bob receives $y\in\{0,1\}^n$.</li>
+            <li class=fragment data-fragment-index=3>With the promise: $\Ham(x,y)\le k$.</li>
+            <li class=fragment data-fragment-index=4>Both have access to shared 
+              randomness <span class=rand>R</span>.</li>
             <li class=fragment data-fragment-index=5>Goal: output <b>$\Ham(x,y)$</b>
           </ul>
+          <div class=fragment style="position: absolute; top:-120px; left:30px;" data-fragment-index=4>
+            <img class="plain" style="width:250px; opacity:0.97;" src="img/sun1.svg">
+            <span class="rand" style="position:relative; top:-120px; left:-145px; font-size:larger;">R</span>
+          </div>
         </section>
-			</div>
-		</div>
+      </div>
+    </div>
 
     <!-- build:js -->
     <script src="js/reveal.js"></script>
