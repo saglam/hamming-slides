@@ -1,0 +1,11 @@
+#!/bin/bash
+
+cssMd5=$(sha1sum -b build/css/all.css | cut -c1-40 | base64 | cut -c1-6)
+jsMd5=$(sha1sum -b build/js/all.js | cut -c1-40 | base64 | cut -c1-6)
+cp build/css/all.css build/css/${cssMd5}.css
+cp build/js/all.js build/js/${jsMd5}.js
+perl -0777 -i -pe "s#<!-- build:css -->\n?([\s\S]*?)\n?<!-- endbuild -->#<link rel=stylesheet href=\"css/${cssMd5}.css\">#" build/index.html
+perl -0777 -i -pe "s#<!-- build:js -->\n?([\s\S]*?)\n?<!-- endbuild -->#<script async src=\"js/${jsMd5}.js\"></script>#" build/index.html
+touch --date="2019-01-01" build/css/${cssMd5}.css
+touch --date="2019-01-01" build/js/${jsMd5}.js
+

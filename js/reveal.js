@@ -19,7 +19,7 @@
 		// Browser globals.
 		root.Reveal = factory();
 	}
-}( this, function() {
+}(this, function() {
 
 	'use strict';
 
@@ -358,8 +358,8 @@
 		}
 
 		// Cache references to key DOM elements
-		dom.wrapper = document.querySelector( '.reveal' );
-		dom.slides = document.querySelector( '.reveal .slides' );
+		dom.wrapper = /** @type {HTMLElement} */ (document.querySelector('.reveal'));
+		dom.slides = /** @type {HTMLElement} */ (document.querySelector('.reveal .slides'));
 
 		// Force a layout when the whole page, incl fonts, has loaded
 		window.addEventListener( 'load', layout, false );
@@ -430,6 +430,11 @@
 	 * will load after reveal.js has been started up.
 	 */
 	function load() {
+	
+	  /**
+	   * TODO(saglam): put back lazy loading when we need it
+	   */
+
 
 		var scripts = [],
 			scriptsAsync = [],
@@ -571,7 +576,7 @@
 		}
 
 		// Background element
-		dom.background = createSingletonNode( dom.wrapper, 'div', 'backgrounds', null );
+		dom.background = /** @type {HTMLElement} */ (createSingletonNode( dom.wrapper, 'div', 'backgrounds', null ));
 
 		// Progress bar
 		dom.progress = createSingletonNode( dom.wrapper, 'div', 'progress', '<span></span>' );
@@ -618,7 +623,7 @@
 	 * current slide content. Hide the div off-screen to make it
 	 * available only to Assistive Technologies.
 	 *
-	 * @return {HTMLElement}
+	 * @return {Element}
 	 */
 	function createStatusDiv() {
 
@@ -714,8 +719,11 @@
 		} );
 
 		// Slide and slide background layout
-		toArray( dom.wrapper.querySelectorAll( SLIDES_SELECTOR ) ).forEach( function( slide ) {
-
+		toArray(dom.wrapper.querySelectorAll(SLIDES_SELECTOR)).forEach(
+		/**
+		 * @param {HTMLElement} slide
+		 */
+		function( slide ) {
 			// Vertical stacks are not centred since their section
 			// children will be
 			if( slide.classList.contains( 'stack' ) === false ) {
@@ -878,9 +886,9 @@
 	 * @param {HTMLElement} container
 	 * @param {string} tagname
 	 * @param {string} classname
-	 * @param {string} innerHTML
+	 * @param {?string} innerHTML
 	 *
-	 * @return {HTMLElement}
+	 * @return {Element}
 	 */
 	function createSingletonNode( container, tagname, classname, innerHTML ) {
 
@@ -905,7 +913,6 @@
 		container.appendChild( node );
 
 		return node;
-
 	}
 
 	/**
@@ -922,9 +929,9 @@
 		dom.background.classList.add( 'no-transition' );
 
 		// Iterate over all horizontal slides
-		toArray( dom.wrapper.querySelectorAll( HORIZONTAL_SLIDES_SELECTOR ) ).forEach( function( slideh ) {
+		toArray(dom.wrapper.querySelectorAll( HORIZONTAL_SLIDES_SELECTOR ) ).forEach( function( slideh ) {
 
-			var backgroundStack = createBackground( slideh, dom.background );
+			var backgroundStack = createBackground(slideh, dom.background );
 
 			// Iterate over all vertical slides
 			toArray( slideh.querySelectorAll( 'section' ) ).forEach( function( slidev ) {
@@ -975,7 +982,7 @@
 
 
 		// Main slide background element
-		var element = document.createElement( 'div' );
+		var element = /** @type {HTMLElement} */ (document.createElement('div'));
 		element.className = 'slide-background ' + slide.className.replace( /present|past|future/, '' );
 
 		// Inner background element that wraps images/videos/iframes
@@ -1130,7 +1137,7 @@
 	 * Applies the configuration settings from the config
 	 * object. May be called multiple times.
 	 *
-	 * @param {object} options
+	 * @param {Object=} options
 	 */
 	function configure( options ) {
 
@@ -1417,8 +1424,8 @@
 	 * Extend object a with the properties of object b.
 	 * If there's a conflict, object b takes precedence.
 	 *
-	 * @param {object} a
-	 * @param {object} b
+	 * @param {Object} a
+	 * @param {Object} b
 	 */
 	function extend( a, b ) {
 
@@ -1433,8 +1440,8 @@
 	/**
 	 * Converts the target object to an array.
 	 *
-	 * @param {object} o
-	 * @return {object[]}
+	 * @param {Object} o
+	 * @return {Array<Object>}
 	 */
 	function toArray( o ) {
 
@@ -1465,8 +1472,8 @@
 	 * Measures the distance in pixels between point a
 	 * and point b.
 	 *
-	 * @param {object} a point with x/y properties
-	 * @param {object} b point with x/y properties
+	 * @param {Object} a point with x/y properties
+	 * @param {Object} b point with x/y properties
 	 *
 	 * @return {number}
 	 */
@@ -1499,7 +1506,7 @@
 	 * is transformed from two separate sources: layout and the overview
 	 * mode.
 	 *
-	 * @param {object} transforms
+	 * @param {Object} transforms
 	 */
 	function transformSlides( transforms ) {
 
@@ -1585,7 +1592,7 @@
 	 * @example
 	 * colorToRgb('rgba(0,0,0)');
 	 *
-	 * @return {{r: number, g: number, b: number, [a]: number}|null}
+	 * @return {?{r: number, g: number, b: number, a: ?number}}
 	 */
 	function colorToRgb( color ) {
 
@@ -1634,12 +1641,12 @@
 
 	/**
 	 * Calculates brightness on a scale of 0-255.
-	 *
-	 * @param {string} color See colorToRgb for supported formats.
+	 * TODO(saglam): look up closure compiler structs
+	 * @param {string|Object} color See colorToRgb for supported formats.
+	 * @return {?number}
 	 * @see {@link colorToRgb}
 	 */
-	function colorBrightness( color ) {
-
+	function colorBrightness(color) {
 		if( typeof color === 'string' ) color = colorToRgb( color );
 
 		if( color ) {
@@ -1727,6 +1734,7 @@
 	/**
 	 * Dispatches an event of the specified type from the
 	 * reveal DOM element.
+	 * @param {Object=} args
 	 */
 	function dispatchEvent( type, args ) {
 
@@ -1806,6 +1814,7 @@
 
 	/**
 	 * Unbind preview frame links.
+	 * @param {string=} selector
 	 */
 	function disablePreviewLinks( selector ) {
 
@@ -2332,7 +2341,7 @@
 	/**
 	 * Toggles the slide overview mode on and off.
 	 *
-	 * @param {Boolean} [override] Flag which overrides the
+	 * @param {boolean=} override Flag which overrides the
 	 * toggle logic and forcibly sets the desired state. True means
 	 * overview is open, false means it's closed.
 	 */
@@ -2344,19 +2353,16 @@
 		else {
 			isOverview() ? deactivateOverview() : activateOverview();
 		}
-
 	}
 
 	/**
 	 * Checks if the overview is currently active.
 	 *
-	 * @return {Boolean} true if the overview is active,
+	 * @return {boolean} true if the overview is active,
 	 * false otherwise
 	 */
 	function isOverview() {
-
 		return overview;
-
 	}
 
 	/**
@@ -2398,7 +2404,7 @@
 	 * Checks if the current or specified slide is vertical
 	 * (nested within another slide).
 	 *
-	 * @param {HTMLElement} [slide=currentSlide] The slide to check
+	 * @param {Element} [slide=currentSlide] The slide to check
 	 * orientation of
 	 * @return {Boolean}
 	 */
@@ -2471,6 +2477,7 @@
 
 	/**
 	 * Toggles the paused mode on and off.
+	 * @param {boolean=} override
 	 */
 	function togglePause( override ) {
 
@@ -2486,12 +2493,11 @@
 	/**
 	 * Checks if we are currently in the paused mode.
 	 *
-	 * @return {Boolean}
+	 * @return {boolean}
 	 */
 	function isPaused() {
 
 		return dom.wrapper.classList.contains( 'paused' );
-
 	}
 
 	/**
@@ -3746,7 +3752,7 @@
 	 * Starts playing an embedded video/audio element after
 	 * it has finished loading.
 	 *
-	 * @param {object} event
+	 * @param {Object} event
 	 */
 	function startEmbeddedMedia( event ) {
 
@@ -3766,7 +3772,7 @@
 	 * "Starts" the content of an embedded iframe using the
 	 * postMessage API.
 	 *
-	 * @param {object} event
+	 * @param {Object} event
 	 */
 	function startEmbeddedIframe( event ) {
 
@@ -4016,7 +4022,7 @@
 	 * Updates the page URL (hash) to reflect the current
 	 * state.
 	 *
-	 * @param {number} delay The time in ms to wait before
+	 * @param {number=} delay The time in ms to wait before
 	 * writing the hash
 	 */
 	function writeURL( delay ) {
@@ -4044,14 +4050,23 @@
 	 * index will be for this slide rather than the currently
 	 * active one
 	 *
-	 * @return {{h: number, v: number, f: number}}
+	 * @return {{h: number, v: {number|undefined}, f: number}}
 	 */
 	function getIndices( slide ) {
 
 		// By default, return the current indices
-		var h = indexh,
-			v = indexv,
-			f;
+    /**
+     * @type {number}
+     */
+		let h = indexh;
+    /**
+     * @type {number|undefined}
+     */
+    let	v = indexv;
+    /**
+     * @type {number}
+     */
+		let	f;
 
 		// If a slide is specified, return the indices of that slide
 		if( slide ) {
@@ -4113,11 +4128,12 @@
 	/**
 	 * Returns the slide element matching the specified index.
 	 *
-	 * @return {HTMLElement}
+	 * @return {HTMLElement|undefined}
 	 */
 	function getSlide( x, y ) {
 
-		var horizontalSlide = dom.wrapper.querySelectorAll( HORIZONTAL_SLIDES_SELECTOR )[ x ];
+		var horizontalSlide = /** @type {HTMLElement} */ (dom.wrapper.querySelectorAll( HORIZONTAL_SLIDES_SELECTOR )[ x ]);
+		/** @type {?Array<HTMLElement>} */
 		var verticalSlides = horizontalSlide && horizontalSlide.querySelectorAll( 'section' );
 
 		if( verticalSlides && verticalSlides.length && typeof y === 'number' ) {
@@ -4125,7 +4141,6 @@
 		}
 
 		return horizontalSlide;
-
 	}
 
 	/**
@@ -4134,10 +4149,10 @@
 	 * defined, have a background element so as long as the
 	 * index is valid an element will be returned.
 	 *
-	 * @param {mixed} x Horizontal background index OR a slide
+	 * @param {number|HTMLElement} x Horizontal background index OR a slide
 	 * HTML element
 	 * @param {number} y Vertical background index
-	 * @return {(HTMLElement[]|*)}
+	 * @return {Array<HTMLElement>|undefined)}
 	 */
 	function getSlideBackground( x, y ) {
 
@@ -4203,7 +4218,7 @@
 	/**
 	 * Restores the presentation to the given state.
 	 *
-	 * @param {object} state As generated by getState()
+	 * @param {Object} state As generated by getState()
 	 * @see {@link getState} generates the parameter `state`
 	 */
 	function setState( state ) {
@@ -4239,12 +4254,12 @@
 	 * and sets that attribute to an integer value which is the position of
 	 * the fragment within the fragments list.
 	 *
-	 * @param {object[]|*} fragments
+	 * @param {!NodeList<!Element>} fragments
 	 * @param {boolean} grouped If true the returned array will contain
 	 * nested arrays for all fragments with the same index
-	 * @return {object[]} sorted Sorted array of fragments
+	 * @return {Array<Object>} sorted Sorted array of fragments
 	 */
-	function sortFragments( fragments, grouped ) {
+	function sortFragments(fragments, grouped) {
 
 		fragments = toArray( fragments );
 
@@ -4657,7 +4672,7 @@
 	 * Called by all event handlers that are based on user
 	 * input.
 	 *
-	 * @param {object} [event]
+	 * @param {Object} [event]
 	 */
 	function onUserInput( event ) {
 
@@ -4670,7 +4685,7 @@
 	/**
 	 * Handler for the document level 'keypress' event.
 	 *
-	 * @param {object} event
+	 * @param {Object} event
 	 */
 	function onDocumentKeyPress( event ) {
 
@@ -4684,7 +4699,7 @@
 	/**
 	 * Handler for the document level 'keydown' event.
 	 *
-	 * @param {object} event
+	 * @param {Object} event
 	 */
 	function onDocumentKeyDown( event ) {
 
@@ -4845,7 +4860,7 @@
 	 * Handler for the 'touchstart' event, enables support for
 	 * swipe and pinch gestures.
 	 *
-	 * @param {object} event
+	 * @param {Object} event
 	 */
 	function onTouchStart( event ) {
 
@@ -4872,7 +4887,7 @@
 	/**
 	 * Handler for the 'touchmove' event.
 	 *
-	 * @param {object} event
+	 * @param {Object} event
 	 */
 	function onTouchMove( event ) {
 
@@ -4963,7 +4978,7 @@
 	/**
 	 * Handler for the 'touchend' event.
 	 *
-	 * @param {object} event
+	 * @param {Object} event
 	 */
 	function onTouchEnd( event ) {
 
@@ -4974,7 +4989,7 @@
 	/**
 	 * Convert pointer down to touch start.
 	 *
-	 * @param {object} event
+	 * @param {Object} event
 	 */
 	function onPointerDown( event ) {
 
@@ -4988,7 +5003,7 @@
 	/**
 	 * Convert pointer move to touch move.
 	 *
-	 * @param {object} event
+	 * @param {Object} event
 	 */
 	function onPointerMove( event ) {
 
@@ -5002,7 +5017,7 @@
 	/**
 	 * Convert pointer up to touch end.
 	 *
-	 * @param {object} event
+	 * @param {Object} event
 	 */
 	function onPointerUp( event ) {
 
@@ -5017,7 +5032,7 @@
 	 * Handles mouse wheel scrolling, throttled to avoid skipping
 	 * multiple slides.
 	 *
-	 * @param {object} event
+	 * @param {Object} event
 	 */
 	function onDocumentMouseScroll( event ) {
 
@@ -5043,7 +5058,7 @@
 	 *
 	 * ( clickX / presentationWidth ) * numberOfSlides
 	 *
-	 * @param {object} event
+	 * @param {Object} event
 	 */
 	function onProgressClicked( event ) {
 
@@ -5075,7 +5090,7 @@
 	/**
 	 * Handler for the window level 'hashchange' event.
 	 *
-	 * @param {object} [event]
+	 * @param {Object} [event]
 	 */
 	function onWindowHashChange( event ) {
 
@@ -5086,7 +5101,7 @@
 	/**
 	 * Handler for the window level 'resize' event.
 	 *
-	 * @param {object} [event]
+	 * @param {Object} [event]
 	 */
 	function onWindowResize( event ) {
 
@@ -5097,7 +5112,7 @@
 	/**
 	 * Handle for the window level 'visibilitychange' event.
 	 *
-	 * @param {object} [event]
+	 * @param {Object} [event]
 	 */
 	function onPageVisibilityChange( event ) {
 
@@ -5120,7 +5135,7 @@
 	/**
 	 * Invoked when a slide is and we're in the overview.
 	 *
-	 * @param {object} event
+	 * @param {Object} event
 	 */
 	function onOverviewSlideClicked( event ) {
 
@@ -5155,7 +5170,7 @@
 	 * Handles clicks on links that are set to preview in the
 	 * iframe overlay.
 	 *
-	 * @param {object} event
+	 * @param {Object} event
 	 */
 	function onPreviewLinkClicked( event ) {
 
@@ -5172,7 +5187,7 @@
 	/**
 	 * Handles click on the auto-sliding controls element.
 	 *
-	 * @param {object} [event]
+	 * @param {Object} [event]
 	 */
 	function onAutoSlidePlayerClick( event ) {
 
@@ -5204,7 +5219,7 @@
 	 *
 	 * @param {HTMLElement} container The component will append
 	 * itself to this
-	 * @param {function} progressCheck A method which will be
+	 * @param {function()} progressCheck A method which will be
 	 * called frequently to get the current progress on a range
 	 * of 0-1
 	 */
@@ -5577,3 +5592,4 @@
 }));
 
 Reveal.initialize();
+
