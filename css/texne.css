@@ -1,0 +1,100 @@
+.mop {
+}
+
+.msup,
+.msub,
+.mssup,
+.mssub {
+  vertical-align:baseline;
+  font-size: 75%;
+  margin: 0 0.05em;
+}
+
+.msup {
+  position: relative;
+  top: -0.55em;
+}
+.msub {
+  position: relative;
+  bottom: -0.2em;
+}
+
+.msupsub {
+  position: relative;
+}
+
+.mssup {
+  position: absolute;
+  top: -0.25em;
+}
+
+.mssub {
+  position: absolute;
+  bottom: -0.3em;
+}
+
+.mw {
+  white-space: nowrap;
+  line-height: 1;
+  display: inline-block;
+}
+
+.mtht {
+  font-size: 105%;
+  transform:scale(0.92,1); 
+  display:inline-block;
+  position: relative;
+  top: 0.04em;
+}
+
+.meq {
+  font-size: 118%;
+  transform:scale(1.45,1); 
+  display:inline-block;
+  position:relative;
+  top: 0.1em;
+}
+
+.mto {
+  transform:scale(1.8); 
+  display:inline-block;
+  position: relative;
+  top: -0.1em;
+}
+
+.min {
+  vertical-align: baseline;
+  font-size: 110%;
+  margin: 0 -0.1em;
+}
+
+.masx {
+  font-size: 150%;
+  position: relative;
+  top: 0.34em;
+}
+
+.msl, .msr,
+.mal, .mar,
+.mcl, .mcr {
+  font-size: 118%;
+  position: relative;
+  top: 0.07em;
+}
+
+.msl {
+  margin-right:-0.02em;
+}
+
+.msr {
+  margin-left:-0.05em;
+}
+
+.mpl {
+  margin-right: 0.02em;
+}
+
+.mpr {
+  margin-left: 0.02em;
+}
+

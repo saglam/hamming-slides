@@ -1,0 +1,11 @@
+#!/bin/sh
+
+if [ "$1" = "--fullscreen" ]
+then
+  size_command="--kiosk --start-fullscreen ${1}"
+else
+  size_command="--window-size=1200,675"
+fi
+echo $size_command
+chromium-browser ${size_command} --app=file://${PWD}/index.html
+

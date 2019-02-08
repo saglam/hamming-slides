@@ -1,0 +1,3 @@
+# Some fonts may be propriety, don't expose them publicly
+font*
+build/*
