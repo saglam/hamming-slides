@@ -7,6 +7,16 @@ section.has-light-background, section.has-light-background h1, section.has-light
 .reveal .comm-protocol-list {margin-left: 1em;}
 .reveal .comm-protocol-list > li {margin: 1em 0;}
 
+#graph.colorful > #ic1 { fill: #ff598f; }
+#graph.colorful > #ic2 { fill: #fd8a5e; }
+#graph.colorful > #ic3 { fill: #00bfaf; }
+#graph.colorful > #ic4 { fill: #e0e300; }
+#graph.colorful > #ic5 { fill: #e0e300; }
+#graph.colorful > #ic6 { fill: #fd8a5e; }
+#graph.colorful > #ic7 { fill: #01dddd; }
+#graph.colorful > #t { fill: white;}
+#graph > text {font-weight: 400;}
+
 /*********************************************
  * GLOBAL STYLES
  *********************************************/
@@ -32,6 +42,7 @@ body {
   line-height: 1.25;
   font-weight: inherit;
   width: 100%;
+  height: 100%;
   box-sizing: border-box;
   }
 

@@ -22,7 +22,7 @@ build/css/all.css: css/reveal.css css/theme.css css/gill-sans.css css/texne.css
 	mkdir -p build/css
 	cat $^ | csso --output $@
 
-build/index.html: build/css/all.css build/js/all.js
+build/index.html: index.html build/css/all.css build/js/all.js
 	cp -f index.html build/index.html
 	./fillhtml
 	html-minifier -c htmlminifier.conf build/index.html > build/tmp.html

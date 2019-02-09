@@ -72,14 +72,51 @@
           <h3>An $O(k\log k)$ bits protocol</h3>
           <ul class=comm-protocol-list>
             <li class=fragment data-fragment-index=1>Consider the graph on $V=\{0,1\}^n$</li>
-            <li class=fragment>There is an edge between $x,y$ if $\Ham(x,y)\le 2k$</li>
-            <li class=fragment>Alice and Bob fix a coloring of this graph</li>
-            <li class=fragment>Alice sends the color of $x$ over to Bob.</li>
+            <li class=fragment data-fragment-index=2>There is an edge between $u,v$ if $\Ham(u,v)\le 2k$</li>
+            <li class=fragment data-fragment-index=3 data-trigger="colorGraph">Alice and Bob fix a <em>proper coloring</em> of this graph</li>
+            <li class=fragment data-fragment-index=4>Alice sends the color of $x$ over to Bob.</li>
+            <li class=fragment data-fragment-index=5>Bob decides $x$ is the closest string to $y$ with<br>the given color.
+              This recovers $x$. <b class=fragment data-fragment-index=6>Suppose not</b></li>
+            <li class=fragment>Takes $O(k\log(n/k))$ bits of communication.</li>
           </ul>
-          <svg class=fragment data-fragment-index=1 width=390 height=300>
-            <circle cx="50" cy="50" r="25" stroke="black" data-fill=red stroke-width="2" fill="none"/>
+          <svg width="390" id="graph" viewBox="50 50 570 500" class="fragment" data-fragment-index=1 style="position: absolute; right: 50px; top:100px;">
+	          <circle stroke="black" stroke-width="2" id="ic1" fill="none" cx="311.5" cy="82.5" r="30"/>
+	          <circle stroke="black" stroke-width="2" id="ic2" fill="none" cx="85.5" cy="159.5" r="30"/>
+	          <circle stroke="black" stroke-width="2" id="ic3" fill="none" cx="551.5" cy="115.5" r="30"/>
+	          <circle stroke="black" stroke-width="2" id="ic4" fill="none" cx="339.5" cy="262.5" r="30"/>
+	          <circle stroke="black" stroke-width="2" id="ic5" fill="none" cx="174.5" cy="368.5" r="30"/>
+	          <circle stroke="black" stroke-width="2" id="ic6" fill="none" cx="339.5" cy="445.5" r="30"/>
+	          <circle stroke="black" stroke-width="2" id="ic7" fill="none" cx="562.5" cy="293.5" r="30"/>
+            <text x="555.5" y="299.5" font-size="30">y</text>
+            <text x="78" y="167" id=t font-size="30">x</text>
+	          <path stroke="black" stroke-width="1" fill="none" d="M 105.301,136.996 A 214.31,214.31 0 0 1 282.078,76.767"/>
+	          <path stroke="black" stroke-width="1" fill="none" d="M 339.442,71.643 A 222.893,222.893 0 0 1 527.525,97.505"/>
+	          <path stroke="black" stroke-width="1" fill="none" d="M 310.4,255.212 A 876.629,876.629 0 0 1 111.457,174.539"/>
+	          <path stroke="black" stroke-width="1" fill="none" d="M 152.569,348.057 A 246.543,246.543 0 0 1 85.04,189.478"/>
+	          <path stroke="black" stroke-width="1" fill="none" d="M 309.541,444.679 A 194.836,194.836 0 0 1 194.373,390.934"/>
+	          <path stroke="black" stroke-width="1" fill="none" d="M 335.479,415.774 A 571.868,571.868 0 0 1 335.479,292.226"/>
+	          <path stroke="black" stroke-width="1" fill="none" d="M 532.518,294.439 A 580.105,580.105 0 0 1 368.089,271.581"/>
+	          <path stroke="black" stroke-width="1" fill="none" d="M 574.079,135.116 A 111.363,111.363 0 0 1 582.492,271.254"/>
+	          <path stroke="black" stroke-width="1" fill="none" d="M 330.644,233.841 A 526.44,526.44 0 0 1 311.768,112.495"/>
+	          <path stroke="black" stroke-width="1" fill="none" d="M 361.064,241.647 A 706.644,706.644 0 0 1 524.41,128.384"/>
+	          <path stroke="black" stroke-width="1" fill="none" d="M 553,321.927 A 203.809,203.809 0 0 1 369.433,447.049"/>
           </svg>
-        </section
+          <svg width="450" height="260" class="fragment texnify" data-fragment-index=6 style="position:absolute;bottom:10px; right:10px;">
+            <circle cx="229.5" cy="223.5" r=220 fill="#ADD8E6"/>
+            <circle fill="#01dddd" stroke="black" stroke-width="1" fill="none" cx="229.5" cy="223.5" r="30"/>
+            <text x="224.5" y="229.5" font-size="20" style="font-weight:400">y</text>
+            <circle fill="#fd8a5e" stroke="black" stroke-width="1" fill="none" cx="143.5" cy="61.5" r="30"/>
+            <text x="138.5" y="67.5" font-size="20" fill=white style="font-weight:400">x</text>
+            <circle fill="#fd8a5e" stroke="black" stroke-width="1" fill="none" cx="300.5" cy="61.5" r="30"/>
+            <text x="293.5" y="67.5" font-size="20" fill=white style="font-weight:400">x'</text>
+            <polygon stroke="black" stroke-width="1" points="215.433,197.002 157.567,87.998"/>
+            <text x="165" y="155"  font-size="20">≤k</text>
+            <polygon stroke="black" stroke-width="1" points="241.542,196.023 288.458,88.977"/>
+            <text x="275" y="150" font-size="20">≤Ham(x,y)≤k</text>
+            <path stroke="black" stroke-width="1" fill="none" d="M 166.866,42.838 A 108.104,108.104 0 0 1 277.134,42.838"/>
+            <text x="200.5" y="18.5" font-size="20">≤2k</text>
+          </svg>
+        </section>
       </div>
     </div>
 

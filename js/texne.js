@@ -40,7 +40,7 @@ var Substitute = {
   "theta" : [Atom.Ord  , "θ"],
   "Omega" : [Atom.Ord  , "Ω"],
   "omega" : [Atom.Ord  , "ω"],
-  "in"    : [Atom.Rel  , "<span class=min>ϵ</span>"],
+  "in"    : [Atom.Rel  , "<span class=min>∈</span>"],
   "log"   : [Atom.Op   , null],
   "exp"   : [Atom.Op   , null],
   "Ham"   : [Atom.Op   , null],
@@ -65,7 +65,8 @@ var Substitute = {
   "["     : [Atom.Open , '<span class=msl>[</span>'],
   "]"     : [Atom.Close, '<span class=msr>]</span>'],
   "="     : [Atom.Rel  , '<span class=meq>=</span>'],
-  "+"     : [Atom.Op   , '+'],
+  "+"     : [Atom.Bin  , '+'],
+  "/"     : [Atom.Bin  , '<span class=mdiv>/</span>'],
   ","     : [Atom.Punct, ',']
 };
 

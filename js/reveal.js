@@ -5,6 +5,18 @@
  *
  * Copyright (C) 2018 Hakim El Hattab, http://hakim.se
  */
+
+/**
+ * @param {boolean} color
+ */
+function colorGraph(color) {
+  if (color) {
+    document.getElementById('graph').classList.add('colorful');
+  } else {
+    document.getElementById('graph').classList.remove('colorful');
+  }
+} 
+
 (function() {
 
 	'use strict';
@@ -4333,6 +4345,9 @@
 					if( element.hasAttribute( 'data-fragment-index' ) ) {
 						i = parseInt( element.getAttribute( 'data-fragment-index' ), 10 );
 					}
+
+					if (element.dataset["trigger"] === "colorGraph")
+					  colorGraph(i <= index);
 
 					// Visible fragments
 					if( i <= index ) {
