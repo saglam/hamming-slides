@@ -58,9 +58,10 @@ section.has-light-background, section.has-light-background h1, section.has-light
 }
 
 #bounds-table1 {
+  font-size: 0.8em;
   border-collapse: collapse;
   box-sizing: border-box;
-  margin:  0.4em 1em;
+  margin:  1.6em 4em;
   position:absolute;
   left: 0
 }
@@ -71,7 +72,7 @@ section.has-light-background, section.has-light-background h1, section.has-light
 }
 
 #bounds-table1 th {
-  padding: 0 1em;
+  padding: 0.2em 1em;
 }
 
 /*********************************************

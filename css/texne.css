@@ -6,8 +6,7 @@
 .mssup,
 .mssub {
   vertical-align:baseline;
-  font-size: 75%;
-  margin: 0 0.05em;
+  font-size: 70%;
 }
 
 .msup {
@@ -16,7 +15,7 @@
 }
 .msub {
   position: relative;
-  bottom: -0.2em;
+  bottom: -0.4em;
 }
 
 .msupsub {

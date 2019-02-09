@@ -45,6 +45,7 @@ var Substitute = {
   "log"   : [Atom.Op   , null],
   "exp"   : [Atom.Op   , null],
   "Ham"   : [Atom.Op   , null],
+  "Disj"  : [Atom.Op   , null],
   "colon" : [Atom.Punct, ":"],
   "reals" : [Atom.Ord  , "ℝ"],
   "times" : [Atom.Bin  , "×"],
