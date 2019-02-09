@@ -47,8 +47,8 @@
 				
         <section class="lefty" id="comm-khamming">
           <h3 class=texnify>Communication complexity: $k$-Hamming distance</h3>
-          <table><tr>
-            <td><img width=300 height=200 src=img/alice1.svg></td><td width=100></td>
+          <table id=comm-table><tr>
+            <td><img width=300 height=200 src=img/alice1.svg></td><td width=150></td>
             <td><img width=300 height=200 src=img/bob2.svg></td>
           </tr><tr border=0>
             <td class=fragment data-fragment-index=1>x=010010101010101110</td><td></td>
@@ -102,13 +102,13 @@
             <path stroke="black" stroke-width="1" fill="none" d="M 553,321.927 A 203.809,203.809 0 0 1 369.433,447.049"/>
           </svg>
           <svg width="450" height="260" class="fragment texnify" data-fragment-index=6 style="position:absolute;bottom:10px; right:10px;">
-            <circle cx="229.5" cy="223.5" r=220 fill="#ADD8E6"/>
-            <circle fill="#01dddd" stroke="black" stroke-width="1" fill="none" cx="229.5" cy="223.5" r="30"/>
-            <text x="224.5" y="229.5" font-size="20" style="font-weight:400">y</text>
+            <circle cx="229.5" cy="223.5" r=220 fill="#E0F8FF"/>
+            <circle fill="#00bfaf" stroke="black" stroke-width="1" fill="none" cx="229.5" cy="223.5" r="30"/>
+            <text x="224.5" y="229.5" font-size="25" fill=white style="font-weight:400">y</text>
             <circle fill="#fd8a5e" stroke="black" stroke-width="1" fill="none" cx="143.5" cy="61.5" r="30"/>
-            <text x="138.5" y="67.5" font-size="20" fill=white style="font-weight:400">x</text>
+            <text x="138.5" y="67.5" font-size="25" fill=white style="font-weight:400">x</text>
             <circle fill="#fd8a5e" stroke="black" stroke-width="1" fill="none" cx="300.5" cy="61.5" r="30"/>
-            <text x="293.5" y="67.5" font-size="20" fill=white style="font-weight:400">x'</text>
+            <text x="293.5" y="67.5" font-size="25" fill=white style="font-weight:400">x'</text>
             <polygon stroke="black" stroke-width="1" points="215.433,197.002 157.567,87.998"/>
             <text x="165" y="155"  font-size="20">≤k</text>
             <polygon stroke="black" stroke-width="1" points="241.542,196.023 288.458,88.977"/>
@@ -120,18 +120,62 @@
         
         <section class="lefty texnify">
           <h3>An $O(k\log k)$ bits protocol</h3>
-          <ul style="margin: 0 4em 0 2em;">
-            <li class=fragment><b>Idea:</b> Reduce # coordinates from $n$ to $k^2/\delta$ using shared randomness</li>
-            <li class=fragment>Incurs an error probability of $\delta$</li>
+          <ul id=reduction-list style="margin: 0.8em 4em 0 2em;">
+            <li class=fragment data-fragment-index=3>Permute coordinates randomly</li>
+            <li class=fragment data-fragment-index=4>Replace every next $\delta n/k^2$ bits with their XOR</li>
+            <li class=fragment data-fragment-index=5>Run the previous protocol on new strings of length $k^2/\delta$</li>
+            <li class=fragment data-fragment-index=6>Incurs an error probability of $\le \delta$</li>
+            <li class=fragment>Complexity $O(k\log (k/\delta))$</li>
           </ul>
-          <table border=1>
-            <tr>
-              <td colspan=2 style="white-space:nowrap; border:">$x =$</td><td>1</td><td>1</td><td>1</td><td>0</td><td>1</td><td>0</td><td>1</td><td>1</td><td>0</td><td>1</td><td>0</td><td>1</td><td>0</td><td>1</td><td>0</td><td>0</td><td>1</td><td>0</td><td>1</td><td>1</td>
+          <table id=reduction-table style="position: absolute; left: 10px; bottom: 40px;">
+            <tr class=fragment data-fragment-index=3>
+              <td style="white-space:nowrap; border-top:none; border-bottom:none; border-left:none">$x =$</td>
+              <td class=a>0</td><td class=m>1</td><td class=a>1</td><td class=a>0</td>
+              <td class=m>1</td><td class=a>0</td><td class=a>1</td><td class=a>1</td>
+              <td class=a>0</td><td class=a>1</td><td class=a>0</td><td class=a>1</td>
+              <td class=a>0</td><td class=a>1</td><td class=a>0</td><td class=m>0</td>
+              <td class=a>1</td><td class=a>0</td><td class=a>1</td><td class=a>1</td>
+              <td class=a>1</td><td class=m>0</td><td class=a>1</td><td class=m>1</td>
             </tr>
-            <tr>
-              <td colspan=2>$y =$</td><td>1</td><td>1</td><td>1</td><td>1</td><td>0</td><td>1</td><td>0</td><td>0</td><td>1</td><td>0</td><td>0</td><td>1</td><td>0</td><td>0</td><td>1</td><td>0</td><td>1</td><td>1</td>
+            <tr><td colspan=25></td></tr>
+            <tr class=fragment data-fragment-index=4>
+              <td>$x' =$</td>
+              <td colspan=4 class=m>0</td>
+              <td colspan=4 class=m>1</td>
+              <td colspan=4 class=a>0</td>
+              <td colspan=4 class=m>1</td>
+              <td colspan=4 class=a>1</td>
+              <td colspan=4 class=a>1</td>
+            </tr>
+            <tr><td colspan=25></td></tr>
+            <tr class=fragment data-fragment-index=4>
+              <td>$y' =$</td>
+              <td colspan=4 class=m>1</td>
+              <td colspan=4 class=m>0</td>
+              <td colspan=4 class=a>0</td>
+              <td colspan=4 class=m>0</td>
+              <td colspan=4 class=a>1</td>
+              <td colspan=4 class=a>1</td>
+            </tr>
+            <tr><td colspan=25></td></tr>
+            <tr class=fragment data-fragment-index=3>
+              <td>$y =$</td>
+              <td class=a>0</td><td class=m>0</td><td class=a>1</td><td class=a>0</td>
+              <td class=m>0</td><td class=a>0</td><td class=a>1</td><td class=a>1</td>
+              <td class=a>0</td><td class=a>1</td><td class=a>0</td><td class=a>1</td>
+              <td class=a>0</td><td class=a>1</td><td class=a>0</td><td class=m>1</td>
+              <td class=a>1</td><td class=a>0</td><td class=a>1</td><td class=a>1</td>
+              <td class=a>1</td><td class=m>1</td><td class=a>1</td><td class=m>0</td>
             </tr>
           </table>
+          <svg class=fragment data-fragment-index=6 width="280" viewBox="43 10 210 300" style="position:absolute; right:-10px; bottom:-40px;">
+            <path d="M139.5 72.5c-2.6-1-3.5-1-4.6-1h-5a243 243 0 0 0-10.6.5 42 42 0 0 0-16 5.1 68.3 68.3 0 0 0-20.2 15.4 26.5 26.5 0 0 0-4 6.7 60.1 60.1 0 0 0-3 8.2l-1.4 5.4-1 3.5a104.5 104.5 0 0 1-2.3 7.6 83 83 0 0 1-1.4 3.5l-1.7 3.6a298.2 298.2 0 0 0-5.2 12.5 345.3 345.3 0 0 0-4.3 12.3 129.5 129.5 0 0 0-2 8l-.8 3.4-1.1 4.4-1 3.3a96 96 0 0 0-2 8l-.3 3.4-.2 3.7a177.1 177.1 0 0 1-.8 8.7l-.4 3.8a148 148 0 0 0-.7 11.7v25.5a41.2 41.2 0 0 0 .2 3.3 39.3 39.3 0 0 0 1.1 5.1 130.3 130.3 0 0 0 2.5 8.2l.5 1.7.7 2 .4 1.5.4 1.4a20.2 20.2 0 0 0 1 2.7A15 15 0 0 0 58 268a129 129 0 0 0 6.6 8.1 35 35 0 0 0 7 5.1l1.5.7 2 1 1.5.8a32.8 32.8 0 0 0 4 1.7 24.8 24.8 0 0 0 4.2.8l3.6.6 3.1.5a168.4 168.4 0 0 0 10.6 1.1h2.9l4 .1h11a106 106 0 0 0 7.7-.3 50.2 50.2 0 0 0 19.2-6.5 212.8 212.8 0 0 0 13.1-6.9 84.6 84.6 0 0 0 11.4-8.1 128.2 128.2 0 0 0 7.6-6.7 92.3 92.3 0 0 0 10.8-13.3l3.8-5.4 2.9-4a159.4 159.4 0 0 0 8.7-13.1 97.8 97.8 0 0 0 5.4-11.2 255.5 255.5 0 0 0 12.3-35.1l1.2-4.4a696.4 696.4 0 0 1 2.8-9.8l1.2-3.9a106.5 106.5 0 0 0 2-8 40.2 40.2 0 0 0 .4-6.3V97.6a249 249 0 0 0-.2-8.2 61.4 61.4 0 0 0-1.1-7.9 33.8 33.8 0 0 0-2.2-6 95.9 95.9 0 0 0-4.1-8.2 31.3 31.3 0 0 0-6.4-7.3l-1.5-1.4-2-2-1.5-1.5a43.2 43.2 0 0 0-4-3.5 18.4 18.4 0 0 0-3.9-2 36.2 36.2 0 0 0-6.2-1.8l-2.3-.4-1.6-.3a44.2 44.2 0 0 0-8.7-.6h-19.7a46.6 46.6 0 0 0-19 4 161 161 0 0 0-19.3 8.2 67.1 67.1 0 0 0-10.9 7.5l-2.3 2a131.3 131.3 0 0 1-4.9 4.2l-2 1.6a55.7 55.7 0 0 0-6 6l-2.6 3-2.3 2.6a227 227 0 0 0-5.8 7.3 15.7 15.7 0 0 0-1.3 2.3 4.6 4.6 0 0 0-.2 1v.6a11.7 11.7 0 0 1 0 1v.2" fill="none" stroke="#f12" stroke-width="5"/>
+            <text fill="#f12" x="155" y="41">Oof...</text>
+          </svg>
+        </section>
+        
+        <section class=lefty>
+          <h3>Known bounds</h3>
         </section>
       </div>
     </div>
