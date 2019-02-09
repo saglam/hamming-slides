@@ -40,6 +40,7 @@ var Substitute = {
   "theta" : [Atom.Ord  , "θ"],
   "Omega" : [Atom.Ord  , "Ω"],
   "omega" : [Atom.Ord  , "ω"],
+  "delta" : [Atom.Ord  , "δ"],
   "in"    : [Atom.Rel  , "<span class=min>∈</span>"],
   "log"   : [Atom.Op   , null],
   "exp"   : [Atom.Op   , null],
