@@ -5,21 +5,7 @@
  *
  * Copyright (C) 2018 Hakim El Hattab, http://hakim.se
  */
-(function( root, factory ) {
-	if( typeof define === 'function' && define.amd ) {
-		// AMD. Register as an anonymous module.
-		define( function() {
-			root.Reveal = factory();
-			return root.Reveal;
-		} );
-	} else if( typeof exports === 'object' ) {
-		// Node. Does not work with strict CommonJS.
-		module.exports = factory();
-	} else {
-		// Browser globals.
-		root.Reveal = factory();
-	}
-}(this, function() {
+(function() {
 
 	'use strict';
 
@@ -431,11 +417,6 @@
 	 */
 	function load() {
 	
-	  /**
-	   * TODO(saglam): put back lazy loading when we need it
-	   */
-
-
 		var scripts = [],
 			scriptsAsync = [],
 			scriptsToPreload = 0;
@@ -444,14 +425,17 @@
 		function proceed() {
 			if( scriptsAsync.length ) {
 				// Load asynchronous scripts
-				head.js.apply( null, scriptsAsync );
+	      /**
+	       * TODO(saglam): put back lazy loading when we need it
+	       */
+				//head.js.apply( null, scriptsAsync );
 			}
 
 			start();
 		}
 
 		function loadScript( s ) {
-			head.ready( s.src.match( /([\w\d_\-]*)\.?js(\?[\w\d.=&]*)?$|[^\\\/]*$/i )[0], function() {
+			/*head.ready( s.src.match( /([\w\d_\-]*)\.?js(\?[\w\d.=&]*)?$|[^\\\/]*$/i )[0], function() {
 				// Extension may contain callback functions
 				if( typeof s.callback === 'function' ) {
 					s.callback.apply( this );
@@ -460,7 +444,7 @@
 				if( --scriptsToPreload === 0 ) {
 					proceed();
 				}
-			});
+			});*/
 		}
 
 		for( var i = 0, len = config.dependencies.length; i < len; i++ ) {
@@ -483,7 +467,7 @@
 			scriptsToPreload = scripts.length;
 
 			// Load synchronous scripts
-			head.js.apply( null, scripts );
+			// head.js.apply( null, scripts );
 		}
 		else {
 			proceed();
@@ -5589,7 +5573,5 @@
 
 	return Reveal;
 
-}));
-
-Reveal.initialize();
+})().initialize();
 

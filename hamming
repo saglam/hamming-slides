@@ -1,11 +1,44 @@
 #!/bin/bash
 
-if [ "$1" = "--fullscreen" ]
+if [ "$1" = "--nocompile" ]
 then
-  size_command="--kiosk --start-fullscreen ${1}"
+  dir=""
 else
-  size_command="--window-size=1200,675"
+  dir="build/"
 fi
 index_path="$( cd "$(dirname "$0")" ; pwd -P )"
-chromium-browser ${size_command} --app=file://${index_path}/index.html
+
+FAKEUSER="hamming-fake-chrome-user"
+CHROMEROOT=$HOME/.chromeroot/
+
+mkdir -p ${CHROMEROOT}
+
+export PROFILE="${CHROMEROOT}/${FAKEUSER}-chromium-profile"
+export DISK_CACHEDIR="${CHROMEROOT}/${FAKEUSER}-chromium-profile-cache"
+export DISK_CACHESIZE=4096
+export MEDIA_CACHESIZE=4096
+
+PARANOID_OPTIONS="\
+        --no-displaying-insecure-content \
+        --no-referrers \
+        --disable-zero-suggest \
+        --disable-sync  \
+        --cipher-suite-blacklist=0x0004,0x0005,0xc011,0xc007 \
+        --enable-sandbox-logging >/dev/null 2>&1
+        "
+
+chromium-browser \
+        --remember-cert-error-decisions \
+        --ignore-certificate-errors \
+        --ignore-urlfetcher-cert-requests \
+        --allow-running-insecure-content \
+        --window-size=1200,675 \
+        --window-position=0,0 \
+        --no-pings \
+        --user-data-dir=${PROFILE} \
+        --disk-cache-dir=${DISK_CACHEDIR} \
+        --disk-cache-size=${DISK_CACHESIZE} \
+        --media-cache-size=${MEDIA_CACHESIZE} \
+        --app=file://${index_path}/${dir}index.html \
+        2>&1
 

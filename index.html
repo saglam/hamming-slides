@@ -45,7 +45,7 @@
           </ol>
         </section>
 				
-        <section class="lefty" id="communication-intro">
+        <section class="lefty" id="comm-khamming">
           <h3 class=texnify>Communication complexity: $k$-Hamming distance</h3>
           <table><tr>
             <td><img width=300 height=200 src=img/alice1.svg></td><td width=100></td>
@@ -67,6 +67,19 @@
             <span class="rand" style="position:relative; top:-120px; left:-145px; font-size:larger;">R</span>
           </div>
         </section>
+        
+        <section class="lefty texnify" id="comm-protocol">
+          <h3>An $O(k\log k)$ bits protocol</h3>
+          <ul class=comm-protocol-list>
+            <li class=fragment data-fragment-index=1>Consider the graph on $V=\{0,1\}^n$</li>
+            <li class=fragment>There is an edge between $x,y$ if $\Ham(x,y)\le 2k$</li>
+            <li class=fragment>Alice and Bob fix a coloring of this graph</li>
+            <li class=fragment>Alice sends the color of $x$ over to Bob.</li>
+          </ul>
+          <svg class=fragment data-fragment-index=1 width=390 height=300>
+            <circle cx="50" cy="50" r="25" stroke="black" data-fill=red stroke-width="2" fill="none"/>
+          </svg>
+        </section
       </div>
     </div>
 
