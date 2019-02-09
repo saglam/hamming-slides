@@ -12,7 +12,7 @@
 
 .msup {
   position: relative;
-  top: -0.55em;
+  top: -0.75em;
 }
 .msub {
   position: relative;
@@ -36,7 +36,6 @@
 .mw {
   white-space: nowrap;
   line-height: 1;
-  display: inline-block;
 }
 
 .mtht {

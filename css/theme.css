@@ -47,6 +47,34 @@ section.has-light-background, section.has-light-background h1, section.has-light
   margin: 0.2em 0;
 }
 
+#sun {
+ position: absolute;
+ left:30px;
+ top: -190px;
+}
+
+#sun.visible {
+  top:-120px;
+}
+
+#bounds-table1 {
+  border-collapse: collapse;
+  box-sizing: border-box;
+  margin:  1em 1em;
+  position:absolute;
+  left:0;
+  right:0;
+}
+
+#bounds-table1 td {
+  padding: 0.6em 1em;
+  vertical-align: top;
+}
+
+#bounds-table1 th {
+  padding: 0 1em;
+}
+
 /*********************************************
  * GLOBAL STYLES
  *********************************************/

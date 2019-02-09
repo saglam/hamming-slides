@@ -62,7 +62,7 @@
               randomness <span class=rand>R</span>.</li>
             <li class=fragment data-fragment-index=5>Goal: output <b>$\Ham(x,y)$</b>
           </ul>
-          <div class=fragment style="position: absolute; top:-120px; left:30px;" data-fragment-index=4>
+          <div id=sun class=fragment data-fragment-index=4>
             <img class="plain" style="width:250px; opacity:0.97;" src="img/sun1.svg">
             <span class="rand" style="position:relative; top:-120px; left:-145px; font-size:larger;">R</span>
           </div>
@@ -129,7 +129,7 @@
           </ul>
           <table id=reduction-table style="position: absolute; left: 10px; bottom: 40px;">
             <tr class=fragment data-fragment-index=3>
-              <td style="white-space:nowrap; border-top:none; border-bottom:none; border-left:none">$x =$</td>
+              <td>$x =$</td>
               <td class=a>0</td><td class=m>1</td><td class=a>1</td><td class=a>0</td>
               <td class=m>1</td><td class=a>0</td><td class=a>1</td><td class=a>1</td>
               <td class=a>0</td><td class=a>1</td><td class=a>0</td><td class=a>1</td>
@@ -174,8 +174,24 @@
           </svg>
         </section>
         
-        <section class=lefty>
+        <section class="lefty texnify">
           <h3>Known bounds</h3>
+          <table id=bounds-table1 >
+            <tr class=fragment style="border-bottom:2px solid #555;">
+              <th>Bound      </th><th align=right>Rounds</th><th align=right>Error     </th><th>Via  </th><th>Reference</th>
+            </tr><tr class=fragment style="border-bottom:1px solid #CCC">
+              <td>$\Omega(k)$</td><td>any   </td><td> 1/3      </td><td>Disj </td><td>Kalyanasundaram, Schnitger'1987</td>
+            </tr><tr class=fragment  style="border-bottom:1px solid #CCC">
+              <td>$\Omega(k \log (1/\delta))$</td>
+                                  <td>1     </td><td> $\delta$ </td><td>Index</td><td>Sağlam'2011</td>
+            </tr><tr class=fragment style="border-bottom:1px solid #CCC">
+              <td>$\Omega(k \log (1/\delta))$</td>
+                                  <td>1     </td><td> $\delta$ </td><td>Augmented Index</td><td>Jayram, Woodruff'2011</td>
+            </tr><tr class=fragment style="border-bottom:1px solid #CCC">
+              <td>$\Omega(k \log k)$</td>
+                                  <td>1     </td><td> 1/3      </td><td>Disj </td><td><span style="white-space:nowrap">Various researchers,</span> 2000s</td>
+            </tr>          
+          </table>
         </section>
       </div>
     </div>

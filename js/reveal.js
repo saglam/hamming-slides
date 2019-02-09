@@ -1544,7 +1544,7 @@ function colorGraph(color) {
 	 * selector.
 	 *
 	 * @param {HTMLElement} target The child element
-	 * @param {String} selector The CSS selector to match
+	 * @param {string} selector The CSS selector to match
 	 * the parents against
 	 *
 	 * @return {HTMLElement} The matched parent or null
@@ -1588,7 +1588,7 @@ function colorGraph(color) {
 	 * @example
 	 * colorToRgb('rgba(0,0,0)');
 	 *
-	 * @return {?{r: number, g: number, b: number, a: ?number}}
+	 * @return {?{r: number, g: number, b: number, a: {number|undefined}}}
 	 */
 	function colorToRgb( color ) {
 
@@ -3426,6 +3426,7 @@ function colorGraph(color) {
 	 * distance. Shows the slide element and loads any content
 	 * that is set to load lazily (data-src).
 	 *
+	 * @param {Object=} options
 	 * @param {HTMLElement} slide Slide to show
 	 */
 	function loadSlide( slide, options ) {
@@ -4046,7 +4047,7 @@ function colorGraph(color) {
 	 * index will be for this slide rather than the currently
 	 * active one
 	 *
-	 * @return {{h: number, v: {number|undefined}, f: number}}
+	 * @return {{h: number, v: number|undefined, f: number}}
 	 */
 	function getIndices( slide ) {
 
