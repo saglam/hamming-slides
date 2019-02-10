@@ -87,8 +87,8 @@
             <circle stroke="black" stroke-width="2" id="ic5" fill="none" cx="174.5" cy="368.5" r="30"/>
             <circle stroke="black" stroke-width="2" id="ic6" fill="none" cx="339.5" cy="445.5" r="30"/>
             <circle stroke="black" stroke-width="2" id="ic7" fill="none" cx="562.5" cy="293.5" r="30"/>
-            <text x="555.5" y="299.5" font-size="30">y</text>
-            <text x="78" y="167" id=t font-size="30">x</text>
+            <text x="556" y="300" font-size="30">y</text>
+            <text x="332" y="271" font-size="30">x</text>
             <path stroke="none" stroke-width="1" fill="none" d="M 105.301,136.996 A 214.31,214.31 0 0 1 282.078,76.767"/>
             <path stroke="none" stroke-width="1" fill="none" d="M 339.442,71.643 A 222.893,222.893 0 0 1 527.525,97.505"/>
             <path stroke="none" stroke-width="1" fill="none" d="M 310.4,255.212 A 876.629,876.629 0 0 1 111.457,174.539"/>
@@ -175,7 +175,7 @@
         </section>
         
         <section id=bounds1 class="lefty texnify">
-          <h3>Known bounds</h3>
+          <h3>Known bounds until 2011</h3>
           <table id=bounds-table1 >
             <tr style="border-bottom:2px solid #555;">
               <th>Bound      </th><th align=right>Rounds</th><th align=right>Error     </th><th>Via  </th><th>Reference</th>
@@ -226,11 +226,39 @@
 
         <section id=ptest2 class="lefty texnify">
           <h3>Property testing: $k$-linearity</h3>
-          <div class=definition style="width:570px;">
+          <div class=definition style="margin:0.7em 0; width:570px;">
             <b>Definition.</b>
             A function $f\colon\field_2^n\to\field_2$ is $k$-linear<br>  if
             $f(x) = \langle x,w\rangle$ for a $w\in\field_2^n$ with $\|w\|_1\le k$.
           </div>
+          
+          <div class=fragment data-fragment-index=2>
+            Given an unknown function $g\colon\field_2^n\to\field_2$,
+            <div style="margin:0.6em 1em">
+              <span class=bullet style="background:#64aafa;border:2px solid #5080c6"></span>
+              <b>Accept</b>, if $g$ is $k$-linear,
+            </div>
+            <div style="margin:0.6em 1em"  class=fragment data-fragment-index=3>
+              <span class=bullet style="background:#ffdcdc;border:2px solid #ff9696""></span>
+              <b>Reject</b>, if for any linear $f$, we have $\|f-g\|_1\ge \eps 2^n$,
+            </div>
+            <span class=fragment data-fragment-index=3>by <em>blackbox</em> queries to $g$.</span>
+          </div>
+          <br>
+          <div class=fragment>(For each query $x$, we receive $g(x)$)</div>
+          <div class=fragment data-fragment-index=2 id=proptest style="position:absolute; right:-10px; bottom:50px;">
+            <svg width="446" height="476">
+              <rect fill="#ffdcdc" x=3 y=3 height="470" width="440" rx="15" ry="15" stroke="#ff9696"/>
+              <circle cx="250" cy="230" fill="#ecf6ff" r="180" stroke="#2591c6" stroke-dasharray="5,5" stroke-linecap="null" stroke-linejoin="null" stroke-width="2"/>
+              <circle cx="250" cy="230" fill="#64aafa" r="100" stroke="#5080c6" stroke-width="2"/>
+              <path d="m85.4946,169.78243l76.83535,0m-70.77482,-7.07l-6.06054,7.07l6.05968,7.07m64.71599,0.001l6.05968,-7.07l-6.06054,-7.07" fill="none" stroke="#333" stroke-miterlimit="10" stroke-width="1.5" transform="rotate(24 123.912 169.783)"/>
+             </svg>
+             <div style="position:absolute; bottom:400px; right:270px;">$\epsilon 2^n$</div>
+             <div style="margin: 0 1em">
+               <span class=bullet style="background:#64aafa;border:2px solid #5080c6"></span>$k$-linear<br>
+               <span class=bullet style="background:#ffdcdc;border:2px solid #ff9696""></span>$\eps$ away from $k$-linear
+             </div>
+           </div>  
         </section>
       </div>
     </div>

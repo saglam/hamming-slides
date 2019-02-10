@@ -9,10 +9,10 @@ section.has-light-background, section.has-light-background h1, section.has-light
 
 #graph.edgeful > path { stroke: black; }
 #graph.colorful > #ic1 { fill: #ff598f; }
-#graph.colorful > #ic2 { fill: #fd8a5e; }
+#graph.colorful > #ic2 { fill: #e0e300; }
 #graph.colorful > #ic3 { fill: #01dddd; }
-#graph.colorful > #ic4 { fill: #e0e300; }
-#graph.colorful > #ic5 { fill: #e0e300; }
+#graph.colorful > #ic4 { fill: #fd8a5e; }
+#graph.colorful > #ic5 { fill: #fd8a5e; }
 #graph.colorful > #ic6 { fill: #ff598f; }
 #graph.colorful > #ic7 { fill: #00bfaf; }
 #graph.colorful > text { fill: white;}
@@ -81,7 +81,6 @@ section.has-light-background, section.has-light-background h1, section.has-light
   box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.15);
   border-radius: 10px;
   padding: 0.2em 1em 0.5em;
-  margin: 1em;
 }
 
 #ptest1-list {
@@ -92,6 +91,14 @@ section.has-light-background, section.has-light-background h1, section.has-light
   margin: 0.4em 0;
 }
 
+.bullet {
+  display:inline-block;
+  height:20px;
+  width:20px;
+  border-radius:20px;
+  position:relative;
+  bottom:-2px;
+}
 /*********************************************
  * GLOBAL STYLES
  *********************************************/
