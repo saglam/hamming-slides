@@ -54,6 +54,7 @@ var Substitute = {
   "times"  : [Atom.Bin  , "×"],
   "le"     : [Atom.Bin  , "≤"],
   "ge"     : [Atom.Bin  , "≥"],
+  "lt"     : [Atom.Bin  , "<"],
   "to"     : [Atom.Rel  , "<span class=mto>→</span>"],
   "mapsto" : [Atom.Rel  , "<span class=mmt>↦</span>"],
   "ldots"  : [Atom.Inner, "…"],

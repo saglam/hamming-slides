@@ -263,8 +263,20 @@
            </div> 
         </section>
 
+        <section id=ptest3 class="lefty texnify">
+          <h3>Property testing: $k$-linearity</h3>
+          <ul id=ptest3-list style="margin:1em 5em">
+            <li class=fragment>
+              We know property testers with $O(k\log k)$ queries
+            </li>
+            <li class=fragment>Lower bound of Kalyanasundaram, Schnitger'1987 implies $\Omega(k)$ queries needed</li>
+            <li class=fragment>Can we close this gap?</li>
+          </ul>
+        </section>
+
         <section id=bounds2 class="lefty texnify">
-          <h3>$k$-Hamming distance: bounds after 2011</h3>
+          <h3>Back to communication complexity:</h3>
+          <h4>$k$-Hamming distance bounds after 2011</h4>
          <table id=bounds-table2 class=bounds-table>
             <tr style="border-bottom:2px solid #555;">
               <th>Bound      </th><th align=right>Rounds</th><th align=right>Error     </th><th>Via  </th><th>Reference</th>
@@ -279,9 +291,21 @@
               <td>$\Omega(k\log^{(r)} k)$</td><td>$r$-round </td><td> 1/3      </td><td> $\Disj_k$ </td><td>Sağlam, Tardos'2013</td>
             </tr>
             <tr class=fragment style="border-bottom:1px solid #CCC">
+              <td>$\Omega(k\log (1/\delta))$</td><td>any </td><td> $\delta$      </td><td> OR∘1vs3</td><td>Blais, Brody, Ghazi'2014</td>
+            </tr>
+            <tr class=fragment style="border-bottom:1px solid #CCC">
               <td>$\Omega(k\log (k/\delta))$</td><td>any </td><td> $\delta$      </td><td> $k$-Hamming</td><td>Sağlam'2018 <b>(This work)</b></td>
             </tr>
           </table>
+        </section>
+        
+        <section class="lefty texnify">
+          <h3>Parity decision trees: $k$-Hamming weight</h3>
+          <ul id=pdt-list>
+            <li class=fragment>Suppose a secret $w\in\field_2^n$ is chosen</li>
+            <li class=fragment><b>Task:</b> Decide if $\|w\|_1\lt k$
+            <li class=fragment>We can only pick query points $x\in\field_2^n$ and receive $\langle x,w\rangle\in\field_2^n$
+          </ul>
         </section>
       </div>
     </div>
