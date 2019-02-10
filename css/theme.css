@@ -59,6 +59,9 @@ section.has-light-background, section.has-light-background h1, section.has-light
 }
 
 #bounds-table1 {
+}
+
+.reveal .bounds-table {
   font-size: 0.8em;
   border-collapse: collapse;
   box-sizing: border-box;
@@ -67,12 +70,12 @@ section.has-light-background, section.has-light-background h1, section.has-light
   left: 0
 }
 
-#bounds-table1 td {
+.bounds-table td {
   padding: 0.6em  0 0.6em 1em;
   vertical-align: top;
 }
 
-#bounds-table1 th {
+.bounds-table th {
   padding: 0.2em 1em;
 }
 
