@@ -6,17 +6,6 @@
  * Copyright (C) 2018 Hakim El Hattab, http://hakim.se
  */
 
-/**
- * @param {boolean} color
- */
-function colorGraph(color) {
-  if (color) {
-    document.getElementById('graph').classList.add('colorful');
-  } else {
-    document.getElementById('graph').classList.remove('colorful');
-  }
-} 
-
 (function() {
 
 	'use strict';
@@ -319,6 +308,31 @@ function colorGraph(color) {
 
 		// Holds custom key code mappings
 		registeredKeyBindings = {};
+
+  let triggerMap = {
+    "colorGraph":
+        /**
+         * @param {boolean} color or not
+         */
+        function (color) {
+          if (color) {
+            document.getElementById('graph').classList.add('colorful');
+          } else {
+            document.getElementById('graph').classList.remove('colorful');
+          }
+        }, 
+    "placeEdges":
+        /**
+         * @param {boolean} place or not
+         */
+        function(place) {
+          if (place) {
+            document.getElementById('graph').classList.add('edgeful');
+          } else {
+            document.getElementById('graph').classList.remove('edgeful');
+          }
+        },
+  }
 
 	/**
 	 * Starts up the presentation if the client is capable.
@@ -3075,11 +3089,11 @@ function colorGraph(color) {
 	/**
 	 * Checks if there are speaker notes for ANY slide in the
 	 * presentation.
+	 *
+	 * @return {boolean}
 	 */
 	function hasNotes() {
-
 		return dom.slides.querySelectorAll( '[data-notes], aside.notes' ).length > 0;
-
 	}
 
 	/**
@@ -3093,7 +3107,6 @@ function colorGraph(color) {
 			dom.progressbar.style.width = getProgress() * dom.wrapper.offsetWidth + 'px';
 
 		}
-
 	}
 
 
@@ -4347,8 +4360,9 @@ function colorGraph(color) {
 						i = parseInt( element.getAttribute( 'data-fragment-index' ), 10 );
 					}
 
-					if (element.dataset["trigger"] === "colorGraph")
-					  colorGraph(i <= index);
+          let triggerFunction = triggerMap[element.dataset["trigger"]]
+					if (triggerFunction)
+					  triggerFunction(i <= index);
 
 					// Visible fragments
 					if( i <= index ) {

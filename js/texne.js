@@ -48,6 +48,7 @@ var Substitute = {
   "Disj"  : [Atom.Op   , null],
   "colon" : [Atom.Punct, ":"],
   "reals" : [Atom.Ord  , "ℝ"],
+  "field" : [Atom.Ord  , "𝔽"],
   "times" : [Atom.Bin  , "×"],
   "le"    : [Atom.Bin  , "≤"],
   "to"    : [Atom.Rel  , "<span class=mto>→</span>"],
@@ -198,7 +199,7 @@ function renderInline(texStr, leftAttach, rightAttach) {
           i++;
         }
         output += '<span class=msupsub><sup class=mssup>' + renderInline(sup, null, null) +
-                  '</sup><sub class=mssub>' + renderInline(sub, null, null) +
+                  '</sup><br><sub class=mssub>' + renderInline(sub, null, null) +
                   '</sub></span>';
       } else {
         output += '<sub class=msub>' + renderInline(sub, null, null) + '</sub>';

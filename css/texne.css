@@ -3,33 +3,38 @@
 
 .msup,
 .msub,
-.mssup,
-.mssub {
-  vertical-align:baseline;
-  font-size: 70%;
+.msupsub {
+  font-size: 65%;
 }
 
 .msup {
+  vertical-align: text-top;
   position: relative;
-  top: -0.75em;
+  top: -0.2em;
 }
 .msub {
+  vertical-align: baseline;
   position: relative;
-  bottom: -0.4em;
+  bottom: -0.3em;
 }
 
 .msupsub {
+  display: inline-block;
+  vertical-align: baseline;
   position: relative;
+  bottom: -0.24em;
 }
 
 .mssup {
-  position: absolute;
-  top: -0.1em;
+  font-size:100%;
+  vertical-align: top;
+  /*position: relative;
+  top: 0.2em;*/
 }
 
 .mssub {
-  position: absolute;
-  bottom: -0.3em;
+  font-size:100%;
+  vertical-align: baseline;
 }
 
 .mw {
@@ -61,15 +66,14 @@
 }
 
 .mto {
-  transform:scale(1.8); 
+  transform:scale(1.6, 1); 
   display:inline-block;
-  position: relative;
-  top: -0.1em;
 }
 
 .min {
   vertical-align: baseline;
   margin: 0 -0.1em;
+  font-size: 70%;  
 }
 
 .masx {
@@ -87,7 +91,7 @@
 
 .mcl, .mcr {
   position: relative;
-  top: -0.06em;
+  top: -0.04em;
   font-size: 118%;
 }
 
