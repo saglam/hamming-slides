@@ -1,4 +1,4 @@
-/*!
+/**
  * reveal.js
  * http://revealjs.com
  * MIT licensed
