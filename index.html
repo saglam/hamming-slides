@@ -352,7 +352,7 @@
           </ul>
           <svg class=fragment data-fragment-index=4 width="800" height="700" style="position:absolute;top:0;right:10px;">
             <ellipse stroke="black" stroke-width="1" fill="none" cx="445.5" cy="121.5" rx="30" ry="30"/>
-            <text x="420.5" y="127.5"  font-size="20">⟨x, w⟩=?</text>
+            <foreignObject x="415.5" y="110.5" font-size="20">$\langle x, w\rangle=?$</foreignObject>
             <path stroke="black" stroke-width="1" fill="none" d="M 339.618,220.602 A 304.138,304.138 0 0 1 420.107,137.452"/>
             <polygon fill="black" stroke-width="1" points="339.618,220.602 348.176,216.631 339.799,211.17"/>
             <text x="360.5" y="166.5"  font-size="20">0</text>
@@ -412,16 +412,15 @@
               <polygon fill="black" stroke-width="1" points="639.917,360.254 642.44,351.164 632.851,354.002"/>
               <text x="624.5" y="303.5"  font-size="20">1</text>
 
-
               <ellipse stroke="black" stroke-width="1" fill="none" cx="562.5" cy="246.5" rx="30" ry="30"/>
               <text x="557.5" y="252.5"  font-size="20">x₁</text>
               <ellipse stroke="black" stroke-width="1" fill="none" cx="646.5" cy="389.5" rx="30" ry="30"/>
               <text x="641.5" y="395.5"  font-size="20">x₁₁</text>
 
               <circle fill="#ffdcdc"  stroke="#ff9696" stroke-width=2 cx="532.5" cy="389.5" r="30"/>
-              <text x="518.5" y="395.5" fill="#044" font-size="20">NO</text>
+              <text x="518.5" y="395.5" fill="#333" font-size="20">NO</text>
               <circle fill="#ffdcdc"  stroke="#ff9696" stroke-width=2 cx="637.5" cy="513.5" r="30"/>
-              <text x="623.5" y="519.5" fill="#044" font-size="20">NO</text>
+              <text x="623.5" y="519.5" fill="#333" font-size="20">NO</text>
               <circle stroke="#5080c6" fill="#64aafa" stroke-width="2" cx="719.5" cy="513.5" r="30"/>
               <text x="700.5" y="519.5" fill=white font-size="20">YES</text>
 
@@ -431,10 +430,66 @@
               <path stroke="black" stroke-width="1" fill="none" d="M 667.514,410.883 A 237.499,237.499 0 0 1 711,484.75"/>
               <polygon fill="black" stroke-width="1" points="711,484.75 712.948,475.519 703.556,478.954"/>
               <text x="699.5" y="439.5"  font-size="20">1</text>
-
             </g>
           </svg>
         </section>
+
+        <section id=overview>
+          <h3>Whole picture</h3>
+          <svg id=overview-svg width="1200" height="600" class=texnify style="position:absolute; left:0; font-size:80%">
+            <g>
+            <!-- PDT-size -->
+            <rect stroke="#e1eaff" fill="#f1faff" stroke-width=2 height="130" id="overview-svg1" rx="30" ry="30" width="200" x="281.5" y="98"/>
+            <foreignObject height="130" id="overview-svg2" width="200" x="281.5" y="126">k-Hamming weight<br>log-PDT-size</foreignObject>
+
+            <!-- PDT-size -> PDT-depth -->
+            <path d="m482.46,145.641a203.414,203.414 0 0 1 148.951,75.235" fill="none" id="overview-svg5" stroke="black"/>
+            <polygon fill="black" id="overview-svg6" points="631.4110107421875,220.87600708007812 630.2650146484375,211.51199340820312 622.4920043945312,217.80299377441406 "/>
+            <foreignObject x="530" y="135" width=100 height=100>$\le$</foreignObject>
+
+            <!-- PDT-depth -->
+            <rect stroke="#e1eaff" fill="#f1faff" stroke-width=2 height="130" id="svg_19" rx="30" ry="30" width="200" x="625" y="210"/>
+            <foreignObject x="625" y="238" height=130 width=200>$k$-Hamming weight<br>PDT-depth</foreignObject>
+            </g>
+            
+            <g class=fragment>
+              <!-- Comm -->
+              <rect stroke="#e1eaff" fill="#f1faff" stroke-width=2 height="130" id="overview-svg3" rx="30" ry="30" width="200" x="281.5" y="346"/>
+              <foreignObject height="130" id="overview-svg4" width="200" x="281.5" y="360">k-Hamming distance<br>Comm. complexity</foreignObject>
+              <!-- Comm -> PDT-depth -->
+              <path d="m635.908,333.129a173.901,173.901 0 0 1 -154.566,93.055" fill="none" id="svg_12" stroke="black"/>
+              <polygon fill="black" id="svg_13" points="635.907958984375,333.1289978027344 627.761962890625,337.88800048828125 636.614990234375,342.5369873046875 "/>
+              <foreignObject x="550" y="420">$\le$, simulation</foreignObject>
+            </g>
+            
+            <g class=fragment>
+              <!-- Prop -->
+              <rect stroke="#e1eaff" fill="#f1faff" stroke-width=2 height="130" rx="30" ry="30" width="200" x="985" y="210"/>
+              <foreignObject x=985 y=238 width=200>$k$-linearity<br>Property testing</foreignObject>
+              <!-- PDT-depth -> Prop -->
+              <polygon fill="black" points="825 270.5 985 270.5" stroke="black"/>
+              <polygon fill="black" points="984.5,270.5 976.5,265.5 976.5,275.5 "/>
+              <foreignObject x="870" y="210">$\le$, simulation</foreignObject>
+            </g>
+
+            <g class=fragment>
+              <path d="m481.5,446a400,400 0 0 0 554.566,-106" fill="none" id="svg_12" stroke="black"/>            
+              <polygon fill="black" id="svg_13" points="1039.907958984375,333.1289978027344 1031.761962890625,337.88800048828125 1040.614990234375,342.5369873046875 "/>
+              <foreignObject x=530 y=540 width=400 height=30>$\le$, Blais, Brody, Matulef'2011</foreighObject>
+            </g>
+
+            <g class=fragment>
+              <rect fill="#fee" stroke="#faa" stroke-width=2 height="130" id="svg_21" rx="30" ry="30" width="200" x="16.5" y="210"/>
+              <foreignObject x=17 y=215 width=200>A near log-convexity statement about Markov chains<br><b>This work</b></foreignObject>
+              <path d="m135.066,209.212a210.234,210.234 0 0 1 145.46,-74.614" fill="none" id="svg_3" stroke="black"/>
+              <polygon fill="black" id="svg_5" points="280.5260009765625,134.59800720214844 272.17498779296875,130.20799255371094 272.9210205078125,140.18099975585938 "/>
+              <foreignObject x="105.5" y="108">$\Omega(k\log k)$</foreignObject>
+              <path d="m280.648,434.058a171.171,171.171 0 0 1 -151.818,-92.821" fill="none" id="svg_7" stroke="black"/>
+              <polygon fill="black" id="svg_8" points="280.64801025390625,434.0580139160156 272.65899658203125,429.0409851074219 272.6369934082031,439.0409851074219 "/>
+              <foreignObject x="100" y="420">$\Omega(k\log k)$</foreignObject>
+            </g>
+          </svg>
+        </section
       </div>
     </div>
 

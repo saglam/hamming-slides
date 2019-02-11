@@ -43,6 +43,7 @@ var Substitute = {
   "delta"  : [Atom.Ord  , "δ"],
   "epsilon": [Atom.Ord  , "ε"],
   "eps"    : [Atom.Ord  , "ε"],
+  "?"      : [Atom.Ord  , "?"],
   "in"     : [Atom.Rel  , "<span class=min>∈</span>"],
   "log"    : [Atom.Op   , null],
   "exp"    : [Atom.Op   , null],
