@@ -11,7 +11,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 
     <!-- build:css -->
-    <link rel="stylesheet" href="css/gill-sans.css">
+    <link rel="stylesheet" href="css/gito.css">
     <link rel="stylesheet" href="css/reveal.css">
     <link rel="stylesheet" href="css/theme.css" id="theme">
     <link rel="stylesheet" href="css/texne.css">
@@ -29,7 +29,7 @@
           <h5>University of Washington</h5>
         </section>
 
-        <section class=lefty>
+        <section class=lefty id="define">
           <h2>Hamming distance defined</h2>
         </section>
 
@@ -44,7 +44,7 @@
             k-linearity requires $\Omega(k \log k)$ queries.
           </ol>
         </section>
-				
+
         <section class="lefty" id="comm-khamming">
           <h3 class=texnify>Communication complexity: $k$-Hamming distance</h3>
           <table id=comm-table><tr>
@@ -196,7 +196,7 @@
               <td>$\Omega(k \log k)$</td>
                                   <td>1-round</td><td> 1/3      </td><td>$\Disj_k$</td><td>Various researchers, 2000s</td>
             </tr><tr class=fragment>
-              <td>$\Omega(k)$, quantum</td><td>any</td><td>1/3</td><td>$k$-Intersection</td><td>Razborov'2002<br><span style="white-space:nowrap">Huang, Shi, Zhang, Zhu'2005</span></td>
+              <td>$\Omega(k)$, quantum</td><td>any</td><td>1/3</td><td>$k$-Intersection</td><td>Razborov'2002<br><span class=nb>Huang, Shi, Zhang, Zhu'2005</span></td>
             </tr>
           </table>
         </section>
@@ -278,12 +278,12 @@
                 <svg class=fragment data-fragment-index=7 style="position:absolute; left:-15px; top:-20px;" height=120 width=180>
                   <ellipse cx="90" cy="60" fill=none rx="80" ry="40" stroke="#c42525" stroke-width="5" transform="rotate(-25 90 60)"/>
                 </svg>
-              </td><td>$O(\log k)$-round </td><td> $1/k$      </td><td> </td><td>Blais'2009</td>
+              </td><td>$O(\log k)$-round </td><td> $1/k$      </td><td>$k$-juntas</td><td>Blais'2009</td>
             </tr>
             <tr class=fragment data-fragment-index=3 style="border-bottom:1px solid #CCC">
               <td>
                 $O(k\log k)$
-              </td><td>1-round </td><td> $1/k$      </td><td>Direct</td><td>Buhrman, Garcia-Soriano, Matsliah, de Wolf'2012</td>
+              </td><td>1-round </td><td> $1/k$      </td><td>Direct</td><td><span class=nb>Buhrman, Garcia-Soriano,</span> Matsliah, de Wolf'2012</td>
             </tr>            
             <tr class=fragment data-fragment-index=4 style="border-bottom:1px solid #CCC">
               <td>$\Omega(k)$</td><td>any </td><td> $1/3$      </td><td>Direct</td><td>Blais, Kane'2012</td>
@@ -320,7 +320,7 @@
               <th>Bound      </th><th align=right>Rounds</th><th align=right>Error     </th><th>Via  </th><th>Reference</th>
             </tr>
             <tr class=fragment style="border-bottom:1px solid #CCC">
-              <td>$\Omega(k\log k)$</td><td>1-round </td><td> 1/3      </td><td> $\Disj_k$ </td><td>Buhrman, Garcia-Soriano, Matsliah, de Wolf'2012</td>
+              <td>$\Omega(k\log k)$</td><td>1-round </td><td> 1/3      </td><td> $\Disj_k$ </td><td><span class=nb>Buhrman, Garcia-Soriano,</span> Matsliah, de Wolf'2012</td>
             </tr>
             <tr class=fragment style="border-bottom:1px solid #CCC">
               <td>$\Omega(k\log k)$</td><td>1-round </td><td> 1/3      </td><td> $\Disj_k$ </td><td>Dasgupta, Kumar, Sivakumar'2012</td>
@@ -352,7 +352,7 @@
           </ul>
           <svg class=fragment data-fragment-index=4 width="800" height="700" style="position:absolute;top:0;right:10px;">
             <ellipse stroke="black" stroke-width="1" fill="none" cx="445.5" cy="121.5" rx="30" ry="30"/>
-            <foreignObject x="415.5" y="110.5" font-size="20">$\langle x, w\rangle=?$</foreignObject>
+            <foreignObject x="415.5" y="110.5" font-size="20" height=40 width=100>$\langle x, w\rangle=?$</foreignObject>
             <path stroke="black" stroke-width="1" fill="none" d="M 339.618,220.602 A 304.138,304.138 0 0 1 420.107,137.452"/>
             <polygon fill="black" stroke-width="1" points="339.618,220.602 348.176,216.631 339.799,211.17"/>
             <text x="360.5" y="166.5"  font-size="20">0</text>
@@ -361,11 +361,11 @@
             <text x="521.5" y="163.5"  font-size="20">1</text>
             <g class=fragment data-fragment-index=5>
               <ellipse stroke="black" stroke-width="1" fill="none" cx="324.5" cy="246.5" rx="30" ry="30"/>
-              <text x="319.5" y="252.5"  font-size="20">x₀</text>
+              <foreignObject x="313" y="235" font-size="20" height=40 width=100>$x_0$</foreignObject>
               <ellipse stroke="black" stroke-width="1" fill="none" cx="244.5" cy="389.5" rx="30" ry="30"/>
-              <text x="239.5" y="395.5"  font-size="20">x₀₀</text>
+              <foreignObject x="233" y="378" font-size="20" height=40 width=100>$x_{00}$</foreignObject>
               <ellipse stroke="black" stroke-width="1" fill="none" cx="363.5" cy="389.5" rx="30" ry="30"/>
-              <text x="358.5" y="395.5"  font-size="20">x₀₁</text>
+              <foreignObject x="352.5" y="378" font-size="20" height=40 width=100>$x_{01}$</foreignObject>
               <path stroke="black" stroke-width="1" fill="none" d="M 254.146,361.102 A 370.23,370.23 0 0 1 305.347,269.58"/>
               <polygon fill="black" stroke-width="1" points="254.146,361.102 261.689,355.436 252.358,351.839"/>
               <text x="259.5" y="307.5"  font-size="20">0</text>
@@ -395,7 +395,7 @@
               <circle stroke="#5080c6" fill="#64aafa" stroke-width="2" cx="357.5" cy="617.5" r="30"/>
               <text x="340.5" y="623.5" font-size="20" fill=white>YES</text>
               <circle stroke="black" stroke-width="1" fill="none" cx="415.5" cy="513.5" r="30"/>
-              <text x="410.5" y="519.5"  font-size="20">x₀₁₁</text>
+              <foreignObject x="404" y="502" font-size="20" height=40 width=100>$x_{011}$</foreignObject>
               <circle fill="#ffdcdc"  stroke="#ff9696" stroke-width=2 cx="470.5" cy="610.5" r="30"/>
               <text x="453.5" y="615.5" fill="#333" font-size="20">NO</text>
               <!--edges-->
@@ -413,9 +413,9 @@
               <text x="624.5" y="303.5"  font-size="20">1</text>
 
               <ellipse stroke="black" stroke-width="1" fill="none" cx="562.5" cy="246.5" rx="30" ry="30"/>
-              <text x="557.5" y="252.5"  font-size="20">x₁</text>
+              <foreignObject x="552" y="235" font-size="20" height=40 width=100>$x_1$</foreignObject>
               <ellipse stroke="black" stroke-width="1" fill="none" cx="646.5" cy="389.5" rx="30" ry="30"/>
-              <text x="641.5" y="395.5"  font-size="20">x₁₁</text>
+              <foreignObject x="635" y="378" font-size="20" heigh=40 width=100>$x_{11}$</foreignObject>
 
               <circle fill="#ffdcdc"  stroke="#ff9696" stroke-width=2 cx="532.5" cy="389.5" r="30"/>
               <text x="518.5" y="395.5" fill="#333" font-size="20">NO</text>
@@ -465,7 +465,7 @@
             <g class=fragment>
               <!-- Prop -->
               <rect stroke="#e1eaff" fill="#f1faff" stroke-width=2 height="130" rx="30" ry="30" width="200" x="985" y="210"/>
-              <foreignObject x=985 y=238 width=200>$k$-linearity<br>Property testing</foreignObject>
+              <foreignObject x=985 y=238 width=200 height=130>$k$-linearity<br>Property testing</foreignObject>
               <!-- PDT-depth -> Prop -->
               <polygon fill="black" points="825 270.5 985 270.5" stroke="black"/>
               <polygon fill="black" points="984.5,270.5 976.5,265.5 976.5,275.5 "/>
@@ -480,7 +480,7 @@
 
             <g class=fragment>
               <rect fill="#fee" stroke="#faa" stroke-width=2 height="130" id="svg_21" rx="30" ry="30" width="200" x="16.5" y="210"/>
-              <foreignObject x=17 y=215 width=200><span style="color:#2D383C;font-weight:400">A near-log-convexity statement about Markov chains<br><b>(This work)</b></span></foreignObject>
+              <foreignObject x=17 y=215 width=200 height=300><span style="color:#2D383C;font-weight:400">A near-log-convexity statement about Markov chains<br><b>(This work)</b></span></foreignObject>
               <path d="m135.066,209.212a210.234,210.234 0 0 1 145.46,-74.614" fill="none" id="svg_3" stroke="black"/>
               <polygon fill="black" id="svg_5" points="280.5260009765625,134.59800720214844 272.17498779296875,130.20799255371094 272.9210205078125,140.18099975585938 "/>
               <foreignObject x="105.5" y="108">$\Omega(k\log k)$</foreignObject>

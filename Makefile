@@ -1,14 +1,9 @@
-local_deploy: build/index.html build/img
-
-.PHONY: build/img
+local_deploy: build/index.html
 
 build/font: font/gs*.woff font/gs*.ttf
 	mkdir -p build/font
 	cp -rf font/gs*.woff build/font/
 	cp -rf font/gs*.ttf build/font/
-
-build/img: img/*.svg
-	cp -rf img build/img
 
 build/js/all.js: js/*.js
 	mkdir -p build/js
