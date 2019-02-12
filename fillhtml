@@ -9,8 +9,6 @@ perl -0777 -i -pe "s#<!-- build:css -->\n?([\s\S]*?)\n?<!-- endbuild -->#<link r
 perl -0777 -i -pe "s#<!-- build:js -->\n?([\s\S]*?)\n?<!-- endbuild -->#<script async src=\"js/${jsMd5}.js\"></script>#" build/index.html
 touch --date="2019-01-01" build/css/${cssMd5}.css
 touch --date="2019-01-01" build/js/${jsMd5}.js
-touch --date="2019-01-01" build/img/${aliceMd5}.svg
-touch --date="2019-01-01" build/img/${bobMd5}.svg
 brotli --quality 11 --force --input build/css/${cssMd5}.css   --output build/css/${cssMd5}.css.br
 brotli --quality 11 --force --input build/js/${jsMd5}.js      --output build/js/${jsMd5}.js.br
 gzip --best --keep --force build/css/${cssMd5}.css
@@ -21,6 +19,7 @@ for file in img/*; do
   if grep -q ${file} build/index.html; then
     hash=$(sha1sum -b ${file} | cut -c1-40 | base64 | cut -c3-8)
     cp ${file} build/img/${hash}.svg
+    touch --date="2019-01-01" build/img/${hash}.svg
     brotli --quality 11 --force --input build/img/${hash}.svg --output build/img/${hash}.svg.br
     gzip --best --keep --force build/img/${hash}.svg
     perl -0777 -i -pe "s#${file}#img/${hash}.svg#" build/index.html

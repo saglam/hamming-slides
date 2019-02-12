@@ -29,14 +29,45 @@
           <h5>University of Washington</h5>
         </section>
 
-        <section class=lefty id="define">
+        <section class="lefty texnify" id="define">
           <h2>Hamming distance defined</h2>
+          <div style="position:absolute; left:290px; top: 170px;">$\Ham(x,y)$: number of mismatches of $x,y$.</div>
+          <svg class=fragment width=710 height=350 id=defpic style="position:absolute; left:220px; top: 230px;" />
+          <script>
+            var pic = document.getElementById('defpic');
+            function tx(x, y, v) {
+              var t = document.createElementNS(pic.namespaceURI,'text');
+              t.setAttribute('x', x + 12);
+              t.setAttribute('y', y + 30);
+              t.textContent = v;
+              return t;
+            }
+            for (var x=80, rr=3, m = 7; x<660; x += 40) {
+              rr = (rr * rr + 31) % 89;
+              m = (m * m + 31) % 69;
+              for (y = 30; y <200; y += 100) {
+                var r = document.createElementNS(pic.namespaceURI,'rect');
+                r.setAttribute('x', x);
+                r.setAttribute('y', y)
+                r.setAttribute('width', 40);
+                r.setAttribute('height', 40);
+                r.setAttribute('fill', (m < 17) ? "#fee" : 'none');
+                r.setAttribute('stroke-width','0.4');
+                r.setAttribute('stroke', "#999");
+                pic.appendChild(r);
+                pic.appendChild(tx(x, y, ((rr < 45) ^ ((m < 17) && (y >30))) ? '1' : '0'));
+              }
+            }
+            pic.append(tx(2, 30, "x")); pic.append(tx(28, 33, "="))
+            pic.append(tx(2, 130, "y")); pic.append(tx(28, 133, "="))
+          </script>
+          <div class=fragment style="position:absolute; left:290px; top: 460px;">$\Ham(x,y) = 4$</div>
         </section>
 
         <section class="lefty texnify" id=outline>
           <h2>$k$-Hamming distance is hard to compute:</h2>
           <ol id=outline-list>
-            <li class=fragment><b>Comunication complexity.</b> Any $k$-Hamming 
+            <li><b>Comunication complexity.</b> Any $k$-Hamming 
             distance protocol requires $\Omega(k \log k)$ bits</li>
             <li class=fragment><b>Parity decision trees.</b> Any randomized parity 
             decision tree has size $\exp(\Omega(k \log k))$</li>
@@ -479,8 +510,8 @@
             </g>
 
             <g class=fragment>
-              <rect fill="#fee" stroke="#faa" stroke-width=2 height="130" id="svg_21" rx="30" ry="30" width="200" x="16.5" y="210"/>
-              <foreignObject x=17 y=215 width=200 height=300><span style="color:#2D383C;font-weight:400">A near-log-convexity statement about Markov chains<br><b>(This work)</b></span></foreignObject>
+              <rect fill="#fee" stroke="#faa" stroke-width=2 height="130" id="svg_21" rx="30" ry="30" width="250" x="16.5" y="210"/>
+              <foreignObject x=17 y=215 width=250 height=300><span style="color:#2D383C;font-weight:400">A near-log-convexity statement about Markov chains<br><b>(This work)</b></span></foreignObject>
               <path d="m135.066,209.212a210.234,210.234 0 0 1 145.46,-74.614" fill="none" id="svg_3" stroke="black"/>
               <polygon fill="black" id="svg_5" points="280.5260009765625,134.59800720214844 272.17498779296875,130.20799255371094 272.9210205078125,140.18099975585938 "/>
               <foreignObject x="105.5" y="108">$\Omega(k\log k)$</foreignObject>
