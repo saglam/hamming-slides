@@ -22,15 +22,6 @@
   font-style: normal;
 }
 
-/*
-@font-face {
-  font-family: 'gt';
-  src: url('../font/gt400i.woff') format('woff');
-
-  font-weight: 400;
-  font-style: italic;
-}*/
-
 @font-face {
   font-family: 'gt';
   src: url('../font/gt700.woff') format('woff');

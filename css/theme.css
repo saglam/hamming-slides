@@ -36,7 +36,7 @@ section.has-light-background, section.has-light-background h1, section.has-light
 
 #ptest3-list > li {margin: 1em 0;}
 
-#pdt-list { width: 500px;}
+#pdt-list { width: 500px; margin: 0 1em;}
 #pdt-list > li {margin: 1em 0;}
 
 #comm-table {
