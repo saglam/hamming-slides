@@ -1,33 +1,45 @@
 #!/bin/bash
 
-if [ "$1" = "--nocompile" ]
+if [[ "$1$2" = *"--nocompile"* ]]
 then
-  dir=""
+  echo "NoCompile"
+  NoCompile=true
+  Dir=""
 else
-  dir="build/"
+  NoCompile=false
+  Dir="build/"
 fi
-index_path="$( cd "$(dirname "$0")" ; pwd -P )"
 
-FAKEUSER="hamming-fake-chrome-user"
-CHROMEROOT=$HOME/.chromeroot/
+RepoPath="$( cd "$(dirname "$0")" ; pwd -P )"
 
-mkdir -p ${CHROMEROOT}
+HammingUser="hamming"
 
-export PROFILE="${CHROMEROOT}/${FAKEUSER}-chromium-profile"
-export DISK_CACHEDIR="${CHROMEROOT}/${FAKEUSER}-chromium-profile-cache"
-export DISK_CACHESIZE=4096
-export MEDIA_CACHESIZE=4096
 
-PARANOID_OPTIONS="\
-        --no-displaying-insecure-content \
-        --no-referrers \
-        --disable-zero-suggest \
-        --disable-sync  \
-        --cipher-suite-blacklist=0x0004,0x0005,0xc011,0xc007 \
-        --enable-sandbox-logging >/dev/null 2>&1
-        "
+if [[ "$1$2" = *"--ff"* ]]
+then
+  firefoxProfile="$HOME/.firefox/${HammingUser}"
+  rm -rf ${firefoxProfile}
+  mkdir -p ${firefoxProfile}
+  mkdir -p ${firefoxProfile}/chrome
+  echo "@namespace url(\"http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul\");\n#TabsToolbar,#PersonalToolbar,#BookmarksToolbar,#MenuToolbar,#tabbrowser-tabs,#nav-bar,#TabsToolbar { display: none !important; }#main-window {max-width:1200px!important;min-width:1200px!important;min-height:676px!important;max-height:676px!important;}" \
+      > ${firefoxProfile}/chrome/userChrome.css
+  echo "user_pref(\"browser.feeds.showFirstRunUI\", false);"\
+       "user_pref(\"devtools.toolbox.host\", \"window\");"\
+       "user_pref(\"browser.tabs.warnOnClose\", false);" > ${firefoxProfile}/prefs.js
+  firefox --profile ${firefoxProfile} --new-instance file://${RepoPath}/${Dir}index.html
+else
+  chromeRoot=$HOME/.chromeroot/
+  chromeProfile="${chromeRoot}/${HammingUser}-profile"
+  diskCacheDir="${chromeRoot}/${HammingUser}-profile-cache"
+  diskCacheSize=4096
+  mediaCacheSize=4096
 
-chromium-browser \
+  if $NoCompile; then
+    rm -rf ${chromiumProfile}
+  fi
+
+  mkdir -p ${chromeRoot}
+  chromium-browser \
         --remember-cert-error-decisions \
         --ignore-certificate-errors \
         --ignore-urlfetcher-cert-requests \
@@ -35,10 +47,11 @@ chromium-browser \
         --window-size=1200,675 \
         --window-position=0,0 \
         --no-pings \
-        --user-data-dir=${PROFILE} \
-        --disk-cache-dir=${DISK_CACHEDIR} \
-        --disk-cache-size=${DISK_CACHESIZE} \
-        --media-cache-size=${MEDIA_CACHESIZE} \
-        --app=file://${index_path}/${dir}index.html \
+        --user-data-dir=${chromeProfile} \
+        --disk-cache-dir=${diskCacheDir} \
+        --disk-cache-size=${diskCacheSize} \
+        --media-cache-size=${mediaCacheSize} \
+        --app=file://${RepoPath}/${Dir}index.html \
         2>&1
+fi
 

@@ -254,28 +254,32 @@ function renderInline(texStr, leftAttach, rightAttach) {
  */
 function renderElement(elem) {
   /** @type {Array<string>} */
-  var parts = elem.innerHTML.split("$");
-  if (parts.length % 2 == 0)
+  let parts = elem.innerHTML.split("$");
+  /** @const {number} */
+  let n = parts.length;
+
+  if (n % 2 == 0 || n == 1)
     return;
 
   /** @type {number} */
-  var i;
-  /** @const {number} */
-  var n = parts.length;
+  let i;
   for (i = 1; i < n; i += 2) {
     /** @const {string} */
-    var leftAttach = parts[i - 1].match(LeftAttachment)[0];
+    let leftAttach = parts[i - 1].match(LeftAttachment)[0];
     /** @const {string} */
-    var rightAttach = parts[i + 1].match(RightAttachment)[0];
+    let rightAttach = parts[i + 1].match(RightAttachment)[0];
+
     if (leftAttach.length > 0) {
       parts[i - 1] = parts[i - 1].slice(0, -leftAttach.length);
     }
     parts[i + 1] = parts[i + 1].slice(rightAttach.length);
     parts[i] = renderInline(parts[i], leftAttach, rightAttach);
-    if (leftAttach == "" && parts[i - 1].length > 0) {
+    /** @const {number} */
+    let leftPartLen = parts[i - 1].length;
+    if (leftAttach == "" && leftPartLen > 0 && parts[i - 1].charCodeAt(leftPartLen - 1) != ">".charCodeAt(0)) {
       parts[i - 1] = parts[i - 1].replace(/\s+$/, '') + Spaces.FourPerEm;
     }
-    if (rightAttach == "" && parts[i + 1].length > 0) {
+    if (rightAttach == "" && parts[i + 1].length > 0 && parts[i + 1].charCodeAt(0) != "<".charCodeAt(0)) {
       parts[i + 1] = Spaces.FourPerEm + parts[i + 1].replace(/^\s+/, '');
     }
   }

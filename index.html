@@ -211,22 +211,22 @@
             <tr style="border-bottom:2px solid #555;">
               <th>Bound      </th><th align=right>Rounds</th><th align=right>Error     </th><th>Via  </th><th>Reference</th>
             </tr>
-            <tr style="border-bottom:1px solid #CCC">
-              <td>$O(k\log (k/\delta))$</td><td>1-round </td><td> $\delta$      </td><td> </td><td>Folklore</td>
+            <tr class="underline visible">
+              <td>$O(k\log (k/\delta))$</td><td>1-round </td><td>$\delta$      </td><td> </td><td>Folklore</td>
             </tr>
-            <tr class=fragment style="border-bottom:1px solid #CCC">
+            <tr class="fragment underline">
               <td>$\Omega(k)$</td><td>any   </td><td> 1/3      </td><td>Disj </td><td>Kalyanasundaram, Schnitger'1987</td>
             </tr>
-            <tr class=fragment  style="border-bottom:1px solid #CCC">
+            <tr class="fragment underline">
               <td>$\Omega(k \log (1/\delta))$</td>
                                   <td>1-round</td><td> $\delta$ </td><td>Index</td><td>Sağlam'2011</td>
-            </tr><tr class=fragment style="border-bottom:1px solid #CCC">
+            </tr><tr class="fragment underline">
               <td>$\Omega(k \log (1/\delta))$</td>
                                   <td>1-round</td><td> $\delta$ </td><td>Augmented Index</td><td>Jayram, Woodruff'2011</td>
-            </tr><tr class=fragment style="border-bottom:1px solid #CCC">
+            </tr><tr class="fragment underline">
               <td>$\Omega(k \log k)$</td>
                                   <td>1-round</td><td> 1/3      </td><td>$\Disj_k$</td><td>Various researchers, 2000s</td>
-            </tr><tr class=fragment>
+            </tr><tr class="fragment underline">
               <td>$\Omega(k)$, quantum</td><td>any</td><td>1/3</td><td>$k$-Intersection</td><td>Razborov'2002<br><span class=nb>Huang, Shi, Zhang, Zhu'2005</span></td>
             </tr>
           </table>
@@ -293,7 +293,7 @@
              <div style="position:absolute; bottom:400px; right:270px;">$\epsilon 2^n$</div>
              <div style="margin: 0 1em">
                <span class=bullet style="background:#64aafa;border:2px solid #5080c6"></span>$k$-linear<br>
-               <span class=bullet style="background:#ffdcdc;border:2px solid #ff9696""></span>$\eps$ away from $k$-linear
+               <span class=bullet style="background:#ffdcdc;border:2px solid #ff9696"></span>$\eps$ away from $k$-linear
              </div>
            </div> 
         </section>
@@ -304,32 +304,30 @@
             <tr style="border-bottom:2px solid #555;">
               <th>Bound      </th><th align=right>Adaptivity</th><th align=right>Error     </th><th>Via  </th><th>Reference</th>
             </tr>
-            <tr class=fragment data-fragment-index=1 style="border-bottom:1px solid #CCC">
+            <tr class="fragment underline" data-fragment-index=1>
               <td>$O(k^{3/2})$</td><td>1-round </td><td> $1/k$      </td><td> $k$-juntas</td><td>Blais'2008</td>
             </tr>
-            <tr class=fragment data-fragment-index=2 style="border-bottom:1px solid #CCC">
-              <td style="position:relative">
-                $O(k\log k)$
+            <tr class="fragment underline" data-fragment-index=2>
+              <td style="position:relative">$O(k\log k)$
                 <svg class=fragment data-fragment-index=7 style="position:absolute; left:-15px; top:-20px;" height=120 width=180>
                   <ellipse cx="90" cy="60" fill=none rx="80" ry="40" stroke="#c42525" stroke-width="5" transform="rotate(-25 90 60)"/>
                 </svg>
-              </td><td>$O(\log k)$-round </td><td> $1/k$      </td><td>$k$-juntas</td><td>Blais'2009</td>
+              </td><td>$O(\log k)$-round </td><td>$1/k$      </td><td>$k$-juntas</td><td>Blais'2009</td>
             </tr>
-            <tr class=fragment data-fragment-index=3 style="border-bottom:1px solid #CCC">
-              <td>
-                $O(k\log k)$
-              </td><td>1-round </td><td> $1/k$      </td><td>Direct</td><td><span class=nb>Buhrman, Garcia-Soriano,</span> Matsliah, de Wolf'2012</td>
-            </tr>            
-            <tr class=fragment data-fragment-index=4 style="border-bottom:1px solid #CCC">
-              <td>$\Omega(k)$</td><td>any </td><td> $1/3$      </td><td>Direct</td><td>Blais, Kane'2012</td>
+            <tr class="fragment underline" data-fragment-index=3>
+              <td>$O(k\log k)$</td>
+              <td>1-round </td><td>$1/k$      </td><td>Direct</td><td><span class=nb>Buhrman, Garcia-Soriano,</span> Matsliah, de Wolf'2012</td>
             </tr>
-            <tr class=fragment data-fragment-index=5 style="border-bottom:1px solid #CCC">
-              <td style="position:relative;">
-                $\Omega(k)$
+            <tr class="fragment underline" data-fragment-index=4>
+              <td>$\Omega(k)$</td>
+              <td>any </td>    <td>$1/3$      </td><td>Direct</td><td>Blais, Kane'2012</td>
+            </tr>
+            <tr class="fragment underline" data-fragment-index=5>
+              <td style="position:relative;">$\Omega(k)$
                 <svg class=fragment data-fragment-index=7 style="position:absolute; left:-15px; top:-35px;" height=120 width=180>
                   <ellipse cx="90" cy="60" fill=none rx="80" ry="40" stroke="#c42525" stroke-width="5" transform="rotate(-25 90 60)"/>
                 </svg>
-              </td><td>any</td><td> $1/3$      </td><td>Communication complexity </td><td><span class=nb>Blais, Brody, Matulef'2011</span></td>
+              </td><td>any</td><td>$1/3$      </td><td>Communication complexity </td><td><span class=nb>Blais, Brody, Matulef'2011</span></td>
             </tr>
           </table>
           <div class=fragment data-fragment-index=7>
@@ -354,25 +352,25 @@
             <tr style="border-bottom:2px solid #555;">
               <th>Bound      </th><th align=right>Rounds</th><th align=right>Error     </th><th>Via  </th><th>Reference</th>
             </tr>
-            <tr class=fragment style="border-bottom:1px solid #CCC">
-              <td>$\Omega(k\log k)$</td><td>1-round </td><td> 1/3      </td><td> $\Disj_k$ </td><td><span class=nb>Buhrman, Garcia-Soriano,</span> Matsliah, de Wolf'2012</td>
+            <tr class="fragment underline">
+              <td>$\Omega(k\log k)$</td><td>1-round </td><td>1/3      </td><td>$\Disj_k$ </td><td><span class=nb>Buhrman, Garcia-Soriano,</span> Matsliah, de Wolf'2012</td>
             </tr>
-            <tr class=fragment style="border-bottom:1px solid #CCC">
-              <td>$\Omega(k\log k)$</td><td>1-round </td><td> 1/3      </td><td> $\Disj_k$ </td><td>Dasgupta, Kumar, Sivakumar'2012</td>
+            <tr class="fragment underline">
+              <td>$\Omega(k\log k)$</td><td>1-round </td><td>1/3      </td><td>$\Disj_k$ </td><td>Dasgupta, Kumar, Sivakumar'2012</td>
             </tr>
-            <tr class=fragment style="border-bottom:1px solid #CCC">
-              <td>$\Omega(k\log^{(r)} k)$</td><td>$r$-round </td><td> 1/3      </td><td> $\Disj_k$ </td><td>Sağlam, Tardos'2013</td>
+            <tr class="fragment underline">
+              <td>$\Omega(k\log^{(r)} k)$</td><td>$r$-round </td><td>1/3      </td><td>$\Disj_k$ </td><td>Sağlam, Tardos'2013</td>
             </tr>
-            <tr class=fragment style="border-bottom:1px solid #CCC">
-              <td>$\Omega(k\log (1/\delta))$</td><td>any </td><td> $\delta$      </td><td> OR∘1vs3</td><td>Blais, Brody, Ghazi'2014</td>
+            <tr class="fragment underline">
+              <td>$\Omega(k\log (1/\delta))$</td><td>any </td><td>$\delta$      </td><td>OR∘1vs3</td><td>Blais, Brody, Ghazi'2014</td>
             </tr>
-            <tr class=fragment style="border-bottom:1px solid #CCC">
-              <td>$\Omega(k\log (k/\delta))$</td><td>any </td><td> $\delta$      </td><td> $k$-Hamming</td>
+            <tr class="fragment underline">
+              <td>$\Omega(k\log (k/\delta))$</td><td>any </td><td>$\delta$      </td><td>$k$-Hamming</td>
               <td><span class=nb>Sağlam'2018 <b>(This work)</b></span></td>
             </tr>
           </table>
         </section>
-        
+
         <section id="pdt-kham" class="lefty texnify">
           <h3>Parity decision trees: $k$-Hamming weight</h3>
           <ul id="pdt-list">
@@ -487,7 +485,7 @@
               <rect stroke="#e1eaff" fill="#f1faff" stroke-width=2 height="130" id="svg_19" rx="30" ry="30" width="200" x="625" y="210"/>
               <foreignObject x="625" y="238" height=130 width=200>$k$-Hamming weight<br/>PDT-depth</foreignObject>
             </g>
-            
+
             <g class=fragment>
               <!-- Comm -->
               <rect stroke="#e1eaff" fill="#f1faff" stroke-width=2 height="130" id="overview-svg3" rx="30" ry="30" width="200" x="281.5" y="346"/>
@@ -497,7 +495,7 @@
               <polygon fill="black" id="svg_13" points="635.907958984375,333.1289978027344 627.761962890625,337.88800048828125 636.614990234375,342.5369873046875 "/>
               <foreignObject x="500" y="420" width="200" height="30">$\le$, simulation</foreignObject>
             </g>
-            
+
             <g class=fragment>
               <!-- Prop -->
               <rect stroke="#e1eaff" fill="#f1faff" stroke-width=2 height="130" rx="30" ry="30" width="200" x="985" y="210"/>
@@ -516,7 +514,7 @@
 
             <g class=fragment>
               <rect fill="#fee" stroke="#faa" stroke-width=2 height="150" id="svg_21" rx="30" ry="30" width="250" x="16.5" y="210"/>
-              <foreignObject x=17 y=215 width=250 height=300><span style="color:#2D383C;font-weight:400">A near-log-convexity statement about Markov chains<br><b>(Main theorem)</b></span></foreignObject>
+              <foreignObject x=17 y=215 width=250 height=300><span style="color:#2D383C;font-weight:400">A near-log-convexity statement about Markov chains / heat<br><b>(Main theorem)</b></span></foreignObject>
               <path d="m135.066,209.212a210.234,210.234 0 0 1 145.46,-74.614" fill="none" id="svg_3" stroke="black"/>
               <polygon fill="black" id="svg_5" points="280.5260009765625,134.59800720214844 272.17498779296875,130.20799255371094 272.9210205078125,140.18099975585938 "/>
               <foreignObject x="70" y="108" width=200 height=40>$\Omega(k\log k)$</foreignObject>
