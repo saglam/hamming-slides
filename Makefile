@@ -1,10 +1,11 @@
 local_deploy: build/index.html
 
-build/js/all.js: js/*.js
+build/js/all.js: js/texne.js js/SVGElement.js js/SvgElem.js js/mathplot.js js/entry.js js/reveal.js
 	mkdir -p build/js
 	java -jar ../../code/bluck-out/java/compiler.jar -W VERBOSE -O ADVANCED \
 	     --language_out ECMASCRIPT5_STRICT --charset UTF-8 \
-	     --js js/texne.js js/reveal.js \
+	     --variable_renaming_report build/js/mapping.txt \
+	     --js $^ \
 	     | uglifyjs -m -o $@
 
 build/css/all.css: font/*.woff css/gito.css css/reveal.css css/theme.css css/texne.css

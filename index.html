@@ -10,6 +10,7 @@
     <meta name="apple-mobile-web-app-status-bar-style" content="white-translucent">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 
+    <link rel="icon" href="data:;base64,iVBORw0KGgo=">
     <!-- build:css -->
     <link rel="stylesheet" href="css/gito.css">
     <link rel="stylesheet" href="css/reveal.css">
@@ -32,35 +33,7 @@
         <section id="define" class="lefty texnify">
           <h2>Hamming distance defined</h2>
           <div style="position:absolute; left:295px; top: 170px;">$\Ham(x,y)\colon$ number of mismatches of $x,y$.</div>
-          <svg class=fragment width=710 height=350 id=defpic style="position:absolute; left:220px; top: 230px;" />
-          <script>
-            var pic = document.getElementById('defpic');
-            function tx(x, y, v) {
-              var t = document.createElementNS(pic.namespaceURI,'text');
-              t.setAttribute('x', x + 12);
-              t.setAttribute('y', y + 31);
-              t.textContent = v;
-              return t;
-            }
-            for (var x=80, rr=3, m = 7; x<660; x += 40) {
-              rr = (rr * rr + 31) % 89;
-              m = (m * m + 31) % 69;
-              for (y = 30; y <200; y += 100) {
-                var r = document.createElementNS(pic.namespaceURI,'rect');
-                r.setAttribute('x', x);
-                r.setAttribute('y', y)
-                r.setAttribute('width', 40);
-                r.setAttribute('height', 40);
-                r.setAttribute('fill', (m < 17) ? "#fee" : 'none');
-                r.setAttribute('stroke-width','0.4');
-                r.setAttribute('stroke', "#999");
-                pic.appendChild(r);
-                pic.appendChild(tx(x, y, ((rr < 45) ^ ((m < 17) && (y >30))) ? '1' : '0'));
-              }
-            }
-            pic.append(tx(2, 30, "x")); pic.append(tx(28, 33, "="))
-            pic.append(tx(2, 130, "y")); pic.append(tx(28, 133, "="))
-          </script>
+          <svg class=fragment width=710 height=350 id="svg-def" style="position:absolute; left:220px; top: 230px;" />
           <div class=fragment style="position:absolute; left:295px; top: 460px;">$\Ham(x,y) = 4$</div>
         </section>
 
@@ -148,7 +121,7 @@
             <text class=fragment data-fragment-index=7  x="200.5" y="18.5" font-size="20">≤2k (triangle ineq.)</text>
           </svg>
         </section>
-        
+
         <section id="comm-protocol2" class="lefty texnify">
           <h3>An $O(k\log k)$ bits protocol</h3>
           <ul id=reduction-list style="margin: 0.8em 4em 0 2em;">
@@ -158,53 +131,13 @@
             <li class=fragment data-fragment-index=6>Incurs an error probability of $\le \delta$</li>
             <li class=fragment>Complexity $O(k\log (k/\delta))$</li>
           </ul>
-          <table id=reduction-table style="position: absolute; left: 10px; bottom: 40px;">
-            <tr class=fragment data-fragment-index=3>
-              <td>$x =$</td>
-              <td class=a>0</td><td class=m>1</td><td class=a>1</td><td class=a>0</td>
-              <td class=m>1</td><td class=a>0</td><td class=a>1</td><td class=a>1</td>
-              <td class=a>0</td><td class=a>1</td><td class=a>0</td><td class=a>1</td>
-              <td class=a>0</td><td class=a>1</td><td class=a>0</td><td class=m>0</td>
-              <td class=a>1</td><td class=a>0</td><td class=a>1</td><td class=a>1</td>
-              <td class=a>1</td><td class=m>0</td><td class=a>1</td><td class=m>1</td>
-            </tr>
-            <tr><td colspan=25></td></tr>
-            <tr class=fragment data-fragment-index=4>
-              <td>$x' =$</td>
-              <td colspan=4 class=m>0</td>
-              <td colspan=4 class=m>1</td>
-              <td colspan=4 class=a>0</td>
-              <td colspan=4 class=m>1</td>
-              <td colspan=4 class=a>1</td>
-              <td colspan=4 class=a>1</td>
-            </tr>
-            <tr><td colspan=25></td></tr>
-            <tr class=fragment data-fragment-index=4>
-              <td>$y' =$</td>
-              <td colspan=4 class=m>1</td>
-              <td colspan=4 class=m>0</td>
-              <td colspan=4 class=a>0</td>
-              <td colspan=4 class=m>0</td>
-              <td colspan=4 class=a>1</td>
-              <td colspan=4 class=a>1</td>
-            </tr>
-            <tr><td colspan=25></td></tr>
-            <tr class=fragment data-fragment-index=3>
-              <td>$y =$</td>
-              <td class=a>0</td><td class=m>0</td><td class=a>1</td><td class=a>0</td>
-              <td class=m>0</td><td class=a>0</td><td class=a>1</td><td class=a>1</td>
-              <td class=a>0</td><td class=a>1</td><td class=a>0</td><td class=a>1</td>
-              <td class=a>0</td><td class=a>1</td><td class=a>0</td><td class=m>1</td>
-              <td class=a>1</td><td class=a>0</td><td class=a>1</td><td class=a>1</td>
-              <td class=a>1</td><td class=m>1</td><td class=a>1</td><td class=m>0</td>
-            </tr>
-          </table>
-          <svg class=fragment data-fragment-index=6 width="280" viewBox="43 10 210 300" style="position:absolute; right:-10px; bottom:-40px;">
+          <svg width=1180 height=250 id="svg-reduce" style="position: absolute; left: 10px; bottom: 40px;"></svg>
+          <svg class=fragment data-fragment-index=6 width="280" viewBox="43 10 210 300" style="position:absolute; right:-10px; bottom:-30px;">
             <path d="M139.5 72.5c-2.6-1-3.5-1-4.6-1h-5a243 243 0 0 0-10.6.5 42 42 0 0 0-16 5.1 68.3 68.3 0 0 0-20.2 15.4 26.5 26.5 0 0 0-4 6.7 60.1 60.1 0 0 0-3 8.2l-1.4 5.4-1 3.5a104.5 104.5 0 0 1-2.3 7.6 83 83 0 0 1-1.4 3.5l-1.7 3.6a298.2 298.2 0 0 0-5.2 12.5 345.3 345.3 0 0 0-4.3 12.3 129.5 129.5 0 0 0-2 8l-.8 3.4-1.1 4.4-1 3.3a96 96 0 0 0-2 8l-.3 3.4-.2 3.7a177.1 177.1 0 0 1-.8 8.7l-.4 3.8a148 148 0 0 0-.7 11.7v25.5a41.2 41.2 0 0 0 .2 3.3 39.3 39.3 0 0 0 1.1 5.1 130.3 130.3 0 0 0 2.5 8.2l.5 1.7.7 2 .4 1.5.4 1.4a20.2 20.2 0 0 0 1 2.7A15 15 0 0 0 58 268a129 129 0 0 0 6.6 8.1 35 35 0 0 0 7 5.1l1.5.7 2 1 1.5.8a32.8 32.8 0 0 0 4 1.7 24.8 24.8 0 0 0 4.2.8l3.6.6 3.1.5a168.4 168.4 0 0 0 10.6 1.1h2.9l4 .1h11a106 106 0 0 0 7.7-.3 50.2 50.2 0 0 0 19.2-6.5 212.8 212.8 0 0 0 13.1-6.9 84.6 84.6 0 0 0 11.4-8.1 128.2 128.2 0 0 0 7.6-6.7 92.3 92.3 0 0 0 10.8-13.3l3.8-5.4 2.9-4a159.4 159.4 0 0 0 8.7-13.1 97.8 97.8 0 0 0 5.4-11.2 255.5 255.5 0 0 0 12.3-35.1l1.2-4.4a696.4 696.4 0 0 1 2.8-9.8l1.2-3.9a106.5 106.5 0 0 0 2-8 40.2 40.2 0 0 0 .4-6.3V97.6a249 249 0 0 0-.2-8.2 61.4 61.4 0 0 0-1.1-7.9 33.8 33.8 0 0 0-2.2-6 95.9 95.9 0 0 0-4.1-8.2 31.3 31.3 0 0 0-6.4-7.3l-1.5-1.4-2-2-1.5-1.5a43.2 43.2 0 0 0-4-3.5 18.4 18.4 0 0 0-3.9-2 36.2 36.2 0 0 0-6.2-1.8l-2.3-.4-1.6-.3a44.2 44.2 0 0 0-8.7-.6h-19.7a46.6 46.6 0 0 0-19 4 161 161 0 0 0-19.3 8.2 67.1 67.1 0 0 0-10.9 7.5l-2.3 2a131.3 131.3 0 0 1-4.9 4.2l-2 1.6a55.7 55.7 0 0 0-6 6l-2.6 3-2.3 2.6a227 227 0 0 0-5.8 7.3 15.7 15.7 0 0 0-1.3 2.3 4.6 4.6 0 0 0-.2 1v.6a11.7 11.7 0 0 1 0 1v.2" fill="none" stroke="#f12" stroke-width="5"/>
             <text fill="#f12" x="155" y="41">Error!</text>
           </svg>
         </section>
-        
+
         <section id=bounds1 class="lefty texnify">
           <h3>Known bounds until 2011</h3>
           <table id=bounds-table1 class=bounds-table>
@@ -227,7 +160,7 @@
               <td>$\Omega(k \log k)$</td>
                                   <td>1-round</td><td> 1/3      </td><td>$\Disj_k$</td><td>Various researchers, 2000s</td>
             </tr><tr class="fragment underline">
-              <td>$\Omega(k)$, quantum</td><td>any</td><td>1/3</td><td>$k$-Intersection</td><td>Razborov'2002<br><span class=nb>Huang, Shi, Zhang, Zhu'2005</span></td>
+              <td class=nb>$\Omega(k)$, quantum</td><td>any</td><td>1/3</td><td>$k$-Intersection</td><td>Razborov'2002<br><span class=nb>Huang, Shi, Zhang, Zhu'2005</span></td>
             </tr>
           </table>
         </section>
@@ -259,10 +192,10 @@
           <h3>Property testing: $k$-linearity</h3>
           <div class=definition style="margin:0.7em 0 0.7em -0.3em; width:570px;">
             <b>Definition.</b>
-            A function $f\colon\field_2^n\to\field_2$ is $k$-linear<br>  if
+            A function $f\colon\field_2^n\to\field_2$ is $k$-linear  if
             $f(x) = \langle x,w\rangle$ for a $w\in\field_2^n$ with $\|w\|_1\le k$.
           </div>
-          
+
           <div class=fragment data-fragment-index=2 style="width:720px;">
             Given an unknown function $g\colon\field_2^n\to\field_2$,
             <ul style="margin:0.6em 1em 1em">
@@ -292,10 +225,12 @@
              </svg>
              <div style="position:absolute; bottom:400px; right:270px;">$\epsilon 2^n$</div>
              <div style="margin: 0 1em">
-               <span class=bullet style="background:#64aafa;border:2px solid #5080c6"></span>$k$-linear<br>
-               <span class=bullet style="background:#ffdcdc;border:2px solid #ff9696"></span>$\eps$ away from $k$-linear
+               <span class=bullet style="background:#64aafa;border:2px solid #5080c6"></span>
+                 $k$-linear<br>
+               <span class=bullet style="background:#ffdcdc;border:2px solid #ff9696"></span>
+                 $\eps$ away from $k$-linear
              </div>
-           </div> 
+           </div>
         </section>
 
         <section id=ptest3 class="lefty texnify">
@@ -331,7 +266,7 @@
             </tr>
           </table>
           <div class=fragment data-fragment-index=7>
-            <span style="position:absolute; bottom: 30px;left:150px;">This gap still remains</span>
+            <span style="position:absolute; bottom: 30px;left:150px;">The same gap as before!</span>
           </div>
           <!-- <ul id=ptest3-list style="margin:0 5em">
             <li class=fragment>
@@ -507,7 +442,7 @@
             </g>
 
             <g class=fragment>
-              <path d="m481.5,446a400,400 0 0 0 554.566,-106" fill="none" id="svg_12" stroke="black"/>            
+              <path d="m481.5,446a400,400 0 0 0 554.566,-106" fill="none" id="svg_12" stroke="black"/>
               <polygon fill="black" id="svg_13" points="1039.907958984375,333.1289978027344 1031.761962890625,337.88800048828125 1040.614990234375,342.5369873046875 "/>
               <foreignObject x=530 y=540 width=400 height=30>$\le$, Blais, Brody, Matulef'2011</foreighObject>
             </g>
@@ -546,8 +481,11 @@
     </div>
 
     <!-- build:js -->
-    <script src="js/reveal.js"></script>
+    <script src="js/SvgElem.js"></script>
     <script src="js/texne.js"></script>
+    <script src="js/mathplot.js"></script>
+    <script src="js/entry.js"></script>
+    <script src="js/reveal.js"></script>
     <!-- endbuild -->
   </body>
 </html>

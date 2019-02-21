@@ -84,7 +84,7 @@ var Substitute = {
  *
  * @type {Array<Array<number>>}
  */
-var SpaceTable = [
+let SpaceTable = [
   [0, 1, 2, 3, 0, 0, 0, 1],
   [1, 1, 9, 3, 0, 0, 0, 1],
   [2, 2, 9, 9, 2, 9, 9, 2],
@@ -98,19 +98,19 @@ var SpaceTable = [
 /**
  * @const {RegExp}
  */
-var Alpha = /[a-zA-Z]*/;
+let Alpha = /[a-zA-Z]*/;
 /**
  * @const {RegExp}
  */
-var Digits = /[0-9]*/;
+let Digits = /[0-9]*/;
 /**
  * @const {RegExp}
  */
-var RightAttachment = /[a-zA-Z._\-,]*/;
+let RightAttachment = /[a-zA-Z._\-,]*/;
 /**
  * @const {RegExp}
  */
-var LeftAttachment = /[a-zA-Z.\-]*$/;
+let LeftAttachment = /[a-zA-Z.\-]*$/;
 
 /**
  * @param {Atom} leftAtom
@@ -284,11 +284,5 @@ function renderElement(elem) {
     }
   }
   elem.innerHTML = parts.join("");
-}
-
-let texnify = document.getElementsByClassName("texnify");
-
-for (let i = 0, texnifyLen = texnify.length; i < texnifyLen; i++) {
-  renderElement(texnify[i]);
 }
 

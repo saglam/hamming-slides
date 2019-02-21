@@ -14,7 +14,6 @@ RepoPath="$( cd "$(dirname "$0")" ; pwd -P )"
 
 HammingUser="hamming"
 
-
 if [[ "$1$2" = *"--ff"* ]]
 then
   firefoxProfile="$HOME/.firefox/${HammingUser}"
