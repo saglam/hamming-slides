@@ -25,9 +25,22 @@ section.has-light-background, section.has-light-background h1, section.has-light
 
 #comm-table {
   margin: auto;
+  text-align: center;
 }
 
 #reduction-list > li {
+  margin: 0.2em 0;
+}
+
+#pdt-mc-list {
+  margin: 0 1em;
+}
+
+#pdt-mc-list > li {
+  margin: 0.2em 0 1em;
+}
+
+#pdt-mc-list > li li {
   margin: 0.2em 0;
 }
 

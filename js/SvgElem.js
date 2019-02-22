@@ -95,7 +95,7 @@ function createGrid(x, y, cellWidth, cellHeight, cols, rows, palette) {
   let g = new SvgElem('g').add(new SvgElem('rect').withAttributes({
           "x": x,  "y": y,
           "rx": 2, "ry": 2,
-          "width": width, "height": height, "stroke": palette.s, "fill": "none"}));
+          "width": width, "height": height, "stroke": palette.s, "fill": "none", "stroke-width": 1}));
 
   /** @const {number} */
   let offset = 1;
@@ -106,7 +106,7 @@ function createGrid(x, y, cellWidth, cellHeight, cols, rows, palette) {
             "stroke" : palette.s}));
   }
 
-  for (let /** number */ row = 1, /** number */ cy = y; row < rows; ++row, cy += cellHeight) {
+  for (let /** number */ row = 1, /** number */ cy = y + cellHeight; row < rows; ++row, cy += cellHeight) {
     g.add(new SvgElem('path').withAttributes({
             "d"      : "M" + (x + offset) + " " + cy + "h" + (width - 2*offset),
             "stroke" : palette.s}));

@@ -13,7 +13,7 @@ for (let i = 0, texnifyLen = texnify.length; i < texnifyLen; i++) {
 }
 
 
-let palette = {"1" : "#fee", s: "#999"};
+let palette = {"1" : "#fee", s: "#BBB"};
 
 // svg-def
 {
@@ -55,5 +55,20 @@ let palette = {"1" : "#fee", s: "#999"};
           .add(new SvgMatrix(90, 134,172, 43, [yp], [zp], palette))
           .add(new SvgText  (10, 163, "y'"))
           .add(new SvgText  (39, 166, "=")), 4);
+}
+
+//svg-conv-walk
+{
+  let x  = "                 ";
+  let xc = "00000000000000000";
+  let A = [x, x, x, x, x];
+  let Ac = [xc, xc, xc, xc, xc];
+  let b = ["0", "0", "0", "0", "0"];
+  let bc = b;
+  
+  getSvgElem('svg-conv-walk')
+      .add(new SvgMatrix(230, 30, 43, 43, [x], [xc], palette))
+      .add(new SvgMatrix(230, 93, 43, 43, A, Ac, palette))
+      .add(new SvgMatrix(100, 93, 43, 43, b, bc, palette));
 }
 
