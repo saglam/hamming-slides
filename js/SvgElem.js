@@ -1,6 +1,6 @@
 /**
  * @module SvgElem
- * @fileoverview An wrapper around SVGElement which allows fluent construction
+ * @fileoverview A wrapper around SVGElement which allows fluent construction
  */
 
 /**
@@ -15,7 +15,7 @@ SvgElem.prototype.Uri = 'http://www.w3.org/2000/svg';
  * or a SVGElement name in which case a new one is created with the given name.
  */
 function SvgElem(arg) {
-  if (typeof arg == 'string') {
+  if (typeof arg === 'string') {
     this.elem = /** @type {!SVGElement} */ (document.createElementNS(this.Uri, arg));
   } else {
     this.elem = arg;
@@ -31,6 +31,7 @@ function getSvgElem(domId) {
 }
 
 /**
+ * @public
  * @param {Object} attrs cointaining various attributes
  * @return {!SvgElem}
  */
@@ -42,6 +43,7 @@ SvgElem.prototype.withAttributes = function(attrs) {
 }
 
 /**
+ * @public
  * @param {SvgElem} child
  * @return {!SvgElem}
  */
@@ -51,6 +53,7 @@ SvgElem.prototype.add = function(child) {
 }
 
 /**
+ * @public
  * @param {SvgElem} child
  * @param {number} index of the fragment
  * @return {!SvgElem}
@@ -63,6 +66,7 @@ SvgElem.prototype.addFrag = function(child, index) {
 }
 
 /**
+ * @public
  * @return {!SVGElement}
  */
 SvgElem.prototype.unwrap = function() {
@@ -83,6 +87,15 @@ function SvgText(x,  y, content) {
 
 /**
  * Creates an cols by rows grid with empty cells
+ * 
+ * @private
+ * @param {!number} x
+ * @param {!number} y
+ * @param {!number} cellWidth
+ * @param {!number} cellHeight
+ * @param {!number} cols count of the grid
+ * @param {!number} rows count of the grid
+ * @param {!Object<string, string>} palette mapping color names to color codes
  * @return {!SvgElem}
  */
 function createGrid(x, y, cellWidth, cellHeight, cols, rows, palette) {
@@ -118,6 +131,13 @@ function createGrid(x, y, cellWidth, cellHeight, cols, rows, palette) {
  * SVG matrix class
  *
  * @constructor
+ * @param {!number} x
+ * @param {!number} y
+ * @param {!number} cellWidth
+ * @param {!number} cellHeight
+ * @param {!Array<Array<number>|string>} content of the matrix
+ * @param {!Array<Array<number>|string>} colors of each cell
+ * @param {!Object<string, string>} palette mapping color names to color codes
  * @extends {SvgElem}
  */
 function SvgMatrix(x, y, cellWidth, cellHeight, content, colors, palette) {

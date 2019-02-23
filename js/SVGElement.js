@@ -1,5 +1,5 @@
 /**
- * @fileoverview SVGElement declarations
+ * @fileoverview SVGElement extern declarations for the closure compiler
  * @externs
  */
 
