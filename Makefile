@@ -8,7 +8,6 @@ build/js/all.js: js/texne.js js/SVGElement.js js/SvgElem.js js/mathplot.js js/en
 	java -jar ../../code/bluck-out/java/compiler.jar -W VERBOSE -O ADVANCED \
 	     --language_out ECMASCRIPT5_STRICT \
 	     --charset UTF-8 \
-	     --use_types_for_optimization \
 	     --js $^ \
 	     | uglifyjs -m -o $@
 

@@ -1,6 +1,6 @@
 #!/bin/bash
 
-if [[ "$1$2" = *"--nocompile"* ]]
+if [[ "$1$2" = *"--nocompile"* || "$1$2" = *"--nobuild"* ]]
 then
   echo "NoCompile"
   NoCompile=true

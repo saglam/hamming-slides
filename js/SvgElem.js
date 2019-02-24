@@ -1,6 +1,7 @@
 /**
  * @module SvgElem
  * @fileoverview A wrapper around SVGElement which allows fluent construction
+ * Also serves a base class for more involved SVG constructs such as SvgMatrix
  */
 
 /**
@@ -78,15 +79,33 @@ SvgElem.prototype.unwrap = function() {
  * @param {!number} x
  * @param {!number} y
  * @param {string} content
+ * @param {string=} color is optional
  * @extends {SvgElem}
  */
-function SvgText(x,  y, content) {
-  this.elem = new SvgElem('text').withAttributes({"x": x, "y": y}).unwrap();
-  this.elem.textContent = content;
+function SvgText(x,  y, content, color) {
+  if (content[0] == "$") {
+    let f = new SvgElem('foreignObject').withAttributes({"x": x, "y": y - 30, "height": 40, "width": 300})
+    /* TODO(saglam): Does foreignObject have innerHTML in the spec?
+        let s = document.createElement('span');
+        s.innerHTML = renderInline(content.slice(1, -1), null, null);
+        f.elem.appendChild(s); */
+    f.elem.innerHTML = renderInline(content.slice(1, -1), null, null);
+    console.log(f.elem.innerHTML);
+    this.elem = f.elem;
+  } else {
+    /** const {!SvgElem} */
+    let t = new SvgElem('text').withAttributes({"x": x, "y": y});
+    if (color) {
+      t.withAttributes({"fill": color});
+    }
+    this.elem = t.elem;
+    this.elem.textContent = content;
+  }
 }
 
 /**
- * Creates an cols by rows grid with empty cells
+ * Creates an cols by rows grid with empty cells.
+ * The grid lines are of color palette.s
  * 
  * @private
  * @param {!number} x
@@ -107,8 +126,9 @@ function createGrid(x, y, cellWidth, cellHeight, cols, rows, palette) {
   /** @const {!SvgElem} */
   let g = new SvgElem('g').add(new SvgElem('rect').withAttributes({
           "x": x,  "y": y,
-          "rx": 2, "ry": 2,
-          "width": width, "height": height, "stroke": palette.s, "fill": "none", "stroke-width": 1}));
+          "rx": 4, "ry": 4,
+          "width": width, "height": height,
+          "stroke": palette.s, "fill": "none", "stroke-width": 2}));
 
   /** @const {number} */
   let offset = 1;
@@ -116,13 +136,13 @@ function createGrid(x, y, cellWidth, cellHeight, cols, rows, palette) {
     g.add(new SvgElem('path')
           .withAttributes({
             "d"      : "M" + cx + " " + (y + offset) + "v" + (height - 2*offset),
-            "stroke" : palette.s}));
+            "stroke" : palette.s, "stroke-width": 2}));
   }
 
   for (let /** number */ row = 1, /** number */ cy = y + cellHeight; row < rows; ++row, cy += cellHeight) {
     g.add(new SvgElem('path').withAttributes({
             "d"      : "M" + (x + offset) + " " + cy + "h" + (width - 2*offset),
-            "stroke" : palette.s}));
+            "stroke" : palette.s, "stroke-width": 2}));
   }
   return g;
 }
@@ -151,17 +171,79 @@ function SvgMatrix(x, y, cellWidth, cellHeight, content, colors, palette) {
 
   /** @const {number} */
   let dx = cellWidth / 2 - 8;
+  /** @const {number} */
   let dy = cellHeight / 2 + 11;
+  /** @const {number} */
+  let offset = 1;
   for (let row = 0, cy = y; row < rows; ++row, cy += cellHeight) {
     for (let col = 0, cx = x; col < cols; ++col, cx += cellWidth) {
       let /** string */ color = colors[row][col];
       if (color != "0") {
-        g.add(new SvgElem('rect').withAttributes({"x": cx + 1, "y": cy + 1,
-            "width": cellWidth - 2, "height": cellHeight - 2, "fill": palette[color]}));
+        g.add(new SvgElem('rect').withAttributes({"x": cx + offset, "y": cy + offset,
+            "width": cellWidth - 2*offset, "height": cellHeight - 2*offset, "fill": palette[color]}));
       }
-      g.add(new SvgText(cx + dx, cy + dy, content[row][col]));
+      g.add(new SvgText(cx + dx, cy + dy, content[row][col], palette.text));
     }
   }
+
+  this.elem = g.elem;
+}
+
+/**
+ * SVG plot class
+ *
+ * @constructor
+ * @param {!number} x
+ * @param {!number} y
+ * @param {!number} dataPointWidth
+ * @param {!number} height
+ * @param {!Array<number>} data
+ * @param {!Object<string, string>} palette mapping color names to color codes
+ * @param {!Object} dimensions of the plot
+ * @extends {SvgElem}
+ */
+function SvgPlot(x, y, dataPointWidth, height, data, dimensions, palette) {
+  /** @const {number} */
+  let n = data.length;
+  /** @const {number} */
+  let width = n * dataPointWidth;
+  /** @const {number} */
+  let smoothness = dimensions.smoothness;
+
+  let pathD = "M" + x + "," + (y + height - 2)
+            + "c" + (dataPointWidth / 4) + "," + (-height * data[0] * 0.8) + " "
+                  + (dataPointWidth / 2 * smoothness) + "," + (-height * data[0]) + " "
+                  + (dataPointWidth / 2) + "," + (-height * data[0]);
+
+  for (let i = 1; i < n; ++i) {
+    pathD += "s" + (dataPointWidth * smoothness) + "," + height * (data[i-1] - data[i]) + " "
+                 + dataPointWidth + "," + height * (data[i-1] - data[i]);
+  }
+  pathD += "s" + (dataPointWidth / 2 * smoothness) + "," + (data[n - 1] * smoothness) + " "
+               + (dataPointWidth / 2) + ", " + data[n-1];
+
+
+  let g = new SvgElem('g').withAttributes({"font-size": 15});
+
+  if (dimensions.grid) {
+    let grid = dimensions.grid;
+    for (let /** number */ i = 0, /** number */ n = grid.length; i < n; ++i) {
+      let yy = (y + height * (1 - grid[i][0]));
+      g.add(new SvgElem('path').withAttributes({
+                    "stroke": "#666",
+                         "d": "M" + x + "," + yy + "h" + width,
+              "stroke-width": grid[i][2]}))
+      if (grid[i][1]) {
+       g.add(new SvgText(x + width + 8, yy + 5, grid[i][1]));
+      }
+    }
+  }
+
+  g.add(new SvgElem('path').withAttributes({
+                "stroke": palette.line,
+          "stroke-width": dimensions.lineWidth || 4,
+                  "fill": palette.area,
+                     "d": pathD}))
 
   this.elem = g.elem;
 }

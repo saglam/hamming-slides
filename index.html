@@ -20,7 +20,7 @@
     </head>
 
     <body>
-	  <div class="reveal">
+    <div class="reveal">
       <div class="slides">
         <section class=lefty>
           <div style="height:200px;"></div>
@@ -47,6 +47,12 @@
             <li class=fragment><b>Parity decision trees.</b> Any randomized parity 
             decision tree for $k$-Hamming weight has size $\exp(\Omega(k \log k))$</li>
           </ol>
+        </section>
+
+        <section id="intermission-comm">
+          <div style="height:200px"></div>
+          <h2>Model I</h2>
+          <h3>Communication complexity</h3>
         </section>
 
         <section id="comm-khamming" class="lefty">
@@ -248,6 +254,12 @@
           </table>
         </section>
 
+        <section id="intermission-ptest">
+          <div style="height:200px"></div>
+          <h2>Model II</h2>
+          <h3>Property testing</h3>
+        </section>
+
         <section id=ptest1 class="lefty texnify">
           <h3>Property testing</h3>
           <ul id=ptest1-list>
@@ -389,6 +401,12 @@
           </table>
         </section>
 
+        <section id="intermission-pdt">
+          <div style="height:200px"></div>
+          <h2>Model III</h2>
+          <h3>Parity decision trees</h3>
+        </section>
+
         <section id="pdt-kham" class="lefty texnify">
           <h3>Parity decision trees: $k$-Hamming weight</h3>
           <ul id="pdt-list">
@@ -488,7 +506,7 @@
 
         <section id=overview>
           <h3>Whole picture</h3>
-          <svg id=overview-svg width="1200" height="600" class=texnify style="position:absolute; left:0; top:50px; font-size:80%">
+          <svg id=overview-svg width="1200" height="625" class=texnify style="position:absolute; left:0; top:50px; font-size:80%">
             <g>
               <!-- PDT-size -->
               <rect stroke="#e1eaff" fill="#f1faff" stroke-width=2 height="130" id="overview-svg1" rx="30" ry="30" width="200" x="281.5" y="98"/>
@@ -540,32 +558,125 @@
               <polygon fill="black" id="svg_8" points="280.64801025390625,434.0580139160156 272.65899658203125,429.0409851074219 272.6369934082031,439.0409851074219 "/>
               <foreignObject x="70" y="440" width=200 height=40>$\Omega(k\log k)$</foreignObject>
             </g>
+
+            <text x=100 y=585 font-size=32>PDT: Parity Decision Tree</text>
           </svg>
-          <span style="position:absolute; left: 100px; bottom:50px;">PDT: Parity Decision Tree</span>
         </section>
-        <section id=pdt-mc class="lefty texnify">
-          <h3>From PDTs to Markov chains</h3>
-          <ul id=pdt-mc-list>
+        <section id=pdt-heat class="lefty texnify">
+          <h3>From PDTs to heat flows</h3>
+          <ul id=pdt-mc-list style="width: 500px;">
             <li>Given a PDT that on input $w$
               <ul>
-                <li>accepts if $\|w\|_1\lt k$ and,</li>
-                <li>rejects if $\|w\|_1\ge k$.
+                <li>accepts if $\|w\|_1\le k$ and,</li>
+                <li>rejects if $\|w\|_1\gt k$.
               </ul>
             </li>
-            <li class=fragment>Create a PDT that on input $w$
+            <li class=fragment data-fragment-index=2>Create a PDT that on input $w$
               <ul>
                 <li>accepts if $\|w\|_1 = k$,</li>
                 <li>rejects if $\|w\|_1 \in \{k-2, k+2\}$</li>
               </ul>
             </li>
-            <li class=fragment>
+            <li class=fragment data-fragment-index=4>
               Let $p_k = $ fraction of weight-$k$ inputs accepted
             </li>
+            <li class=fragment data-fragment-index=5>
+              <em>The way heat behaves</em> ⇒
+              If PDT is small, $\ldots, p_{k-2}, p_{k}, p_{k+2},\ldots$<br> is nearly log-convex
+            </li>
           </ul>
+          <svg id="svg-praccept" width=620 height=590 style="position:absolute; right:0;"></svg>
         </section>
 
-        <section class="texnify lefty">
-          <h3>From PDTs to Markov chains</h3>
+        <section id=pdt-leaf class="texnify lefty">
+          <h3>Contribution of a single leaf to $p_k$:</h3>
+          <svg width="800" height="700" style="position:absolute;top:0;right:10px;">
+            <ellipse stroke="black" stroke-width="1" fill="none" cx="445.5" cy="121.5" rx="30" ry="30"/>
+            <foreignObject x="415.5" y="110.5" height="40" width="100" font-size="20">$\langle x, w\rangle=?$</foreignObject>
+            <path stroke="black" stroke-width="1" fill="none" d="M 339.618,220.602 A 304.138,304.138 0 0 1 420.107,137.452"/>
+            <polygon fill="black" stroke-width="1" points="339.618,220.602 348.176,216.631 339.799,211.17"/>
+            <text x="360.5" y="166.5"  font-size="20">0</text>
+            <path stroke="black" stroke-width="1" fill="none" d="M 471.913,135.678 A 223.597,223.597 0 0 1 550.097,219.208"/>
+            <polygon fill="black" stroke-width="1" points="550.097,219.208 550.71,209.794 541.904,214.533"/>
+            <text x="521.5" y="163.5"  font-size="20">1</text>
+            <g>
+              <ellipse stroke="black" stroke-width="1" fill="none" cx="324.5" cy="246.5" rx="30" ry="30"/>
+              <foreignObject x="313" y="235" font-size="20" height="30" width="30">$x_0$</foreignObject>
+              <ellipse stroke="black" stroke-width="1" fill="none" cx="244.5" cy="389.5" rx="30" ry="30"/>
+              <foreignObject x="233" y="378" font-size="20" height="30" width="30">$x_{00}$</foreignObject>
+              <ellipse stroke="black" stroke-width="1" fill="none" cx="363.5" cy="389.5" rx="30" ry="30"/>
+              <foreignObject x="352.5" y="378" font-size="20" height="30" width="30">$x_{01}$</foreignObject>
+              <path stroke="black" stroke-width="1" fill="none" d="M 254.146,361.102 A 370.23,370.23 0 0 1 305.347,269.58"/>
+              <polygon fill="black" stroke-width="1" points="254.146,361.102 261.689,355.436 252.358,351.839"/>
+              <text x="259.5" y="307.5" font-size="20">0</text>
+              <path stroke="black" stroke-width="1" fill="none" d="M 336.762,273.871 A 384.592,384.592 0 0 1 360.168,359.693"/>
+              <polygon fill="black" stroke-width="1" points="360.168,359.693 363.913,351.035 354.026,352.532"/>
+              <text x="358.5" y="316.5"  font-size="20">1</text>
+            </g>
+            <g>
+              <path stroke="black" stroke-width="1" fill="none" d="M 176.661,484.397 A 195.657,195.657 0 0 1 222.05,409.355"/>
+              <polygon fill="black" stroke-width="1" points="176.661,484.397 183.911,478.361 174.412,475.235"/>
+              <text x="178.5" y="437.5"  font-size="20">0</text>
+              <path stroke="black" stroke-width="1" fill="none" d="M 251.222,418.724 A 294.472,294.472 0 0 1 255.411,483.655"/>
+              <polygon fill="black" stroke-width="1" points="255.411,483.655 260.775,475.894 250.786,475.432"/>
+              <text x="261.5" y="456.5"  font-size="20">1</text>
+              <path stroke="black" stroke-width="1" fill="none" d="M 336.009,483.529 A 214.136,214.136 0 0 1 350.592,416.554"/>
+              <polygon fill="black" stroke-width="1" points="336.009,483.529 341.43,475.808 331.445,475.272"/>
+              <text x="323.5" y="451.5"  font-size="20">0</text>
+              <path stroke="black" stroke-width="1" fill="none" d="M 383.417,411.879 A 164.344,164.344 0 0 1 413.497,483.609"/>
+              <polygon fill="black" stroke-width="1" points="413.497,483.609 417.175,474.921 407.3,476.496"/>
+              <text x="410.5" y="442.5"  font-size="20">1</text>
+              <circle fill="#ffdcdc"  stroke="#ff9696" stroke-width="2" cx="252.5" cy="513.5" r="30"/>
+              <text x="238.5" y="519.5" fill="#333" font-size="20">NO</text>
+              <circle fill="#ffdcdc"  stroke="#ff9696" stroke-width="2" cx="336.5" cy="513.5" r="30"/>
+              <text x="322.5" y="519.5" fill="#333" font-size="20">NO</text>
+              <circle stroke="#5080c6" fill="#64aafa" stroke-width="2" cx="169.5" cy="513.5" r="30" />
+              <text x="150.5" y="519.5" font-size="20" fill="white">YES</text>
+              <circle stroke="#5080c6" fill="#64aafa" stroke-width="2" cx="357.5" cy="617.5" r="30"/>
+              <text x="340.5" y="623.5" font-size="20" fill="white">YES</text>
+              <circle stroke="black" stroke-width="1" fill="none" cx="415.5" cy="513.5" r="30"/>
+              <foreignObject x="404" y="502" font-size="20" height="30" width="40">$x_{011}$</foreignObject>
+              <circle fill="#ffdcdc"  stroke="#ff9696" stroke-width="2" cx="470.5" cy="610.5" r="30"/>
+              <text x="453.5" y="615.5" fill="#333" font-size="20">NO</text>
+              <!--edges-->
+              <path stroke="black" stroke-width="1" fill="none" d="M 367.044,589.078 A 244.34,244.34 0 0 1 396.335,536.556"/>
+              <polygon fill="black" stroke-width="1" points="367.044,589.078 374.684,583.545 365.418,579.786"/>
+              <path stroke="black" stroke-width="1" fill="none" d="M 434.577,536.627 A 237.352,237.352 0 0 1 460.449,582.255"/>
+              <polygon fill="black" stroke-width="1" points="460.449,582.255 461.891,572.932 452.7,576.873"/>
+            </g>
+            <g>
+              <path stroke="black" stroke-width="1" fill="none" d="M 534.332,359.563 A 401.361,401.361 0 0 1 552.146,274.649"/>
+              <polygon fill="black" stroke-width="1" points="534.332,359.563 540.095,352.093 530.143,351.11"/>
+              <text x="523.5" y="319.5"  font-size="20">0</text>
+              <path stroke="black" stroke-width="1" fill="none" d="M 584.839,266.491 A 225.733,225.733 0 0 1 639.917,360.254"/>
+              <polygon fill="black" stroke-width="1" points="639.917,360.254 642.44,351.164 632.851,354.002"/>
+              <text x="624.5" y="303.5"  font-size="20">1</text>
+
+              <circle stroke="black" stroke-width="1" fill="none" cx="562.5" cy="246.5" r="30"/>
+              <foreignObject x="552" y="235" font-size="20" height="30" width="30">$x_1$</foreignObject>
+              <circle stroke="black" stroke-width="1" fill="none" cx="646.5" cy="389.5" r="30"/>
+              <foreignObject x="635" y="378" font-size="20" height="30" width="30">$x_{11}$</foreignObject>
+
+              <circle fill="#ffdcdc" stroke="#ff9696" stroke-width="2" cx="532.5" cy="389.5" r="30"/>
+              <text x="518.5" y="395.5" fill="#333" font-size="20">NO</text>
+              <circle fill="#ffdcdc"  stroke="#ff9696" stroke-width="2" cx="637.5" cy="513.5" r="30"/>
+              <text x="623.5" y="519.5" fill="#333" font-size="20">NO</text>
+              <circle stroke="#5080c6" fill="#64aafa" stroke-width="2" cx="719.5" cy="513.5" r="30"/>
+              <text x="700.5" y="519.5" fill="white" font-size="20">YES</text>
+
+              <path stroke="black" stroke-width="1" fill="none" d="M 633.494,483.79 A 232.124,232.124 0 0 1 638.246,418.32"/>
+              <polygon fill="black" stroke-width="1" points="633.494,483.79 637.927,475.462 627.951,476.156"/>
+              <text x="617.5" y="456.5"  font-size="20">0</text>
+              <path stroke="black" stroke-width="1" fill="none" d="M 667.514,410.883 A 237.499,237.499 0 0 1 711,484.75"/>
+              <polygon fill="black" stroke-width="1" points="711,484.75 712.948,475.519 703.556,478.954"/>
+              <text x="699.5" y="439.5"  font-size="20">1</text>
+            </g>
+          </svg>
+
+        </section>
+
+        <section id=pdt-affine-ss class="texnify lefty">
+          <h3>From PDTs to heat flows</h3>
           <svg width=1040 height=600 id="svg-conv-walk"></svg>
         </section>
       </div>
