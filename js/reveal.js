@@ -1999,6 +1999,7 @@
 				// Don't apply any scaling styles if scale is 1
 				if( scale === 1 ) {
 					dom.slides.style.zoom = '';
+					dom.slideNumber.style.zoom = '';
 					dom.slides.style.left = '';
 					dom.slides.style.top = '';
 					dom.slides.style.bottom = '';
@@ -2011,6 +2012,7 @@
 					// in text layout/line breaks.
 					if( scale > 1 && features.zoom ) {
 						dom.slides.style.zoom = scale;
+						dom.slideNumber.style.zoom = scale;
 						dom.slides.style.left = '';
 						dom.slides.style.top = '';
 						dom.slides.style.bottom = '';

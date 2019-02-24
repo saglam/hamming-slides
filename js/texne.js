@@ -76,7 +76,7 @@ var Substitute = {
   "]"      : [Atom.Close, '<span class=msr>]</span>'],
   "="      : [Atom.Rel  , '<span class=meq>=</span>'],
   "+"      : [Atom.Bin  , '+'],
-  "-"      : [Atom.Bin  , '-'],
+  "-"      : [Atom.Bin  , '−'],
   "/"      : [Atom.Bin  , '<span class=mdiv>/</span>'],
   ","      : [Atom.Punct, ',']
 };

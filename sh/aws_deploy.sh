@@ -50,7 +50,7 @@ done
 for comp in $Compression; do
   aws s3 cp   --metadata-directive REPLACE \
               --acl public-read \
-              --cache-control "private, max-age=0" ${CompressionToEncoding[$comp]} \
+              --cache-control "public" ${CompressionToEncoding[$comp]} \
               --content-type "text/html; charset=utf-8" \
               build/index.html${CompressionToExtension[$comp]} \
               s3://mert.saglam.id/talks/hamming-ias/index.html${CompressionToExtension[$comp]}

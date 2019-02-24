@@ -84,13 +84,11 @@ SvgElem.prototype.unwrap = function() {
  */
 function SvgText(x,  y, content, color) {
   if (content[0] == "$") {
-    let f = new SvgElem('foreignObject').withAttributes({"x": x, "y": y - 30, "height": 40, "width": 300})
-    /* TODO(saglam): Does foreignObject have innerHTML in the spec?
-        let s = document.createElement('span');
-        s.innerHTML = renderInline(content.slice(1, -1), null, null);
-        f.elem.appendChild(s); */
+    let f = new SvgElem('foreignObject').withAttributes({"x": x, "y": y - 30, "height": 40, "width": 340})
+    if (color) {
+      f.withAttributes({"color": color});
+    }
     f.elem.innerHTML = renderInline(content.slice(1, -1), null, null);
-    console.log(f.elem.innerHTML);
     this.elem = f.elem;
   } else {
     /** const {!SvgElem} */
@@ -211,15 +209,15 @@ function SvgPlot(x, y, dataPointWidth, height, data, dimensions, palette) {
   let smoothness = dimensions.smoothness;
 
   let pathD = "M" + x + "," + (y + height - 2)
-            + "c" + (dataPointWidth / 4) + "," + (-height * data[0] * 0.8) + " "
-                  + (dataPointWidth / 2 * smoothness) + "," + (-height * data[0]) + " "
-                  + (dataPointWidth / 2) + "," + (-height * data[0]);
+            + "c" + (dataPointWidth / 4) + "," + (-height * data[0] * 0.8).toFixed(2) + " "
+                  + (dataPointWidth / 2 * smoothness) + "," + (-height * data[0]).toFixed(2) + " "
+                  + (dataPointWidth / 2) + "," + (-height * data[0]).toFixed(2);
 
   for (let i = 1; i < n; ++i) {
-    pathD += "s" + (dataPointWidth * smoothness) + "," + height * (data[i-1] - data[i]) + " "
-                 + dataPointWidth + "," + height * (data[i-1] - data[i]);
+    pathD += "s" + (dataPointWidth * smoothness) + "," + (height * (data[i-1] - data[i])).toFixed(2) + " "
+                 + dataPointWidth + "," + (height * (data[i-1] - data[i])).toFixed(2);
   }
-  pathD += "s" + (dataPointWidth / 2 * smoothness) + "," + (data[n - 1] * smoothness) + " "
+  pathD += "s" + (dataPointWidth / 2 * smoothness).toFixed(2) + "," + (data[n - 1] * smoothness).toFixed(2) + " "
                + (dataPointWidth / 2) + ", " + data[n-1];
 
 

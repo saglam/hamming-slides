@@ -108,12 +108,30 @@ let palette = {"1" : "#fee", s: "#DDD"};
           .add(new SvgPlot(  30, 360, 40, 70, data, dimensions, palette1))
           .add(new SvgText(   0, 400, "$p_k\\colon$")), 4)
       .addFrag(new SvgElem('g').withAttributes({"font-size": 24})
-          .add(new SvgText(  190, 580, "$p_{k-2}$"))
+          .add(new SvgText(  160, 580, "$p_{k-2}$"))
           .add(new SvgText(  243, 580, "$p_k$"))
-          .add(new SvgText(  273, 580, "$p_{k+2}$"))
+          .add(new SvgText(  303, 580, "$p_{k+2}$"))
           .add(new SvgPlot(  30, 480, 40, 70, data2, {smoothness: 0.6, grid: [[0, null, 3]]}, palette1))
-          .add(new SvgText( 350, 485, "$p_{k+2}p_{k-2}\\ge p_k^2 \\ge c\\cdot(1-\\delta)^2$")), 6)
+          .add(new SvgText( 300, 475, "$p_{k+2}p_{k-2}\\ge c\\cdot p_k^2 \\ge c\\cdot(1-\\delta)^2$")), 6)
 
+}
+
+//svg-leaf
+{
+  let palette1 = {
+         s: "#5080c6",
+       "b": "white",
+       "r": "#ffdcdc",
+      text: "black",
+  }
+
+  let x = 90;
+  let y = 110
+  getSvgElem('svg-leaf').addFrag(new SvgElem('g')
+      .add(new SvgMatrix(x + 120, y +  0, 360, 40, [["$w$"]], ["b"], palette1))
+      .add(new SvgMatrix(x + 120, y + 70, 360, 40, [["$x$"], ["$x_0$"], ["$x_{01}$"], ["$x_{011}$"]], ["b", "b", "b", "b"], palette1))
+      .add(new SvgMatrix(x +   0, y + 70,  40, 40, ["0","1","1","0"], ["b","b","b","b"], palette1))
+      .add(new SvgText  (x +  70, y +160, "$=$")), 2);
 
 }
 
