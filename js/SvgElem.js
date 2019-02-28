@@ -84,11 +84,13 @@ SvgElem.prototype.unwrap = function() {
  */
 function SvgText(x,  y, content, color) {
   if (content[0] == "$") {
-    let f = new SvgElem('foreignObject').withAttributes({"x": x, "y": y - 30, "height": 40, "width": 340})
+    let /** string */ tex = renderInline(content.slice(1, -1), null, null);
+    let /** number */ width = Math.min(Math.max(40, tex.length * 5), 340);
+    let f = new SvgElem('foreignObject').withAttributes({"x": x, "y": y - 30, "height": 40, "width": width})
     if (color) {
       f.withAttributes({"color": color});
     }
-    f.elem.innerHTML = renderInline(content.slice(1, -1), null, null);
+    f.elem.innerHTML = tex;
     this.elem = f.elem;
   } else {
     /** const {!SvgElem} */

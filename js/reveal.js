@@ -4363,8 +4363,9 @@
 					}
 
           let triggerFunction = triggerMap[element.dataset["trigger"]]
-					if (triggerFunction)
+					if (triggerFunction) {
 					  triggerFunction(i <= index);
+					}
 
 					// Visible fragments
 					if( i <= index ) {

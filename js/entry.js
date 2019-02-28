@@ -39,14 +39,14 @@ let palette = {"1" : "#fee", s: "#DDD"};
   let /** string */ yp = "10" + "00" + "11";
   let /** string */ zp = xor(xp, yp);
   getSvgElem("svg-reduce")
-      .addFrag(new SvgElem('g')
+      .add(new SvgElem('g')
           .add(new SvgMatrix(90,   2, 43, 43, [x], [z], palette))
           .add(new SvgText  (10,  31, "x"))
-          .add(new SvgText  (36,  34, "=")), 3)
-      .addFrag(new SvgElem('g')
+          .add(new SvgText  (36,  34, "=")))
+      .add(new SvgElem('g')
           .add(new SvgMatrix(90, 202, 43, 43, [y], [z], palette))
           .add(new SvgText  (10, 231, "y"))
-          .add(new SvgText  (36, 234, "=")), 3)
+          .add(new SvgText  (36, 234, "=")))
       .addFrag(new SvgElem('g')
           .add(new SvgMatrix(90,  68,172, 43, [xp], [zp], palette))
           .add(new SvgText  (10,  97, "x'"))
@@ -78,12 +78,12 @@ let palette = {"1" : "#fee", s: "#DDD"};
   }
 
   /** @const {!Array<number>} */
-  let data = [0.17, 0.1, 0.19, 0.01, 0.13, 0.86, 0.07, 0.001, 0.2, 0.04, 0.2, 0.05, 0, 0];
+  let data = [0.12, 0.05, 0.14, 0.01, 0.13, 0.91, 0.07, 0.001, 0.15, 0.04, 0.15, 0.05, 0.13, 0];
   /** @const {!Object} */
   let dimensions = {miny: 0, maxy : 1, smoothness: 0.6, grid: [[0, "0", 3], [0.2, "δ", 0.3], [1, "1", 0.3], [0.8, "1-δ", 0.3]]};
 
   /** @const {!Array<number>} */
-  let data2 = [0.17, 0.1, 0.19, 0.60, 0.70, 0.86, 0.67, 0.4, 0.3, 0.04, 0.2, 0.05, 0, 0];
+  let data2 = [0.12, 0.05, 0.14, 0.60, 0.70, 0.91, 0.67, 0.4, 0.3, 0.04, 0.15, 0.05, 0.13, 0];
 
   getSvgElem('svg-praccept')
       .add(new SvgMatrix(269,  30, 40, 40, ["00000000"], ["rrrrrrrr"], palette2))

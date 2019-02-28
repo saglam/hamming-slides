@@ -148,6 +148,19 @@ body {
     opacity: 1;
     visibility: inherit; }
 
+
+.reveal .slides section .fragment.semi-fade-in {
+  opacity: 0.6;
+  visibility: inherit; }
+  .reveal .slides section .fragment.semi-fade-in.visible {
+    opacity: 1;
+    visibility: inherit; }
+  .reveal .slides section .fragment.semi-fade-in.current-fragment {
+    opacity: 1;
+    visibility: inherit; }
+
+
+
 .reveal .slides section .fragment.highlight-red,
 .reveal .slides section .fragment.highlight-current-red,
 .reveal .slides section .fragment.highlight-green,
