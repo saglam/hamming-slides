@@ -5,7 +5,7 @@
     <title>Near log-convexity of heat and the k-Hamming distance problem</title>
     <meta name="description" content="Near log-convexity of heat and the k-Hamming distance problem">
     <meta name="author" content="Mert Sağlam">
-    <meta name="keywords" content="k Hamming distance, Erdős Simonovits conjecture">
+    <meta name="keywords" content="presentation, talk, k Hamming distance, Erdős Simonovits conjecture, Blakley Dixon conjecture">
     <meta property="og:url" content="https://mert.saglam.id/talks/hamming-ias/"/>
     <meta property="og:image" content="img/thumb.png"/>
 
@@ -37,11 +37,11 @@
           <h2>Hamming distance defined</h2>
           <div style="position:absolute; left:300px; top: 170px;">$\Ham(x,y)\colon$ number of mismatches of $x,y$.</div>
           <svg width=710 height=350 id="svg-def" style="position:absolute; left:220px; top: 230px;" />
-          <div class=fragment style="position:absolute; left:300px; top: 460px;">$\Ham(x,y) = 4$</div>
+          <div style="position:absolute; left:300px; top: 460px;">$\Ham(x,y) = 4$</div>
         </section>
 
         <section id=outline class="lefty texnify">
-          <h2>$k$-Hamming distance is hard to compute:</h2>
+          <h2 style="white-space:nowrap">$k$-Hamming distance is hard to compute...</h2>
           <ol id=outline-list type="I">
             <li><b>Comunication complexity.</b> Any $k$-Hamming 
               distance protocol requires $\Omega(k \log k)$ bits
@@ -56,6 +56,10 @@
               decision tree for $k$-Hamming weight has size $\exp(\Omega(k \log k))$</li>
               <span class=fragment data-fragment-index=4 style="float:right; position:relative; top:10px;color:#a44">(best previous unknown)</span>
           </ol>
+        </section>
+
+        <section id=outline2>
+          <h2>...due to the way heat behaves</h2>
         </section>
 
         <section id="intermission-comm">
@@ -132,17 +136,20 @@
               <path fill="#333" d="M327.01 342h-47.03v12h47.03zM78 419h262.77a6 6 0 0 0 0-12H78a6 6 0 0 0 0 12zm-32 0h11a6 6 0 0 0 0-12H46a6 6 0 0 0 0 12zm316 0h11a6 6 0 0 0 0-12h-11a6 6 0 0 0 0 12z"/>
               <g class=fragment data-fragment-index=4 fill="#fff">
                 <path style="transition-delay: 1s"d="M161 123a6 6 0 0 1-6-6v-12.231a6 6 0 0 1 12 0V117a6 6 0 0 1-6 6z"/>
-                <path d="M145 77a6 6 0 0 0 5.66-4 62.73 62.73 0 0 1 28.3-33.71 6 6 0 0 0-5.92-10.45A74.73 74.73 0 0 0 139.34 69a6 6 0 0 0 3.66 7.66 5.97 5.97 0 0 0 2 .34zm51-44a6 6 0 0 0 1.19-.12A62.8 62.8 0 0 1 209.5 32a6 6 0 0 0 0-12c-4.94 0-9.9.5-14.7 1.46a6 6 0 1 0 1.17 11.88zm-84 366a6 6 0 0 0 6-6v-27a6 6 0 0 0-12 0v27a6 6 0 0 0 6 6z"/>
+                <path d="M145 77a6 6 0 0 0 5.66-4 62.73 62.73 0 0 1 28.3-33.71 6 6 0 0 0-5.92-10.45A74.73 74.73 0 0 0 139.34 69a6 6 0 0 0 3.66 7.66 5.97 5.97 0 0 0 2 .34zm51-44a6 6 0 0 0 1.19-.12A62.8 62.8 0 0 1 209.5 32a6 6 0 0 0 0-12c-4.94 0-9.9.5-14.7 1.46a6 6 0 1 0 1.17 11.88z" transform="translate(-26,70)rotate(-20)"></path>
+                <path d="M107 400a6 6 0 0 0 6-6v-27a6 6 0 0 0-12 0v27a6 6 0 0 0 6 6z"/>
               </g>
             </g>
-            <foreignObject class=texnify x=180 y=210>$x=010010101010101110$</foreignObject>
-            <foreignObject class=texnify x=680 y=210>$y=010010101010010100$</foreignObject>
-            <foreignObject class=texnify x=530 y=10>$\Ham(x,y)=?$</foreignObject>
+            <g font-size=29>
+              <foreignObject class=texnify x=190 y=214 height=40 width=500>$x=010010101010101110$</foreignObject>
+              <foreignObject class=texnify x=690 y=214 height=40 width=500>$y=010010101010010100$</foreignObject>
+            </g>
+            <foreignObject class=texnify x=530 y=10  height=40 width=200>$\Ham(x,y)=?$</foreignObject>
           </svg>
-          <ul id=comm-list class="texnify">
-            <li data-fragment-index=1>Alice receives $x\in\{0,1\}^n$.</li>
-            <li data-fragment-index=2>Bob receives $y\in\{0,1\}^n$.</li>
-            <li class=fragment data-fragment-index=3>With the promise: $\Ham(x,y)\le k$.</li>
+          <ul id=comm-def-list class="texnify">
+            <li>Alice receives $x\in\{0,1\}^n$.</li>
+            <li>Bob receives $y\in\{0,1\}^n$.</li>
+            <li><b>Promised:</b> $\Ham(x,y)\le k$.</li>
             <li class=fragment data-fragment-index=4>Both have access to shared 
               randomness <span class=rand>R</span>.</li>
             <li class=fragment data-fragment-index=5><b>Goal:</b> output $\Ham(x,y)$
@@ -174,7 +181,8 @@
             <li class=fragment data-fragment-index=1 data-trigger="colorGraph">Alice and Bob fix a <em>proper coloring</em> of this graph</li>
           </ul>
           <ol class=fragment data-fragment-index=2 id=protocol-box>
-            <li style="margin-bottom:1em;">Alice sends the color of $x$ over to Bob.</li>
+            <div style="margin:0 0 0.2em -1em; font-weight:700;">Protocol.</div>
+            <li style="margin-bottom:0.3em;">Alice sends the color of $x$ over to Bob.</li>
             <li>Bob declares closest string to $y$ with the given color as $x$.
               This recovers $x$. <b class=fragment data-fragment-index=6>Suppose not</b>
             </li>
@@ -189,7 +197,7 @@
             <circle stroke="black" stroke-width="2" id="ic5" fill="none" cx="174.5" cy="368.5" r="30"/>
             <circle stroke="black" stroke-width="2" id="ic6" fill="none" cx="339.5" cy="445.5" r="30"/>
             <circle stroke="black" stroke-width="2" id="ic7" fill="none" cx="562.5" cy="293.5" r="30"/>
-            <foreignObject x="360" y="10" height=40 width=150 class=texnify>$\Ham(u,v)\le 2k$</foreignObject>
+            <foreignObject x="360" y="10" height=40 width=250 class=texnify>$\Ham(u,v)\le 2k$</foreignObject>
             <text x="556" y="300" font-size="30">y</text>
             <text x="332" y="271" font-size="30">x</text>
             <path stroke="none" stroke-width="1" fill="none" d="M 105.301,136.996 A 214.31,214.31 0 0 1 282.078,76.767"/>
@@ -215,7 +223,7 @@
             <path stroke="black" stroke-width="1" fill=none d="M157.567,88l57.87,109"/>
             <text x="165" y="155"  font-size="20">≤k</text>
             <path stroke=black stroke-width=1 fill=none d="M241.542,196l47,-108"/>
-            <text x="275" y="150" font-size="20">≤Ham(x,y)≤k</text>
+            <text x="275" y="150" font-size="20">≤Ham(x, y)≤k</text>
             <path stroke="black" stroke-width="1" fill="none" d="M 166.866,42.838 A 108.104,108.104 0 0 1 277.134,42.838"/>
             <text class=fragment data-fragment-index=7  x="200.5" y="18.5" font-size="20">≤2k (triangle ineq.)</text>
           </svg>
@@ -229,15 +237,15 @@
             <text fill="#f12" x="155" y="41">Error!</text>
           </svg>
           <ul id=reduction-list style="margin: 0.8em 4em 0 2em;">
-            <li>Permute coordinates randomly</li>
+            <li>Permute coordinates randomly (use random source <span class=rand>R</span>)</li>
             <li class=fragment data-fragment-index=4>Replace every next $\delta n/k^2$ bits with their XOR</li>
-            <li class=fragment data-fragment-index=5>Run the previous protocol on new strings of length $k^2/\delta$</li>
+            <li class=fragment data-fragment-index=4>Run the previous protocol on new strings of length $k^2/\delta$</li>
             <li class=fragment data-fragment-index=6>Incurs an error probability of $\le \delta$</li>
             <li class=fragment data-fragment-index=6>Complexity $O(k\log (k/\delta))$</li>
           </ul>
         </section>
 
-        <section id=bounds1 class="lefty texnify">
+        <section id=comm-bounds1 class="lefty texnify">
           <h3>Known bounds until 2011</h3>
           <table id=bounds-table1 class=bounds-table>
             <tr style="border-bottom:2px solid #555;">
@@ -270,7 +278,7 @@
           <h3>Property testing</h3>
         </section>
 
-        <section id=ptest1 class="lefty texnify">
+        <section id=ptest-connect class="lefty texnify">
           <h3>Property testing</h3>
           <ul id=ptest1-list>
             <li>
@@ -293,7 +301,7 @@
           </ul>
         </section>
 
-        <section id=ptest2 class="lefty texnify">
+        <section id=ptest-define class="lefty texnify">
           <h3>Property testing: $k$-linearity</h3>
           <div class=definition style="margin:0.7em 0 0.7em -0.3em; width:580px;">
             <b>Definition.</b>
@@ -335,7 +343,7 @@
            </div>
         </section>
 
-        <section id=ptest3 class="lefty texnify">
+        <section id=ptest-bounds class="lefty texnify">
           <h3>Property testing: $k$-linearity</h3>
           <table id=bounds-proptable class=bounds-table>
             <tr style="border-bottom:2px solid #555;">
@@ -382,7 +390,7 @@
           </ul>-->
         </section>
 
-        <section id=bounds2 class="lefty texnify">
+        <section id=comm-bounds2 class="lefty texnify">
           <h3>Back to communication complexity:</h3>
           <h4>$k$-Hamming distance bounds after 2011</h4>
          <table id=bounds-table2 class=bounds-table>
@@ -427,7 +435,7 @@
             <text x="521.5" y="163.5"  font-size="20">1</text>
             <g class="fragment" data-fragment-index="5">
               <ellipse stroke="black" stroke-width="1" fill="none" cx="324.5" cy="246.5" rx="30" ry="30"/>
-              <foreignObject x="297" y="235" font-size="20" height="30" width="30">$\langle x_0, w\rangle=?$</foreignObject>
+              <foreignObject x="297" y="235" font-size="20" height="30" width="100">$\langle x_0, w\rangle=?$</foreignObject>
               <ellipse stroke="black" stroke-width="1" fill="none" cx="244.5" cy="389.5" rx="30" ry="30"/>
               <foreignObject x="233" y="378" font-size="20" height="30" width="30">$x_{00}$</foreignObject>
               <ellipse stroke="black" stroke-width="1" fill="none" cx="363.5" cy="389.5" rx="30" ry="30"/>
@@ -501,7 +509,7 @@
           <ul id="pdt-list">
             <li>Suppose a secret $w\in\field_2^n$ is chosen</li>
             <li><b>Task:</b> Decide if $\|w\|_1\lt k$</li>
-            <li class=fragment data-fragment-index=3>We can only pick 
+            <li class=fragment data-fragment-index=4>We can only pick 
               query points $x\in\field_2^n$ and receive $\langle x,w\rangle\in\field_2^n$</li>
             <li class=fragment data-fragment-index=8>
               We measure<br/>

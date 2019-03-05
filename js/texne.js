@@ -108,11 +108,11 @@ let Digits = /[0-9]*/;
 /**
  * @const {RegExp}
  */
-let RightAttachment = /[a-zA-Z._\-,]*/;
+let RightAttachment = /[a-zA-Z._\-,)]*/;
 /**
  * @const {RegExp}
  */
-let LeftAttachment = /[a-zA-Z.\-]*$/;
+let LeftAttachment = /[a-zA-Z.\-(]*$/;
 
 /**
  * @param {Atom} leftAtom

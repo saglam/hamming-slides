@@ -1,7 +1,7 @@
+local_deploy: build/index.html build/index.html.gz build/index.html.br
+
 present: local_deploy
 	./hamming --nocompile
-
-local_deploy: build/index.html build/index.html.gz build/index.html.br
 
 build/js/all.js: js/texne.js js/SVGElement.js js/SvgElem.js js/mathplot.js js/entry.js js/reveal.js
 	mkdir -p build/js
