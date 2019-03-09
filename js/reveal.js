@@ -332,6 +332,17 @@
             document.getElementById('graph').classList.remove('edgeful');
           }
         },
+    "resetwvector":
+        /**
+         * @param {boolean} reset rotation or not
+         */
+        function(reset) {
+          if (reset) {
+            document.getElementById('wvector').classList.remove('rotated');
+          } else {
+            document.getElementById("wvector").classList.add('rotated');
+          }
+        }
   }
 
 	/**

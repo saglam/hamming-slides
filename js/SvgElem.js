@@ -108,6 +108,7 @@ function SvgText(x,  y, content, color) {
  * The grid lines are of color palette.s
  * 
  * @private
+ * @param {SvgElem} g
  * @param {!number} x
  * @param {!number} y
  * @param {!number} cellWidth
@@ -115,16 +116,14 @@ function SvgText(x,  y, content, color) {
  * @param {!number} cols count of the grid
  * @param {!number} rows count of the grid
  * @param {!Object<string, string>} palette mapping color names to color codes
- * @return {!SvgElem}
  */
-function createGrid(x, y, cellWidth, cellHeight, cols, rows, palette) {
+function addGrid(g, x, y, cellWidth, cellHeight, cols, rows, palette) {
   /** @const {number} */
   let height = cellHeight * rows;
   /** @const {number} */
   let width = cellWidth * cols;
 
-  /** @const {!SvgElem} */
-  let g = new SvgElem('g').add(new SvgElem('rect').withAttributes({
+  g.add(new SvgElem('rect').withAttributes({
           "x": x,  "y": y,
           "rx": 4, "ry": 4,
           "width": width, "height": height,
@@ -144,7 +143,6 @@ function createGrid(x, y, cellWidth, cellHeight, cols, rows, palette) {
             "d"      : "M" + (x + offset) + " " + cy + "h" + (width - 2*offset),
             "stroke" : palette.s, "stroke-width": 2}));
   }
-  return g;
 }
 
 /**
@@ -167,7 +165,7 @@ function SvgMatrix(x, y, cellWidth, cellHeight, content, colors, palette) {
   let cols = content[0].length;
 
   /** @const {!SvgElem} */
-  let g = createGrid(x, y, cellWidth, cellHeight, cols, rows, palette);
+  let g = new SvgElem('g');
 
   /** @const {number} */
   let dx = cellWidth / 2 - 8;
@@ -186,8 +184,12 @@ function SvgMatrix(x, y, cellWidth, cellHeight, content, colors, palette) {
     }
   }
 
+  addGrid(g, x, y, cellWidth, cellHeight, cols, rows, palette);
+
   this.elem = g.elem;
 }
+
+SvgMatrix.prototype.withAttributes = SvgElem.prototype.withAttributes;
 
 /**
  * SVG plot class

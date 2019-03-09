@@ -45,16 +45,16 @@
           <ol id=outline-list type="I">
             <li><b>Comunication complexity.</b> Any $k$-Hamming 
               distance protocol requires $\Omega(k \log k)$ bits
-              <span class=fragment data-fragment-index=4 style="float:right; position:relative; top:10px;color:#a44">(best previous $\Omega(k)$)</span>
+              <span class=fragment data-fragment-index=1 style="float:right; position:relative; top:10px;color:#a44">(best previous $\Omega(k)$)</span>
             </li>
-            <li class="fragment semi-fade-in" data-fragment-index=1>
+            <li>
               <b>Property testing.</b> Any property tester for 
               $k$-linearity requires $\Omega(k \log k)$ queries.
-              <span class=fragment data-fragment-index=4 style="float:right; position:relative; top:10px;color:#a44">(best previous $\Omega(k)$)</span>
-            <li class="fragment semi-fade-in" data-fragment-index=2>
+              <span class=fragment data-fragment-index=1 style="float:right; position:relative; top:10px;color:#a44">(best previous $\Omega(k)$)</span>
+            <li>
               <b>Parity decision trees.</b> Any randomized parity 
               decision tree for $k$-Hamming weight has size $\exp(\Omega(k \log k))$</li>
-              <span class=fragment data-fragment-index=4 style="float:right; position:relative; top:10px;color:#a44">(best previous unknown)</span>
+              <span class=fragment data-fragment-index=1 style="float:right; position:relative; top:10px;color:#a44">(best previous unknown)</span>
           </ol>
         </section>
 
@@ -152,7 +152,7 @@
             <li><b>Promised:</b> $\Ham(x,y)\le k$.</li>
             <li class=fragment data-fragment-index=4>Both have access to shared 
               randomness <span class=rand>R</span>.</li>
-            <li class=fragment data-fragment-index=5><b>Goal:</b> output $\Ham(x,y)$
+            <li class=fragment data-fragment-index=4><b>Goal:</b> output $\Ham(x,y)$
           </ul>
           <svg id=sun class=fragment data-fragment-index=4 width=250 viewBox="0 0 187 187">
             <path fill="#f7a663" d="M102 41L94 0l-8 41h8z"/>
@@ -257,16 +257,16 @@
             <tr class="underline visible">
               <td>$\Omega(k)$</td><td>any   </td><td> 1/3      </td><td>Disj </td><td>Kalyanasundaram, Schnitger'1987</td>
             </tr>
-            <tr class="fragment underline" data-fragment-index=1>
+            <tr class="underline visible">
               <td>$\Omega(k \log (1/\delta))$</td>
                                   <td>1-round</td><td> $\delta$ </td><td>Index</td><td>Sağlam'2011</td>
-            </tr><tr class="fragment underline" data-fragment-index=1>
+            </tr><tr class="underline visible">
               <td>$\Omega(k \log (1/\delta))$</td>
                                   <td>1-round</td><td> $\delta$ </td><td>Augmented Index</td><td>Jayram, Woodruff'2011</td>
-            </tr><tr class="fragment underline" data-fragment-index=2>
+            </tr><tr class="underline visible">
               <td>$\Omega(k \log k)$</td>
                                   <td>1-round</td><td> 1/3      </td><td>$\Disj_k$</td><td>Various researchers, 2000s</td>
-            </tr><tr class="fragment underline" data-fragment-index=2>
+            </tr><tr class="underline visible">
               <td class=nb>$\Omega(k)$, quantum</td><td>any</td><td>1/3</td><td>$k$-Intersection</td><td>Razborov'2002<br><span class=nb>Huang, Shi, Zhang, Zhu'2005</span></td>
             </tr>
           </table>
@@ -276,29 +276,6 @@
           <div style="height:200px"></div>
           <h2>Model II</h2>
           <h3>Property testing</h3>
-        </section>
-
-        <section id=ptest-connect class="lefty texnify">
-          <h3>Property testing</h3>
-          <ul id=ptest1-list>
-            <li>
-              <b>CCC'2011:</b> A new connection between $k$-Hamming distance and well-studied area property testing
-              <span style="white-space:nowrap">(Blais, Brody, Matulef'2011)</span>
-            </li>
-            <li class="fragment semi-fade-in">
-               Lower bound for $k$-Hamming distance <span style="font-size:larger">⇒</span><br>
-               <span style="margin-left:2em">lower bounds for property testing of 
-                 <ul style="display:inline-block; margin:0.2em 5em 0">
-                    <li>$k$-linearity</li>
-                    <li>$k$-juntas</li>
-                    <li>$k$-DNFs</li>
-                  </ul>
-               </span>
-            </li>
-            <li class=fragment>
-              A new wave of interest in $k$-Hamming distance problem
-            </li>
-          </ul>
         </section>
 
         <section id=ptest-define class="lefty texnify">
@@ -341,6 +318,29 @@
                  $\eps$ away from $k$-linear
              </div>
            </div>
+        </section>
+
+        <section id=ptest-connect class="lefty texnify">
+          <h3>Property testing</h3>
+          <ul id=ptest1-list>
+            <li>
+              <b>Blais, Brody, Matulef'2011:</b><br>
+              A new connection between $k$-Hamming distance and well-studied area property testing
+            </li>
+            <li class="fragment semi-fade-in">
+               Lower bound for $k$-Hamming distance <span style="font-size:larger">⇒</span><br>
+               <span style="margin-left:2em">lower bounds for property testing of 
+                 <ul style="display:inline-block; margin:0.2em 5em 0">
+                    <li>$k$-linearity</li>
+                    <li>$k$-juntas</li>
+                    <li>$k$-DNFs</li>
+                  </ul>
+               </span>
+            </li>
+            <li class=fragment>
+              A new wave of interest in $k$-Hamming distance problem
+            </li>
+          </ul>
         </section>
 
         <section id=ptest-bounds class="lefty texnify">
@@ -578,7 +578,7 @@
           </svg>
         </section>
         <section id=pdt-heat class="lefty texnify">
-          <h3>From PDTs to heat flows</h3>
+          <h3>From PDTs to random walks</h3>
           <svg id="svg-praccept" width=620 height=590 style="position:absolute; right:0;"></svg>
           <ul id=pdt-mc-list style="width: 500px;">
             <li>Given a PDT that on input $w$
@@ -594,109 +594,309 @@
               </ul>
             </li>
             <li class=fragment data-fragment-index=4>
-              Let $p_k = $ fraction of weight-$k$ inputs accepted
+              Let $a_k = $ fraction of weight-$k$ inputs accepted
             </li>
             <li class=fragment data-fragment-index=5>
               <em>The way heat behaves</em> ⇒
-              If PDT is small, $\ldots, p_{k-2}, p_{k}, p_{k+2},\ldots$<br> is nearly log-convex
+              If PDT is small, $\ldots, a_{k-2}, a_{k}, a_{k+2},\ldots$<br> is nearly log-convex
             </li>
           </ul>
         </section>
 
         <section id=pdt-leaf class="texnify lefty">
-          <h3>Contribution of a single leaf to $p_k$:</h3>
+          <h3>Contribution of a single leaf to $a_k$:</h3>
           <svg id="svg-leaf" width="1200" height="675" style="position:absolute;top:0;right:0px;">
             <foreignObject x="815.5" y="110.5" height="40" width="100" font-size="20">$\langle x, w\rangle=?$</foreignObject>
             <foreignObject x="713" y="235" font-size="20" height="30" width="30">$x_0$</foreignObject>
             <foreignObject x="752.5" y="378" font-size="20" height="30" width="30">$x_{01}$</foreignObject>
             <foreignObject x="804" y="502" font-size="20" height="30" width="40">$x_{011}$</foreignObject>
-            <foreignObject x="952" y="235" font-size="20" height="30" width="30">$x_1$</foreignObject>
-            <foreignObject x="1035" y="378" font-size="20" height="30" width="30">$x_{11}$</foreignObject>
-            <foreignObject x="633" y="378" font-size="20" height="30" width="30">$x_{00}$</foreignObject>
+            <g class="fragment quasi-fade-out" data-fragment-index=2>
+              <foreignObject x="952" y="235" font-size="20" height="30" width="30">$x_1$</foreignObject>
+              <foreignObject x="1035" y="378" font-size="20" height="30" width="30">$x_{11}$</foreignObject>
+            </g>
+            <g class="fragment fade-out" data-fragment-index=2>
+              <foreignObject x="633" y="378" font-size="20" height="30" width="30">$x_{00}$</foreignObject>
+            </g>
 
             <g transform="translate(400,0)">
-              <ellipse stroke="black" stroke-width="1" fill="none" cx="445.5" cy="121.5" rx="30" ry="30"/>
+              <circle stroke="black" stroke-width="1" fill="none" cx="445.5" cy="121.5" r="30"/>
               <path stroke="black" stroke-width="1" fill="none" d="M 339.618,220.602 A 304.138,304.138 0 0 1 420.107,137.452"/>
               <polygon fill="black" stroke-width="1" points="339.618,220.602 348.176,216.631 339.799,211.17"/>
               <text x="360.5" y="166.5"  font-size="20">0</text>
-              <path stroke="black" stroke-width="1" fill="none" d="M 471.913,135.678 A 223.597,223.597 0 0 1 550.097,219.208"/>
-              <polygon fill="black" stroke-width="1" points="550.097,219.208 550.71,209.794 541.904,214.533"/>
-              <text x="521.5" y="163.5"  font-size="20">1</text>
               <g>
                 <ellipse stroke="black" stroke-width="1" fill="none" cx="324.5" cy="246.5" rx="30" ry="30"/>
-                <ellipse stroke="black" stroke-width="1" fill="none" cx="244.5" cy="389.5" rx="30" ry="30"/>
                 <ellipse stroke="black" stroke-width="1" fill="none" cx="363.5" cy="389.5" rx="30" ry="30"/>
-                <path stroke="black" stroke-width="1" fill="none" d="M 254.146,361.102 A 370.23,370.23 0 0 1 305.347,269.58"/>
-                <polygon fill="black" stroke-width="1" points="254.146,361.102 261.689,355.436 252.358,351.839"/>
-                <text x="259.5" y="307.5" font-size="20">0</text>
                 <path stroke="black" stroke-width="1" fill="none" d="M 336.762,273.871 A 384.592,384.592 0 0 1 360.168,359.693"/>
                 <polygon fill="black" stroke-width="1" points="360.168,359.693 363.913,351.035 354.026,352.532"/>
                 <text x="358.5" y="316.5"  font-size="20">1</text>
               </g>
               <g>
-                <path stroke="black" stroke-width="1" fill="none" d="M 176.661,484.397 A 195.657,195.657 0 0 1 222.05,409.355"/>
-                <polygon fill="black" stroke-width="1" points="176.661,484.397 183.911,478.361 174.412,475.235"/>
-                <text x="178.5" y="437.5"  font-size="20">0</text>
-                <path stroke="black" stroke-width="1" fill="none" d="M 251.222,418.724 A 294.472,294.472 0 0 1 255.411,483.655"/>
-                <polygon fill="black" stroke-width="1" points="255.411,483.655 260.775,475.894 250.786,475.432"/>
-                <text x="261.5" y="456.5"  font-size="20">1</text>
-                <path stroke="black" stroke-width="1" fill="none" d="M 336.009,483.529 A 214.136,214.136 0 0 1 350.592,416.554"/>
-                <polygon fill="black" stroke-width="1" points="336.009,483.529 341.43,475.808 331.445,475.272"/>
-                <text x="323.5" y="451.5"  font-size="20">0</text>
                 <path stroke="black" stroke-width="1" fill="none" d="M 383.417,411.879 A 164.344,164.344 0 0 1 413.497,483.609"/>
                 <polygon fill="black" stroke-width="1" points="413.497,483.609 417.175,474.921 407.3,476.496"/>
                 <text x="410.5" y="442.5"  font-size="20">1</text>
-                <circle fill="#ffdcdc"  stroke="#ff9696" stroke-width="2" cx="252.5" cy="513.5" r="30"/>
-                <text x="238.5" y="519.5" fill="#333" font-size="20">NO</text>
-                <circle fill="#ffdcdc"  stroke="#ff9696" stroke-width="2" cx="336.5" cy="513.5" r="30"/>
-                <text x="322.5" y="519.5" fill="#333" font-size="20">NO</text>
-                <circle stroke="#5080c6" fill="#64aafa" stroke-width="2" cx="169.5" cy="513.5" r="30" />
-                <text x="150.5" y="519.5" font-size="20" fill="white">YES</text>
                 <circle stroke="#5080c6" fill="#64aafa" stroke-width="2" cx="357.5" cy="617.5" r="30"/>
                 <text x="340.5" y="623.5" font-size="20" fill="white">YES</text>
                 <circle stroke="black" stroke-width="1" fill="none" cx="415.5" cy="513.5" r="30"/>
-                <circle fill="#ffdcdc"  stroke="#ff9696" stroke-width="2" cx="470.5" cy="610.5" r="30"/>
-                <text x="453.5" y="615.5" fill="#333" font-size="20">NO</text>
                 <!--edges-->
                 <text x="363.5" y="560" font-size="20">0</text>
-                <text x="463.5" y="560" font-size="20">1</text>
                 <path stroke="black" stroke-width="1" fill="none" d="M 367.044,589.078 A 244.34,244.34 0 0 1 396.335,536.556"/>
                 <polygon fill="black" stroke-width="1" points="367.044,589.078 374.684,583.545 365.418,579.786"/>
-                <path stroke="black" stroke-width="1" fill="none" d="M 434.577,536.627 A 237.352,237.352 0 0 1 460.449,582.255"/>
-                <polygon fill="black" stroke-width="1" points="460.449,582.255 461.891,572.932 452.7,576.873"/>
               </g>
-              <g>
-                <path stroke="black" stroke-width="1" fill="none" d="M 534.332,359.563 A 401.361,401.361 0 0 1 552.146,274.649"/>
-                <polygon fill="black" stroke-width="1" points="534.332,359.563 540.095,352.093 530.143,351.11"/>
-                <text x="523.5" y="319.5"  font-size="20">0</text>
-                <path stroke="black" stroke-width="1" fill="none" d="M 584.839,266.491 A 225.733,225.733 0 0 1 639.917,360.254"/>
-                <polygon fill="black" stroke-width="1" points="639.917,360.254 642.44,351.164 632.851,354.002"/>
-                <text x="624.5" y="303.5"  font-size="20">1</text>
+            </g>
+            <g transform="translate(400, 0)" class="fragment fade-out" data-fragment-index=2>
+              <!-- x_00 -->
+              <circle stroke="black" stroke-width="1" fill="none" cx="244.5" cy="389.5" r="30"/>
+              <!-- x_0 -> x_00 -->
+              <path stroke="black" stroke-width="1" fill="none" d="M 254.146,361.102 A 370.23,370.23 0 0 1 305.347,269.58"/>
+              <polygon fill="black" stroke-width="1" points="254.146,361.102 261.689,355.436 252.358,351.839"/>
+              <text x="259.5" y="307.5" font-size="20">0</text>
+              <!-- x_00 -> YES -->
+              <path stroke="black" stroke-width="1" fill="none" d="M 176.661,484.397 A 195.657,195.657 0 0 1 222.05,409.355"/>
+              <polygon fill="black" stroke-width="1" points="176.661,484.397 183.911,478.361 174.412,475.235"/>
+              <text x="178.5" y="437.5"  font-size="20">0</text>
+              <!-- x_00 -> NO -->
+              <path stroke="black" stroke-width="1" fill="none" d="M 251.222,418.724 A 294.472,294.472 0 0 1 255.411,483.655"/>
+              <polygon fill="black" stroke-width="1" points="255.411,483.655 260.775,475.894 250.786,475.432"/>
+              <text x="261.5" y="456.5"  font-size="20">1</text>
+              <!-- NO -->
+              <circle fill="#ffdcdc"  stroke="#ff9696" stroke-width="2" cx="252.5" cy="513.5" r="30"/>
+              <text x="238.5" y="519.5" fill="#333" font-size="20">NO</text>
+              <!-- YES -->
+              <circle stroke="#5080c6" fill="#64aafa" stroke-width="2" cx="169.5" cy="513.5" r="30" />
+              <text x="150.5" y="519.5" font-size="20" fill="white">YES</text>
+            </g>
+            <g transform="translate(400, 0)" class="fragment quasi-fade-out" data-fragment-index=2>
+              <path stroke="black" stroke-width="1" fill="none" d="M 471.913,135.678 A 223.597,223.597 0 0 1 550.097,219.208"/>
+              <polygon fill="black" stroke-width="1" points="550.097,219.208 550.71,209.794 541.904,214.533"/>
+              <text x="521.5" y="163.5"  font-size="20">1</text>
 
-                <circle stroke="black" stroke-width="1" fill="none" cx="562.5" cy="246.5" r="30"/>
-                <circle stroke="black" stroke-width="1" fill="none" cx="646.5" cy="389.5" r="30"/>
+              <!-- NO -->
+              <circle fill="#ffdcdc"  stroke="#ff9696" stroke-width="2" cx="336.5" cy="513.5" r="30"/>
+              <text x="322.5" y="519.5" fill="#333" font-size="20">NO</text>
 
-                <circle fill="#ffdcdc" stroke="#ff9696" stroke-width="2" cx="532.5" cy="389.5" r="30"/>
-                <text x="518.5" y="395.5" fill="#333" font-size="20">NO</text>
-                <circle fill="#ffdcdc"  stroke="#ff9696" stroke-width="2" cx="637.5" cy="513.5" r="30"/>
-                <text x="623.5" y="519.5" fill="#333" font-size="20">NO</text>
-                <circle stroke="#5080c6" fill="#64aafa" stroke-width="2" cx="719.5" cy="513.5" r="30"/>
-                <text x="700.5" y="519.5" fill="white" font-size="20">YES</text>
+              <!-- x_01 to NO -->
+              <path stroke="black" stroke-width="1" fill="none" d="M 336.009,483.529 A 214.136,214.136 0 0 1 350.592,416.554"/>
+              <polygon fill="black" stroke-width="1" points="336.009,483.529 341.43,475.808 331.445,475.272"/>
+              <text x="323.5" y="451.5"  font-size="20">0</text>
+              <!-- x_011 to NO -->
+              <path stroke="black" stroke-width="1" fill="none" d="M 434.577,536.627 A 237.352,237.352 0 0 1 460.449,582.255"/>
+              <polygon fill="black" stroke-width="1" points="460.449,582.255 461.891,572.932 452.7,576.873"/>
+              <text x="463.5" y="560" font-size="20">1</text>
+              <!-- YES -->
+              <!-- in other group -->
+              <!-- NO -->
+              <circle fill="#ffdcdc"  stroke="#ff9696" stroke-width="2" cx="470.5" cy="610.5" r="30"/>
+              <text x="453.5" y="615.5" fill="#333" font-size="20">NO</text>
 
-                <path stroke="black" stroke-width="1" fill="none" d="M 633.494,483.79 A 232.124,232.124 0 0 1 638.246,418.32"/>
-                <polygon fill="black" stroke-width="1" points="633.494,483.79 637.927,475.462 627.951,476.156"/>
-                <text x="617.5" y="456.5"  font-size="20">0</text>
-                <path stroke="black" stroke-width="1" fill="none" d="M 667.514,410.883 A 237.499,237.499 0 0 1 711,484.75"/>
-                <polygon fill="black" stroke-width="1" points="711,484.75 712.948,475.519 703.556,478.954"/>
-                <text x="699.5" y="439.5"  font-size="20">1</text>
-              </g>
+              <!-- right subtree -->
+              <path stroke="black" stroke-width="1" fill="none" d="M 534.332,359.563 A 401.361,401.361 0 0 1 552.146,274.649"/>
+              <polygon fill="black" stroke-width="1" points="534.332,359.563 540.095,352.093 530.143,351.11"/>
+              <text x="523.5" y="319.5"  font-size="20">0</text>
+              <path stroke="black" stroke-width="1" fill="none" d="M 584.839,266.491 A 225.733,225.733 0 0 1 639.917,360.254"/>
+              <polygon fill="black" stroke-width="1" points="639.917,360.254 642.44,351.164 632.851,354.002"/>
+              <text x="624.5" y="303.5"  font-size="20">1</text>
+
+              <circle stroke="black" stroke-width="1" fill="none" cx="562.5" cy="246.5" r="30"/>
+              <circle stroke="black" stroke-width="1" fill="none" cx="646.5" cy="389.5" r="30"/>
+
+              <circle fill="#ffdcdc" stroke="#ff9696" stroke-width="2" cx="532.5" cy="389.5" r="30"/>
+              <text x="518.5" y="395.5" fill="#333" font-size="20">NO</text>
+              <circle fill="#ffdcdc"  stroke="#ff9696" stroke-width="2" cx="637.5" cy="513.5" r="30"/>
+              <text x="623.5" y="519.5" fill="#333" font-size="20">NO</text>
+              <circle stroke="#5080c6" fill="#64aafa" stroke-width="2" cx="719.5" cy="513.5" r="30"/>
+              <text x="700.5" y="519.5" fill="white" font-size="20">YES</text>
+
+              <path stroke="black" stroke-width="1" fill="none" d="M 633.494,483.79 A 232.124,232.124 0 0 1 638.246,418.32"/>
+              <polygon fill="black" stroke-width="1" points="633.494,483.79 637.927,475.462 627.951,476.156"/>
+              <text x="617.5" y="456.5"  font-size="20">0</text>
+              <path stroke="black" stroke-width="1" fill="none" d="M 667.514,410.883 A 237.499,237.499 0 0 1 711,484.75"/>
+              <polygon fill="black" stroke-width="1" points="711,484.75 712.948,475.519 703.556,478.954"/>
+              <text x="699.5" y="439.5"  font-size="20">1</text>
+            </g>
+          </svg>
+          <ul style="position: absolute; left: 4em; top:110px;">
+            <li class=fragment data-fragment-index=2>Which $w\in\{0,1\}^n$ are accepted at this leaf?</li>
+          </ul>
+          <ul style="position: absolute; left: 4em; bottom: 20px; width: 550px;">
+            <li class=fragment data-fragment-index=4 data-trigger="resetwvector" style="margin-bottom:20px;">The set 
+            $T = \{w\mid b=Aw\}$</li>
+            <li class=fragment data-fragment-index=5>Can $T$ have a lot of weight-$k$ vectors, but very little weight-$(k-2)$ <b>and</b>
+            weight-$(k+2)$ vectors?</li>
+          </ul>
+        </section>
+
+        <section id=pdt-to-mc class="texnify lefty">
+          <h3>From PDTs to random walks</h3>
+          <svg width=1040 height=300 id="svg-conv-walk"></svg>
+          <ul style="margin-left: 3em" id=pdt-affine-list>
+            <li>
+            Consider the random walk on $\{0,1\}^n$:
+            <ol>
+              <li>Start at $w_0=0$</li>
+              <li>Flip a random coordinate of $w_t$ in each time step $t$, obtain $w_{t+1}$</li>
+            </ol>
+            </li>
+            <li class=fragment>
+              Induces a random walk on $Aw$.
+            </li>
+            <li class=fragment>
+              <b>Observe:</b> If we walk for $t\le n^{1/2}/10$ steps, $\Pr[\|w_t\|_1 = t]\ge 0.9$
+            </li>
+          </ul>
+        </section>
+
+        <section id=pdt-to-mc2 class="texnify lefty">
+          <h3>From PDTs to Markov chains</h3>
+          <svg width=1040 height=300 id="svg-conv-walk2"></svg>
+          <ul style="margin-left:3em" id=pdt-affine-list2>
+            <li>
+              This leaf accepts $w_t$ iff $Aw_t = b$
+            </li>
+            <li>
+              Define $m_k =$ fraction of weight $k$ strings accepted by this leaf
+            </li>
+            <li class=fragment>
+              We have $m_t \approx\Pr[Aw_t = b]$. (for $t\le n^{1/2}/10$)
+            </li>
+            <li class=fragment>
+              Now we need to understand the probability that we start from node 0 and hit node $b$ at time $t$.
+            </li>
+          </ul>
+        </section>
+
+        <section id="mc-setup" class="texnify lefty">
+          <h3>A question on graphs</h3>
+          <svg width="390" id="graph" viewBox="50 0 570 500" class="edgeful" style="position: absolute; left: 400px; top:70px;">
+            <circle stroke="black" stroke-width="2" id="ic1" fill="none" cx="311.5" cy="82.5" r="30"/>
+            <circle stroke="black" stroke-width="2" id="ic2" fill="none" cx="85.5" cy="159.5" r="30"/>
+            <circle stroke="black" stroke-width="2" id="ic3" fill="none" cx="551.5" cy="115.5" r="30"/>
+            <circle stroke="black" stroke-width="2" id="ic4" fill="none" cx="339.5" cy="262.5" r="30"/>
+            <circle stroke="black" stroke-width="2" id="ic5" fill="none" cx="174.5" cy="368.5" r="30"/>
+            <circle stroke="black" stroke-width="2" id="ic6" fill="none" cx="339.5" cy="445.5" r="30"/>
+            <circle stroke="black" stroke-width="2" id="ic7" fill="none" cx="562.5" cy="293.5" r="30"/>
+            <text x="555" y="305" font-size="30">0</text>
+            <text x="77" y="171" font-size="30">b</text>
+            <path stroke="none" stroke-width="1" fill="none" d="M 105.301,136.996 A 214.31,214.31 0 0 1 282.078,76.767"/>
+            <path stroke="none" stroke-width="1" fill="none" d="M 339.442,71.643 A 222.893,222.893 0 0 1 527.525,97.505"/>
+            <path stroke="none" stroke-width="1" fill="none" d="M 310.4,255.212 A 876.629,876.629 0 0 1 111.457,174.539"/>
+            <path stroke="none" stroke-width="1" fill="none" d="M 152.569,348.057 A 246.543,246.543 0 0 1 85.04,189.478"/>
+            <path stroke="none" stroke-width="1" fill="none" d="M 309.541,444.679 A 194.836,194.836 0 0 1 194.373,390.934"/>
+            <path stroke="none" stroke-width="1" fill="none" d="M 335.479,415.774 A 571.868,571.868 0 0 1 335.479,292.226"/>
+            <path stroke="none" stroke-width="1" fill="none" d="M 532.518,294.439 A 580.105,580.105 0 0 1 368.089,271.581"/>
+            <path stroke="none" stroke-width="1" fill="none" d="M 574.079,135.116 A 111.363,111.363 0 0 1 582.492,271.254"/>
+            <path stroke="none" stroke-width="1" fill="none" d="M 330.644,233.841 A 526.44,526.44 0 0 1 311.768,112.495"/>
+            <path stroke="none" stroke-width="1" fill="none" d="M 361.064,241.647 A 706.644,706.644 0 0 1 524.41,128.384"/>
+            <path stroke="none" stroke-width="1" fill="none" d="M 553,321.927 A 203.809,203.809 0 0 1 369.433,447.049"/>
+          </svg>
+          <ul style="margin-left:3em; margin-top:11em;" id=pdt-walk-list>
+            <li>Start from node $0$. Perform a discrete time random walk.
+            </li>
+            <li class=fragment>Let $S$ be the normalized adjacency matrix of the graph (i.e., stochastic)</li>
+            <li class=fragment>We have $m_t =\langle \indicate_b, S^t \indicate_0\rangle$</li>
+            <li class=fragment>Note that $\|\indicate_b\|_2 = \|\indicate_0\|_2 = 1$.
+          </ul>
+        </section>
+
+
+        <section id="mc-setup-uv" class="texnify lefty">
+          <h3>A question on Markov chains</h3>
+          <svg width="390" id="graph" viewBox="50 0 570 500" class="edgeful" style="position: absolute; left: 400px; top:70px;">
+            <circle stroke="black" stroke-width="2" id="ic1" fill="none" cx="311.5" cy="82.5" r="30"/>
+            <circle stroke="black" stroke-width="2" id="ic2" fill="none" cx="85.5" cy="159.5" r="30"/>
+            <circle stroke="black" stroke-width="2" id="ic3" fill="none" cx="551.5" cy="115.5" r="30"/>
+            <circle stroke="black" stroke-width="2" id="ic4" fill="none" cx="339.5" cy="262.5" r="30"/>
+            <circle stroke="black" stroke-width="2" id="ic5" fill="none" cx="174.5" cy="368.5" r="30"/>
+            <circle stroke="black" stroke-width="2" id="ic6" fill="none" cx="339.5" cy="445.5" r="30"/>
+            <circle stroke="black" stroke-width="2" id="ic7" fill="none" cx="562.5" cy="293.5" r="30"/>
+            <text x="555" y="305" font-size="30">0</text>
+            <text x="77" y="171" font-size="30">b</text>
+            <path stroke="none" stroke-width="1" fill="none" d="M 105.301,136.996 A 214.31,214.31 0 0 1 282.078,76.767"/>
+            <path stroke="none" stroke-width="1" fill="none" d="M 339.442,71.643 A 222.893,222.893 0 0 1 527.525,97.505"/>
+            <path stroke="none" stroke-width="1" fill="none" d="M 310.4,255.212 A 876.629,876.629 0 0 1 111.457,174.539"/>
+            <path stroke="none" stroke-width="1" fill="none" d="M 152.569,348.057 A 246.543,246.543 0 0 1 85.04,189.478"/>
+            <path stroke="none" stroke-width="1" fill="none" d="M 309.541,444.679 A 194.836,194.836 0 0 1 194.373,390.934"/>
+            <path stroke="none" stroke-width="1" fill="none" d="M 335.479,415.774 A 571.868,571.868 0 0 1 335.479,292.226"/>
+            <path stroke="none" stroke-width="1" fill="none" d="M 532.518,294.439 A 580.105,580.105 0 0 1 368.089,271.581"/>
+            <path stroke="none" stroke-width="1" fill="none" d="M 574.079,135.116 A 111.363,111.363 0 0 1 582.492,271.254"/>
+            <path stroke="none" stroke-width="1" fill="none" d="M 330.644,233.841 A 526.44,526.44 0 0 1 311.768,112.495"/>
+            <path stroke="none" stroke-width="1" fill="none" d="M 361.064,241.647 A 706.644,706.644 0 0 1 524.41,128.384"/>
+            <path stroke="none" stroke-width="1" fill="none" d="M 553,321.927 A 203.809,203.809 0 0 1 369.433,447.049"/>
+          </svg>
+          <ul style="margin-left:3em; margin-top:11em;" id=pdt-walk-list>
+            <li>More generally for positive valued $u,v\colon\Omega\to\reals_+$ with $\|u\|_2=\|v\|_2=1$
+               <center style="margin:0.4em 0">$m_t = \langle v, S^tu\rangle$</center>
+            </li>
+            <li class=fragment>What can we say about $t\mapsto m_t$ that holds for any $S, u, v$?
+          </ul>
+        </section>
+
+        <section id="mc-bdes" class="texnify lefty">
+          <h3>The conjectures of Blakley Dixon Erdős and Simonovits</h3>
+          <div class=definition style="margin:0.7em 0 0.7em -0.3em; width:680px;">
+            <b>Conjecture.</b> (Erdős, Simonovits'1982)<br>
+            For $S$ a 0-1 matrix,  $u = v = \one/\|\one\|_2$, and $k\gt t$ natural numbers the same parity
+            we have $m_{k}^{1/k}\ge m_t^{1/t}$.
+          </div>
+          <br>
+
+          <div class="definition fragment" style="margin:0.7em 0 0.7em -0.3em; width:680px;">
+            <b>Conjecture.</b> (Blakley, Dixon'1966)<br>
+            For nonnegative $u = v$, and $k\gt t$ natural numbers the same parity
+            we have $m_{k}^{1/k}\ge m_t^{1/t}$.
+          </div>
+        </section>
+
+
+        <section id="mc-results" class="texnify lefty">
+          <h3>Our results</h3>
+          <div class=definition style="margin:0.7em 0 0.7em -0.3em; width:680px;">
+            <b>Theorem. (This work)</b><br>
+            For nonnegative $u$, $v$ which may be different, and $k\gt t$ natural numbers the same parity
+            we have $m_{k}^{1/k}\ge m_t^{1/t}$.
+          </div>
+
+          <div class="definition fragment" style="margin:0.7em 0 0.7em -0.3em; width:680px;">
+            <b>Theorem. (This work)</b><br>
+            For any $\eps$, there is a $\delta$ such that<br>
+            for nonnegative $u$, $v$ which may be different, either
+            <ul style="margin-left:2em;">
+              <li style="margin-bottom:0.5em">$m_{t+2}\cdot m_{t-2}\ge \delta m_t^2$</li>
+              <li> $m_{t+2} \ge t^{1-\eps} m_t^{1+2/t}$</li>
+            </ul>
+          </div>
+        </section>
+
+        <section id=mc-example>
+          <h3>An example random walk</h3>
+          <svg width=1040 height=200 id=mc-example>
+            <g transform="translate(45,0)">
+              <circle cx=100 cy=50 r=25 fill=none stroke=black />
+              <circle cx=250 cy=50 r=25 fill=none stroke=black />
+              <circle cx=400 cy=50 r=25 fill=none stroke=black />
+              <circle cx=550 cy=50 r=25 fill=none stroke=black />
+              <circle cx=700 cy=50 r=25 fill=none stroke=black />
+              <circle cx=850 cy=50 r=25 fill=none stroke=black />
+              <path fill=none stroke=black stroke-width=1 d="M 125,50h 100"/>
+              <path fill=none stroke=black stroke-width=1 d="M 275,50h 100"/>
+              <path fill=none stroke=black stroke-width=1 d="M 425,50h 100"/>
+              <path fill=none stroke=black stroke-width=1 d="M 575,50h 100"/>
+              <path fill=none stroke=black stroke-width=1 d="M 725,50h 100"/>
             </g>
           </svg>
         </section>
 
-        <section id=pdt-affine-ss class="texnify lefty">
-          <h3>From PDTs to heat flows</h3>
-          <svg width=1040 height=600 id="svg-conv-walk"></svg>
+        <section id="mc-setup">
+          <h3>The probabilistic setup</h3>
+        </section>
+
+        <section id="mc-forward">
+        </section>
+
+        <section id="mc-backward">
+        </section>
+
+        <section id=questions>
+          <h2>Thanks & Questions</h2>
         </section>
       </div>
     </div>

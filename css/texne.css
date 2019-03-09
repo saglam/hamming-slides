@@ -59,9 +59,27 @@
 
 .mdiv{
   position: relative;
+  bottom: -0.05em;
+  margin: 0 -0.15em;
+  display: inline-block;
+  transform:scale(1,1.40); 
+}
+
+.mpls {
+  position: relative;
   bottom: -0.1em;
   margin: 0 -0.15em;
-  font-size: 110%;
+}
+
+.mmns {
+  position: relative;
+  bottom: -0.1em;
+  margin: 0 -0.15em;
+}
+
+.mgt, .mlt {
+  position: relative;
+  bottom: -0.1em;
 }
 
 .mto {
@@ -72,7 +90,7 @@
 .min {
   vertical-align: baseline;
   margin: 0 -0.1em;
-  font-size: 70%;  
+  font-size: 70%;
 }
 
 .masx {
@@ -81,7 +99,10 @@
   top: 0.34em;
 }
 
-.msl, .msr,
+.msl, .msr {
+  font-size: 123%;
+}
+
 .mal, .mar{
   font-size: 118%;
   position: relative;
@@ -108,5 +129,11 @@
 
 .mpr {
   margin-left: 0.02em;
+}
+
+.mcdot {
+  position: relative;
+  bottom: -0.12em;
+  margin: 0 0.07em 0 -0.17em;
 }
 

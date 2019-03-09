@@ -106,13 +106,13 @@ let palette = {"1" : "#fee", s: "#DDD"};
           .add(new SvgMatrix( 230, 270, 40, 40, ["1"]  , ["b"  ], palette1)), 3)
       .addFrag(new SvgElem('g')
           .add(new SvgPlot(  30, 360, 40, 70, data, dimensions, palette1))
-          .add(new SvgText(   0, 400, "$p_k\\colon$")), 4)
+          .add(new SvgText(   0, 400, "$a_k\\colon$")), 4)
       .addFrag(new SvgElem('g').withAttributes({"font-size": 24})
-          .add(new SvgText(  160, 580, "$p_{k-2}$"))
-          .add(new SvgText(  243, 580, "$p_k$"))
-          .add(new SvgText(  303, 580, "$p_{k+2}$"))
+          .add(new SvgText(  160, 580, "$a_{k-2}$"))
+          .add(new SvgText(  243, 580, "$a_k$"))
+          .add(new SvgText(  303, 580, "$a_{k+2}$"))
           .add(new SvgPlot(  30, 480, 40, 70, data2, {smoothness: 0.6, grid: [[0, null, 3]]}, palette1))
-          .add(new SvgText( 300, 475, "$p_{k+2}p_{k-2}\\ge c\\cdot p_k^2 \\ge c\\cdot(1-\\delta)^2$")), 6)
+          .add(new SvgText( 300, 475, "$a_{k+2}a_{k-2}\\ge c\\cdot a_k^2 \\ge c\\cdot(1-\\delta)^2$")), 6)
 
 }
 
@@ -120,37 +120,83 @@ let palette = {"1" : "#fee", s: "#DDD"};
 {
   let palette1 = {
          s: "#5080c6",
-       "b": "white",
+       "b": "#f7faff",
        "r": "#ffdcdc",
       text: "black",
   }
 
-  let x = 90;
-  let y = 110
+  let x = 60;
+  let y = 200
   getSvgElem('svg-leaf').addFrag(new SvgElem('g')
-      .add(new SvgMatrix(x + 120, y +  0, 360, 40, [["$w$"]], ["b"], palette1))
       .add(new SvgMatrix(x + 120, y + 70, 360, 40, [["$x$"], ["$x_0$"], ["$x_{01}$"], ["$x_{011}$"]], ["b", "b", "b", "b"], palette1))
       .add(new SvgMatrix(x +   0, y + 70,  40, 40, ["0","1","1","0"], ["b","b","b","b"], palette1))
-      .add(new SvgText  (x +  70, y +160, "$=$")), 2);
+      .add(new SvgText  (x +  70, y +160, "$=$"))
+      .add(new SvgMatrix(x + 120, y +  0, 360, 40, [["$w$"]], ["b"], palette1).withAttributes({"id": "wvector", "class": "rotated"})), 3);
 
 }
 
 //svg-conv-walk
 {
+  let fade = {
+         s: "#999",
+       "b": "#f7faff",
+       "r": "#ffdcdc",
+      text: "#666",
+  }
+  
+  let normal = {
+         s: "#999",
+       "b": "#f7faff",
+       "r": "#ffdcdc",
+      text: "#111",
+  }
   let x  = "                 ";
   let xc = "00000000000000000";
   let A = ["01010100101001010",
            "10010101100011101",
            "11101001111010010",
-           "10011010000100011",
-           "00100010000001100"];
-  let Ac = [xc, xc, xc, xc, xc];
-  let b = ["0", "0", "0", "0", "0"];
+           "10011010000100011"];
+  let Ac = [xc, xc, xc, xc];
+  let b = ["0", "0", "0", "0"];
   let bc = b;
 
   getSvgElem('svg-conv-walk')
-      .add(new SvgMatrix(230, 30, 43, 43, [x], [xc], palette))
-      .add(new SvgMatrix(230, 93, 43, 43, A, Ac, palette))
-      .add(new SvgMatrix(100, 93, 43, 43, b, bc, palette));
+      .add(new SvgMatrix(230, 30, 43, 43, [x], [xc], normal))
+      .add(new SvgMatrix(230, 93, 43, 43, A, Ac, fade))
+      .add(new SvgMatrix(100, 93, 43, 43, b, bc, normal))
+      .add(new SvgText(175, 58, "$w\\colon$"))
+      .add(new SvgText(175, 190, "$=$"));
+}
+
+
+//svg-conv-walk2
+{
+  let fade = {
+         s: "#999",
+       "b": "#f7faff",
+       "r": "#ffdcdc",
+      text: "#666",
+  }
+  
+  let normal = {
+         s: "#999",
+       "b": "#f7faff",
+       "r": "#ffdcdc",
+      text: "#111",
+  }
+  let x  = "1   1   1   1    ";
+  let xc = "00000000000000000";
+  let A = ["01010100101001010",
+           "10010101100011101",
+           "11101001111010010",
+           "10011010000100011"];
+  let Ac = [xc, xc, xc, xc];
+  let b = ["1", "1", "0", "0"];
+  let bc =["0", "0", "0", "0"];
+
+  getSvgElem('svg-conv-walk2')
+      .add(new SvgMatrix(230, 30, 43, 43, [x], [xc], normal))
+      .add(new SvgMatrix(230, 93, 43, 43, A, Ac, fade))
+      .add(new SvgMatrix(100, 93, 43, 43, b, bc, normal));
 }
 

@@ -94,6 +94,13 @@ body {
     opacity: 0.5;
     visibility: inherit; }
 
+.reveal .slides section .fragment.quasi-fade-out {
+  opacity: 1;
+  visibility: inherit; }
+  .reveal .slides section .fragment.quasi-fade-out.visible {
+    opacity: 0.15;
+    visibility: inherit; }
+
 .reveal .slides section .fragment.strike {
   opacity: 1;
   visibility: inherit; }

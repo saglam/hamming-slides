@@ -121,6 +121,27 @@ section.has-light-background, section.has-light-background h1, section.has-light
   white-space: nowrap;
 }
 
+#wvector {
+  transition: transform 0.3s;
+  transform-origin: 180px 240px;
+}
+
+#wvector.rotated {
+  transform: translate(400px, 30px) rotate(90deg);
+}
+
+#pdt-affine-list > li {
+  margin-bottom: 0.6em;
+}
+
+#pdt-affine-list2 > li {
+  margin-bottom: 0.6em;
+}
+
+#pdt-walk-list > li {
+  margin-bottom: 0.6em;
+}
+
 /*********************************************
  * GLOBAL STYLES
  *********************************************/
