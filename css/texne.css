@@ -1,11 +1,15 @@
 .mop {
 }
 
-.msup,
 .msub,
 .msupsub {
   font-size: 65%;
   margin: 0 0.03em 0 0
+}
+
+.msup {
+  font-size: 65%;
+  margin: 0 0.03em 0 0.05em;
 }
 
 .msup {

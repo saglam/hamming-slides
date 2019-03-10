@@ -869,6 +869,10 @@
               <li> $m_{t+2} \ge t^{1-\eps} m_t^{1+2/t}$</li>
             </ul>
           </div>
+          
+          <div class=theoremlike style="width:200px; position:absolute;right:20px; top:100px;">
+            <b>Recall.</b><br>$m_t = \langle v,S^tu\rangle$
+          </div>
         </section>
 
         <section id=mc-example class="texnify">
@@ -921,56 +925,130 @@
 
         <section id="proof-setup" class="texnify">
           <h3>The probabilistic setup</h3>
-          <svg width="900" viewBox="-10 80 1030 350">
-	          <ellipse stroke="black" stroke-width="1" fill="none" cx="332.5" cy="139.5" rx="30" ry="30"/>
-	          <ellipse stroke="black" stroke-width="1" fill="none" cx="478.5" cy="126.5" rx="30" ry="30"/>
-	          <ellipse stroke="black" stroke-width="1" fill="none" cx="275.5" cy="268.5" rx="30" ry="30"/>
-	          <ellipse stroke="black" stroke-width="1" fill="none" cx="355.5" cy="397.5" rx="30" ry="30"/>
-	          <ellipse stroke="black" stroke-width="1" fill="none" cx="501.5" cy="385.5" rx="30" ry="30"/>
+          <svg width="700" version="1.1" viewBox="0 30 850 480" style="position:absolute; left:280px;">
+	          <circle cx=410 cy=280 r=220 stroke-width=3 stroke="lightblue" fill="#fcfcff"/>
+	          <text x="304.5" y="137.5" font-size="20">x1</text>
+	          <text x="492.5" y="130.5" font-size="20">x2</text>
+	          <text x="246.5" y="280.5" font-size="20">x3</text>
+	          <text x="316.5" y="417.5" font-size="20">x4</text>
+	          <text x="507.5" y="417.5" font-size="20">x5</text>
+	          <text x="540.5" y="268.5" font-size="20">x6</text>
+	          <ellipse stroke="black" stroke-width="1" fill="none" cx="315.5" cy="131.5" rx="30" ry="30"/>
+	          <ellipse stroke="black" stroke-width="1" fill="none" cx="501.5" cy="124.5" rx="30" ry="30"/>
+	          <ellipse stroke="black" stroke-width="1" fill="none" cx="255.5" cy="274.5" rx="30" ry="30"/>
+	          <ellipse stroke="black" stroke-width="1" fill="none" cx="325.5" cy="411.5" rx="30" ry="30"/>
+	          <ellipse stroke="black" stroke-width="1" fill="none" cx="516.5" cy="411.5" rx="30" ry="30"/>
 	          <ellipse stroke="black" stroke-width="1" fill="none" cx="549.5" cy="262.5" rx="30" ry="30"/>
-	          <ellipse stroke="black" stroke-width="1" fill="none" cx="419.5" cy="262.5" rx="30" ry="30"/>
-	          <ellipse stroke="black" stroke-width="1" fill="none" cx="29.5" cy="268.5" rx="30" ry="30"/>
-	          <ellipse stroke="black" stroke-width="1" fill="none" cx="791.5" cy="246.5" rx="30" ry="30"/>
-	          <path stroke="black" stroke-width="1" fill="none" d="M 278.61,238.695 A 183.827,183.827 0 0 1 312.557,161.867"/>
-	          <path stroke="black" stroke-width="1" fill="none" d="M 358.818,125.203 A 150.542,150.542 0 0 1 450.07,117.078"/>
-	          <path stroke="black" stroke-width="1" fill="none" d="M 504.591,141.144 A 118.385,118.385 0 0 1 552.4,232.721"/>
-	          <path stroke="black" stroke-width="1" fill="none" d="M 550.314,292.427 A 135.173,135.173 0 0 1 522.37,364.035"/>
-	          <path stroke="black" stroke-width="1" fill="none" d="M 476.183,401.471 A 130.547,130.547 0 0 1 383.085,409.123"/>
-	          <path stroke="black" stroke-width="1" fill="none" d="M 329.808,382.127 A 137.289,137.289 0 0 1 277.851,298.348"/>
-	          <path stroke="black" stroke-width="1" fill="none" d="M 415.59,292.215 A 197.541,197.541 0 0 1 376.029,375.664"/>
-	          <path stroke="black" stroke-width="1" fill="none" d="M 360.009,151.274 A 120.512,120.512 0 0 1 417.561,232.64"/>
-	          <path stroke="black" stroke-width="1" fill="none" d="M 443.085,244.195 A 88.056,88.056 0 0 1 525.915,244.195"/>
-	          <path stroke="black" stroke-width="1" fill="none" d="M 445.375,277.566 A 138.267,138.267 0 0 1 497.545,355.821"/>
-	          <g class=fragment>
-	            <path stroke="black" stroke-width="1" fill="none" d="M 50.069,246.672 A 376.676,376.676 0 0 1 302.509,139.197"/>
-	            <polygon fill="black" stroke-width="1" points="302.509,139.197 294.364,134.437 294.662,144.433"/>
-	            <path stroke="black" stroke-width="1" fill="none" d="M 36.968,239.46 A 268.625,268.625 0 0 1 455.692,107.036"/>
-	            <polygon fill="black" stroke-width="1" points="455.692,107.036 452.355,98.212 446.298,106.169"/>
-	            <path stroke="black" stroke-width="1" fill="none" d="M 246.377,275.678 A 453.357,453.357 0 0 1 58.623,275.678"/>
-	            <polygon fill="black" stroke-width="1" points="246.377,275.678 237.515,272.443 239.586,282.227"/>
-	            <path stroke="black" stroke-width="1" fill="none" d="M 325.531,398.709 A 399.145,399.145 0 0 1 50.527,289.888"/>
-	            <polygon fill="black" stroke-width="1" points="325.531,398.709 317.518,393.731 317.545,403.731"/>
+	          <ellipse stroke="black" stroke-width="1" fill="none" cx="413.5" cy="316.5" rx="30" ry="30"/>
+	          <path stroke="black" stroke-width="1" fill="none" d="M 258.683,244.693 A 220.795,220.795 0 0 1 296.461,154.655"/>
+	          <path stroke="black" stroke-width="1" fill="none" d="M 343.359,120.423 A 236.627,236.627 0 0 1 472.888,115.548"/>
+	          <path stroke="black" stroke-width="1" fill="none" d="M 525.54,142.287 A 108.691,108.691 0 0 1 557.313,233.634"/>
+	          <path stroke="black" stroke-width="1" fill="none" d="M 553.725,292.165 A 177.689,177.689 0 0 1 532.856,386.393"/>
+	          <path stroke="black" stroke-width="1" fill="none" d="M 488.803,422.963 A 214.034,214.034 0 0 1 353.197,422.963"/>
+	          <path stroke="black" stroke-width="1" fill="none" d="M 301.246,393.94 A 140.718,140.718 0 0 1 255.518,304.443"/>
+	          <path stroke="black" stroke-width="1" fill="none" d="M 339.283,384.889 A 189.68,189.68 0 0 1 388.019,332.275"/>
+	          <path stroke="black" stroke-width="1" fill="none" d="M 393.567,294.09 A 379.646,379.646 0 0 1 322.842,160.58"/>
+	          <path stroke="black" stroke-width="1" fill="none" d="M 436.211,296.951 A 181.247,181.247 0 0 1 519.565,263.854"/>
+	          <path stroke="black" stroke-width="1" fill="none" d="M 491.033,395.668 A 295.186,295.186 0 0 1 431.335,340.607"/>
+	          <text x=400 y=480>Ω</text>
+	          <g class=fragment data-fragment-index=1>
+  	          <ellipse stroke="black" stroke-width="1" fill="#00bfaf" cx="33.5" cy="245.5" rx="30" ry="30"/>
+	          	<text x="27" y="253" font-size="30" fill="white" style="font-weight:bold">a</text>
+	            <path stroke="black" stroke-width="1" fill="none" d="M 53.821,223.445 A 324.134,324.134 0 0 1 285.561,129.763"/>
+	            <polygon fill="black" stroke-width="1" points="285.561,129.763 277.62,124.67 277.503,134.67"/>
+	            <path stroke="black" stroke-width="1" fill="none" d="M 43.093,217.09 A 279.3,279.3 0 0 1 479.339,104.3"/>
+	            <polygon fill="black" stroke-width="1" points="479.339,104.3 476.311,95.365 469.981,103.106"/>
+	            <path stroke="black" stroke-width="1" fill="none" d="M 225.768,278.442 A 376.973,376.973 0 0 1 61.222,256.947"/>
+	            <polygon fill="black" stroke-width="1" points="225.768,278.442 217.342,274.198 218.261,284.156"/>
+	            <path stroke="black" stroke-width="1" fill="none" d="M 295.614,408.987 A 368.072,368.072 0 0 1 50.946,269.895"/>
+	            <polygon fill="black" stroke-width="1" points="295.614,408.987 288.297,403.032 287.054,412.954"/>
+	            <foreignObject x="120.5" y="114" font-size="25">$\mu(x_1)$</foreignObject>
+	            <foreignObject x="197.5" y="20" font-size="25">$\mu(x_2)$</foreignObject>
+	            <foreignObject x="117.5" y="279.5" font-size="25">$\mu(x_3)$</foreignObject>
+	            <foreignObject x="118.5" y="364.5" font-size="25">$\mu(x_4)$</foreignObject>
+            </g>
+	          <g class=fragment data-fragment-index=2>
+  	          <ellipse stroke="black" stroke-width="1" fill="#ff598f" cx="795.5" cy="251.5" rx="30" ry="30"/>
+            	<text x="788" y="260" font-size="30" fill="white" style="font-weight:bold">b</text>
+	            <path stroke="black" stroke-width="1" fill="none" d="M 530.169,115.737 A 230.123,230.123 0 0 1 782.228,224.619"/>
+	            <polygon fill="black" stroke-width="1" points="782.228,224.619 782.556,215.191 773.897,220.193"/>
+	            <path stroke="black" stroke-width="1" fill="none" d="M 767.71,262.774 A 326.495,326.495 0 0 1 578.185,271.249"/>
+	            <polygon fill="black" stroke-width="1" points="767.71,262.774 758.502,260.723 761.832,270.153"/>
+	            <path stroke="black" stroke-width="1" fill="none" d="M 785.292,279.687 A 231.628,231.628 0 0 1 545.984,416.925"/>
+	            <polygon fill="black" stroke-width="1" points="785.292,279.687 777.505,285.014 786.668,289.021"/>
+	            <foreignObject x="678.5" y="99.5" font-size="25">$\nu(x_2)$</foreignObject>
+	            <foreignObject x="664.5" y="282.5" font-size="25">$\nu(x_6)$</foreignObject>
+	            <foreignObject x="693.5" y="388.5" font-size="25">$\nu(x_5)$</foreignObject>
 	          </g>
-	          <path stroke="black" stroke-width="1" fill="none" d="M 507.034,117.296 A 249.013,249.013 0 0 1 776.432,220.579"/>
-	          <polygon fill="black" stroke-width="1" points="776.432,220.579 776.166,211.149 767.839,216.686"/>
-	          <path stroke="black" stroke-width="1" fill="none" d="M 764.01,258.486 A 317.074,317.074 0 0 1 578.328,270.762"/>
-	          <polygon fill="black" stroke-width="1" points="764.01,258.486 754.755,256.66 758.314,266.005"/>
-	          <path stroke="black" stroke-width="1" fill="none" d="M 779.245,273.86 A 231.589,231.589 0 0 1 530.504,393.083"/>
-	          <polygon fill="black" stroke-width="1" points="779.245,273.86 771.087,278.598 779.93,283.269"/>
           </svg>
-
-          <ol>
-            <li>$\mu \defeq u/\|u\|_1$</li>
-            <li>$\nu \defeq v/\|v\|_1$</li>
+          <ol class="prob-setup-list">
+            <li>Recall $m_t=\langle v,S^tu\rangle$</li>
+            <li class=fragment data-fragment-index=1>Set $\mu \defeq u/\|u\|_1$ and add state <i style="color:#00bfaf; font-weight:bold">a</i> with $S(a,x)=\mu(x)$</li>
+            <li class=fragment data-fragment-index=2>Set $\nu \defeq v/\|v\|_1$ and add state <i style="color:#ff598f; font-weight:bold">b</i> with $S(x,b)=\nu(x)$</li>
+            <li class=fragment data-fragment-index=3>Relate $m_t\approx\Pr$ [a walker goes from <i style="color:#00bfaf; font-weight:bold">a</i> to <i style="color:#ff598f; font-weight:bold">b</i> in exactly $t+2$ steps].
           </ol>
         </section>
 
-<!--
-        <section id="mc-forward">
+        <section id="proof-forward" class="texnify">
+          <h3>The forward walk $F^t$</h3>
+          <svg width="700" version="1.1" viewBox="0 30 850 480" style="position:absolute; left:280px; top:60px;">
+	          <circle cx=410 cy=280 r=220 stroke-width=3 stroke="lightblue" fill="#fcfcff"/>
+	          <circle stroke="black" stroke-width="1" fill="white" cx="315.5" cy="131.5" r="30" />
+	          <circle stroke="black" stroke-width="1" fill="white" cx="501.5" cy="124.5" r="30" />
+	          <circle stroke="black" stroke-width="1" fill="white" cx="255.5" cy="274.5" r="30" />
+	          <circle stroke="black" stroke-width="1" fill="white" cx="325.5" cy="411.5" r="30" />
+	          <circle stroke="black" stroke-width="1" fill="white" cx="516.5" cy="411.5" r="30" />
+	          <circle stroke="black" stroke-width="1" fill="white" cx="549.5" cy="262.5" r="30" />
+	          <circle stroke="black" stroke-width="1" fill="white" cx="413.5" cy="316.5" r="30" />
+	          <text x="304.5" y="137.5" font-size="20">x1</text>
+	          <text x="492.5" y="130.5" font-size="20">x2</text>
+	          <text x="246.5" y="280.5" font-size="20">x3</text>
+	          <text x="316.5" y="417.5" font-size="20">x4</text>
+	          <text x="507.5" y="417.5" font-size="20">x5</text>
+	          <text x="540.5" y="268.5" font-size="20">x6</text>
+	          <path stroke="black" stroke-width="1" fill="none" d="M 258.683,244.693 A 220.795,220.795 0 0 1 296.461,154.655"/>
+	          <path stroke="black" stroke-width="1" fill="none" d="M 343.359,120.423 A 236.627,236.627 0 0 1 472.888,115.548"/>
+	          <path stroke="black" stroke-width="1" fill="none" d="M 525.54,142.287 A 108.691,108.691 0 0 1 557.313,233.634"/>
+	          <path stroke="black" stroke-width="1" fill="none" d="M 553.725,292.165 A 177.689,177.689 0 0 1 532.856,386.393"/>
+	          <path stroke="black" stroke-width="1" fill="none" d="M 488.803,422.963 A 214.034,214.034 0 0 1 353.197,422.963"/>
+	          <path stroke="black" stroke-width="1" fill="none" d="M 301.246,393.94 A 140.718,140.718 0 0 1 255.518,304.443"/>
+	          <path stroke="black" stroke-width="1" fill="none" d="M 339.283,384.889 A 189.68,189.68 0 0 1 388.019,332.275"/>
+	          <path stroke="black" stroke-width="1" fill="none" d="M 393.567,294.09 A 379.646,379.646 0 0 1 322.842,160.58"/>
+	          <path stroke="black" stroke-width="1" fill="none" d="M 436.211,296.951 A 181.247,181.247 0 0 1 519.565,263.854"/>
+	          <path stroke="black" stroke-width="1" fill="none" d="M 491.033,395.668 A 295.186,295.186 0 0 1 431.335,340.607"/>
+	          <text x=400 y=480>Ω</text>
+  	          <ellipse stroke="black" stroke-width="1" fill="#00bfaf" cx="33.5" cy="245.5" rx="30" ry="30"/>
+	          	<text x="27" y="253" font-size="30" fill="white" style="font-weight:bold">a</text>
+	            <path stroke="black" stroke-width="1" fill="none" d="M 53.821,223.445 A 324.134,324.134 0 0 1 285.561,129.763"/>
+	            <polygon fill="black" stroke-width="1" points="285.561,129.763 277.62,124.67 277.503,134.67"/>
+	            <path stroke="black" stroke-width="1" fill="none" d="M 43.093,217.09 A 279.3,279.3 0 0 1 479.339,104.3"/>
+	            <polygon fill="black" stroke-width="1" points="479.339,104.3 476.311,95.365 469.981,103.106"/>
+	            <path stroke="black" stroke-width="1" fill="none" d="M 225.768,278.442 A 376.973,376.973 0 0 1 61.222,256.947"/>
+	            <polygon fill="black" stroke-width="1" points="225.768,278.442 217.342,274.198 218.261,284.156"/>
+	            <path stroke="black" stroke-width="1" fill="none" d="M 295.614,408.987 A 368.072,368.072 0 0 1 50.946,269.895"/>
+	            <polygon fill="black" stroke-width="1" points="295.614,408.987 288.297,403.032 287.054,412.954"/>
+	            <foreignObject x="120.5" y="114" font-size="25">$\mu(x_1)$</foreignObject>
+	            <foreignObject x="117.5" y="279.5" font-size="25">$\mu(x_3)$</foreignObject>
+  	          <ellipse stroke="black" stroke-width="1" fill="#ff598f" cx="795.5" cy="251.5" rx="30" ry="30"/>
+            	<text x="788" y="260" font-size="30" fill="white" style="font-weight:bold">b</text>
+	            <path stroke="black" stroke-width="1" fill="none" d="M 530.169,115.737 A 230.123,230.123 0 0 1 782.228,224.619"/>
+	            <polygon fill="black" stroke-width="1" points="782.228,224.619 782.556,215.191 773.897,220.193"/>
+	            <path stroke="black" stroke-width="1" fill="none" d="M 767.71,262.774 A 326.495,326.495 0 0 1 578.185,271.249"/>
+	            <polygon fill="black" stroke-width="1" points="767.71,262.774 758.502,260.723 761.832,270.153"/>
+	            <path stroke="black" stroke-width="1" fill="none" d="M 785.292,279.687 A 231.628,231.628 0 0 1 545.984,416.925"/>
+	            <polygon fill="black" stroke-width="1" points="785.292,279.687 777.505,285.014 786.668,289.021"/>
+	            <foreignObject x="678.5" y="99.5" font-size="25">$\nu(x_2)$</foreignObject>
+	            <foreignObject x="664.5" y="282.5" font-size="25">$\nu(x_6)$</foreignObject>
+	            <foreignObject x="693.5" y="388.5" font-size="25">$\nu(x_5)$</foreignObject>
+          </svg>
+          <ol class="prob-setup-list" style="top:400px;">
+            <li>$F^t=(F_{-1},F_0,\ldots,F_t,F_{t+1})$.</li>
+            <li>Start at $a$, move to $x\in\Omega$ with probability $\mu(x)$.</li>
+            <li>Move according to $S$ for $t$ steps</li>
+            <li class=fragment data-fragment-index=3>Move to $b$ with probability $\nu(x_t)$ and fail with probability $1-\nu(x)$.</li>
+            <li class=fragment data-fragment-index=4>$\Pr[F_{t+1}=b] = \langle \nu, S^t\mu\rangle$
+          </ol>
         </section>
-
-        <section id="mc-backward">
-        </section>-->
 
         <section id=conjecture class="lefty texnify">
           <h2>An analogue for continuous time?</h2>
