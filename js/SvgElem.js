@@ -250,3 +250,16 @@ function SvgPlot(x, y, dataPointWidth, height, data, dimensions, palette) {
   this.elem = g.elem;
 }
 
+/**
+ *
+ * @constructor
+ * @param {number} x coordinate of the back
+ * @param {number} y coordinate of the back
+ * @param {number} dx to the head
+ * @param {number} dy to the head
+ * @extends {SvgElem}
+ */
+function SvgArrow(x, y, dx, dy, curvature) {
+  return new SvgEleme('g');
+}
+

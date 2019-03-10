@@ -62,13 +62,13 @@
           <h2>...due to the way heat behaves</h2>
         </section>
 
-        <section id="intermission-comm">
+        <section id="intermission-comm" class=centered>
           <div style="height:200px"></div>
           <h2>Model I</h2>
           <h3>Communication complexity</h3>
         </section>
 
-        <section id="comm-kham" class="lefty">
+        <section id="comm-kham">
           <h3 class=texnify>Communication complexity: $k$-Hamming distance</h3>
           <svg width=1200 height=300 style="position:absolute; left:0; top:100;">
             <g id=alice transform="translate(250,0)scale(0.45)">
@@ -173,7 +173,7 @@
           </svg>
         </section>
 
-        <section id="comm-protocol1" class="lefty texnify">
+        <section id="comm-protocol1" class="texnify">
           <h3>An $O(k\log k)$ bits protocol</h3>
           <ul class=comm-protocol-list>
             <li>Consider the graph on $V=\{0,1\}^n$</li>
@@ -188,6 +188,7 @@
             </li>
           </ol><ul class=comm-protocol-list>
             <li class=fragment data-fragment-index=7>Takes $O(k\log(n/k))$ bits of communication.</li>
+            <li class=fragment data-fragment-index=7>By hashing, we may assume $n\approx 10 k^2$</li>
           </ul>
           <svg width="390" id="graph" viewBox="50 0 570 500" class="edgeful" style="position: absolute; right: 50px; top:50px;">
             <circle stroke="black" stroke-width="2" id="ic1" fill="none" cx="311.5" cy="82.5" r="30"/>
@@ -229,7 +230,7 @@
           </svg>
         </section>
 
-        <section id="comm-protocol2" class="lefty texnify">
+        <!-- <section id="comm-protocol2" class="texnify">
           <h3>An $O(k\log k)$ bits protocol</h3>
           <svg width=1180 height=250 id="svg-reduce" style="position: absolute; left: 10px; bottom: 40px;"></svg>
           <svg class=fragment data-fragment-index=6 width="280" viewBox="43 10 210 300" style="position:absolute; right:-10px; bottom:-30px;">
@@ -243,9 +244,9 @@
             <li class=fragment data-fragment-index=6>Incurs an error probability of $\le \delta$</li>
             <li class=fragment data-fragment-index=6>Complexity $O(k\log (k/\delta))$</li>
           </ul>
-        </section>
+        </section> -->
 
-        <section id=comm-bounds1 class="lefty texnify">
+        <section id=comm-bounds1 class="texnify">
           <h3>Known bounds until 2011</h3>
           <table id=bounds-table1 class=bounds-table>
             <tr style="border-bottom:2px solid #555;">
@@ -263,24 +264,24 @@
             </tr><tr class="underline visible">
               <td>$\Omega(k \log (1/\delta))$</td>
                                   <td>1-round</td><td> $\delta$ </td><td>Augmented Index</td><td>Jayram, Woodruff'2011</td>
-            </tr><tr class="underline visible">
+            </tr><!--<tr class="underline visible">
               <td>$\Omega(k \log k)$</td>
                                   <td>1-round</td><td> 1/3      </td><td>$\Disj_k$</td><td>Various researchers, 2000s</td>
-            </tr><tr class="underline visible">
+            </tr>--><tr class="underline visible">
               <td class=nb>$\Omega(k)$, quantum</td><td>any</td><td>1/3</td><td>$k$-Intersection</td><td>Razborov'2002<br><span class=nb>Huang, Shi, Zhang, Zhu'2005</span></td>
             </tr>
           </table>
         </section>
 
-        <section id="intermission-ptest">
+        <section id="intermission-ptest" class=centered>
           <div style="height:200px"></div>
           <h2>Model II</h2>
           <h3>Property testing</h3>
         </section>
 
-        <section id=ptest-define class="lefty texnify">
+        <section id=ptest-define class="texnify">
           <h3>Property testing: $k$-linearity</h3>
-          <div class=definition style="margin:0.7em 0 0.7em -0.3em; width:580px;">
+          <div class=theoremlike style="margin:0.7em 0 0.7em -0.3em; width:580px;">
             <b>Definition.</b>
             A function $f\colon\field_2^n\to\field_2$ is $k$-linear  if
             $f(x) = \langle x,w\rangle$ for a $w\in\field_2^n$ with $\|w\|_1\le k$.
@@ -289,7 +290,7 @@
           <div class=fragment data-fragment-index=2 style="width:720px;">
             Given <em>blackbox query access</em> to an unknown function $g\colon\field_2^n\to\field_2$,
             <ul style="margin:0.6em 1em 1em">
-              <li style="margin: 0 0 1em 0;">
+              <li style="margin: 0 0 0.8em 0">
                 <span class=bullet style="background:#64aafa;border:2px solid #5080c6; margin-left:-1em"></span>
                 <b>Accept</b>, if $g$ is $k$-linear,
               </li>
@@ -320,12 +321,12 @@
            </div>
         </section>
 
-        <section id=ptest-connect class="lefty texnify">
+        <section id=ptest-connect class="texnify">
           <h3>Property testing</h3>
           <ul id=ptest1-list>
             <li>
               <b>Blais, Brody, Matulef'2011:</b><br>
-              A new connection between $k$-Hamming distance and well-studied area property testing
+              A new connection between $k$-Hamming distance and property testing
             </li>
             <li class="fragment semi-fade-in">
                Lower bound for $k$-Hamming distance <span style="font-size:larger">⇒</span><br>
@@ -343,7 +344,7 @@
           </ul>
         </section>
 
-        <section id=ptest-bounds class="lefty texnify">
+        <section id=ptest-bounds class="texnify">
           <h3>Property testing: $k$-linearity</h3>
           <table id=bounds-proptable class=bounds-table>
             <tr style="border-bottom:2px solid #555;">
@@ -390,7 +391,7 @@
           </ul>-->
         </section>
 
-        <section id=comm-bounds2 class="lefty texnify">
+        <section id=comm-bounds2 class="texnify">
           <h3>Back to communication complexity:</h3>
           <h4>$k$-Hamming distance bounds after 2011</h4>
          <table id=bounds-table2 class=bounds-table>
@@ -416,13 +417,13 @@
           </table>
         </section>
 
-        <section id="intermission-pdt">
+        <section id="intermission-pdt" class=centered>
           <div style="height:200px"></div>
           <h2>Model III</h2>
           <h3>Parity decision trees</h3>
         </section>
 
-        <section id="pdt-kham" class="lefty texnify">
+        <section id="pdt-kham" class="texnify">
           <h3>Parity decision trees: $k$-Hamming weight</h3>
           <svg class="fragment" data-fragment-index="4" width="800" height="675" style="position:absolute;bottom:0;right:0px;">
             <ellipse stroke="black" stroke-width="1" fill="none" cx="445.5" cy="121.5" rx="30" ry="30"/>
@@ -519,7 +520,7 @@
           </ul>
         </section>
 
-        <section id=overview>
+        <section id=overview class=centered>
           <h3>Whole picture</h3>
           <svg id=overview-svg width="1200" height="625" class=texnify style="position:absolute; left:0; top:50px; font-size:80%">
             <g>
@@ -577,7 +578,8 @@
             <text x=100 y=585 font-size=32>PDT: Parity Decision Tree</text>
           </svg>
         </section>
-        <section id=pdt-heat class="lefty texnify">
+
+        <section id=pdt-heat class="texnify">
           <h3>From PDTs to random walks</h3>
           <svg id="svg-praccept" width=620 height=590 style="position:absolute; right:0;"></svg>
           <ul id=pdt-mc-list style="width: 500px;">
@@ -603,7 +605,7 @@
           </ul>
         </section>
 
-        <section id=pdt-leaf class="texnify lefty">
+        <section id=pdt-leaf class="texnify">
           <h3>Contribution of a single leaf to $a_k$:</h3>
           <svg id="svg-leaf" width="1200" height="675" style="position:absolute;top:0;right:0px;">
             <foreignObject x="815.5" y="110.5" height="40" width="100" font-size="20">$\langle x, w\rangle=?$</foreignObject>
@@ -713,6 +715,11 @@
               <polygon fill="black" stroke-width="1" points="711,484.75 712.948,475.519 703.556,478.954"/>
               <text x="699.5" y="439.5"  font-size="20">1</text>
             </g>
+            <g class=fragment data-fragment-index=4 fill="#c42525">
+              <polygon transform="translate(534, 430)scale(0.1)" points="347.341,326.129 64.499,43.285 107.784,0 0,0.002 0.002,107.782 43.286,64.499 326.128,347.342 "/>
+              <text x=570 y=480 style="font-weight:400">A</text>
+              <text x=68 y=250 style="font-weight:400">b</text>
+            </g>
           </svg>
           <ul style="position: absolute; left: 4em; top:110px;">
             <li class=fragment data-fragment-index=2>Which $w\in\{0,1\}^n$ are accepted at this leaf?</li>
@@ -720,12 +727,12 @@
           <ul style="position: absolute; left: 4em; bottom: 20px; width: 550px;">
             <li class=fragment data-fragment-index=4 data-trigger="resetwvector" style="margin-bottom:20px;">The set 
             $T = \{w\mid b=Aw\}$</li>
-            <li class=fragment data-fragment-index=5>Can $T$ have a lot of weight-$k$ vectors, but very little weight-$(k-2)$ <b>and</b>
+            <li class=fragment data-fragment-index=5>Can $T$ have a lot of weight-$k$ vectors, but very few weight-$(k-2)$ <b>and</b>
             weight-$(k+2)$ vectors?</li>
           </ul>
         </section>
 
-        <section id=pdt-to-mc class="texnify lefty">
+        <section id=pdt-to-mc class="texnify">
           <h3>From PDTs to random walks</h3>
           <svg width=1040 height=300 id="svg-conv-walk"></svg>
           <ul style="margin-left: 3em" id=pdt-affine-list>
@@ -745,7 +752,7 @@
           </ul>
         </section>
 
-        <section id=pdt-to-mc2 class="texnify lefty">
+        <section id=pdt-to-mc2 class="texnify">
           <h3>From PDTs to Markov chains</h3>
           <svg width=1040 height=300 id="svg-conv-walk2"></svg>
           <ul style="margin-left:3em" id=pdt-affine-list2>
@@ -764,7 +771,7 @@
           </ul>
         </section>
 
-        <section id="mc-setup" class="texnify lefty">
+        <section id="mc-setup" class="texnify">
           <h3>A question on graphs</h3>
           <svg width="390" id="graph" viewBox="50 0 570 500" class="edgeful" style="position: absolute; left: 400px; top:70px;">
             <circle stroke="black" stroke-width="2" id="ic1" fill="none" cx="311.5" cy="82.5" r="30"/>
@@ -797,8 +804,7 @@
           </ul>
         </section>
 
-
-        <section id="mc-setup-uv" class="texnify lefty">
+        <section id="mc-setup-uv" class="texnify">
           <h3>A question on Markov chains</h3>
           <svg width="390" id="graph" viewBox="50 0 570 500" class="edgeful" style="position: absolute; left: 400px; top:70px;">
             <circle stroke="black" stroke-width="2" id="ic1" fill="none" cx="311.5" cy="82.5" r="30"/>
@@ -808,8 +814,6 @@
             <circle stroke="black" stroke-width="2" id="ic5" fill="none" cx="174.5" cy="368.5" r="30"/>
             <circle stroke="black" stroke-width="2" id="ic6" fill="none" cx="339.5" cy="445.5" r="30"/>
             <circle stroke="black" stroke-width="2" id="ic7" fill="none" cx="562.5" cy="293.5" r="30"/>
-            <text x="555" y="305" font-size="30">0</text>
-            <text x="77" y="171" font-size="30">b</text>
             <path stroke="none" stroke-width="1" fill="none" d="M 105.301,136.996 A 214.31,214.31 0 0 1 282.078,76.767"/>
             <path stroke="none" stroke-width="1" fill="none" d="M 339.442,71.643 A 222.893,222.893 0 0 1 527.525,97.505"/>
             <path stroke="none" stroke-width="1" fill="none" d="M 310.4,255.212 A 876.629,876.629 0 0 1 111.457,174.539"/>
@@ -824,39 +828,40 @@
           </svg>
           <ul style="margin-left:3em; margin-top:11em;" id=pdt-walk-list>
             <li>More generally for positive valued $u,v\colon\Omega\to\reals_+$ with $\|u\|_2=\|v\|_2=1$
-               <center style="margin:0.4em 0">$m_t = \langle v, S^tu\rangle$</center>
+               <div class=mdisplay>$m_t = \langle v, S^tu\rangle$</div>
             </li>
             <li class=fragment>What can we say about $t\mapsto m_t$ that holds for any $S, u, v$?
           </ul>
         </section>
 
-        <section id="mc-bdes" class="texnify lefty">
-          <h3>The conjectures of Blakley Dixon Erdős and Simonovits</h3>
-          <div class=definition style="margin:0.7em 0 0.7em -0.3em; width:680px;">
+        <section id="mc-erdossimonovits" class="texnify">
+          <h3>The Erdős-Simonovits conjecture</h3>
+          <div class=theoremlike style="margin:0.7em 0 0.7em -0.3em; width:680px;">
             <b>Conjecture.</b> (Erdős, Simonovits'1982)<br>
-            For $S$ a 0-1 matrix,  $u = v = \one/\|\one\|_2$, and $k\gt t$ natural numbers the same parity
+            For $S$ a 0-1 matrix,  $u = v$ normalized uniform,<br>
+            and $k\gt t$ natural numbers the same parity
             we have $m_{k}^{1/k}\ge m_t^{1/t}$.
           </div>
-          <br>
+        </section>
 
-          <div class="definition fragment" style="margin:0.7em 0 0.7em -0.3em; width:680px;">
+        <section id="mc-blakleydixon" class="texnify">
+          <div class="theoremlike" style="margin:0.7em 0 0.7em -0.3em; width:680px;">
             <b>Conjecture.</b> (Blakley, Dixon'1966)<br>
             For nonnegative $u = v$, and $k\gt t$ natural numbers the same parity
             we have $m_{k}^{1/k}\ge m_t^{1/t}$.
           </div>
         </section>
 
-
-        <section id="mc-results" class="texnify lefty">
+        <section id="mc-results" class="texnify">
           <h3>Our results</h3>
-          <div class=definition style="margin:0.7em 0 0.7em -0.3em; width:680px;">
-            <b>Theorem. (This work)</b><br>
+          <div class=theoremlike style="margin:0.7em 0 0.7em -0.3em; width:680px;">
+            <b>Theorem I. (This work)</b><br>
             For nonnegative $u$, $v$ which may be different, and $k\gt t$ natural numbers the same parity
-            we have $m_{k}^{1/k}\ge m_t^{1/t}$.
+            we have $m_{k}^{1/k}\ge m_t^{1/t}$. <span class=fragment>(Equivalent: $m_{t+2}\ge m_t^{1+2/t}$)</span>
           </div>
 
-          <div class="definition fragment" style="margin:0.7em 0 0.7em -0.3em; width:680px;">
-            <b>Theorem. (This work)</b><br>
+          <div class="theoremlike fragment" style="margin:0.7em 0 0.7em -0.3em; width:680px;">
+            <b>Theorem II. (This work)</b><br>
             For any $\eps$, there is a $\delta$ such that<br>
             for nonnegative $u$, $v$ which may be different, either
             <ul style="margin-left:2em;">
@@ -866,23 +871,47 @@
           </div>
         </section>
 
-        <section id=mc-example>
+        <section id=mc-example class="texnify">
           <h3>An example random walk</h3>
-          <svg width=1040 height=200 id=mc-example>
-            <g transform="translate(45,0)">
-              <circle cx=100 cy=50 r=25 fill=none stroke=black />
-              <circle cx=250 cy=50 r=25 fill=none stroke=black />
-              <circle cx=400 cy=50 r=25 fill=none stroke=black />
-              <circle cx=550 cy=50 r=25 fill=none stroke=black />
-              <circle cx=700 cy=50 r=25 fill=none stroke=black />
-              <circle cx=850 cy=50 r=25 fill=none stroke=black />
-              <path fill=none stroke=black stroke-width=1 d="M 125,50h 100"/>
-              <path fill=none stroke=black stroke-width=1 d="M 275,50h 100"/>
-              <path fill=none stroke=black stroke-width=1 d="M 425,50h 100"/>
-              <path fill=none stroke=black stroke-width=1 d="M 575,50h 100"/>
-              <path fill=none stroke=black stroke-width=1 d="M 725,50h 100"/>
-            </g>
+          <svg width=1040 height=580 id=svg-mc-example>
+            <circle cx=145 cy=90 r=25 fill=none stroke=black />
+            <foreignObject x=135 y=70 height=40 width=40>$n_0$</foreignObject>
+            <circle cx=295 cy=90 r=25 fill=none stroke=black />
+            <foreignObject x=285 y=70 height=40 width=40>$n_2$</foreignObject>
+            <circle cx=445 cy=90 r=25 fill=none stroke=black />
+            <circle cx=595 cy=90 r=25 fill=none stroke=black />
+            <circle cx=745 cy=90 r=25 fill=none stroke=black />
+            <foreignObject x=722 y=70 height=40 width=40>$n_{t-1}$</foreignObject>
+            <circle cx=895 cy=90 r=25 fill=none stroke=black />
+            <foreignObject x=885 y=70 height=40 width=40>$n_t$</foreignObject>
+            <path fill=none stroke=black stroke-width=1 d="M 170,90h 100"/>
+            <foreignObject x=212 y=90 width=40 height=40>$\eps$</foreignObject>
+            <path fill=none stroke=black stroke-width=1 d="M 320,90h 100"/>
+            <foreignObject x=362 y=90 width=40 height=40>$\eps$</foreignObject>
+            <text x=505 y=95>.  .  .</text>
+            <path fill=none stroke=black stroke-width=1 d="M 620,90h 100"/>
+            <foreignObject x=662 y=90 width=40 height=40>$\eps$</foreignObject>
+            <path fill=none stroke=black stroke-width=1 d="M 770,90h 100"/>
+            <foreignObject x=812 y=90 width=40 height=40>$\eps$</foreignObject>
           </svg>
+          <div style="position:absolute; left:400px; top: 300px;">
+            Consider $\Omega=\{n_0,\ldots,n_t\}$<br>
+            $u= \indicate_{n_0}$ and $v=\indicate_{n_t}$
+            <table class=fragment data-fragment-index=4 id="mc-example-table">
+              <tr><td>$m_{t-4}$</td><td> $=$ </td><td>0</td></tr>
+              <tr><td>$m_{t-2}$</td><td> $=$ </td><td>0</td></tr>
+              <tr><td>$m_{t}$</td>  <td> $=$ </td><td>$\eps^t$</td></tr>
+              <tr><td>$m_{t+2}$</td><td> $=$ </td><td>$t\cdot\eps^{t+2}$</td></tr>
+              <tr><td>$m_{t+4}$</td><td> $=$ </td><td>$t(t+1)/2\cdot \eps^{t+4}$</td>
+            </table>
+          </div>
+          <div class="theoremlike fragment" data-fragment-index=4 style="position:absolute; right:10px; top: 400px;">
+            <b>Theorem II.</b> We have either
+            <ul style="margin-left:1em;">
+              <li style="margin-bottom:0.5em">$m_{t+2}\cdot m_{t-2}\ge \delta m_t^2$, or</li>
+              <li> $m_{t+2} \ge t^{1-\eps} m_t^{1+2/t}$</li>
+            </ul>
+          </div>
         </section>
 
         <section id="mc-setup">
@@ -895,8 +924,30 @@
         <section id="mc-backward">
         </section>
 
-        <section id=questions>
-          <h2>Thanks & Questions</h2>
+        <section id=conjecture class="lefty">
+          <h2>An analogue for continuous time?</h2>
+          <div class="theoremlike texnify" style="margin:2em 0 0.7em -0.3em; width:700px;">
+            <b>Conjecture.</b>
+            Let $u,v\colon\Omega\to\reals_+$ with $\|u\|_2=\|v\|_2=1$ <br>
+            be positive valued unit vectors. Defining
+            <p class=mdisplay>$m_t=\langle v, e^{t(S-I)}u\rangle$,</p>
+            we have for $\alpha\ge 0$,
+            <p class=mdisplay>$m_{t(1+\alpha)} \cdot m_{t/(1+\alpha)}\ge m_t^{2 + \alpha^2/(1+\alpha)}$
+          </div>
+        </section>
+
+        <section id=questions class=centered>
+          <h2>Thank you!</h2>
+          <h2>&</h2>
+          <h2>Questions?</h2>
+          <div class="theoremlike texnify" style="margin:1em auto; width:700px;">
+            <b>Conjecture.</b>
+            Let $u,v\colon\Omega\to\reals_+$ with $\|u\|_2=\|v\|_2=1$ <br>
+            be positive valued unit vectors. Defining
+            <p class=mdisplay>$m_t=\langle v, e^{t(S-I)}u\rangle$,</p>
+            we have for $\alpha\ge 0$,
+            <p class=mdisplay>$m_{t(1+\alpha)} \cdot m_{t/(1+\alpha)}\ge m_t^{2 + \alpha^2/(1+\alpha)}$
+          </div>
         </section>
       </div>
     </div>

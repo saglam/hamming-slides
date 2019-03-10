@@ -31,13 +31,13 @@ let palette = {"1" : "#fee", s: "#DDD"};
 }
 
 // svg-reduce
-{
-  let /** string */ x = "01101011" + "01010100" + "10111011";
-  let /** string */ y = "00100011" + "01010101" + "10111110";
-  let /** string */ z = xor(x, y);
-  let /** string */ xp = "01" + "01" + "11";
-  let /** string */ yp = "10" + "00" + "11";
-  let /** string */ zp = xor(xp, yp);
+/*{
+  let x = "01101011" + "01010100" + "10111011";
+  let y = "00100011" + "01010101" + "10111110";
+  let z = xor(x, y);
+  let xp = "01" + "01" + "11";
+  let yp = "10" + "00" + "11";
+  let zp = xor(xp, yp);
   getSvgElem("svg-reduce")
       .add(new SvgElem('g')
           .add(new SvgMatrix(90,   2, 43, 43, [x], [z], palette))
@@ -55,7 +55,7 @@ let palette = {"1" : "#fee", s: "#DDD"};
           .add(new SvgMatrix(90, 134,172, 43, [yp], [zp], palette))
           .add(new SvgText  (10, 163, "y'"))
           .add(new SvgText  (39, 166, "=")), 4);
-}
+}*/
 
 //svg-praccept
 {
@@ -198,5 +198,34 @@ let palette = {"1" : "#fee", s: "#DDD"};
       .add(new SvgMatrix(230, 30, 43, 43, [x], [xc], normal))
       .add(new SvgMatrix(230, 93, 43, 43, A, Ac, fade))
       .add(new SvgMatrix(100, 93, 43, 43, b, bc, normal));
+}
+
+//svg-mc-example
+{
+  let normal = {
+         s: "#999",
+       "b": "#f7faff",
+       "r": "#ffdcdc",
+      text: "#111",
+  }
+  let A= [["0", "$\\eps$", "", "", "", ""],
+          ["$\\eps$", "0", "$\\eps$", "", "", ""],
+          ["", "$\\eps$", "0", "$\\eps$", "", ""],
+          ["", "", "$\\eps$", "0", "$\\eps$", ""],
+          ["", "", "", "$\\eps$", "0", "$\\eps$"],
+          ["", "", "", "", "$\\eps$", "0"]];
+
+  let Ac= ["000000",
+           "000000",
+           "000000",
+           "000000",
+           "000000",
+           "000000"];
+
+  let x = 0;
+  let y = 250
+  getSvgElem('svg-mc-example')
+      .add(new SvgMatrix(x + 55, y, 35, 35, A, Ac, normal))
+      .add(new SvgText  (x +  0, y+ 117, "$S=$"))
 }
 
