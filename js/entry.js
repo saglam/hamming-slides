@@ -208,12 +208,12 @@ let palette = {"1" : "#fee", s: "#DDD"};
        "r": "#ffdcdc",
       text: "#111",
   }
-  let A= [["0", "$\\eps$", "", "", "", ""],
-          ["$\\eps$", "0", "$\\eps$", "", "", ""],
-          ["", "$\\eps$", "0", "$\\eps$", "", ""],
-          ["", "", "$\\eps$", "0", "$\\eps$", ""],
-          ["", "", "", "$\\eps$", "0", "$\\eps$"],
-          ["", "", "", "", "$\\eps$", "0"]];
+  let A= [["0", "$\\alpha$", "", "", "", ""],
+          ["$\\alpha$", "0", "$\\alpha$", "", "", ""],
+          ["", "$\\alpha$", "0", "$\\alpha$", "", ""],
+          ["", "", "$\\alpha$", "0", "$\\alpha$", ""],
+          ["", "", "", "$\\alpha$", "0", "$\\alpha$"],
+          ["", "", "", "", "$\\alpha$", "0"]];
 
   let Ac= ["000000",
            "000000",
@@ -230,15 +230,22 @@ let palette = {"1" : "#fee", s: "#DDD"};
 }
 
 
+//svg-proof-idea
+{
+  getSvgElem('svg-proof-idea')
+    .add(new SvgArrow(350,300, 180, -120))
+    .add(new SvgArrow(700,430, 40, -240))
+}
+
 //svg-continuous
 {
   let y = 100;
   /** @const {SvgElem} */
   let g = getSvgElem("svg-continuous")
-      .add(new SvgElem('path').withAttributes({"d": "M50," + y + ",h950", "stroke": "black"}));
+      .add(new SvgElem('path').withAttributes({"d": "M50," + y + "h950", "stroke": "black"}));
 
   let tick = 6;
-  for (let x = 60; x <= 950; x += 40) {
+  for (let x = 60; x <= 1000; x += 40) {
     g.add(new SvgElem('path').withAttributes({"d": "M" + x + "," + (y - tick/2) + "v" + tick, "stroke": "black"}));
   }
 

@@ -35,7 +35,8 @@ var Spaces = {
 
 let Macro = {
   "frac"  : [2, (a, b) => "<span class=mfrac><span class=mfnum>" + a + "</span><br><span class=mfline></span>" + b + "</span>"],
-  "kldiv" : [2, (a, b) => " <b>D</b><span class=mpl>(</span>" + a + " ∥ " + b + "<span class=mpr>)</span>"]
+  "kldiv" : [2, (a, b) => "<b>D</b><span class=mpl>(</span>" + a + " ∥ " + b + "<span class=mpr>)</span>"],
+  "iprod" : [2, (a, b) => Spaces.MediumMath + "<span class=mal>⟨</span>" + a + ", " + b + "<span class=mar>⟩</span>"],
 }
 
 /**
@@ -77,6 +78,7 @@ let Substitute = {
   "ge"      : [Atom.Bin  , "<span class=mge>≥</span>"],
   "lt"      : [Atom.Bin  , "<span class=mlt><</span>"],
   "gt"      : [Atom.Bin  , "<span class=mgt>></span>"],
+  "gtapprox": [Atom.Bin  , "⪆"],
   "*"       : [Atom.Bin  , '<span class=masx>*</span>'],
   "in"      : [Atom.Rel  , "<span class=min>∈</span>"],
   "approx"  : [Atom.Rel  , "<span class=mapx>≈</span>"],
@@ -218,10 +220,8 @@ function renderInline(texStr, leftAttach, rightAttach) {
         let args = new Array(nArgs);
         for (let i = 0; i < nArgs; ++i) {
           args[i] = renderInline(parseBlock(), null, null);
-          console.log(args[i]);
         }
         let result = macro[1].apply(this, args);
-        console.log(result);
         output += result;
         lastAtom = Atom.Op;
       } else {
@@ -231,6 +231,11 @@ function renderInline(texStr, leftAttach, rightAttach) {
           output += (subs[1] == null) ? 
               '<span class=mop>' + command + '</span>' : subs[1];
           lastAtom = subs[0];
+        } else if (command == "\\;") {
+          console
+          output += Spaces.Regular;
+        } else if (command == "\\,") {
+          output += Spaces.MediumMath;
         }
       }
     } else if (code == "^".charCodeAt(0)) {
