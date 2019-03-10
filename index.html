@@ -879,28 +879,30 @@
           <h3>An example random walk</h3>
           <svg width=1200 height=580 id=svg-mc-example style="position: absolute; left:0; top:100px;">
             <circle cx=145 cy=90 r=25 fill=none stroke=black />
-            <foreignObject x=135 y=70 height=40 width=40>$n_0$</foreignObject>
+            <foreignObject x=135 y=70 height=40 width=40>$x_0$</foreignObject>
             <circle cx=295 cy=90 r=25 fill=none stroke=black />
-            <foreignObject x=285 y=70 height=40 width=40>$n_2$</foreignObject>
+            <foreignObject x=285 y=70 height=40 width=40>$x_1$</foreignObject>
             <circle cx=445 cy=90 r=25 fill=none stroke=black />
             <circle cx=595 cy=90 r=25 fill=none stroke=black />
             <circle cx=745 cy=90 r=25 fill=none stroke=black />
-            <foreignObject x=722 y=70 height=40 width=40>$n_{t-1}$</foreignObject>
+            <foreignObject x=722 y=70 height=40 width=40>$x_{t-1}$</foreignObject>
             <circle cx=895 cy=90 r=25 fill=none stroke=black />
-            <foreignObject x=885 y=70 height=40 width=40>$n_t$</foreignObject>
+            <foreignObject x=885 y=70 height=40 width=40>$x_t$</foreignObject>
             <path fill=none stroke=black stroke-width=1 d="M 170,90h 100"/>
             <foreignObject x=212 y=90 width=40 height=40>$\eps$</foreignObject>
             <path fill=none stroke=black stroke-width=1 d="M 320,90h 100"/>
             <foreignObject x=362 y=90 width=40 height=40>$\eps$</foreignObject>
-            <text x=505 y=95>.  .  .</text>
+            <path fill=none stroke=black stroke-width=1 d="M 470,90h 25"/>
+            <text x=503 y=92>.  .  .</text>
+            <path fill=none stroke=black stroke-width=1 d="M 545,90h 25"/>
             <path fill=none stroke=black stroke-width=1 d="M 620,90h 100"/>
             <foreignObject x=662 y=90 width=40 height=40>$\eps$</foreignObject>
             <path fill=none stroke=black stroke-width=1 d="M 770,90h 100"/>
             <foreignObject x=812 y=90 width=40 height=40>$\eps$</foreignObject>
           </svg>
           <div style="position:absolute; left:350px; top: 300px;">
-            Consider $\Omega=\{n_0,\ldots,n_t\}$<br>
-            $u= \indicate_{n_0}$ and $v=\indicate_{n_t}$
+            Consider $\Omega=\{x_0,\ldots,x_t\}$<br>
+            $u= \indicate_{x_0}$ and $v=\indicate_{x_t}$
             <table class=fragment data-fragment-index=4 id="mc-example-table">
               <tr><td>$m_{t-4}$</td><td> $=$ </td><td>0</td></tr>
               <tr><td>$m_{t-2}$</td><td> $=$ </td><td>0</td></tr>
@@ -926,21 +928,20 @@
         <section id="proof-setup" class="texnify">
           <h3>The probabilistic setup</h3>
           <svg width="700" version="1.1" viewBox="0 30 850 480" style="position:absolute; left:280px;">
-	          <circle cx=410 cy=280 r=220 stroke-width=3 stroke="lightblue" fill="#fcfcff"/>
+	          <circle cx=410 cy=280 r=220 stroke-width=3 stroke="lightblue" fill="#fbfeff"/>
+	          <circle stroke="black" stroke-width="2" fill="white" cx="315.5" cy="131.5" r="30"/>
+	          <circle stroke="black" stroke-width="2" fill="white" cx="501.5" cy="124.5" r="30" />
+	          <circle stroke="black" stroke-width="2" fill="white" cx="255.5" cy="274.5" r="30" />
+	          <circle stroke="black" stroke-width="2" fill="white" cx="325.5" cy="411.5" r="30" />
+	          <circle stroke="black" stroke-width="2" fill="white" cx="516.5" cy="411.5" r="30" />
+	          <circle stroke="black" stroke-width="2" fill="white" cx="549.5" cy="262.5" r="30" />
+	          <circle stroke="black" stroke-width="2" fill="white" cx="413.5" cy="316.5" r="30" />
 	          <text x="304.5" y="137.5" font-size="20">x1</text>
 	          <text x="492.5" y="130.5" font-size="20">x2</text>
 	          <text x="246.5" y="280.5" font-size="20">x3</text>
 	          <text x="316.5" y="417.5" font-size="20">x4</text>
 	          <text x="507.5" y="417.5" font-size="20">x5</text>
-	          <text x="540.5" y="268.5" font-size="20">x6</text>
-	          <ellipse stroke="black" stroke-width="1" fill="none" cx="315.5" cy="131.5" rx="30" ry="30"/>
-	          <ellipse stroke="black" stroke-width="1" fill="none" cx="501.5" cy="124.5" rx="30" ry="30"/>
-	          <ellipse stroke="black" stroke-width="1" fill="none" cx="255.5" cy="274.5" rx="30" ry="30"/>
-	          <ellipse stroke="black" stroke-width="1" fill="none" cx="325.5" cy="411.5" rx="30" ry="30"/>
-	          <ellipse stroke="black" stroke-width="1" fill="none" cx="516.5" cy="411.5" rx="30" ry="30"/>
-	          <ellipse stroke="black" stroke-width="1" fill="none" cx="549.5" cy="262.5" rx="30" ry="30"/>
-	          <ellipse stroke="black" stroke-width="1" fill="none" cx="413.5" cy="316.5" rx="30" ry="30"/>
-	          <path stroke="black" stroke-width="1" fill="none" d="M 258.683,244.693 A 220.795,220.795 0 0 1 296.461,154.655"/>
+	          <text x="540.5" y="268.5" font-size="20">x6</text>	          <path stroke="black" stroke-width="1" fill="none" d="M 258.683,244.693 A 220.795,220.795 0 0 1 296.461,154.655"/>
 	          <path stroke="black" stroke-width="1" fill="none" d="M 343.359,120.423 A 236.627,236.627 0 0 1 472.888,115.548"/>
 	          <path stroke="black" stroke-width="1" fill="none" d="M 525.54,142.287 A 108.691,108.691 0 0 1 557.313,233.634"/>
 	          <path stroke="black" stroke-width="1" fill="none" d="M 553.725,292.165 A 177.689,177.689 0 0 1 532.856,386.393"/>
@@ -952,7 +953,7 @@
 	          <path stroke="black" stroke-width="1" fill="none" d="M 491.033,395.668 A 295.186,295.186 0 0 1 431.335,340.607"/>
 	          <text x=400 y=480>Ω</text>
 	          <g class=fragment data-fragment-index=1>
-  	          <ellipse stroke="black" stroke-width="1" fill="#00bfaf" cx="33.5" cy="245.5" rx="30" ry="30"/>
+  	          <ellipse stroke="black" stroke-width="2" fill="#00bfaf" cx="33.5" cy="245.5" rx="30" ry="30"/>
 	          	<text x="27" y="253" font-size="30" fill="white" style="font-weight:bold">a</text>
 	            <path stroke="black" stroke-width="1" fill="none" d="M 53.821,223.445 A 324.134,324.134 0 0 1 285.561,129.763"/>
 	            <polygon fill="black" stroke-width="1" points="285.561,129.763 277.62,124.67 277.503,134.67"/>
@@ -968,7 +969,7 @@
 	            <foreignObject x="118.5" y="364.5" font-size="25">$\mu(x_4)$</foreignObject>
             </g>
 	          <g class=fragment data-fragment-index=2>
-  	          <ellipse stroke="black" stroke-width="1" fill="#ff598f" cx="795.5" cy="251.5" rx="30" ry="30"/>
+  	          <ellipse stroke="black" stroke-width="2" fill="#ff598f" cx="795.5" cy="251.5" rx="30" ry="30"/>
             	<text x="788" y="260" font-size="30" fill="white" style="font-weight:bold">b</text>
 	            <path stroke="black" stroke-width="1" fill="none" d="M 530.169,115.737 A 230.123,230.123 0 0 1 782.228,224.619"/>
 	            <polygon fill="black" stroke-width="1" points="782.228,224.619 782.556,215.191 773.897,220.193"/>
@@ -992,14 +993,14 @@
         <section id="proof-forward" class="texnify">
           <h3>The forward walk $F^t$</h3>
           <svg width="700" version="1.1" viewBox="0 30 850 480" style="position:absolute; left:280px; top:60px;">
-	          <circle cx=410 cy=280 r=220 stroke-width=3 stroke="lightblue" fill="#fcfcff"/>
-	          <circle stroke="black" stroke-width="1" fill="white" cx="315.5" cy="131.5" r="30" />
-	          <circle stroke="black" stroke-width="1" fill="white" cx="501.5" cy="124.5" r="30" />
-	          <circle stroke="black" stroke-width="1" fill="white" cx="255.5" cy="274.5" r="30" />
-	          <circle stroke="black" stroke-width="1" fill="white" cx="325.5" cy="411.5" r="30" />
-	          <circle stroke="black" stroke-width="1" fill="white" cx="516.5" cy="411.5" r="30" />
-	          <circle stroke="black" stroke-width="1" fill="white" cx="549.5" cy="262.5" r="30" />
-	          <circle stroke="black" stroke-width="1" fill="white" cx="413.5" cy="316.5" r="30" />
+	          <circle cx=410 cy=280 r=220 stroke-width=3 stroke="lightblue" fill="#fbfeff"/>
+	          <circle stroke="black" stroke-width="2" fill="white" cx="315.5" cy="131.5" r="30" />
+	          <circle stroke="black" stroke-width="2" fill="white" cx="501.5" cy="124.5" r="30" />
+	          <circle stroke="black" stroke-width="2" fill="white" cx="255.5" cy="274.5" r="30" />
+	          <circle stroke="black" stroke-width="2" fill="white" cx="325.5" cy="411.5" r="30" />
+	          <circle stroke="black" stroke-width="2" fill="white" cx="516.5" cy="411.5" r="30" />
+	          <circle stroke="black" stroke-width="2" fill="white" cx="549.5" cy="262.5" r="30" />
+	          <circle stroke="black" stroke-width="2" fill="white" cx="413.5" cy="316.5" r="30" />
 	          <text x="304.5" y="137.5" font-size="20">x1</text>
 	          <text x="492.5" y="130.5" font-size="20">x2</text>
 	          <text x="246.5" y="280.5" font-size="20">x3</text>
@@ -1017,7 +1018,7 @@
 	          <path stroke="black" stroke-width="1" fill="none" d="M 436.211,296.951 A 181.247,181.247 0 0 1 519.565,263.854"/>
 	          <path stroke="black" stroke-width="1" fill="none" d="M 491.033,395.668 A 295.186,295.186 0 0 1 431.335,340.607"/>
 	          <text x=400 y=480>Ω</text>
-  	          <ellipse stroke="black" stroke-width="1" fill="#00bfaf" cx="33.5" cy="245.5" rx="30" ry="30"/>
+  	          <ellipse stroke="black" stroke-width="2" fill="#00bfaf" cx="33.5" cy="245.5" rx="30" ry="30"/>
 	          	<text x="27" y="253" font-size="30" fill="white" style="font-weight:bold">a</text>
 	            <path stroke="black" stroke-width="1" fill="none" d="M 53.821,223.445 A 324.134,324.134 0 0 1 285.561,129.763"/>
 	            <polygon fill="black" stroke-width="1" points="285.561,129.763 277.62,124.67 277.503,134.67"/>
@@ -1029,7 +1030,7 @@
 	            <polygon fill="black" stroke-width="1" points="295.614,408.987 288.297,403.032 287.054,412.954"/>
 	            <foreignObject x="120.5" y="114" font-size="25">$\mu(x_1)$</foreignObject>
 	            <foreignObject x="117.5" y="279.5" font-size="25">$\mu(x_3)$</foreignObject>
-  	          <ellipse stroke="black" stroke-width="1" fill="#ff598f" cx="795.5" cy="251.5" rx="30" ry="30"/>
+  	          <ellipse stroke="black" stroke-width="2" fill="#ff598f" cx="795.5" cy="251.5" rx="30" ry="30"/>
             	<text x="788" y="260" font-size="30" fill="white" style="font-weight:bold">b</text>
 	            <path stroke="black" stroke-width="1" fill="none" d="M 530.169,115.737 A 230.123,230.123 0 0 1 782.228,224.619"/>
 	            <polygon fill="black" stroke-width="1" points="782.228,224.619 782.556,215.191 773.897,220.193"/>
@@ -1045,9 +1046,148 @@
             <li>$F^t=(F_{-1},F_0,\ldots,F_t,F_{t+1})$.</li>
             <li>Start at $a$, move to $x\in\Omega$ with probability $\mu(x)$.</li>
             <li>Move according to $S$ for $t$ steps</li>
-            <li class=fragment data-fragment-index=3>Move to $b$ with probability $\nu(x_t)$ and fail with probability $1-\nu(x)$.</li>
+            <li class=fragment data-fragment-index=3>Move to <i style="color:#ff598f; font-weight:bold">b</i> with probability $\nu(F_t)$ and fail with probability $1-\nu(F_t)$.</li>
             <li class=fragment data-fragment-index=4>$\Pr[F_{t+1}=b] = \langle \nu, S^t\mu\rangle$
           </ol>
+        </section>
+
+        <section id="proof-backward" class="texnify">
+          <h3>The backward walk $B^t$</h3>
+          <svg width="700" version="1.1" viewBox="0 30 850 480" style="position:absolute; left:280px; top:60px;">
+	          <circle cx=410 cy=280 r=220 stroke-width=3 stroke="lightblue" fill="#fbfeff"/>
+	          <circle stroke="black" stroke-width="2" fill="white" cx="315.5" cy="131.5" r="30" />
+	          <circle stroke="black" stroke-width="2" fill="white" cx="501.5" cy="124.5" r="30" />
+	          <circle stroke="black" stroke-width="2" fill="white" cx="255.5" cy="274.5" r="30" />
+	          <circle stroke="black" stroke-width="2" fill="white" cx="325.5" cy="411.5" r="30" />
+	          <circle stroke="black" stroke-width="2" fill="white" cx="516.5" cy="411.5" r="30" />
+	          <circle stroke="black" stroke-width="2" fill="white" cx="549.5" cy="262.5" r="30" />
+	          <circle stroke="black" stroke-width="2" fill="white" cx="413.5" cy="316.5" r="30" />
+	          <text x="304.5" y="137.5" font-size="20">x1</text>
+	          <text x="492.5" y="130.5" font-size="20">x2</text>
+	          <text x="246.5" y="280.5" font-size="20">x3</text>
+	          <text x="316.5" y="417.5" font-size="20">x4</text>
+	          <text x="507.5" y="417.5" font-size="20">x5</text>
+	          <text x="540.5" y="268.5" font-size="20">x6</text>
+	          <path stroke="black" stroke-width="1" fill="none" d="M 258.683,244.693 A 220.795,220.795 0 0 1 296.461,154.655"/>
+	          <path stroke="black" stroke-width="1" fill="none" d="M 343.359,120.423 A 236.627,236.627 0 0 1 472.888,115.548"/>
+	          <path stroke="black" stroke-width="1" fill="none" d="M 525.54,142.287 A 108.691,108.691 0 0 1 557.313,233.634"/>
+	          <path stroke="black" stroke-width="1" fill="none" d="M 553.725,292.165 A 177.689,177.689 0 0 1 532.856,386.393"/>
+	          <path stroke="black" stroke-width="1" fill="none" d="M 488.803,422.963 A 214.034,214.034 0 0 1 353.197,422.963"/>
+	          <path stroke="black" stroke-width="1" fill="none" d="M 301.246,393.94 A 140.718,140.718 0 0 1 255.518,304.443"/>
+	          <path stroke="black" stroke-width="1" fill="none" d="M 339.283,384.889 A 189.68,189.68 0 0 1 388.019,332.275"/>
+	          <path stroke="black" stroke-width="1" fill="none" d="M 393.567,294.09 A 379.646,379.646 0 0 1 322.842,160.58"/>
+	          <path stroke="black" stroke-width="1" fill="none" d="M 436.211,296.951 A 181.247,181.247 0 0 1 519.565,263.854"/>
+	          <path stroke="black" stroke-width="1" fill="none" d="M 491.033,395.668 A 295.186,295.186 0 0 1 431.335,340.607"/>
+	          <text x=400 y=480>Ω</text>
+	            <polygon fill="black" stroke-width="1" points="43.405,217.197 51.071,211.699 41.822,207.897"/>
+	            <polygon fill="black" stroke-width="1" points="55.131,224.724 64.434,223.163 57.804,215.677"/>
+	            <polygon fill="black" stroke-width="1" points="60.694,258.144 66.199,265.805 69.992,256.552"/>
+	            <polygon fill="black" stroke-width="1" points="50.374,269.539 50.463,280.973 58.893,273.591"/>
+
+  	          <ellipse stroke="black" stroke-width="2" fill="#00bfaf" cx="33.5" cy="245.5" rx="30" ry="30"/>
+	          	<text x="27" y="253" font-size="30" fill="white" style="font-weight:bold">a</text>
+	            <path stroke="black" stroke-width="1" fill="none" d="M 53.821,223.445 A 324.134,324.134 0 0 1 285.561,129.763"/>
+	            <path stroke="black" stroke-width="1" fill="none" d="M 43.093,217.09 A 279.3,279.3 0 0 1 479.339,104.3"/>
+	            <path stroke="black" stroke-width="1" fill="none" d="M 225.768,278.442 A 376.973,376.973 0 0 1 61.222,256.947"/>
+	            <path stroke="black" stroke-width="1" fill="none" d="M 295.614,408.987 A 368.072,368.072 0 0 1 50.946,269.895"/>
+	            <foreignObject x="120.5" y="114" font-size="25">$\mu(x_1)$</foreignObject>
+	            <foreignObject x="117.5" y="279.5" font-size="25">$\mu(x_3)$</foreignObject>
+  	          <ellipse stroke="black" stroke-width="2" fill="#ff598f" cx="795.5" cy="251.5" rx="30" ry="30"/>
+            	<text x="788" y="260" font-size="30" fill="white" style="font-weight:bold">b</text>
+	            <path stroke="black" stroke-width="1" fill="none" d="M 530.169,115.737 A 230.123,230.123 0 0 1 782.228,224.619"/>
+	            <polygon fill="black" stroke-width="1" points="578.137,271.404 584.618,278.26 587.139,268.583"/>
+	            <polygon fill="black" stroke-width="1" points="530.208,115.864 539.129,118.933 536.875,109.19"/>
+	            <polygon fill="black" stroke-width="1" points="546.016,416.751 553.409,422.611 554.523,412.674"/>
+	            <path stroke="black" stroke-width="1" fill="none" d="M 767.71,262.774 A 326.495,326.495 0 0 1 578.185,271.249"/>
+	            <path stroke="black" stroke-width="1" fill="none" d="M 785.292,279.687 A 231.628,231.628 0 0 1 545.984,416.925"/>
+	            <foreignObject x="678.5" y="99.5" font-size="25">$\nu(x_2)$</foreignObject>
+	            <foreignObject x="664.5" y="282.5" font-size="25">$\nu(x_6)$</foreignObject>
+	            <foreignObject x="693.5" y="388.5" font-size="25">$\nu(x_5)$</foreignObject>
+          </svg>
+          <ol class="prob-setup-list" style="top:400px;">
+            <li>$B^t=(B_{-1},B_0,\ldots,B_t,B_{t+1})$.</li>
+            <li>At time $t+1$ start at $b$, move to $x\in\Omega$ with probability $\nu(x)$.</li>
+            <li>Move according to $S$ for steps $t, t-1, \ldots, 1$. <b class=fragment data-fragment-index=2>(time counts backwards)</b></li>
+            <li class=fragment data-fragment-index=3>Move to <i style="color:#00bfaf; font-weight:bold">a</i> with probability $\mu(B_0)$ and fail with probability $1-\mu(B_0)$.</li>
+            <li class=fragment data-fragment-index=4>$\Pr[B_{-1}=a] = \langle \nu, S^t\mu\rangle$ (by symmetry)
+          </ol>
+        </section>
+
+        <section id="proof-cond" class="texnify">
+          <h3>Conditioned walk $X^t$</h3>
+          <svg width="700" version="1.1" viewBox="0 30 850 480" style="position:absolute; left:280px; top:60px;">
+	          <circle cx=410 cy=280 r=220 stroke-width=3 stroke="lightblue" fill="#fbfeff"/>
+	          <circle stroke="black" stroke-width="2" fill="white" cx="315.5" cy="131.5" r="30" />
+	          <circle stroke="black" stroke-width="2" fill="white" cx="501.5" cy="124.5" r="30" />
+	          <circle stroke="black" stroke-width="2" fill="white" cx="255.5" cy="274.5" r="30" />
+	          <circle stroke="black" stroke-width="2" fill="white" cx="325.5" cy="411.5" r="30" />
+	          <circle stroke="black" stroke-width="2" fill="white" cx="516.5" cy="411.5" r="30" />
+	          <circle stroke="black" stroke-width="2" fill="white" cx="549.5" cy="262.5" r="30" />
+	          <circle stroke="black" stroke-width="2" fill="white" cx="413.5" cy="316.5" r="30" />
+	          <text x="304.5" y="137.5" font-size="20">x1</text>
+	          <text x="492.5" y="130.5" font-size="20">x2</text>
+	          <text x="246.5" y="280.5" font-size="20">x3</text>
+	          <text x="316.5" y="417.5" font-size="20">x4</text>
+	          <text x="507.5" y="417.5" font-size="20">x5</text>
+	          <text x="540.5" y="268.5" font-size="20">x6</text>
+	          <path stroke="black" stroke-width="1" fill="none" d="M 258.683,244.693 A 220.795,220.795 0 0 1 296.461,154.655"/>
+	          <path stroke="black" stroke-width="1" fill="none" d="M 343.359,120.423 A 236.627,236.627 0 0 1 472.888,115.548"/>
+	          <path stroke="black" stroke-width="1" fill="none" d="M 525.54,142.287 A 108.691,108.691 0 0 1 557.313,233.634"/>
+	          <path stroke="black" stroke-width="1" fill="none" d="M 553.725,292.165 A 177.689,177.689 0 0 1 532.856,386.393"/>
+	          <path stroke="black" stroke-width="1" fill="none" d="M 488.803,422.963 A 214.034,214.034 0 0 1 353.197,422.963"/>
+	          <path stroke="black" stroke-width="1" fill="none" d="M 301.246,393.94 A 140.718,140.718 0 0 1 255.518,304.443"/>
+	          <path stroke="black" stroke-width="1" fill="none" d="M 339.283,384.889 A 189.68,189.68 0 0 1 388.019,332.275"/>
+	          <path stroke="black" stroke-width="1" fill="none" d="M 393.567,294.09 A 379.646,379.646 0 0 1 322.842,160.58"/>
+	          <path stroke="black" stroke-width="1" fill="none" d="M 436.211,296.951 A 181.247,181.247 0 0 1 519.565,263.854"/>
+	          <path stroke="black" stroke-width="1" fill="none" d="M 491.033,395.668 A 295.186,295.186 0 0 1 431.335,340.607"/>
+	          <text x=400 y=480>Ω</text>
+  	          <ellipse stroke="black" stroke-width="2" fill="#00bfaf" cx="33.5" cy="245.5" rx="30" ry="30"/>
+	          	<text x="27" y="253" font-size="30" fill="white" style="font-weight:bold">a</text>
+	            <path stroke="black" stroke-width="1" fill="none" d="M 53.821,223.445 A 324.134,324.134 0 0 1 285.561,129.763"/>
+	            <polygon fill="black" stroke-width="1" points="285.561,129.763 277.62,124.67 277.503,134.67"/>
+	            <path stroke="black" stroke-width="1" fill="none" d="M 43.093,217.09 A 279.3,279.3 0 0 1 479.339,104.3"/>
+	            <polygon fill="black" stroke-width="1" points="479.339,104.3 476.311,95.365 469.981,103.106"/>
+	            <path stroke="black" stroke-width="1" fill="none" d="M 225.768,278.442 A 376.973,376.973 0 0 1 61.222,256.947"/>
+	            <polygon fill="black" stroke-width="1" points="225.768,278.442 217.342,274.198 218.261,284.156"/>
+	            <path stroke="black" stroke-width="1" fill="none" d="M 295.614,408.987 A 368.072,368.072 0 0 1 50.946,269.895"/>
+	            <polygon fill="black" stroke-width="1" points="295.614,408.987 288.297,403.032 287.054,412.954"/>
+	            <foreignObject x="120.5" y="114" font-size="25">$\mu(x_1)$</foreignObject>
+	            <foreignObject x="117.5" y="279.5" font-size="25">$\mu(x_3)$</foreignObject>
+  	          <ellipse stroke="black" stroke-width="2" fill="#ff598f" cx="795.5" cy="251.5" rx="30" ry="30"/>
+            	<text x="788" y="260" font-size="30" fill="white" style="font-weight:bold">b</text>
+	            <path stroke="black" stroke-width="1" fill="none" d="M 530.169,115.737 A 230.123,230.123 0 0 1 782.228,224.619"/>
+	            <polygon fill="black" stroke-width="1" points="782.228,224.619 782.556,215.191 773.897,220.193"/>
+	            <path stroke="black" stroke-width="1" fill="none" d="M 767.71,262.774 A 326.495,326.495 0 0 1 578.185,271.249"/>
+	            <polygon fill="black" stroke-width="1" points="767.71,262.774 758.502,260.723 761.832,270.153"/>
+	            <path stroke="black" stroke-width="1" fill="none" d="M 785.292,279.687 A 231.628,231.628 0 0 1 545.984,416.925"/>
+	            <polygon fill="black" stroke-width="1" points="785.292,279.687 777.505,285.014 786.668,289.021"/>
+	            <foreignObject x="678.5" y="99.5" font-size="25">$\nu(x_2)$</foreignObject>
+	            <foreignObject x="664.5" y="282.5" font-size="25">$\nu(x_6)$</foreignObject>
+	            <foreignObject x="693.5" y="388.5" font-size="25">$\nu(x_5)$</foreignObject>
+          </svg>
+          <ol class="prob-setup-list" style="top:400px; width:700px;">
+            <li>Define $X\defeq (F^t\mid F_{t+1}=b)$.</li>
+            <li class=fragment>By symmetry, it also holds $X=(B^t\mid B_{-1}=a)$.</li>
+            <li class=fragment>Moreover, it can be shown $X$ is Markovian:
+              <p class=mdisplay>$\dist(X_{i+1}\mid X_{\le i}=x_{\le i}) = \dist(X_{i+1}\mid X_i=x_i)$</p></li>
+          </ol>
+        </section>
+
+        <section id="intermission-kl" class=texnify>
+          <h2>The Kullback-Leibler divergence</h2>
+          <div class=theoremlike style="margin:0.5em; padding-bottom:0">
+            <b>Definition.</b> Given two distributions $p,q\colon\Omega\to\reals_+$,
+            <p class=mdisplay>
+              $\kldiv{p}{q}\defeq\sum_x p(x)\log\frac{p(x)}{q(x)}$
+            </p>
+          </div>
+          <div style="margin: 1em 1em">If $p = (q\mid E)$ for some event $E$, then $\kldiv{p}{q} = \log\frac{1}{q(E)}$ </div>
+          <div class=theoremlike style="margin:0.5em; padding-bottom:0">
+            <b>Lemma.</b>
+            <p class=mdisplay>
+              $\kldiv{A_1A_2}{B_1B_2}=\kldiv{A_1}{B_1} + \kldiv{A_2\mid A_1}{B_2\mid B_1}$.
+            </p>
+          </div>
         </section>
 
         <section id=conjecture class="lefty texnify">

@@ -34,8 +34,8 @@ var Spaces = {
 };
 
 let Macro = {
-  "frac"  : [2, (a, b) => "<span class=mfrac><span class=mfnum>" + a + "</span><div class=mfline></div><div>" + b + "</div></span>"],
-  "kldiv" : [2, (a, b) => "<b>D</b><span class=mpl>(</span>" + a + ""]
+  "frac"  : [2, (a, b) => "<span class=mfrac><span class=mfnum>" + a + "</span><br><span class=mfline></span>" + b + "</span>"],
+  "kldiv" : [2, (a, b) => " <b>D</b><span class=mpl>(</span>" + a + " ∥ " + b + "<span class=mpr>)</span>"]
 }
 
 /**
@@ -63,7 +63,9 @@ let Substitute = {
   "Ham"     : [Atom.Op   , null],
   "Disj"    : [Atom.Op   , null],
   "Pr"      : [Atom.Op   , null],
+  "dist"    : [Atom.Op   , null],
   "one"     : [Atom.Op   , "<b>1</b>"],
+  "sum"     : [Atom.Op   , "<span class=msum>∑</span>"],
   "infty"   : [Atom.Ord  , "∞"],
   "\\|"     : [Atom.Ord  , "∥"],
   "+"       : [Atom.Bin  , '<span class=mpls>+</span>'],
@@ -216,8 +218,11 @@ function renderInline(texStr, leftAttach, rightAttach) {
         let args = new Array(nArgs);
         for (let i = 0; i < nArgs; ++i) {
           args[i] = renderInline(parseBlock(), null, null);
+          console.log(args[i]);
         }
-        output += macro[1].apply(this, args);
+        let result = macro[1].apply(this, args);
+        console.log(result);
+        output += result;
         lastAtom = Atom.Op;
       } else {
         let subs = Substitute[command];
