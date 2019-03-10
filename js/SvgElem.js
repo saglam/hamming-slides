@@ -260,6 +260,6 @@ function SvgPlot(x, y, dataPointWidth, height, data, dimensions, palette) {
  * @extends {SvgElem}
  */
 function SvgArrow(x, y, dx, dy, curvature) {
-  return new SvgEleme('g');
+  return new SvgElem('g');
 }
 

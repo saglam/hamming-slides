@@ -862,7 +862,7 @@
 
           <div class="theoremlike fragment" style="margin:0.7em 0 0.7em -0.3em; width:680px;">
             <b>Theorem II. (This work)</b><br>
-            For any $\eps$, there is a $\delta$ such that<br>
+            For any $\eps\gt 0$, there is a $\delta\gt 0$ such that<br>
             for nonnegative $u$, $v$ which may be different, either
             <ul style="margin-left:2em;">
               <li style="margin-bottom:0.5em">$m_{t+2}\cdot m_{t-2}\ge \delta m_t^2$</li>
@@ -914,8 +914,28 @@
           </div>
         </section>
 
-        <section id="mc-setup">
+        <section id="proof-setup">
           <h3>The probabilistic setup</h3>
+          <svg width="390" id="graph" viewBox="50 0 570 500" class="edgeful" style="position: absolute; left: 400px; top:70px;">
+            <circle stroke="black" stroke-width="2" id="ic1" fill="none" cx="311.5" cy="82.5" r="30"/>
+            <circle stroke="black" stroke-width="2" id="ic2" fill="none" cx="85.5" cy="159.5" r="30"/>
+            <circle stroke="black" stroke-width="2" id="ic3" fill="none" cx="551.5" cy="115.5" r="30"/>
+            <circle stroke="black" stroke-width="2" id="ic4" fill="none" cx="339.5" cy="262.5" r="30"/>
+            <circle stroke="black" stroke-width="2" id="ic5" fill="none" cx="174.5" cy="368.5" r="30"/>
+            <circle stroke="black" stroke-width="2" id="ic6" fill="none" cx="339.5" cy="445.5" r="30"/>
+            <circle stroke="black" stroke-width="2" id="ic7" fill="none" cx="562.5" cy="293.5" r="30"/>
+            <path stroke="none" stroke-width="1" fill="none" d="M 105.301,136.996 A 214.31,214.31 0 0 1 282.078,76.767"/>
+            <path stroke="none" stroke-width="1" fill="none" d="M 339.442,71.643 A 222.893,222.893 0 0 1 527.525,97.505"/>
+            <path stroke="none" stroke-width="1" fill="none" d="M 310.4,255.212 A 876.629,876.629 0 0 1 111.457,174.539"/>
+            <path stroke="none" stroke-width="1" fill="none" d="M 152.569,348.057 A 246.543,246.543 0 0 1 85.04,189.478"/>
+            <path stroke="none" stroke-width="1" fill="none" d="M 309.541,444.679 A 194.836,194.836 0 0 1 194.373,390.934"/>
+            <path stroke="none" stroke-width="1" fill="none" d="M 335.479,415.774 A 571.868,571.868 0 0 1 335.479,292.226"/>
+            <path stroke="none" stroke-width="1" fill="none" d="M 532.518,294.439 A 580.105,580.105 0 0 1 368.089,271.581"/>
+            <path stroke="none" stroke-width="1" fill="none" d="M 574.079,135.116 A 111.363,111.363 0 0 1 582.492,271.254"/>
+            <path stroke="none" stroke-width="1" fill="none" d="M 330.644,233.841 A 526.44,526.44 0 0 1 311.768,112.495"/>
+            <path stroke="none" stroke-width="1" fill="none" d="M 361.064,241.647 A 706.644,706.644 0 0 1 524.41,128.384"/>
+            <path stroke="none" stroke-width="1" fill="none" d="M 553,321.927 A 203.809,203.809 0 0 1 369.433,447.049"/>
+          </svg>
         </section>
 
         <section id="mc-forward">
@@ -926,7 +946,9 @@
 
         <section id=conjecture class="lefty">
           <h2>An analogue for continuous time?</h2>
-          <div class="theoremlike texnify" style="margin:2em 0 0.7em -0.3em; width:700px;">
+          <svg id=svg-continuous width=1000 height=200 style="position:absolute; right:0; bottom:0">
+          </svg>
+          <div class="theoremlike texnify" style="margin:1em 0 0 -0.3em; width:700px;">
             <b>Conjecture.</b>
             Let $u,v\colon\Omega\to\reals_+$ with $\|u\|_2=\|v\|_2=1$ <br>
             be positive valued unit vectors. Defining
@@ -940,7 +962,7 @@
           <h2>Thank you!</h2>
           <h2>&</h2>
           <h2>Questions?</h2>
-          <div class="theoremlike texnify" style="margin:1em auto; width:700px;">
+          <div class="big theoremlike texnify" style="margin:1em auto; width:700px;">
             <b>Conjecture.</b>
             Let $u,v\colon\Omega\to\reals_+$ with $\|u\|_2=\|v\|_2=1$ <br>
             be positive valued unit vectors. Defining

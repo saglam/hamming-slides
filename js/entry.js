@@ -229,3 +229,19 @@ let palette = {"1" : "#fee", s: "#DDD"};
       .add(new SvgText  (x +  0, y+ 117, "$S=$"))
 }
 
+
+//svg-continuous
+{
+  let y = 100;
+  /** @const {SvgElem} */
+  let g = getSvgElem("svg-continuous")
+      .add(new SvgElem('path').withAttributes({"d": "M50," + y + ",h900", "stroke": "black"}));
+
+  let tick = 6;
+  for (let x = 60; x <= 950; x += 40) {
+    g.add(new SvgElem('path').withAttributes({"d": "M" + x + "," + (y - tick/2) + "v" + tick, "stroke": "black"}));
+  }
+
+  g.add(new SvgText(270, y + 40, "$v=\\indicate_b$"))
+   .add(new SvgText(700, y + 40, "$u=\\indicate_0$"));
+}
