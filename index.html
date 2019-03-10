@@ -190,7 +190,7 @@
             <li class=fragment data-fragment-index=7>Takes $O(k\log(n/k))$ bits of communication.</li>
             <li class=fragment data-fragment-index=7>By hashing, we may assume $n\approx 10 k^2$</li>
           </ul>
-          <svg width="390" id="graph" viewBox="50 0 570 500" class="edgeful" style="position: absolute; right: 50px; top:50px;">
+          <svg width="390" id="svg-graph" viewBox="50 0 570 500" class="sgraph edgeful" style="position: absolute; right: 50px; top:50px;">
             <circle stroke="black" stroke-width="2" id="ic1" fill="none" cx="311.5" cy="82.5" r="30"/>
             <circle stroke="black" stroke-width="2" id="ic2" fill="none" cx="85.5" cy="159.5" r="30"/>
             <circle stroke="black" stroke-width="2" id="ic3" fill="none" cx="551.5" cy="115.5" r="30"/>
@@ -747,7 +747,7 @@
               Induces a random walk on $Aw$.
             </li>
             <li class=fragment>
-              <b>Observe:</b> If we walk for $t\le n^{1/2}/10$ steps, $\Pr[\|w_t\|_1 = t]\ge 0.9$
+              <b>Observe:</b> If we walk for $t\le \frac{n^{1/2}}{10}$ steps, $\Pr[\|w_t\|_1 = t]\ge 0.9$
             </li>
           </ul>
         </section>
@@ -773,7 +773,7 @@
 
         <section id="mc-setup" class="texnify">
           <h3>A question on graphs</h3>
-          <svg width="390" id="graph" viewBox="50 0 570 500" class="edgeful" style="position: absolute; left: 400px; top:70px;">
+          <svg width="390" viewBox="50 0 570 500" class="sgraph edgeful colorful" style="position: absolute; left: 400px; top:70px;">
             <circle stroke="black" stroke-width="2" id="ic1" fill="none" cx="311.5" cy="82.5" r="30"/>
             <circle stroke="black" stroke-width="2" id="ic2" fill="none" cx="85.5" cy="159.5" r="30"/>
             <circle stroke="black" stroke-width="2" id="ic3" fill="none" cx="551.5" cy="115.5" r="30"/>
@@ -806,7 +806,7 @@
 
         <section id="mc-setup-uv" class="texnify">
           <h3>A question on Markov chains</h3>
-          <svg width="390" id="graph" viewBox="50 0 570 500" class="edgeful" style="position: absolute; left: 400px; top:70px;">
+          <svg width="390" viewBox="50 0 570 500" class="sgraph edgeful" style="position: absolute; left: 400px; top:70px;">
             <circle stroke="black" stroke-width="2" id="ic1" fill="none" cx="311.5" cy="82.5" r="30"/>
             <circle stroke="black" stroke-width="2" id="ic2" fill="none" cx="85.5" cy="159.5" r="30"/>
             <circle stroke="black" stroke-width="2" id="ic3" fill="none" cx="551.5" cy="115.5" r="30"/>
@@ -865,7 +865,7 @@
             For any $\eps\gt 0$, there is a $\delta\gt 0$ such that<br>
             for nonnegative $u$, $v$ which may be different, either
             <ul style="margin-left:2em;">
-              <li style="margin-bottom:0.5em">$m_{t+2}\cdot m_{t-2}\ge \delta m_t^2$</li>
+              <li style="margin-bottom:0.5em">$m_{t+2} m_{t-2}\ge \delta m_t^2$</li>
               <li> $m_{t+2} \ge t^{1-\eps} m_t^{1+2/t}$</li>
             </ul>
           </div>
@@ -873,7 +873,7 @@
 
         <section id=mc-example class="texnify">
           <h3>An example random walk</h3>
-          <svg width=1040 height=580 id=svg-mc-example>
+          <svg width=1200 height=580 id=svg-mc-example style="position: absolute; left:0; top:100px;">
             <circle cx=145 cy=90 r=25 fill=none stroke=black />
             <foreignObject x=135 y=70 height=40 width=40>$n_0$</foreignObject>
             <circle cx=295 cy=90 r=25 fill=none stroke=black />
@@ -894,7 +894,7 @@
             <path fill=none stroke=black stroke-width=1 d="M 770,90h 100"/>
             <foreignObject x=812 y=90 width=40 height=40>$\eps$</foreignObject>
           </svg>
-          <div style="position:absolute; left:400px; top: 300px;">
+          <div style="position:absolute; left:350px; top: 300px;">
             Consider $\Omega=\{n_0,\ldots,n_t\}$<br>
             $u= \indicate_{n_0}$ and $v=\indicate_{n_t}$
             <table class=fragment data-fragment-index=4 id="mc-example-table">
@@ -905,56 +905,92 @@
               <tr><td>$m_{t+4}$</td><td> $=$ </td><td>$t(t+1)/2\cdot \eps^{t+4}$</td>
             </table>
           </div>
-          <div class="theoremlike fragment" data-fragment-index=4 style="position:absolute; right:10px; top: 400px;">
+          <div class="theoremlike fragment" data-fragment-index=4 style="position:absolute; right:10px; top: 300px;">
             <b>Theorem II.</b> We have either
             <ul style="margin-left:1em;">
-              <li style="margin-bottom:0.5em">$m_{t+2}\cdot m_{t-2}\ge \delta m_t^2$, or</li>
+              <li style="margin-bottom:0.5em">$m_{t+2} m_{t-2}\ge \delta m_t^2$, or</li>
               <li> $m_{t+2} \ge t^{1-\eps} m_t^{1+2/t}$</li>
             </ul>
           </div>
         </section>
 
-        <section id="proof-setup">
-          <h3>The probabilistic setup</h3>
-          <svg width="390" id="graph" viewBox="50 0 570 500" class="edgeful" style="position: absolute; left: 400px; top:70px;">
-            <circle stroke="black" stroke-width="2" id="ic1" fill="none" cx="311.5" cy="82.5" r="30"/>
-            <circle stroke="black" stroke-width="2" id="ic2" fill="none" cx="85.5" cy="159.5" r="30"/>
-            <circle stroke="black" stroke-width="2" id="ic3" fill="none" cx="551.5" cy="115.5" r="30"/>
-            <circle stroke="black" stroke-width="2" id="ic4" fill="none" cx="339.5" cy="262.5" r="30"/>
-            <circle stroke="black" stroke-width="2" id="ic5" fill="none" cx="174.5" cy="368.5" r="30"/>
-            <circle stroke="black" stroke-width="2" id="ic6" fill="none" cx="339.5" cy="445.5" r="30"/>
-            <circle stroke="black" stroke-width="2" id="ic7" fill="none" cx="562.5" cy="293.5" r="30"/>
-            <path stroke="none" stroke-width="1" fill="none" d="M 105.301,136.996 A 214.31,214.31 0 0 1 282.078,76.767"/>
-            <path stroke="none" stroke-width="1" fill="none" d="M 339.442,71.643 A 222.893,222.893 0 0 1 527.525,97.505"/>
-            <path stroke="none" stroke-width="1" fill="none" d="M 310.4,255.212 A 876.629,876.629 0 0 1 111.457,174.539"/>
-            <path stroke="none" stroke-width="1" fill="none" d="M 152.569,348.057 A 246.543,246.543 0 0 1 85.04,189.478"/>
-            <path stroke="none" stroke-width="1" fill="none" d="M 309.541,444.679 A 194.836,194.836 0 0 1 194.373,390.934"/>
-            <path stroke="none" stroke-width="1" fill="none" d="M 335.479,415.774 A 571.868,571.868 0 0 1 335.479,292.226"/>
-            <path stroke="none" stroke-width="1" fill="none" d="M 532.518,294.439 A 580.105,580.105 0 0 1 368.089,271.581"/>
-            <path stroke="none" stroke-width="1" fill="none" d="M 574.079,135.116 A 111.363,111.363 0 0 1 582.492,271.254"/>
-            <path stroke="none" stroke-width="1" fill="none" d="M 330.644,233.841 A 526.44,526.44 0 0 1 311.768,112.495"/>
-            <path stroke="none" stroke-width="1" fill="none" d="M 361.064,241.647 A 706.644,706.644 0 0 1 524.41,128.384"/>
-            <path stroke="none" stroke-width="1" fill="none" d="M 553,321.927 A 203.809,203.809 0 0 1 369.433,447.049"/>
-          </svg>
+        <section id="intermission-proof" class=centered>
+          <div style="height:270px"></div>
+          <h3>Theorem I: A proof sketch</h3>
         </section>
 
+        <section id="proof-setup" class="texnify">
+          <h3>The probabilistic setup</h3>
+          <svg width="900" viewBox="-10 80 1030 350">
+	          <ellipse stroke="black" stroke-width="1" fill="none" cx="332.5" cy="139.5" rx="30" ry="30"/>
+	          <ellipse stroke="black" stroke-width="1" fill="none" cx="478.5" cy="126.5" rx="30" ry="30"/>
+	          <ellipse stroke="black" stroke-width="1" fill="none" cx="275.5" cy="268.5" rx="30" ry="30"/>
+	          <ellipse stroke="black" stroke-width="1" fill="none" cx="355.5" cy="397.5" rx="30" ry="30"/>
+	          <ellipse stroke="black" stroke-width="1" fill="none" cx="501.5" cy="385.5" rx="30" ry="30"/>
+	          <ellipse stroke="black" stroke-width="1" fill="none" cx="549.5" cy="262.5" rx="30" ry="30"/>
+	          <ellipse stroke="black" stroke-width="1" fill="none" cx="419.5" cy="262.5" rx="30" ry="30"/>
+	          <ellipse stroke="black" stroke-width="1" fill="none" cx="29.5" cy="268.5" rx="30" ry="30"/>
+	          <ellipse stroke="black" stroke-width="1" fill="none" cx="791.5" cy="246.5" rx="30" ry="30"/>
+	          <path stroke="black" stroke-width="1" fill="none" d="M 278.61,238.695 A 183.827,183.827 0 0 1 312.557,161.867"/>
+	          <path stroke="black" stroke-width="1" fill="none" d="M 358.818,125.203 A 150.542,150.542 0 0 1 450.07,117.078"/>
+	          <path stroke="black" stroke-width="1" fill="none" d="M 504.591,141.144 A 118.385,118.385 0 0 1 552.4,232.721"/>
+	          <path stroke="black" stroke-width="1" fill="none" d="M 550.314,292.427 A 135.173,135.173 0 0 1 522.37,364.035"/>
+	          <path stroke="black" stroke-width="1" fill="none" d="M 476.183,401.471 A 130.547,130.547 0 0 1 383.085,409.123"/>
+	          <path stroke="black" stroke-width="1" fill="none" d="M 329.808,382.127 A 137.289,137.289 0 0 1 277.851,298.348"/>
+	          <path stroke="black" stroke-width="1" fill="none" d="M 415.59,292.215 A 197.541,197.541 0 0 1 376.029,375.664"/>
+	          <path stroke="black" stroke-width="1" fill="none" d="M 360.009,151.274 A 120.512,120.512 0 0 1 417.561,232.64"/>
+	          <path stroke="black" stroke-width="1" fill="none" d="M 443.085,244.195 A 88.056,88.056 0 0 1 525.915,244.195"/>
+	          <path stroke="black" stroke-width="1" fill="none" d="M 445.375,277.566 A 138.267,138.267 0 0 1 497.545,355.821"/>
+	          <g class=fragment>
+	            <path stroke="black" stroke-width="1" fill="none" d="M 50.069,246.672 A 376.676,376.676 0 0 1 302.509,139.197"/>
+	            <polygon fill="black" stroke-width="1" points="302.509,139.197 294.364,134.437 294.662,144.433"/>
+	            <path stroke="black" stroke-width="1" fill="none" d="M 36.968,239.46 A 268.625,268.625 0 0 1 455.692,107.036"/>
+	            <polygon fill="black" stroke-width="1" points="455.692,107.036 452.355,98.212 446.298,106.169"/>
+	            <path stroke="black" stroke-width="1" fill="none" d="M 246.377,275.678 A 453.357,453.357 0 0 1 58.623,275.678"/>
+	            <polygon fill="black" stroke-width="1" points="246.377,275.678 237.515,272.443 239.586,282.227"/>
+	            <path stroke="black" stroke-width="1" fill="none" d="M 325.531,398.709 A 399.145,399.145 0 0 1 50.527,289.888"/>
+	            <polygon fill="black" stroke-width="1" points="325.531,398.709 317.518,393.731 317.545,403.731"/>
+	          </g>
+	          <path stroke="black" stroke-width="1" fill="none" d="M 507.034,117.296 A 249.013,249.013 0 0 1 776.432,220.579"/>
+	          <polygon fill="black" stroke-width="1" points="776.432,220.579 776.166,211.149 767.839,216.686"/>
+	          <path stroke="black" stroke-width="1" fill="none" d="M 764.01,258.486 A 317.074,317.074 0 0 1 578.328,270.762"/>
+	          <polygon fill="black" stroke-width="1" points="764.01,258.486 754.755,256.66 758.314,266.005"/>
+	          <path stroke="black" stroke-width="1" fill="none" d="M 779.245,273.86 A 231.589,231.589 0 0 1 530.504,393.083"/>
+	          <polygon fill="black" stroke-width="1" points="779.245,273.86 771.087,278.598 779.93,283.269"/>
+          </svg>
+
+          <ol>
+            <li>$\mu \defeq u/\|u\|_1$</li>
+            <li>$\nu \defeq v/\|v\|_1$</li>
+          </ol>
+        </section>
+
+<!--
         <section id="mc-forward">
         </section>
 
         <section id="mc-backward">
-        </section>
+        </section>-->
 
-        <section id=conjecture class="lefty">
+        <section id=conjecture class="lefty texnify">
           <h2>An analogue for continuous time?</h2>
-          <svg id=svg-continuous width=1000 height=200 style="position:absolute; right:0; bottom:0">
-          </svg>
-          <div class="theoremlike texnify" style="margin:1em 0 0 -0.3em; width:700px;">
+          <div class=fragment>
+            <svg id=svg-continuous width=1000 height=200 style="position:absolute; right:0; bottom:0">
+              <defs>
+                <marker id="head" markerWidth="10" markerHeight="10" refX="0" refY="3" orient="auto" markerUnits="strokeWidth">
+                  <path d="M0,0 L0,6 L9,3 z" fill="black" />
+                </marker>
+              </defs>
+            </svg>
+            <div style="position:absolute; right:20px; bottom:230px;">$m_t = \frac{1}{(2\pi t)^{1/2}} e^{-b^2 / (2t)}$</div>
+          </div>
+          <div class="big theoremlike" style="margin:1em 0 0 -0.3em; width:700px;">
             <b>Conjecture.</b>
             Let $u,v\colon\Omega\to\reals_+$ with $\|u\|_2=\|v\|_2=1$ <br>
             be positive valued unit vectors. Defining
             <p class=mdisplay>$m_t=\langle v, e^{t(S-I)}u\rangle$,</p>
             we have for $\alpha\ge 0$,
-            <p class=mdisplay>$m_{t(1+\alpha)} \cdot m_{t/(1+\alpha)}\ge m_t^{2 + \alpha^2/(1+\alpha)}$
+            <p class=mdisplay>$m_{t(1+\alpha)} \cdot m_{t/(1+\alpha)}\ge m_t^{2 + \alpha^2/(1+\alpha)}$.</p>
           </div>
         </section>
 
@@ -968,7 +1004,7 @@
             be positive valued unit vectors. Defining
             <p class=mdisplay>$m_t=\langle v, e^{t(S-I)}u\rangle$,</p>
             we have for $\alpha\ge 0$,
-            <p class=mdisplay>$m_{t(1+\alpha)} \cdot m_{t/(1+\alpha)}\ge m_t^{2 + \alpha^2/(1+\alpha)}$
+            <p class=mdisplay>$m_{t(1+\alpha)} \cdot m_{t/(1+\alpha)}\ge m_t^{2 + \alpha^2/(1+\alpha)}$.</p>
           </div>
         </section>
       </div>

@@ -260,6 +260,6 @@ function SvgPlot(x, y, dataPointWidth, height, data, dimensions, palette) {
  * @extends {SvgElem}
  */
 function SvgArrow(x, y, dx, dy, curvature) {
-  return new SvgElem('g');
+  return new SvgElem('path').withAttributes({"d": "M" + x + "," + y + "l" + dx + "," + dy, "stroke": "black", "marker-end": "url(#head)"});
 }
 

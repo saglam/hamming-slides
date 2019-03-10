@@ -5,6 +5,7 @@
 .msub,
 .msupsub {
   font-size: 65%;
+  margin: 0 0.03em 0 0
 }
 
 .msup {
@@ -24,6 +25,25 @@
   position: relative;
   bottom: -0.24em;
   text-align: left;
+}
+
+.mfrac {
+  display: inline-block;
+  vertical-align: top;
+  position: relative;
+  top: -0.6em;
+  text-align: center;
+  padding: 0 0.2em;
+}
+
+.mfnum {
+  vertical-align: top;
+}
+
+.reveal .mfline {
+  display:block;
+  border-top: 0.07em solid;
+  margin: 0.2em -0.1em;
 }
 
 .mssup {

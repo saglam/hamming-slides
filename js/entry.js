@@ -112,7 +112,7 @@ let palette = {"1" : "#fee", s: "#DDD"};
           .add(new SvgText(  243, 580, "$a_k$"))
           .add(new SvgText(  303, 580, "$a_{k+2}$"))
           .add(new SvgPlot(  30, 480, 40, 70, data2, {smoothness: 0.6, grid: [[0, null, 3]]}, palette1))
-          .add(new SvgText( 300, 475, "$a_{k+2}a_{k-2}\\ge c\\cdot a_k^2 \\ge c\\cdot(1-\\delta)^2$")), 6)
+          .add(new SvgText( 320, 475, "$a_{k+2}\\cdot a_{k-2}\\ge c\\cdot a_k^2$")), 6)
 
 }
 
@@ -222,7 +222,7 @@ let palette = {"1" : "#fee", s: "#DDD"};
            "000000",
            "000000"];
 
-  let x = 0;
+  let x = 20;
   let y = 250
   getSvgElem('svg-mc-example')
       .add(new SvgMatrix(x + 55, y, 35, 35, A, Ac, normal))
@@ -235,7 +235,7 @@ let palette = {"1" : "#fee", s: "#DDD"};
   let y = 100;
   /** @const {SvgElem} */
   let g = getSvgElem("svg-continuous")
-      .add(new SvgElem('path').withAttributes({"d": "M50," + y + ",h900", "stroke": "black"}));
+      .add(new SvgElem('path').withAttributes({"d": "M50," + y + ",h950", "stroke": "black"}));
 
   let tick = 6;
   for (let x = 60; x <= 950; x += 40) {
@@ -243,5 +243,13 @@ let palette = {"1" : "#fee", s: "#DDD"};
   }
 
   g.add(new SvgText(270, y + 40, "$v=\\indicate_b$"))
-   .add(new SvgText(700, y + 40, "$u=\\indicate_0$"));
+   .add(new SvgText(700, y + 40, "$u=\\indicate_0$"))
+   .add(new SvgArrow(300, 100, 0, -70, 0))
+   .add(new SvgArrow(740, 100, 0, -70, 0))
+   .add(new SvgElem('path').withAttributes({
+       "stroke-width": "3",
+               "fill": "none",
+             "stroke": "#08a",
+                  "d": "M60,97C700,97 680,40 740,40S780,97 1420,97"}));
 }
+

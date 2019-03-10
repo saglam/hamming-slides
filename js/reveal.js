@@ -316,9 +316,9 @@
          */
         function (color) {
           if (color) {
-            document.getElementById('graph').classList.add('colorful');
+            document.getElementById('svg-graph').classList.add('colorful');
           } else {
-            document.getElementById('graph').classList.remove('colorful');
+            document.getElementById('svg-graph').classList.remove('colorful');
           }
         }, 
     "placeEdges":
@@ -327,9 +327,9 @@
          */
         function(place) {
           if (place) {
-            document.getElementById('graph').classList.add('edgeful');
+            document.getElementById('svg-graph').classList.add('edgeful');
           } else {
-            document.getElementById('graph').classList.remove('edgeful');
+            document.getElementById('svg-graph').classList.remove('edgeful');
           }
         },
     "resetwvector":

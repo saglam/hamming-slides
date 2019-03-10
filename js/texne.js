@@ -26,28 +26,38 @@ var Atom = {
  */
 var Spaces = {
   Regular    : " ",
-  ThreePerEm : " ",
-  FourPerEm  : " ",
-  SixPerEm   : " "
+  ThreePerEm : "\u2004",
+  FourPerEm  : "\u2005",
+  SixPerEm   : "\u2006",
+  ThinSpace  : "\u2009",
+  MediumMath : "\u205F"
 };
+
+let Macro = {
+  "frac"  : [2, (a, b) => "<span class=mfrac><span class=mfnum>" + a + "</span><div class=mfline></div><div>" + b + "</div></span>"],
+  "kldiv" : [2, (a, b) => "<b>D</b><span class=mpl>(</span>" + a + ""]
+}
 
 /**
  * @const
  * @type {Object<string, Array<Atom, string>>}
  */
-var Substitute = {
+let Substitute = {
   "Theta"   : [Atom.Ord  , "<span class=mtht>Θ</span>"],
   "theta"   : [Atom.Ord  , "θ"],
   "Omega"   : [Atom.Ord  , "Ω"],
   "omega"   : [Atom.Ord  , "ω"],
-  "delta"   : [Atom.Ord  , "δ"],
-  "epsilon" : [Atom.Ord  , "ε"],
-  "eps"     : [Atom.Ord  , "ε"],
+  "delta"   : [Atom.Ord  , "<i>δ</i>"],
+  "epsilon" : [Atom.Ord  , "<i>ε</i>"],
+  "eps"     : [Atom.Ord  , "<i>ε</i>"],
   "alpha"   : [Atom.Ord  , "<i>α</i>"],
   "?"       : [Atom.Ord  , "?"],
+  "mu"      : [Atom.Ord  , "<i>μ</i>"],
+  "nu"      : [Atom.Ord  , "<i>ν</i>"],
   "indicate": [Atom.Ord  , "𝟙"],
   "reals"   : [Atom.Ord  , "ℝ"],
   "field"   : [Atom.Ord  , "𝔽"],
+  "pi"      : [Atom.Ord  , "π"],
   "log"     : [Atom.Op   , null],
   "exp"     : [Atom.Op   , null],
   "Ham"     : [Atom.Op   , null],
@@ -71,6 +81,7 @@ var Substitute = {
   "mid"     : [Atom.Rel  , "|"],
   "to"      : [Atom.Rel  , "<span class=mto>→</span>"],
   "="       : [Atom.Rel  , '<span class=meq>=</span>'],
+  "defeq"   : [Atom.Rel  , "≔"],
   "mapsto"  : [Atom.Rel  , "<span class=mmt>↦</span>"],
   "langle"  : [Atom.Open , "<span class=mal>⟨</span>"],
   "lVert"   : [Atom.Open , "∥"],
@@ -131,7 +142,8 @@ function getSpace(leftAtom, rightAtom) {
   /** @const {number} */
   var spaceType = SpaceTable[leftAtom][rightAtom];
   return spaceType == 0 ? "" :
-      (spaceType == 3 ? Spaces.ThreePerEm : Spaces.Regular);
+      (spaceType == 3 ? Spaces.ThreePerEm :
+          (spaceType == 1 ? Spaces.MediumMath : Spaces.Regular));
 }
 
 /**
@@ -142,7 +154,7 @@ function getSpace(leftAtom, rightAtom) {
  */
 function renderInline(texStr, leftAttach, rightAttach) {
   /** @const {boolean} */
-  var baseMode = leftAttach != null
+  let baseMode = leftAttach != null;
   /** @const {number} */
   var n =  texStr.length;
   /** @type {string} */
@@ -155,6 +167,34 @@ function renderInline(texStr, leftAttach, rightAttach) {
   var code;
   /** @type {number} */
   var i;
+
+  /**
+   * @return {string} of next block
+   */
+  function parseBlock() {
+    let block;
+    if (texStr.charCodeAt(i) == "{".charCodeAt(0)) {
+      ++i;
+      /** @const {number} */
+      let start = i;
+      /** @type {number} */
+      let depth = 1;
+      while (depth > 0 && i < n) {
+        let /** number */ c = texStr.charCodeAt(i++);
+        if (c == "{".charCodeAt(0)) {
+          ++depth;
+        } else if (c == "}".charCodeAt(0)) {
+          --depth;
+        }
+      }
+      block = texStr.slice(start, i - 1);
+    } else {
+      block = texStr.charAt(i);
+      i++;
+    }
+    return block;
+  }
+
   for (i = 0; i < n;) {
     code = texStr.charCodeAt(i);
     char = texStr.charAt(i);
@@ -168,56 +208,53 @@ function renderInline(texStr, leftAttach, rightAttach) {
         i += command.length;
       }
 
-      let subs = Substitute[command];
-      if (subs) {
-        output += getSpace(lastAtom, subs[0]);
-        output += (subs[1] == null) ? 
-            '<span class=mop>' + command + '</span>' : subs[1];
-        lastAtom = subs[0];
+      let macro = Macro[command];
+      if (macro) {
+        /** @const {number} */
+        let nArgs = macro[0];
+        /** @type {Array<string>} */
+        let args = new Array(nArgs);
+        for (let i = 0; i < nArgs; ++i) {
+          args[i] = renderInline(parseBlock(), null, null);
+        }
+        output += macro[1].apply(this, args);
+        lastAtom = Atom.Op;
+      } else {
+        let subs = Substitute[command];
+        if (subs) {
+          output += getSpace(lastAtom, subs[0]);
+          output += (subs[1] == null) ? 
+              '<span class=mop>' + command + '</span>' : subs[1];
+          lastAtom = subs[0];
+        }
       }
     } else if (code == "^".charCodeAt(0)) {
       /** @type {string} */
-      let sup;
-      if (texStr.charCodeAt(i) == "{".charCodeAt(0)) {
-        /** @const {number} */
-        let supEnd = texStr.indexOf("}", i);
-        sup = texStr.slice(i + 1, supEnd);
-        i = supEnd + 1;
-      } else {
-        sup = texStr.charAt(i);
-        i++;
-      }
-      output += '<sup class=msup>' + renderInline(sup, null, null) + '</sup>';
-    } else if (code == "_".charCodeAt(0)) {
-      let sub;
-      if (texStr.charCodeAt(i) == "{".charCodeAt(0)) {
-        /** @const {number} */
-        let subEnd = texStr.indexOf("}", i);
-        sub = texStr.slice(i + 1, subEnd);
-        i = subEnd + 1;
-      } else {
-        sub = texStr.charAt(i);
-        i++;
-      }
-      if (texStr.charCodeAt(i) == "^".charCodeAt(0)) {
-        i++;
+      let sup = parseBlock();
+      if (texStr.charCodeAt(i) == "_".charCodeAt(0)) {
+        ++i;
         /** @type {string} */
-        let sup;
-        if (texStr.charCodeAt(i) == "{".charCodeAt(0)) {
-          /** @const {number} */
-          let supEnd = texStr.indexOf("}", i);
-          sup = texStr.slice(i + 1, supEnd);
-          i = supEnd + 1;
-        } else {
-          sup = texStr.charAt(i);
-          i++;
-        }
+        let sub = parseBlock();
+        output += '<span class=msupsub><sup class=mssup>' + renderInline(sup, null, null) +
+                  '</sup><br><sub class=mssub>' + renderInline(sub, null, null) +
+                  '</sub></span>';
+      } else {
+        output += '<sup class=msup>' + renderInline(sup, null, null) + '</sup>';
+      }
+      lastAtom = Atom.Ord;
+    } else if (code == "_".charCodeAt(0)) {
+      let sub = parseBlock();
+      if (texStr.charCodeAt(i) == "^".charCodeAt(0)) {
+        ++i;
+        /** @type {string} */
+        let sup = parseBlock();
         output += '<span class=msupsub><sup class=mssup>' + renderInline(sup, null, null) +
                   '</sup><br><sub class=mssub>' + renderInline(sub, null, null) +
                   '</sub></span>';
       } else {
         output += '<sub class=msub>' + renderInline(sub, null, null) + '</sub>';
       }
+      lastAtom = Atom.Ord;
     } else if ("0".charCodeAt(0) <= code && code <= "9".charCodeAt(0)) {
       /** @const {string} */
       let number = texStr.slice(i).match(Digits)[0];
