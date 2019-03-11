@@ -190,6 +190,23 @@ position: absolute; left:100px; top:450px;
 #proof-idea-inner-list > li {
   margin: 1.2em 0 3.5em 0.8em;
 }
+
+.acolor {
+  fill: #00bfaf;
+  color:#00bfaf;
+}
+
+.bcolor {
+  fill:#ff598f;
+  color:#ff598f;
+}
+
+.bcolor.b,
+.acolor.b {
+  font-weight:bold;
+}
+
+
 /*********************************************
  * GLOBAL STYLES
  *********************************************/

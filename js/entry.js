@@ -233,8 +233,10 @@ let palette = {"1" : "#fee", s: "#DDD"};
 //svg-proof-idea
 {
   getSvgElem('svg-proof-idea')
-    .add(new SvgArrow(350,300, 180, -120))
-    .add(new SvgArrow(700,430, 40, -240))
+    .add(new SvgArrow(350,300, 180, -110, -600))
+    .add(new SvgArrow(700,430, 40, -240, -600))
+    .add(new SvgArrow(520, 37, -210, 90, -400))
+    .add(new SvgArrow(730, 37, 210, 100, 500))
 }
 
 //svg-continuous
@@ -251,8 +253,8 @@ let palette = {"1" : "#fee", s: "#DDD"};
 
   g.add(new SvgText(270, y + 40, "$v=\\indicate_b$"))
    .add(new SvgText(700, y + 40, "$u=\\indicate_0$"))
-   .add(new SvgArrow(300, 100, 0, -70, 0))
-   .add(new SvgArrow(740, 100, 0, -70, 0))
+   .add(new SvgArrow(300, 100, 0, -70))
+   .add(new SvgArrow(740, 100, 0, -70))
    .add(new SvgElem('path').withAttributes({
        "stroke-width": "3",
                "fill": "none",

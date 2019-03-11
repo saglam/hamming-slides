@@ -146,8 +146,7 @@ function getSpace(leftAtom, rightAtom) {
   /** @const {number} */
   var spaceType = SpaceTable[leftAtom][rightAtom];
   return spaceType == 0 ? "" :
-      (spaceType == 3 ? Spaces.ThreePerEm :
-          (spaceType == 1 ? Spaces.MediumMath : Spaces.Regular));
+      (spaceType == 3 ? Spaces.ThreePerEm : Spaces.Regular);
 }
 
 /**
@@ -232,7 +231,6 @@ function renderInline(texStr, leftAttach, rightAttach) {
               '<span class=mop>' + command + '</span>' : subs[1];
           lastAtom = subs[0];
         } else if (command == "\\;") {
-          console
           output += Spaces.Regular;
         } else if (command == "\\,") {
           output += Spaces.MediumMath;

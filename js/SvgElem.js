@@ -257,9 +257,25 @@ function SvgPlot(x, y, dataPointWidth, height, data, dimensions, palette) {
  * @param {number} y coordinate of the back
  * @param {number} dx to the head
  * @param {number} dy to the head
+ * @param {number=} curvature
  * @extends {SvgElem}
  */
-function SvgArrow(x, y, dx, dy, curvature) {
-  return new SvgElem('path').withAttributes({"d": "M" + x + "," + y + "l" + dx + "," + dy, "stroke": "black", "marker-end": "url(#head)"});
+function SvgArrow(x, y, dx, dy, curvature = 0) {
+  if (curvature === 0) {
+    return new SvgElem('path').withAttributes({"d": "M" + x + "," + y + "l" + dx + "," + dy, "stroke": "black", "marker-end": "url(#head)"});
+  } else {
+    /** @type {boolean} */
+    let direction = 1;
+    if (curvature < 0) {
+      direction = 0;
+      curvature = -curvature;
+    }
+    return new SvgElem('path').withAttributes({
+            "d": "M" + x + "," + y + "a" + curvature + " " + curvature + " 0 0 " + direction + " " + dx + "," + dy,
+       "stroke": "black",
+         "fill": "none",
+   "marker-end": "url(#head)"
+    })
+  }
 }
 

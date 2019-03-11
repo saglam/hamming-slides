@@ -766,34 +766,34 @@
               We have $m_t \approx\Pr[Aw_t = b]$. (for $t\le n^{1/2}/10$)
             </li>
             <li class=fragment>
-              Now we need to understand the probability that we start from node 0 and hit node $b$ at time $t$.
+              <b>Understand:</b> probability that we start from node 0 and hit node $b$ at time $t$.
             </li>
           </ul>
         </section>
 
         <section id="mc-setup" class="texnify">
           <h3>A question on graphs</h3>
-          <svg width="390" viewBox="50 0 570 500" class="sgraph edgeful colorful" style="position: absolute; left: 400px; top:70px;">
-            <circle stroke="black" stroke-width="2" id="ic1" fill="none" cx="311.5" cy="82.5" r="30"/>
-            <circle stroke="black" stroke-width="2" id="ic2" fill="none" cx="85.5" cy="159.5" r="30"/>
-            <circle stroke="black" stroke-width="2" id="ic3" fill="none" cx="551.5" cy="115.5" r="30"/>
-            <circle stroke="black" stroke-width="2" id="ic4" fill="none" cx="339.5" cy="262.5" r="30"/>
-            <circle stroke="black" stroke-width="2" id="ic5" fill="none" cx="174.5" cy="368.5" r="30"/>
-            <circle stroke="black" stroke-width="2" id="ic6" fill="none" cx="339.5" cy="445.5" r="30"/>
-            <circle stroke="black" stroke-width="2" id="ic7" fill="none" cx="562.5" cy="293.5" r="30"/>
-            <text x="555" y="305" font-size="30">0</text>
-            <text x="77" y="171" font-size="30">b</text>
-            <path stroke="none" stroke-width="1" fill="none" d="M 105.301,136.996 A 214.31,214.31 0 0 1 282.078,76.767"/>
-            <path stroke="none" stroke-width="1" fill="none" d="M 339.442,71.643 A 222.893,222.893 0 0 1 527.525,97.505"/>
-            <path stroke="none" stroke-width="1" fill="none" d="M 310.4,255.212 A 876.629,876.629 0 0 1 111.457,174.539"/>
-            <path stroke="none" stroke-width="1" fill="none" d="M 152.569,348.057 A 246.543,246.543 0 0 1 85.04,189.478"/>
-            <path stroke="none" stroke-width="1" fill="none" d="M 309.541,444.679 A 194.836,194.836 0 0 1 194.373,390.934"/>
-            <path stroke="none" stroke-width="1" fill="none" d="M 335.479,415.774 A 571.868,571.868 0 0 1 335.479,292.226"/>
-            <path stroke="none" stroke-width="1" fill="none" d="M 532.518,294.439 A 580.105,580.105 0 0 1 368.089,271.581"/>
-            <path stroke="none" stroke-width="1" fill="none" d="M 574.079,135.116 A 111.363,111.363 0 0 1 582.492,271.254"/>
-            <path stroke="none" stroke-width="1" fill="none" d="M 330.644,233.841 A 526.44,526.44 0 0 1 311.768,112.495"/>
-            <path stroke="none" stroke-width="1" fill="none" d="M 361.064,241.647 A 706.644,706.644 0 0 1 524.41,128.384"/>
-            <path stroke="none" stroke-width="1" fill="none" d="M 553,321.927 A 203.809,203.809 0 0 1 369.433,447.049"/>
+          <svg width="390" viewBox="50 0 570 500" class="sgraph edgeful" style="position: absolute; left: 400px; top:70px;">
+            <circle stroke="black" stroke-width="2" fill="#ff598f" cx="311.5" cy="82.5" r="30"/>
+            <circle stroke="black" stroke-width="2" fill="#e0e300" cx="85.5" cy="159.5" r="30"/>
+            <circle stroke="black" stroke-width="2" fill="#01dddd" cx="551.5" cy="115.5" r="30"/>
+            <circle stroke="black" stroke-width="2" fill="#fd8a5e" cx="339.5" cy="262.5" r="30"/>
+            <circle stroke="black" stroke-width="2" fill="#fd8a5e" cx="174.5" cy="368.5" r="30"/>
+            <circle stroke="black" stroke-width="2" fill="#ff598f" cx="339.5" cy="445.5" r="30"/>
+            <circle stroke="black" stroke-width="2" fill="#00bfaf" cx="562.5" cy="293.5" r="30"/>
+            <text x="555" y="305" fill=white font-size="30">0</text>
+            <text x="77" y="171" fill=white font-size="30">b</text>
+            <path stroke="black" stroke-width="1" fill="none" d="M 105.301,136.996 A 214.31,214.31 0 0 1 282.078,76.767"/>
+            <path stroke="black" stroke-width="1" fill="none" d="M 339.442,71.643 A 222.893,222.893 0 0 1 527.525,97.505"/>
+            <path stroke="black" stroke-width="1" fill="none" d="M 310.4,255.212 A 876.629,876.629 0 0 1 111.457,174.539"/>
+            <path stroke="black" stroke-width="1" fill="none" d="M 152.569,348.057 A 246.543,246.543 0 0 1 85.04,189.478"/>
+            <path stroke="black" stroke-width="1" fill="none" d="M 309.541,444.679 A 194.836,194.836 0 0 1 194.373,390.934"/>
+            <path stroke="black" stroke-width="1" fill="none" d="M 335.479,415.774 A 571.868,571.868 0 0 1 335.479,292.226"/>
+            <path stroke="black" stroke-width="1" fill="none" d="M 532.518,294.439 A 580.105,580.105 0 0 1 368.089,271.581"/>
+            <path stroke="black" stroke-width="1" fill="none" d="M 574.079,135.116 A 111.363,111.363 0 0 1 582.492,271.254"/>
+            <path stroke="black" stroke-width="1" fill="none" d="M 330.644,233.841 A 526.44,526.44 0 0 1 311.768,112.495"/>
+            <path stroke="black" stroke-width="1" fill="none" d="M 361.064,241.647 A 706.644,706.644 0 0 1 524.41,128.384"/>
+            <path stroke="black" stroke-width="1" fill="none" d="M 553,321.927 A 203.809,203.809 0 0 1 369.433,447.049"/>
           </svg>
           <ul style="margin-left:3em; margin-top:11em;" id=pdt-walk-list>
             <li>Start from node $0$. Perform a discrete time random walk.
@@ -807,13 +807,13 @@
         <section id="mc-setup-uv" class="texnify">
           <h3>A question on Markov chains</h3>
           <svg width="390" viewBox="50 0 570 500" class="sgraph edgeful" style="position: absolute; left: 400px; top:70px;">
-            <circle stroke="black" stroke-width="2" id="ic1" fill="none" cx="311.5" cy="82.5" r="30"/>
-            <circle stroke="black" stroke-width="2" id="ic2" fill="none" cx="85.5" cy="159.5" r="30"/>
-            <circle stroke="black" stroke-width="2" id="ic3" fill="none" cx="551.5" cy="115.5" r="30"/>
-            <circle stroke="black" stroke-width="2" id="ic4" fill="none" cx="339.5" cy="262.5" r="30"/>
-            <circle stroke="black" stroke-width="2" id="ic5" fill="none" cx="174.5" cy="368.5" r="30"/>
-            <circle stroke="black" stroke-width="2" id="ic6" fill="none" cx="339.5" cy="445.5" r="30"/>
-            <circle stroke="black" stroke-width="2" id="ic7" fill="none" cx="562.5" cy="293.5" r="30"/>
+            <circle stroke="black" stroke-width="2" fill="#ff598f" cx="311.5" cy="82.5" r="30"/>
+            <circle stroke="black" stroke-width="2" fill="#e0e300" cx="85.5" cy="159.5" r="30"/>
+            <circle stroke="black" stroke-width="2" fill="#01dddd" cx="551.5" cy="115.5" r="30"/>
+            <circle stroke="black" stroke-width="2" fill="#fd8a5e" cx="339.5" cy="262.5" r="30"/>
+            <circle stroke="black" stroke-width="2" fill="#fd8a5e" cx="174.5" cy="368.5" r="30"/>
+            <circle stroke="black" stroke-width="2" fill="#ff598f" cx="339.5" cy="445.5" r="30"/>
+            <circle stroke="black" stroke-width="2" fill="#00bfaf" cx="562.5" cy="293.5" r="30"/>
             <path stroke="none" stroke-width="1" fill="none" d="M 105.301,136.996 A 214.31,214.31 0 0 1 282.078,76.767"/>
             <path stroke="none" stroke-width="1" fill="none" d="M 339.442,71.643 A 222.893,222.893 0 0 1 527.525,97.505"/>
             <path stroke="none" stroke-width="1" fill="none" d="M 310.4,255.212 A 876.629,876.629 0 0 1 111.457,174.539"/>
@@ -842,9 +842,13 @@
             and $k\gt t$ natural numbers the same parity
             we have $m_{k}^{1/k}\ge m_t^{1/t}$.
           </div>
+          <div class=theoremlike style="width:200px; position:absolute;right:20px; top:100px;">
+            <b>Recall.</b><br>$m_t = \langle v,S^tu\rangle$
+          </div>
         </section>
 
         <section id="mc-blakleydixon" class="texnify">
+          <h3>The Blakley-Dixon conjecture</h3>
           <div class="theoremlike" style="margin:0.7em 0 0.7em -0.3em; width:680px;">
             <b>Conjecture.</b> (Blakley, Dixon'1966)<br>
             For nonnegative $u = v$, and $k\gt t$ natural numbers the same parity
@@ -869,7 +873,7 @@
               <li> $m_{t+2} \ge t^{1-\eps} m_t^{1+2/t}$</li>
             </ul>
           </div>
-          
+
           <div class=theoremlike style="width:200px; position:absolute;right:20px; top:100px;">
             <b>Recall.</b><br>$m_t = \langle v,S^tu\rangle$
           </div>
@@ -953,7 +957,7 @@
 	          <path stroke="black" stroke-width="1" fill="none" d="M 491.033,395.668 A 295.186,295.186 0 0 1 431.335,340.607"/>
 	          <text x=400 y=480>Ω</text>
 	          <g class=fragment data-fragment-index=1>
-  	          <ellipse stroke="black" stroke-width="2" fill="#00bfaf" cx="33.5" cy="245.5" rx="30" ry="30"/>
+  	          <ellipse stroke="black" stroke-width="2" class=acolor cx="33.5" cy="245.5" rx="30" ry="30"/>
 	          	<text x="27" y="253" font-size="30" fill="white" style="font-weight:bold">a</text>
 	            <path stroke="black" stroke-width="1" fill="none" d="M 53.821,223.445 A 324.134,324.134 0 0 1 285.561,129.763"/>
 	            <polygon fill="black" stroke-width="1" points="285.561,129.763 277.62,124.67 277.503,134.67"/>
@@ -963,13 +967,13 @@
 	            <polygon fill="black" stroke-width="1" points="225.768,278.442 217.342,274.198 218.261,284.156"/>
 	            <path stroke="black" stroke-width="1" fill="none" d="M 295.614,408.987 A 368.072,368.072 0 0 1 50.946,269.895"/>
 	            <polygon fill="black" stroke-width="1" points="295.614,408.987 288.297,403.032 287.054,412.954"/>
-	            <foreignObject x="120.5" y="114" font-size="25">$\mu(x_1)$</foreignObject>
-	            <foreignObject x="197.5" y="20" font-size="25">$\mu(x_2)$</foreignObject>
-	            <foreignObject x="117.5" y="279.5" font-size="25">$\mu(x_3)$</foreignObject>
-	            <foreignObject x="118.5" y="364.5" font-size="25">$\mu(x_4)$</foreignObject>
+	            <foreignObject x="120.5" y="114" height=40 width=100 font-size="25">$\mu(x_1)$</foreignObject>
+	            <foreignObject x="197.5" y="20" height=40 width=100 font-size="25">$\mu(x_2)$</foreignObject>
+	            <foreignObject x="117.5" y="279.5" height=40 widht=100 font-size="25">$\mu(x_3)$</foreignObject>
+	            <foreignObject x="118.5" y="364.5" height=40 width=100 font-size="25">$\mu(x_4)$</foreignObject>
             </g>
 	          <g class=fragment data-fragment-index=2>
-  	          <ellipse stroke="black" stroke-width="2" fill="#ff598f" cx="795.5" cy="251.5" rx="30" ry="30"/>
+  	          <ellipse stroke="black" stroke-width="2" class=bcolor cx="795.5" cy="251.5" rx="30" ry="30"/>
             	<text x="788" y="260" font-size="30" fill="white" style="font-weight:bold">b</text>
 	            <path stroke="black" stroke-width="1" fill="none" d="M 530.169,115.737 A 230.123,230.123 0 0 1 782.228,224.619"/>
 	            <polygon fill="black" stroke-width="1" points="782.228,224.619 782.556,215.191 773.897,220.193"/>
@@ -977,16 +981,16 @@
 	            <polygon fill="black" stroke-width="1" points="767.71,262.774 758.502,260.723 761.832,270.153"/>
 	            <path stroke="black" stroke-width="1" fill="none" d="M 785.292,279.687 A 231.628,231.628 0 0 1 545.984,416.925"/>
 	            <polygon fill="black" stroke-width="1" points="785.292,279.687 777.505,285.014 786.668,289.021"/>
-	            <foreignObject x="678.5" y="99.5" font-size="25">$\nu(x_2)$</foreignObject>
-	            <foreignObject x="664.5" y="282.5" font-size="25">$\nu(x_6)$</foreignObject>
-	            <foreignObject x="693.5" y="388.5" font-size="25">$\nu(x_5)$</foreignObject>
+	            <foreignObject x="678.5" y="99.5" height=40 width=100 font-size="25">$\nu(x_2)$</foreignObject>
+	            <foreignObject x="664.5" y="282.5" height=40 width=100 font-size="25">$\nu(x_6)$</foreignObject>
+	            <foreignObject x="693.5" y="388.5" height=40 width=100 font-size="25">$\nu(x_5)$</foreignObject>
 	          </g>
           </svg>
           <ol class="prob-setup-list">
             <li>Recall $m_t=\langle v,S^tu\rangle$</li>
-            <li class=fragment data-fragment-index=1>Set $\mu \defeq u/\|u\|_1$ and add state <i style="color:#00bfaf; font-weight:bold">a</i> with $S(a,x)=\mu(x)$</li>
-            <li class=fragment data-fragment-index=2>Set $\nu \defeq v/\|v\|_1$ and add state <i style="color:#ff598f; font-weight:bold">b</i> with $S(x,b)=\nu(x)$</li>
-            <li class=fragment data-fragment-index=3>Relate $m_t\approx\Pr$ [a walker goes from <i style="color:#00bfaf; font-weight:bold">a</i> to <i style="color:#ff598f; font-weight:bold">b</i> in exactly $t+2$ steps].
+            <li class=fragment data-fragment-index=1>Set $\mu \defeq u/\|u\|_1$ and add state <i class="acolor b">a</i> with $S(a,x)=\mu(x)$</li>
+            <li class=fragment data-fragment-index=2>Set $\nu \defeq v/\|v\|_1$ and add state <i class="bcolor b">b</i> with $S(x,b)=\nu(x)$</li>
+            <li class=fragment data-fragment-index=3>Relate $m_t\approx\Pr$ [a walker goes from <i class="acolor b">a</i> to <i class="bcolor b">b</i> in exactly $t+2$ steps].
           </ol>
         </section>
 
@@ -1018,7 +1022,7 @@
 	          <path stroke="black" stroke-width="1" fill="none" d="M 436.211,296.951 A 181.247,181.247 0 0 1 519.565,263.854"/>
 	          <path stroke="black" stroke-width="1" fill="none" d="M 491.033,395.668 A 295.186,295.186 0 0 1 431.335,340.607"/>
 	          <text x=400 y=480>Ω</text>
-  	          <ellipse stroke="black" stroke-width="2" fill="#00bfaf" cx="33.5" cy="245.5" rx="30" ry="30"/>
+  	          <ellipse stroke="black" stroke-width="2" class=acolor cx="33.5" cy="245.5" rx="30" ry="30"/>
 	          	<text x="27" y="253" font-size="30" fill="white" style="font-weight:bold">a</text>
 	            <path stroke="black" stroke-width="1" fill="none" d="M 53.821,223.445 A 324.134,324.134 0 0 1 285.561,129.763"/>
 	            <polygon fill="black" stroke-width="1" points="285.561,129.763 277.62,124.67 277.503,134.67"/>
@@ -1028,9 +1032,9 @@
 	            <polygon fill="black" stroke-width="1" points="225.768,278.442 217.342,274.198 218.261,284.156"/>
 	            <path stroke="black" stroke-width="1" fill="none" d="M 295.614,408.987 A 368.072,368.072 0 0 1 50.946,269.895"/>
 	            <polygon fill="black" stroke-width="1" points="295.614,408.987 288.297,403.032 287.054,412.954"/>
-	            <foreignObject x="120.5" y="114" font-size="25">$\mu(x_1)$</foreignObject>
-	            <foreignObject x="117.5" y="279.5" font-size="25">$\mu(x_3)$</foreignObject>
-  	          <ellipse stroke="black" stroke-width="2" fill="#ff598f" cx="795.5" cy="251.5" rx="30" ry="30"/>
+	            <foreignObject x="120.5" y="114" height=40 width=100 font-size="25">$\mu(x_1)$</foreignObject>
+	            <foreignObject x="117.5" y="279.5" height=40 width=100 font-size="25">$\mu(x_3)$</foreignObject>
+  	          <ellipse stroke="black" stroke-width="2" class=bcolor cx="795.5" cy="251.5" rx="30" ry="30"/>
             	<text x="788" y="260" font-size="30" fill="white" style="font-weight:bold">b</text>
 	            <path stroke="black" stroke-width="1" fill="none" d="M 530.169,115.737 A 230.123,230.123 0 0 1 782.228,224.619"/>
 	            <polygon fill="black" stroke-width="1" points="782.228,224.619 782.556,215.191 773.897,220.193"/>
@@ -1038,15 +1042,15 @@
 	            <polygon fill="black" stroke-width="1" points="767.71,262.774 758.502,260.723 761.832,270.153"/>
 	            <path stroke="black" stroke-width="1" fill="none" d="M 785.292,279.687 A 231.628,231.628 0 0 1 545.984,416.925"/>
 	            <polygon fill="black" stroke-width="1" points="785.292,279.687 777.505,285.014 786.668,289.021"/>
-	            <foreignObject x="678.5" y="99.5" font-size="25">$\nu(x_2)$</foreignObject>
-	            <foreignObject x="664.5" y="282.5" font-size="25">$\nu(x_6)$</foreignObject>
-	            <foreignObject x="693.5" y="388.5" font-size="25">$\nu(x_5)$</foreignObject>
+	            <foreignObject x="678.5" y="99.5" height=40 width=100 font-size="25">$\nu(x_2)$</foreignObject>
+	            <foreignObject x="664.5" y="282.5" height=40 width=100 font-size="25">$\nu(x_6)$</foreignObject>
+	            <foreignObject x="693.5" y="388.5" height=40 width=100 font-size="25">$\nu(x_5)$</foreignObject>
           </svg>
           <ol class="prob-setup-list" style="top:400px;">
             <li>$F^t=(F_{-1},F_0,\ldots,F_t,F_{t+1})$.</li>
-            <li>Start at $a$, move to $x\in\Omega$ with probability $\mu(x)$.</li>
+            <li>Start at <i class="acolor b">a</i>, move to $x\in\Omega$ with probability $\mu(x)$.</li>
             <li>Move according to $S$ for $t$ steps</li>
-            <li class=fragment data-fragment-index=3>Move to <i style="color:#ff598f; font-weight:bold">b</i> with probability $\nu(F_t)$ and fail with probability $1-\nu(F_t)$.</li>
+            <li class=fragment data-fragment-index=3>Move to <i class="bcolor b">b</i> with probability $\nu(F_t)$ and fail with probability $1-\nu(F_t)$.</li>
             <li class=fragment data-fragment-index=4>$\Pr[F_{t+1}=b] = \langle \nu, S^t\mu\rangle$
           </ol>
         </section>
@@ -1084,15 +1088,15 @@
 	            <polygon fill="black" stroke-width="1" points="60.694,258.144 66.199,265.805 69.992,256.552"/>
 	            <polygon fill="black" stroke-width="1" points="50.374,269.539 50.463,280.973 58.893,273.591"/>
 
-  	          <ellipse stroke="black" stroke-width="2" fill="#00bfaf" cx="33.5" cy="245.5" rx="30" ry="30"/>
+  	          <ellipse stroke="black" stroke-width="2" class=acolor cx="33.5" cy="245.5" rx="30" ry="30"/>
 	          	<text x="27" y="253" font-size="30" fill="white" style="font-weight:bold">a</text>
 	            <path stroke="black" stroke-width="1" fill="none" d="M 53.821,223.445 A 324.134,324.134 0 0 1 285.561,129.763"/>
 	            <path stroke="black" stroke-width="1" fill="none" d="M 43.093,217.09 A 279.3,279.3 0 0 1 479.339,104.3"/>
 	            <path stroke="black" stroke-width="1" fill="none" d="M 225.768,278.442 A 376.973,376.973 0 0 1 61.222,256.947"/>
 	            <path stroke="black" stroke-width="1" fill="none" d="M 295.614,408.987 A 368.072,368.072 0 0 1 50.946,269.895"/>
-	            <foreignObject x="120.5" y="114" font-size="25">$\mu(x_1)$</foreignObject>
-	            <foreignObject x="117.5" y="279.5" font-size="25">$\mu(x_3)$</foreignObject>
-  	          <ellipse stroke="black" stroke-width="2" fill="#ff598f" cx="795.5" cy="251.5" rx="30" ry="30"/>
+	            <foreignObject x="120.5" y="114" height=40 width=100 font-size="25">$\mu(x_1)$</foreignObject>
+	            <foreignObject x="117.5" y="279.5" height=40 width=100 font-size="25">$\mu(x_3)$</foreignObject>
+  	          <ellipse stroke="black" stroke-width="2" class=bcolor cx="795.5" cy="251.5" rx="30" ry="30"/>
             	<text x="788" y="260" font-size="30" fill="white" style="font-weight:bold">b</text>
 	            <path stroke="black" stroke-width="1" fill="none" d="M 530.169,115.737 A 230.123,230.123 0 0 1 782.228,224.619"/>
 	            <polygon fill="black" stroke-width="1" points="578.137,271.404 584.618,278.26 587.139,268.583"/>
@@ -1100,15 +1104,15 @@
 	            <polygon fill="black" stroke-width="1" points="546.016,416.751 553.409,422.611 554.523,412.674"/>
 	            <path stroke="black" stroke-width="1" fill="none" d="M 767.71,262.774 A 326.495,326.495 0 0 1 578.185,271.249"/>
 	            <path stroke="black" stroke-width="1" fill="none" d="M 785.292,279.687 A 231.628,231.628 0 0 1 545.984,416.925"/>
-	            <foreignObject x="678.5" y="99.5" font-size="25">$\nu(x_2)$</foreignObject>
-	            <foreignObject x="664.5" y="282.5" font-size="25">$\nu(x_6)$</foreignObject>
-	            <foreignObject x="693.5" y="388.5" font-size="25">$\nu(x_5)$</foreignObject>
+	            <foreignObject x="678.5" y="99.5" height=40 width=100 font-size="25">$\nu(x_2)$</foreignObject>
+	            <foreignObject x="664.5" y="282.5" height=40 width=100 font-size="25">$\nu(x_6)$</foreignObject>
+	            <foreignObject x="693.5" y="388.5" height=40 width=100 font-size="25">$\nu(x_5)$</foreignObject>
           </svg>
           <ol class="prob-setup-list" style="top:400px;">
             <li>$B^t=(B_{-1},B_0,\ldots,B_t,B_{t+1})$.</li>
-            <li>At time $t+1$ start at $b$, move to $x\in\Omega$ with probability $\nu(x)$.</li>
+            <li>At time $t+1$ start at <i class="bcolor b">b</i>, move to $x\in\Omega$ with probability $\nu(x)$.</li>
             <li>Move according to $S$ for steps $t, t-1, \ldots, 1$. <b class=fragment data-fragment-index=2>(time ticks backwards)</b></li>
-            <li class=fragment data-fragment-index=3>Move to <i style="color:#00bfaf; font-weight:bold">a</i> with probability $\mu(B_0)$ and fail with probability $1-\mu(B_0)$.</li>
+            <li class=fragment data-fragment-index=3>Move to <i class="acolor b">a</i> with probability $\mu(B_0)$ and fail with probability $1-\mu(B_0)$.</li>
             <li class=fragment data-fragment-index=4>$\Pr[B_{-1}=a] = \langle \nu, S^t\mu\rangle$ (by symmetry)
           </ol>
         </section>
@@ -1151,8 +1155,8 @@
 	            <polygon fill="black" stroke-width="1" points="225.768,278.442 217.342,274.198 218.261,284.156"/>
 	            <path stroke="black" stroke-width="1" fill="none" d="M 295.614,408.987 A 368.072,368.072 0 0 1 50.946,269.895"/>
 	            <polygon fill="black" stroke-width="1" points="295.614,408.987 288.297,403.032 287.054,412.954"/>
-	            <foreignObject x="120.5" y="114" font-size="25">$\mu(x_1)$</foreignObject>
-	            <foreignObject x="117.5" y="279.5" font-size="25">$\mu(x_3)$</foreignObject>
+	            <foreignObject x="120.5" y="114" height=40 width=100 font-size="25">$\mu(x_1)$</foreignObject>
+	            <foreignObject x="117.5" y="279.5" height=40 width=100 font-size="25">$\mu(x_3)$</foreignObject>
   	          <ellipse stroke="black" stroke-width="2" fill="#ff598f" cx="795.5" cy="251.5" rx="30" ry="30"/>
             	<text x="788" y="260" font-size="30" fill="white" style="font-weight:bold">b</text>
 	            <path stroke="black" stroke-width="1" fill="none" d="M 530.169,115.737 A 230.123,230.123 0 0 1 782.228,224.619"/>
@@ -1161,9 +1165,9 @@
 	            <polygon fill="black" stroke-width="1" points="767.71,262.774 758.502,260.723 761.832,270.153"/>
 	            <path stroke="black" stroke-width="1" fill="none" d="M 785.292,279.687 A 231.628,231.628 0 0 1 545.984,416.925"/>
 	            <polygon fill="black" stroke-width="1" points="785.292,279.687 777.505,285.014 786.668,289.021"/>
-	            <foreignObject x="678.5" y="99.5" font-size="25">$\nu(x_2)$</foreignObject>
-	            <foreignObject x="664.5" y="282.5" font-size="25">$\nu(x_6)$</foreignObject>
-	            <foreignObject x="693.5" y="388.5" font-size="25">$\nu(x_5)$</foreignObject>
+	            <foreignObject x="678.5" y="99.5" height=40 width=100 font-size="25">$\nu(x_2)$</foreignObject>
+	            <foreignObject x="664.5" y="282.5" height=40 width=100 font-size="25">$\nu(x_6)$</foreignObject>
+	            <foreignObject x="693.5" y="388.5" height=40 width=100 font-size="25">$\nu(x_5)$</foreignObject>
           </svg>
           <ul class="prob-setup-list" style="top:400px; width:700px;">
             <li>Define $X\defeq (F^t\mid F_{t+1}=b)$.</li>
@@ -1182,7 +1186,7 @@
             </p>
           </div>
           <div class="big theoremlike fragment" style="margin:0 0.5em; padding-bottom:0">
-            <b>Lemma</b> (Gibbs' ineq.)<b>.</b>
+            <b>Lemma</b> (Gibbs' inequality)<b>.</b>
             <div style="margin:1em 1em 0;">If $p = (q\mid E)$ for some event $E$, then $\kldiv{p}{q} = \log\frac{1}{q(E)}$ </div>
           </div>
           <div class="big theoremlike fragment" style="margin:0.5em 0.5em; padding-bottom:0">
@@ -1201,7 +1205,7 @@
             <p style="text-align:center; margin:0.5em">“To lower bound $m_t\approx \iprod{\nu}{S^{t+2}\mu}$, show $\kldiv{X^{t+2}}{F^{t+2}}$ is small”</p></li>
             <li class=fragment>To show $\kldiv{X^{t+2}}{F^{t+2}}$ is small construct a random walk $Z$ which
               <ul id="proof-idea-inner-list">
-                <li>Goes from <i style="color:#00bfaf; font-weight:bold">a</i> to  <i style="color:#ff598f; font-weight:bold">b</i>
+                <li>Goes from <i class="acolor b">a</i> to  <i class="bcolor b">b</i>
                  in $t+4$ steps...<br>
                    <span style="float:right; margin-top:0.3em;">...which certifies $\kldiv{X^{t+2}}{F^{t+2}}\le\;\kldiv{Z}{F^{t+2}}$</li>
                 <li class=fragment>Has, roughly, $\kldiv{Z}{F^{t+2}}\le \frac{t+2}{t}\kldiv{X^t}{F^t}$...<br>
@@ -1220,10 +1224,11 @@
                 <path d="M0,0 L0,6 L9,3 z" fill="black" />
               </marker>
             </defs>
+            <text x=520 y=40>Gibbs' inequality</text>
             <foreignObject x=150 y=300 height=300 width=400>Special property of $Z$<br>(Gap here exactly compensates for $u\to\mu$ and $\v\to\nu$ change)</foreignObject>
-            <foreignObject x=550 y=430 height=100 width=350>By virtue of $Z$ going from <i style="color:#00bfaf; font-weight:bold">a</i> to  <i style="color:#ff598f; font-weight:bold">b</i> in $t+4$ steps</foreignObject>
+            <foreignObject x=550 y=430 height=100 width=350>By virtue of $Z$ going from <i class="acolor b">a</i> to  <i class="bcolor b">b</i> in $t+4$ steps</foreignObject>
             <foreignObject x=0 y=100 width=1200 height=120><br>
-              $-\;\frac{t+2}{t}\log\iprod{\nu}{S^t\mu}=\frac{t+2}{t}\kldiv{X^t}{B^t}\gtapprox \;\kldiv{Z}{F^{t+2}}\ge\;\kldiv{X^{t+2}}{F^{t+2}} = \log\iprod{\nu}{S^{t+2}\mu}$</foreignObject>
+              $-\;\frac{t+2}{t}\log\iprod{\nu}{S^t\mu}=\frac{t+2}{t}\kldiv{X^t}{B^t}\gtapprox \;\kldiv{Z}{F^{t+2}}\ge\;\kldiv{X^{t+2}}{F^{t+2}} = -\log\iprod{\nu}{S^{t+2}\mu}$</foreignObject>
           </svg>
         </section>
 
@@ -1255,7 +1260,7 @@
 	          <path stroke="black" stroke-width="1" fill="none" d="M 436.211,296.951 A 181.247,181.247 0 0 1 519.565,263.854"/>
 	          <path stroke="black" stroke-width="1" fill="none" d="M 491.033,395.668 A 295.186,295.186 0 0 1 431.335,340.607"/>
 	          <text x=400 y=480>Ω</text>
-  	          <ellipse stroke="black" stroke-width="2" fill="#00bfaf" cx="33.5" cy="245.5" rx="30" ry="30"/>
+  	          <ellipse stroke="black" stroke-width="2" class=acolor cx="33.5" cy="245.5" rx="30" ry="30"/>
 	          	<text x="27" y="253" font-size="30" fill="white" style="font-weight:bold">a</text>
 	            <path stroke="black" stroke-width="1" fill="none" d="M 53.821,223.445 A 324.134,324.134 0 0 1 285.561,129.763"/>
 	            <polygon fill="black" stroke-width="1" points="285.561,129.763 277.62,124.67 277.503,134.67"/>
@@ -1267,7 +1272,7 @@
 	            <polygon fill="black" stroke-width="1" points="295.614,408.987 288.297,403.032 287.054,412.954"/>
 	            <foreignObject x="120.5" y="114" font-size="25">$\mu(x_1)$</foreignObject>
 	            <foreignObject x="117.5" y="279.5" font-size="25">$\mu(x_3)$</foreignObject>
-  	          <ellipse stroke="black" stroke-width="2" fill="#ff598f" cx="795.5" cy="251.5" rx="30" ry="30"/>
+  	          <ellipse stroke="black" stroke-width="2" class=bcolor cx="795.5" cy="251.5" rx="30" ry="30"/>
             	<text x="788" y="260" font-size="30" fill="white" style="font-weight:bold">b</text>
 	            <path stroke="black" stroke-width="1" fill="none" d="M 530.169,115.737 A 230.123,230.123 0 0 1 782.228,224.619"/>
 	            <polygon fill="black" stroke-width="1" points="782.228,224.619 782.556,215.191 773.897,220.193"/>
@@ -1284,7 +1289,7 @@
             <li>$(Z\mid J)$ will be Markovian constructed as:</li>
             <li class=fragment data-fragment-index=2>For time steps $i\lt J$, walk like $\dist(X_{i+1}\mid X_i)$.</li>
             <li class=fragment data-fragment-index=3>At time step $j=J$, walk according to $\dist(X_{j-1}\mid X_j)$ <b>(backwards in time)</b></li>
-            <li class=fragment data-fragment-index=4>For $i\gt J$, walk like $\dist(X_{i-i}\mid X_{i-2})$ <b>(Lagging 2 steps behind)</b>.
+            <li class=fragment data-fragment-index=4>For $i\gt J$, walk like $\dist(X_{i-1}\mid X_{i-2})$ <b>(Lagging 2 steps behind)</b>.
           </ul>
         </section>
 
