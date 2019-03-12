@@ -842,6 +842,13 @@
             and $k\gt t$ natural numbers the same parity
             we have $m_{k}^{1/k}\ge m_t^{1/t}$.
           </div>
+
+          <div class="theoremlike fragment" style="margin:0.7em 0 0.7em -0.3em; width:680px;">
+            <b>Alternative stmt.</b> For a graph $G=(V,E)$,
+            <br>$w_k(v)\colon$ number of $k$ walks starting at $v$
+            <p class=mdisplay style="margin-bottom:-0.4em">$k\mapsto (\frac{1}{|G|}\sum_v \;w_k(v))^{1/k}$</p>
+            is monotone in increments of two.
+          </div>
           <div class=theoremlike style="width:200px; position:absolute;right:20px; top:100px;">
             <b>Recall.</b><br>$m_t = \langle v,S^tu\rangle$
           </div>
@@ -908,11 +915,11 @@
             Consider $\Omega=\{x_0,\ldots,x_t\}$<br>
             $u= \indicate_{x_0}$ and $v=\indicate_{x_t}$
             <table class=fragment data-fragment-index=4 id="mc-example-table">
-              <tr><td>$m_{t-4}$</td><td> $=$ </td><td>0</td></tr>
-              <tr><td>$m_{t-2}$</td><td> $=$ </td><td>0</td></tr>
-              <tr><td>$m_{t}$</td>  <td> $=$ </td><td>$\alpha^t$</td></tr>
-              <tr><td>$m_{t+2}$</td><td> $=$ </td><td>$t\cdot\alpha^{t+2}$</td></tr>
-              <tr><td>$m_{t+4}$</td><td> $=$ </td><td>$t(t+1)/2\cdot \alpha^{t+4}$</td>
+              <tr><td>$m_{t-4}$</td><td>$\,=\,$</td><td>0</td></tr>
+              <tr><td>$m_{t-2}$</td><td>$\,=\,$</td><td>0</td></tr>
+              <tr><td>$m_{t}$</td>  <td>$\,=\,$</td><td>$\alpha^t$</td></tr>
+              <tr><td>$m_{t+2}$</td><td>$\,=\,$</td><td>$t\cdot\alpha^{t+2}$</td></tr>
+              <tr><td>$m_{t+4}$</td><td>$\,=\,$</td><td>$t(t+1)/2\cdot \alpha^{t+4}$</td>
             </table>
           </div>
           <div class="theoremlike fragment" data-fragment-index=4 style="position:absolute; right:10px; top: 300px;">
@@ -1113,7 +1120,7 @@
             <li>At time $t+1$ start at <i class="bcolor b">b</i>, move to $x\in\Omega$ with probability $\nu(x)$.</li>
             <li>Move according to $S$ for steps $t, t-1, \ldots, 1$. <b class=fragment data-fragment-index=2>(time ticks backwards)</b></li>
             <li class=fragment data-fragment-index=3>Move to <i class="acolor b">a</i> with probability $\mu(B_0)$ and fail with probability $1-\mu(B_0)$.</li>
-            <li class=fragment data-fragment-index=4>$\Pr[B_{-1}=a] = \langle \nu, S^t\mu\rangle$ (by symmetry)
+            <li class=fragment data-fragment-index=4>$\Pr[B_{-1}=a] = \langle \nu, S^t\mu\rangle$ (by symmetry of $S$)
           </ol>
         </section>
 
@@ -1202,7 +1209,7 @@
           <ul id=proof-idea-list>
             <li>By Gibbs' inequality, $\kldiv{X^t}{F^t} = \kldiv{X^t}{B^t} = -\log\iprod{\nu}{S^t\mu}$.</li>
             <li class=fragment data-fragment-index=2>Likewise, $\kldiv{X^{t+2}}{F^{t+2}} = -\log\iprod{v}{S^{t+2}u}$.
-            <p style="text-align:center; margin:0.5em">“To lower bound $m_t\approx \iprod{\nu}{S^{t+2}\mu}$, show $\kldiv{X^{t+2}}{F^{t+2}}$ is small”</p></li>
+            <p style="text-align:center; margin:0.5em">“To lower bound $m_{t+2}\approx \iprod{\nu}{S^{t+2}\mu}$, show $\kldiv{X^{t+2}}{F^{t+2}}$ is small”</p></li>
             <li class=fragment>To show $\kldiv{X^{t+2}}{F^{t+2}}$ is small construct a random walk $Z$ which
               <ul id="proof-idea-inner-list">
                 <li>Goes from <i class="acolor b">a</i> to  <i class="bcolor b">b</i>
@@ -1225,75 +1232,403 @@
               </marker>
             </defs>
             <text x=520 y=40>Gibbs' inequality</text>
-            <foreignObject x=150 y=300 height=300 width=400>Special property of $Z$<br>(Gap here exactly compensates for $u\to\mu$ and $\v\to\nu$ change)</foreignObject>
+            <foreignObject x=150 y=300 height=300 width=400>Special property of $Z$<br>(Gap here exactly compensates for $u\to\mu$ and $v\to\nu$ change)</foreignObject>
             <foreignObject x=550 y=430 height=100 width=350>By virtue of $Z$ going from <i class="acolor b">a</i> to  <i class="bcolor b">b</i> in $t+4$ steps</foreignObject>
             <foreignObject x=0 y=100 width=1200 height=120><br>
-              $-\;\frac{t+2}{t}\log\iprod{\nu}{S^t\mu}=\frac{t+2}{t}\kldiv{X^t}{B^t}\gtapprox \;\kldiv{Z}{F^{t+2}}\ge\;\kldiv{X^{t+2}}{F^{t+2}} = -\log\iprod{\nu}{S^{t+2}\mu}$</foreignObject>
+              $-\;\frac{t+2}{t}\log\iprod{\nu}{S^t\mu}=\frac{t+2}{t}\kldiv{X^t}{F^t}\gtapprox \;\kldiv{Z}{F^{t+2}}\ge\;\kldiv{X^{t+2}}{F^{t+2}} = -\log\iprod{\nu}{S^{t+2}\mu}$</foreignObject>
           </svg>
         </section>
 
         <section id="proof-zigzag" class="texnify">
           <h3>The $Z$ walk</h3>
-          <svg width="700" version="1.1" viewBox="0 30 850 480" style="position:absolute; left:280px; top:60px;">
-	          <circle cx=410 cy=280 r=220 stroke-width=3 stroke="lightblue" fill="#fbfeff"/>
-	          <circle stroke="black" stroke-width="2" fill="white" cx="315.5" cy="131.5" r="30" />
-	          <circle stroke="black" stroke-width="2" fill="white" cx="501.5" cy="124.5" r="30" />
-	          <circle stroke="black" stroke-width="2" fill="white" cx="255.5" cy="274.5" r="30" />
-	          <circle stroke="black" stroke-width="2" fill="white" cx="325.5" cy="411.5" r="30" />
-	          <circle stroke="black" stroke-width="2" fill="white" cx="516.5" cy="411.5" r="30" />
-	          <circle stroke="black" stroke-width="2" fill="white" cx="549.5" cy="262.5" r="30" />
-	          <circle stroke="black" stroke-width="2" fill="white" cx="413.5" cy="316.5" r="30" />
-	          <text x="304.5" y="137.5" font-size="20">x1</text>
-	          <text x="492.5" y="130.5" font-size="20">x2</text>
-	          <text x="246.5" y="280.5" font-size="20">x3</text>
-	          <text x="316.5" y="417.5" font-size="20">x4</text>
-	          <text x="507.5" y="417.5" font-size="20">x5</text>
-	          <text x="540.5" y="268.5" font-size="20">x6</text>
-	          <path stroke="black" stroke-width="1" fill="none" d="M 258.683,244.693 A 220.795,220.795 0 0 1 296.461,154.655"/>
-	          <path stroke="black" stroke-width="1" fill="none" d="M 343.359,120.423 A 236.627,236.627 0 0 1 472.888,115.548"/>
-	          <path stroke="black" stroke-width="1" fill="none" d="M 525.54,142.287 A 108.691,108.691 0 0 1 557.313,233.634"/>
-	          <path stroke="black" stroke-width="1" fill="none" d="M 553.725,292.165 A 177.689,177.689 0 0 1 532.856,386.393"/>
-	          <path stroke="black" stroke-width="1" fill="none" d="M 488.803,422.963 A 214.034,214.034 0 0 1 353.197,422.963"/>
-	          <path stroke="black" stroke-width="1" fill="none" d="M 301.246,393.94 A 140.718,140.718 0 0 1 255.518,304.443"/>
-	          <path stroke="black" stroke-width="1" fill="none" d="M 339.283,384.889 A 189.68,189.68 0 0 1 388.019,332.275"/>
-	          <path stroke="black" stroke-width="1" fill="none" d="M 393.567,294.09 A 379.646,379.646 0 0 1 322.842,160.58"/>
-	          <path stroke="black" stroke-width="1" fill="none" d="M 436.211,296.951 A 181.247,181.247 0 0 1 519.565,263.854"/>
-	          <path stroke="black" stroke-width="1" fill="none" d="M 491.033,395.668 A 295.186,295.186 0 0 1 431.335,340.607"/>
-	          <text x=400 y=480>Ω</text>
-  	          <ellipse stroke="black" stroke-width="2" class=acolor cx="33.5" cy="245.5" rx="30" ry="30"/>
-	          	<text x="27" y="253" font-size="30" fill="white" style="font-weight:bold">a</text>
-	            <path stroke="black" stroke-width="1" fill="none" d="M 53.821,223.445 A 324.134,324.134 0 0 1 285.561,129.763"/>
-	            <polygon fill="black" stroke-width="1" points="285.561,129.763 277.62,124.67 277.503,134.67"/>
-	            <path stroke="black" stroke-width="1" fill="none" d="M 43.093,217.09 A 279.3,279.3 0 0 1 479.339,104.3"/>
-	            <polygon fill="black" stroke-width="1" points="479.339,104.3 476.311,95.365 469.981,103.106"/>
-	            <path stroke="black" stroke-width="1" fill="none" d="M 225.768,278.442 A 376.973,376.973 0 0 1 61.222,256.947"/>
-	            <polygon fill="black" stroke-width="1" points="225.768,278.442 217.342,274.198 218.261,284.156"/>
-	            <path stroke="black" stroke-width="1" fill="none" d="M 295.614,408.987 A 368.072,368.072 0 0 1 50.946,269.895"/>
-	            <polygon fill="black" stroke-width="1" points="295.614,408.987 288.297,403.032 287.054,412.954"/>
-	            <foreignObject x="120.5" y="114" font-size="25">$\mu(x_1)$</foreignObject>
-	            <foreignObject x="117.5" y="279.5" font-size="25">$\mu(x_3)$</foreignObject>
-  	          <ellipse stroke="black" stroke-width="2" class=bcolor cx="795.5" cy="251.5" rx="30" ry="30"/>
-            	<text x="788" y="260" font-size="30" fill="white" style="font-weight:bold">b</text>
-	            <path stroke="black" stroke-width="1" fill="none" d="M 530.169,115.737 A 230.123,230.123 0 0 1 782.228,224.619"/>
-	            <polygon fill="black" stroke-width="1" points="782.228,224.619 782.556,215.191 773.897,220.193"/>
-	            <path stroke="black" stroke-width="1" fill="none" d="M 767.71,262.774 A 326.495,326.495 0 0 1 578.185,271.249"/>
-	            <polygon fill="black" stroke-width="1" points="767.71,262.774 758.502,260.723 761.832,270.153"/>
-	            <path stroke="black" stroke-width="1" fill="none" d="M 785.292,279.687 A 231.628,231.628 0 0 1 545.984,416.925"/>
-	            <polygon fill="black" stroke-width="1" points="785.292,279.687 777.505,285.014 786.668,289.021"/>
-	            <foreignObject x="678.5" y="99.5" font-size="25">$\nu(x_2)$</foreignObject>
-	            <foreignObject x="664.5" y="282.5" font-size="25">$\nu(x_6)$</foreignObject>
-	            <foreignObject x="693.5" y="388.5" font-size="25">$\nu(x_5)$</foreignObject>
-          </svg>
+          <svg width="860" viewBox="-50 100 1000 500" style="position:absolute; top:10px;left:200px;">
+            <defs>
+              <marker id="head1" markerWidth="3" markerHeight="3" refX="4" refY="1.5" orient="auto" markerUnits="strokeWidth">
+                <path d="M0,0 L0,3 L3,1.5 z" fill="#109f9f"/>
+              </marker>
+              <marker id="head2" markerWidth="3" markerHeight="3" refX="4" refY="1.5" orient="auto" markerUnits="strokeWidth">
+                <path d="M0,0 L0,3 L3,1.5 z" fill="#207f8f"/>
+              </marker>
+              <marker id="head3" markerWidth="3" markerHeight="3" refX="4" refY="1.5" orient="auto" markerUnits="strokeWidth">
+                <path d="M0,0 L0,3 L3,1.5 z" fill="#305f7f"/>
+              </marker>
+              <marker id="head4" markerWidth="3" markerHeight="3" refX="4" refY="1.5" orient="auto" markerUnits="strokeWidth">
+                <path d="M0,0 L0,3 L3,1.5 z" fill="#403f6f"/>
+              </marker>
+              <marker id="head5" markerWidth="3" markerHeight="3" refX="4" refY="1.5" orient="auto" markerUnits="strokeWidth">
+                <path d="M0,0 L0,3 L3,1.5 z" fill="#501f5f"/>
+              </marker>
+              <marker id="hea1" markerWidth="3" markerHeight="3" refX="4" refY="1.5" orient="auto" markerUnits="strokeWidth">
+                <path d="M0,0 L0,3 L3,1.5 z" fill="#df497f"/>
+              </marker>
+              <marker id="hea2" markerWidth="3" markerHeight="3" refX="4" refY="1.5" orient="auto" markerUnits="strokeWidth">
+                <path d="M0,0 L0,3 L3,1.5 z" fill="#bf396f"/>
+              </marker>
+              <marker id="hea3" markerWidth="3" markerHeight="3" refX="4" refY="1.5" orient="auto" markerUnits="strokeWidth">
+                <path d="M0,0 L0,3 L3,1.5 z" fill="#9f295f"/>
+              </marker>
+              <marker id="hea4" markerWidth="3" markerHeight="3" refX="4" refY="1.5" orient="auto" markerUnits="strokeWidth">
+                <path d="M0,0 L0,3 L3,1.5 z" fill="#7f194f"/>
+              </marker>
+              <marker id="hea5" markerWidth="3" markerHeight="3" refX="4" refY="1.5" orient="auto" markerUnits="strokeWidth">
+                <path d="M0,0 L0,3 L3,1.5 z" fill="#5f093f"/>
+              </marker>
+            </defs>
+            <foreignObject x="-30" y=200 class=acolor style="font-size:50px; font-weight:bold;">$X^t$</foreignObject>
+            <foreignObject x="840" y=220 class=bcolor style="font-size:50px; font-weight:bold;">$X^t$</foreignObject>
+	          <circle stroke="black" stroke-width="1" cx="32.5" cy="255.5" class=acolor r="30"/>
+	          <circle stroke="black" stroke-width="1" fill="none" cx="209.5" cy="180.5" r="30"/>
+	          <circle stroke="black" stroke-width="1" fill="none" cx="379.5" cy="135.5" r="30"/>
+	          <ellipse stroke="black" stroke-width="1" fill="none" cx="519.5" cy="180.5" rx="30" ry="30"/>
+	          <circle class=bcolor stroke="black" stroke-width="1" cx="820.5" cy="297.5" r="30"/>
+	          <ellipse stroke="black" stroke-width="1" fill="none" cx="701.5" cy="180.5" rx="30" ry="30"/>
+	          <ellipse stroke="black" stroke-width="1" fill="none" cx="172.5" cy="318.5" rx="30" ry="30"/>
+	          <ellipse stroke="black" stroke-width="1" fill="none" cx="348.5" cy="255.5" rx="30" ry="30"/>
+	          <ellipse stroke="black" stroke-width="1" fill="none" cx="499.5" cy="277.5" rx="30" ry="30"/>
+	          <ellipse stroke="black" stroke-width="1" fill="none" cx="650.5" cy="277.5" rx="30" ry="30"/>
+	          <ellipse stroke="black" stroke-width="1" fill="none" cx="161.5" cy="435.5" rx="30" ry="30"/>
+	          <ellipse stroke="black" stroke-width="1" fill="none" cx="336.5" cy="473.5" rx="30" ry="30"/>
+	          <ellipse stroke="black" stroke-width="1" fill="none" cx="510.5" cy="487.5" rx="30" ry="30"/>
+	          <ellipse stroke="black" stroke-width="1" fill="none" cx="664.5" cy="487.5" rx="30" ry="30"/>
+	          <ellipse stroke="black" stroke-width="1" fill="none" cx="664.5" cy="374.5" rx="30" ry="30"/>
+	          <ellipse stroke="black" stroke-width="1" fill="none" cx="510.5" cy="374.5" rx="30" ry="30"/>
+	          <ellipse stroke="black" stroke-width="1" fill="none" cx="336.5" cy="367.5" rx="30" ry="30"/>
+            <text x=25 y=263 fill=white style="font-weight:bold">a</text>
+            <text x=810 y=310 fill=white style="font-weight:bold">b</text> 
+
+	          <path stroke="#109f9f" marker-end="url(#head1)" stroke-width="8" fill="none" d="M 57.431,238.824 A 434.029,434.029 0 0 1 180.178,186.813"/>
+	          <path stroke="#207f8f" marker-end="url(#head2)" stroke-width="8" fill="none" d="M 237.109,168.773 A 513.443,513.443 0 0 1 349.705,138.968"/>
+	          <path stroke="#305f7f" marker-end="url(#head3)" stroke-width="8" fill="none" d="M 409.446,136.885 A 226.183,226.183 0 0 1 494.355,164.177"/>	
+	          <path stroke="#403f6f" marker-end="url(#head4)" stroke-width="8" fill="none" d="M 547,190 A 215.188,215.188 0 0 0 673.52,191.254"/>
+	          <path stroke="#501f5f" marker-end="url(#head5)" stroke-width="8" fill="none" d="M 727.726,195.033 A 258.268,258.268 0 0 1 805.525,271.524"/>	
+
+            <g>
+	            <path stroke="#df497f" marker-end="url(#hea1)" stroke-width="8" fill="none" d="M 791.087,303.301 A 232.949,232.949 0 0 1 677.763,289.968"/>
+              <path stroke="#bf396f" marker-end="url(#hea2)" stroke-width="8" fill="none" d="M 621.482,269.961 A 243.025,243.025 0 0 0 528.518,269.961"/>	
+	            <path stroke="#9f295f" marker-end="url(#hea3)" stroke-width="8" fill="none" d="M 470.015,282.873 A 195.091,195.091 0 0 1 375.226,269.063"/>
+	            <path stroke="#7f194f" marker-end="url(#hea4)" stroke-width="8" fill="none" d="M 318.542,254.457 A 215.739,215.739 0 0 0 194.99,298.682"/>
+	            <path stroke="#5f093f" marker-end="url(#hea5)" stroke-width="8" fill="none" d="M 142.554,317.623 A 164.775,164.775 0 0 1 53.017,277.331"/>
+	          </g>
+
+	          <g class=fragment data-fragment-index=2>
+              <foreignObject x="100" y=460 class=acolor style="font-size:50px; font-weight:bold;">$Z$</foreignObject>
+	            <path stroke="#109f9f" marker-end="url(#head1)"  stroke-width="8" fill="none" d="M 40.229,284.472 A 274.094,274.094 0 0 0 136.548,418.871"/>
+	            <!-- 2-->
+	            <path stroke="#207f8f" marker-end="url(#head2)" stroke-width="8" fill="none" d="M 186.674,451.774 A 214.848,214.848 0 0 0 306.844,477.868"/>
+	            <path stroke="#305f7f" marker-end="url(#head3)" stroke-width="8" fill="none" d="M 362.919,487.643 A 184.598,184.598 0 0 0 482.159,497.237"/>
+	            <path stroke="#403f6f" marker-end="url(#head4)" stroke-width="8" fill="none" d="M 538.338,498.58 A 171.238,171.238 0 0 1 636.662,498.58"/>
+            </g>
+            <g class=fragment data-fragment-index=3>
+	            <path stroke="#bf396f" marker-end="url(#hea2)" stroke-width="8" fill="none" d="M 637.686,474.058 A 482.022,482.022 0 0 1 531.368,396.046"/>
+	          </g>
+            <g class=fragment data-fragment-index=4>
+	            <path stroke="#403f6f" marker-end="url(#head4)" stroke-width="8" fill="none" d="M 538.623,364.151 A 182.856,182.856 0 0 1 636.377,364.151"/>
+	            <path stroke="#501f5f" marker-end="url(#head5)" stroke-width="8" fill="none" d="M  694.431,373.035  A 184.513,184.513 0 0 0 801.133,320.368"/>
+            </g>
+            </svg>
           <ul class="prob-setup-list" style="top:400px; width:1040px;">
             <li>Pick $J$ uniform random in $[t]$</li>
             <li>$(Z\mid J)$ will be Markovian constructed as:</li>
             <li class=fragment data-fragment-index=2>For time steps $i\lt J$, walk like $\dist(X_{i+1}\mid X_i)$.</li>
             <li class=fragment data-fragment-index=3>At time step $j=J$, walk according to $\dist(X_{j-1}\mid X_j)$ <b>(backwards in time)</b></li>
-            <li class=fragment data-fragment-index=4>For $i\gt J$, walk like $\dist(X_{i-1}\mid X_{i-2})$ <b>(Lagging 2 steps behind)</b>.
+            <li class=fragment data-fragment-index=4>For $i\gt J$, walk like $\dist(X_{i-1}\mid X_{i-2})$ <b style="margin-left:1em;">(Lagging 2 steps behind)</b>.
           </ul>
         </section>
 
-        <section id=conjecture class="lefty texnify">
+        <section id="proof-zigalysis" class="texnify">
+          <h3>Analyzing $Z$</h3>
+          <svg width="850" viewBox="-20 100 1000 500" style="position:absolute; top:10px;left:200px;">
+            <defs>
+              <marker id="head1" markerWidth="3" markerHeight="3" refX="4" refY="1.5" orient="auto" markerUnits="strokeWidth">
+                <path d="M0,0 L0,3 L3,1.5 z" fill="#109f9f"/>
+              </marker>
+              <marker id="head2" markerWidth="3" markerHeight="3" refX="4" refY="1.5" orient="auto" markerUnits="strokeWidth">
+                <path d="M0,0 L0,3 L3,1.5 z" fill="#207f8f"/>
+              </marker>
+              <marker id="head3" markerWidth="3" markerHeight="3" refX="4" refY="1.5" orient="auto" markerUnits="strokeWidth">
+                <path d="M0,0 L0,3 L3,1.5 z" fill="#305f7f"/>
+              </marker>
+              <marker id="head4" markerWidth="3" markerHeight="3" refX="4" refY="1.5" orient="auto" markerUnits="strokeWidth">
+                <path d="M0,0 L0,3 L3,1.5 z" fill="#403f6f"/>
+              </marker>
+              <marker id="head5" markerWidth="3" markerHeight="3" refX="4" refY="1.5" orient="auto" markerUnits="strokeWidth">
+                <path d="M0,0 L0,3 L3,1.5 z" fill="#501f5f"/>
+              </marker>
+              <marker id="he1" markerWidth="3" markerHeight="3" refX="4" refY="1.5" orient="auto" markerUnits="strokeWidth">
+                <path d="M0,0 L0,3 L3,1.5 z" fill="#ef698f"/>
+              </marker>
+              <marker id="he2" markerWidth="3" markerHeight="3" refX="4" refY="1.5" orient="auto" markerUnits="strokeWidth">
+                <path d="M0,0 L0,3 L3,1.5 z" fill="#df798f"/>
+              </marker>
+              <marker id="he3" markerWidth="3" markerHeight="3" refX="4" refY="1.5" orient="auto" markerUnits="strokeWidth">
+                <path d="M0,0 L0,3 L3,1.5 z" fill="#cf898f"/>
+              </marker>
+              <marker id="he4" markerWidth="3" markerHeight="3" refX="4" refY="1.5" orient="auto" markerUnits="strokeWidth">
+                <path d="M0,0 L0,3 L3,1.5 z" fill="#bf998f"/>
+              </marker>
+              <marker id="he5" markerWidth="3" markerHeight="3" refX="4" refY="1.5" orient="auto" markerUnits="strokeWidth">
+                <path d="M0,0 L0,3 L3,1.5 z" fill="#afa98f"/>
+              </marker>
+            </defs>
+            <foreignObject x="-20" y=200 class=acolor style="font-size:50px; font-weight:bold;">$X^t$</foreignObject>
+            <foreignObject x="840" y=220 class=bcolor style="font-size:50px; font-weight:bold;">$X^t$</foreignObject>
+	          <circle stroke="black" stroke-width="1" cx="32.5" cy="255.5" class=acolor r="30"/>
+	          <circle stroke="black" stroke-width="1" fill="none" cx="209.5" cy="180.5" r="30"/>
+	          <circle stroke="black" stroke-width="1" fill="none" cx="379.5" cy="135.5" r="30"/>
+	          <ellipse stroke="black" stroke-width="1" fill="none" cx="519.5" cy="180.5" rx="30" ry="30"/>
+	          <circle class=bcolor stroke="black" stroke-width="1" cx="820.5" cy="297.5" r="30"/>
+	          <ellipse stroke="black" stroke-width="1" fill="none" cx="701.5" cy="180.5" rx="30" ry="30"/>
+	          <ellipse stroke="black" stroke-width="1" fill="none" cx="172.5" cy="318.5" rx="30" ry="30"/>
+	          <ellipse stroke="black" stroke-width="1" fill="none" cx="348.5" cy="255.5" rx="30" ry="30"/>
+	          <ellipse stroke="black" stroke-width="1" fill="none" cx="499.5" cy="277.5" rx="30" ry="30"/>
+	          <ellipse stroke="black" stroke-width="1" fill="none" cx="650.5" cy="277.5" rx="30" ry="30"/>
+	          <ellipse stroke="black" stroke-width="1" fill="none" cx="161.5" cy="435.5" rx="30" ry="30"/>
+	          <ellipse stroke="black" stroke-width="1" fill="none" cx="336.5" cy="473.5" rx="30" ry="30"/>
+	          <ellipse stroke="black" stroke-width="1" fill="none" cx="510.5" cy="487.5" rx="30" ry="30"/>
+	          <ellipse stroke="black" stroke-width="1" fill="none" cx="664.5" cy="487.5" rx="30" ry="30"/>
+	          <ellipse stroke="black" stroke-width="1" fill="none" cx="664.5" cy="374.5" rx="30" ry="30"/>
+	          <ellipse stroke="black" stroke-width="1" fill="none" cx="510.5" cy="374.5" rx="30" ry="30"/>
+	          <ellipse stroke="black" stroke-width="1" fill="none" cx="336.5" cy="367.5" rx="30" ry="30"/>
+            <text x=25 y=263 fill=white style="font-weight:bold">a</text>
+            <text x=810 y=310 fill=white style="font-weight:bold">b</text> 
+
+	          <path stroke="#109f9f" marker-end="url(#head1)" stroke-width="8" fill="none" d="M 57.431,238.824 A 434.029,434.029 0 0 1 180.178,186.813"/>
+	          <path stroke="#207f8f" marker-end="url(#head2)" stroke-width="8" fill="none" d="M 237.109,168.773 A 513.443,513.443 0 0 1 349.705,138.968"/>
+	          <path stroke="#305f7f" marker-end="url(#head3)" stroke-width="8" fill="none" d="M 409.446,136.885 A 226.183,226.183 0 0 1 494.355,164.177"/>	
+	          <path stroke="#403f6f" marker-end="url(#head4)" stroke-width="8" fill="none" d="M 547,190 A 215.188,215.188 0 0 0 673.52,191.254"/>
+	          <path stroke="#501f5f" marker-end="url(#head5)" stroke-width="8" fill="none" d="M 727.726,195.033 A 258.268,258.268 0 0 1 805.525,271.524"/>	
+
+            <g>
+	            <path stroke="#ef698f" marker-end="url(#he1)" stroke-width="8" fill="none" d="M 791.087,303.301 A 232.949,232.949 0 0 1 677.763,289.968"/>
+              <path stroke="#df798f" marker-end="url(#he2)" stroke-width="8" fill="none" d="M 621.482,269.961 A 243.025,243.025 0 0 0 528.518,269.961"/>	
+	            <path stroke="#cf898f" marker-end="url(#he3)" stroke-width="8" fill="none" d="M 470.015,282.873 A 195.091,195.091 0 0 1 375.226,269.063"/>
+	            <path stroke="#bf998f" marker-end="url(#he4)" stroke-width="8" fill="none" d="M 318.542,254.457 A 215.739,215.739 0 0 0 194.99,298.682"/>
+	            <path stroke="#afa98f" marker-end="url(#he5)" stroke-width="8" fill="none" d="M 142.554,317.623 A 164.775,164.775 0 0 1 53.017,277.331"/>
+	          </g>
+
+              <foreignObject x="100" y=460 class=acolor style="font-size:50px; font-weight:bold;">$Z$</foreignObject>
+	            <path stroke="#109f9f" marker-end="url(#head1)"  stroke-width="8" fill="none" d="M 40.229,284.472 A 274.094,274.094 0 0 0 136.548,418.871"/>
+	            <!-- 2-->
+	            <path stroke="#207f8f" marker-end="url(#head2)" stroke-width="8" fill="none" d="M 186.674,451.774 A 214.848,214.848 0 0 0 306.844,477.868"/>
+	            <path stroke="#305f7f" marker-end="url(#head3)" stroke-width="8" fill="none" d="M 362.919,487.643 A 184.598,184.598 0 0 0 482.159,497.237"/>
+	            <path stroke="#403f6f" marker-end="url(#head4)" stroke-width="8" fill="none" d="M 538.338,498.58 A 171.238,171.238 0 0 1 636.662,498.58"/>
+	            <path stroke="#df798f" marker-end="url(#he2)" stroke-width="8" fill="none" d="M 637.686,474.058 A 482.022,482.022 0 0 1 531.368,396.046"/>
+	            <path stroke="#403f6f" marker-end="url(#head4)" stroke-width="8" fill="none" d="M 538.623,364.151 A 182.856,182.856 0 0 1 636.377,364.151"/>
+	            <path stroke="#501f5f" marker-end="url(#head5)" stroke-width="8" fill="none" d="M  694.431,373.035  A 184.513,184.513 0 0 0 801.133,320.368"/>
+            </svg>
+          <ul class="prob-setup-list" style="top:400px; width:1040px;">
+            <li><span class>$\kldiv{X}{F}$ $=$</span> 
+                <span style="color:#207f8f">$\kldiv{X_0}{F_0} +$</span>
+                <span style="color:#305f7f">$\kldiv{X_1\mid X_0}{F_1\mid F_0}$</span>
+                <span style="color:#403f6f">$+\ldots +$ $\kldiv{X_{t+1}\mid X_t}{F_{t+1}\mid F_t}$</span></li>
+            <li><span class>$\kldiv{X}{B}$ $=$</span> 
+                <span style="color:#ef396f">$\kldiv{X_t}{B_t} +$</span>
+                <span style="color:#df496f">$\kldiv{X_{t-1}\mid X_t}{B_{t-1}\mid B_t}$</span>
+                <span style="color:#cf596f">$+\ldots +$ $\kldiv{X_{-1}\mid X_0}{B_{-1}\mid B_0}$</span></li>
+            <li style="margin-top:2em;"><span class>$\kldiv{Z\mid J=j}{F}$ $=$</span> 
+                <span style="color:#305f7f">$\kldiv{X_0}{F_0} +$</span>
+                <span style="color:#403f6f">$\kldiv{X_1\mid X_0}{F_1\mid F_0} + \ldots$</span><br>
+                <span style="margin-left:10em;color:#df496f"> $\kldiv{X_{j-1}\mid X_j}{B_{j-1}\mid B_j} + $</span>
+                <span style="color:#403f6f"> $\ldots + \kldiv{X_{t+1}\mid X_t}{F_{t+1}\mid F_t}$</span></li>
+          </ul>
+        </section>
+
+
+        <section id="proof-zigalysis2" class="texnify">
+          <h3>Analyzing $Z$</h3>
+          <svg width="850" viewBox="-20 100 1000 500" style="position:absolute; top:10px;left:200px;">
+            <defs>
+              <marker id="head1" markerWidth="3" markerHeight="3" refX="4" refY="1.5" orient="auto" markerUnits="strokeWidth">
+                <path d="M0,0 L0,3 L3,1.5 z" fill="#109f9f"/>
+              </marker>
+              <marker id="head2" markerWidth="3" markerHeight="3" refX="4" refY="1.5" orient="auto" markerUnits="strokeWidth">
+                <path d="M0,0 L0,3 L3,1.5 z" fill="#207f8f"/>
+              </marker>
+              <marker id="head3" markerWidth="3" markerHeight="3" refX="4" refY="1.5" orient="auto" markerUnits="strokeWidth">
+                <path d="M0,0 L0,3 L3,1.5 z" fill="#305f7f"/>
+              </marker>
+              <marker id="head4" markerWidth="3" markerHeight="3" refX="4" refY="1.5" orient="auto" markerUnits="strokeWidth">
+                <path d="M0,0 L0,3 L3,1.5 z" fill="#403f6f"/>
+              </marker>
+              <marker id="head5" markerWidth="3" markerHeight="3" refX="4" refY="1.5" orient="auto" markerUnits="strokeWidth">
+                <path d="M0,0 L0,3 L3,1.5 z" fill="#501f5f"/>
+              </marker>
+              <marker id="he1" markerWidth="3" markerHeight="3" refX="4" refY="1.5" orient="auto" markerUnits="strokeWidth">
+                <path d="M0,0 L0,3 L3,1.5 z" fill="#ef698f"/>
+              </marker>
+              <marker id="he2" markerWidth="3" markerHeight="3" refX="4" refY="1.5" orient="auto" markerUnits="strokeWidth">
+                <path d="M0,0 L0,3 L3,1.5 z" fill="#df798f"/>
+              </marker>
+              <marker id="he3" markerWidth="3" markerHeight="3" refX="4" refY="1.5" orient="auto" markerUnits="strokeWidth">
+                <path d="M0,0 L0,3 L3,1.5 z" fill="#cf898f"/>
+              </marker>
+              <marker id="he4" markerWidth="3" markerHeight="3" refX="4" refY="1.5" orient="auto" markerUnits="strokeWidth">
+                <path d="M0,0 L0,3 L3,1.5 z" fill="#bf998f"/>
+              </marker>
+              <marker id="he5" markerWidth="3" markerHeight="3" refX="4" refY="1.5" orient="auto" markerUnits="strokeWidth">
+                <path d="M0,0 L0,3 L3,1.5 z" fill="#afa98f"/>
+              </marker>
+            </defs>
+            <foreignObject x="-20" y=200 class=acolor style="font-size:50px; font-weight:bold;">$X^t$</foreignObject>
+            <foreignObject x="840" y=220 class=bcolor style="font-size:50px; font-weight:bold;">$X^t$</foreignObject>
+	          <circle stroke="black" stroke-width="1" cx="32.5" cy="255.5" class=acolor r="30"/>
+	          <circle stroke="black" stroke-width="1" fill="none" cx="209.5" cy="180.5" r="30"/>
+	          <circle stroke="black" stroke-width="1" fill="none" cx="379.5" cy="135.5" r="30"/>
+	          <ellipse stroke="black" stroke-width="1" fill="none" cx="519.5" cy="180.5" rx="30" ry="30"/>
+	          <circle class=bcolor stroke="black" stroke-width="1" cx="820.5" cy="297.5" r="30"/>
+	          <ellipse stroke="black" stroke-width="1" fill="none" cx="701.5" cy="180.5" rx="30" ry="30"/>
+	          <ellipse stroke="black" stroke-width="1" fill="none" cx="172.5" cy="318.5" rx="30" ry="30"/>
+	          <ellipse stroke="black" stroke-width="1" fill="none" cx="348.5" cy="255.5" rx="30" ry="30"/>
+	          <ellipse stroke="black" stroke-width="1" fill="none" cx="499.5" cy="277.5" rx="30" ry="30"/>
+	          <ellipse stroke="black" stroke-width="1" fill="none" cx="650.5" cy="277.5" rx="30" ry="30"/>
+	          <ellipse stroke="black" stroke-width="1" fill="none" cx="161.5" cy="435.5" rx="30" ry="30"/>
+	          <ellipse stroke="black" stroke-width="1" fill="none" cx="336.5" cy="473.5" rx="30" ry="30"/>
+	          <ellipse stroke="black" stroke-width="1" fill="none" cx="510.5" cy="487.5" rx="30" ry="30"/>
+	          <ellipse stroke="black" stroke-width="1" fill="none" cx="664.5" cy="487.5" rx="30" ry="30"/>
+	          <ellipse stroke="black" stroke-width="1" fill="none" cx="664.5" cy="374.5" rx="30" ry="30"/>
+	          <ellipse stroke="black" stroke-width="1" fill="none" cx="510.5" cy="374.5" rx="30" ry="30"/>
+	          <ellipse stroke="black" stroke-width="1" fill="none" cx="336.5" cy="367.5" rx="30" ry="30"/>
+            <text x=25 y=263 fill=white style="font-weight:bold">a</text>
+            <text x=810 y=310 fill=white style="font-weight:bold">b</text> 
+
+	          <path stroke="#109f9f" marker-end="url(#head1)" stroke-width="8" fill="none" d="M 57.431,238.824 A 434.029,434.029 0 0 1 180.178,186.813"/>
+	          <path stroke="#207f8f" marker-end="url(#head2)" stroke-width="8" fill="none" d="M 237.109,168.773 A 513.443,513.443 0 0 1 349.705,138.968"/>
+	          <path stroke="#305f7f" marker-end="url(#head3)" stroke-width="8" fill="none" d="M 409.446,136.885 A 226.183,226.183 0 0 1 494.355,164.177"/>	
+	          <path stroke="#403f6f" marker-end="url(#head4)" stroke-width="8" fill="none" d="M 547,190 A 215.188,215.188 0 0 0 673.52,191.254"/>
+	          <path stroke="#501f5f" marker-end="url(#head5)" stroke-width="8" fill="none" d="M 727.726,195.033 A 258.268,258.268 0 0 1 805.525,271.524"/>	
+
+            <g>
+	            <path stroke="#ef698f" marker-end="url(#he1)" stroke-width="8" fill="none" d="M 791.087,303.301 A 232.949,232.949 0 0 1 677.763,289.968"/>
+              <path stroke="#df798f" marker-end="url(#he2)" stroke-width="8" fill="none" d="M 621.482,269.961 A 243.025,243.025 0 0 0 528.518,269.961"/>	
+	            <path stroke="#cf898f" marker-end="url(#he3)" stroke-width="8" fill="none" d="M 470.015,282.873 A 195.091,195.091 0 0 1 375.226,269.063"/>
+	            <path stroke="#bf998f" marker-end="url(#he4)" stroke-width="8" fill="none" d="M 318.542,254.457 A 215.739,215.739 0 0 0 194.99,298.682"/>
+	            <path stroke="#afa98f" marker-end="url(#he5)" stroke-width="8" fill="none" d="M 142.554,317.623 A 164.775,164.775 0 0 1 53.017,277.331"/>
+	          </g>
+
+              <foreignObject x="100" y=460 class=acolor style="font-size:50px; font-weight:bold;">$Z$</foreignObject>
+	            <path stroke="#109f9f" marker-end="url(#head1)"  stroke-width="8" fill="none" d="M 40.229,284.472 A 274.094,274.094 0 0 0 136.548,418.871"/>
+	            <!-- 2-->
+	            <path stroke="#207f8f" marker-end="url(#head2)" stroke-width="8" fill="none" d="M 186.674,451.774 A 214.848,214.848 0 0 0 306.844,477.868"/>
+	            <path stroke="#305f7f" marker-end="url(#head3)" stroke-width="8" fill="none" d="M 362.919,487.643 A 184.598,184.598 0 0 0 482.159,497.237"/>
+	            <path stroke="#403f6f" marker-end="url(#head4)" stroke-width="8" fill="none" d="M 538.338,498.58 A 171.238,171.238 0 0 1 636.662,498.58"/>
+	            <path stroke="#df798f" marker-end="url(#he2)" stroke-width="8" fill="none" d="M 637.686,474.058 A 482.022,482.022 0 0 1 531.368,396.046"/>
+	            <path stroke="#403f6f" marker-end="url(#head4)" stroke-width="8" fill="none" d="M 538.623,364.151 A 182.856,182.856 0 0 1 636.377,364.151"/>
+	            <path stroke="#501f5f" marker-end="url(#head5)" stroke-width="8" fill="none" d="M  694.431,373.035  A 184.513,184.513 0 0 0 801.133,320.368"/>
+            </svg>
+          <ul class="prob-setup-list" style="top:400px; width:1040px;">
+            <li>Expand $Z\mid J$; averaging over all $j$, the red terms sum to 
+            <p class=mdisplay>$\frac{1}{t}(\kldiv{X}{B^t} -\;\kldiv{X_t}{B_t} -\;\kldiv{X_{-1}\mid X_0}{B_{-1}\mid B_0})$</p></li>
+            <li style="margin-top:-1em;"class=fragment>The blue terms sum to 
+            <p class=mdisplay>$\kldiv{X}{F} + \;\frac{1}{t}(\kldiv{X}{F^t} -\;\kldiv{X_0}{F_0} -\;\kldiv{X_{t+1}\mid X_t}{F_{t+1}\mid F_t})$</p></li>
+          </ul>
+        </section>
+
+        <section id="proof-zigalysis3" class="texnify">
+          <h3>Analyzing $Z$</h3>
+          <svg width="850" viewBox="-20 100 1000 500" style="position:absolute; top:10px;left:200px;">
+            <defs>
+              <marker id="head1" markerWidth="3" markerHeight="3" refX="4" refY="1.5" orient="auto" markerUnits="strokeWidth">
+                <path d="M0,0 L0,3 L3,1.5 z" fill="#109f9f"/>
+              </marker>
+              <marker id="head2" markerWidth="3" markerHeight="3" refX="4" refY="1.5" orient="auto" markerUnits="strokeWidth">
+                <path d="M0,0 L0,3 L3,1.5 z" fill="#207f8f"/>
+              </marker>
+              <marker id="head3" markerWidth="3" markerHeight="3" refX="4" refY="1.5" orient="auto" markerUnits="strokeWidth">
+                <path d="M0,0 L0,3 L3,1.5 z" fill="#305f7f"/>
+              </marker>
+              <marker id="head4" markerWidth="3" markerHeight="3" refX="4" refY="1.5" orient="auto" markerUnits="strokeWidth">
+                <path d="M0,0 L0,3 L3,1.5 z" fill="#403f6f"/>
+              </marker>
+              <marker id="head5" markerWidth="3" markerHeight="3" refX="4" refY="1.5" orient="auto" markerUnits="strokeWidth">
+                <path d="M0,0 L0,3 L3,1.5 z" fill="#501f5f"/>
+              </marker>
+              <marker id="he1" markerWidth="3" markerHeight="3" refX="4" refY="1.5" orient="auto" markerUnits="strokeWidth">
+                <path d="M0,0 L0,3 L3,1.5 z" fill="#ef698f"/>
+              </marker>
+              <marker id="he2" markerWidth="3" markerHeight="3" refX="4" refY="1.5" orient="auto" markerUnits="strokeWidth">
+                <path d="M0,0 L0,3 L3,1.5 z" fill="#df798f"/>
+              </marker>
+              <marker id="he3" markerWidth="3" markerHeight="3" refX="4" refY="1.5" orient="auto" markerUnits="strokeWidth">
+                <path d="M0,0 L0,3 L3,1.5 z" fill="#cf898f"/>
+              </marker>
+              <marker id="he4" markerWidth="3" markerHeight="3" refX="4" refY="1.5" orient="auto" markerUnits="strokeWidth">
+                <path d="M0,0 L0,3 L3,1.5 z" fill="#bf998f"/>
+              </marker>
+              <marker id="he5" markerWidth="3" markerHeight="3" refX="4" refY="1.5" orient="auto" markerUnits="strokeWidth">
+                <path d="M0,0 L0,3 L3,1.5 z" fill="#afa98f"/>
+              </marker>
+            </defs>
+            <foreignObject x="-20" y=200 class=acolor style="font-size:50px; font-weight:bold;">$X^t$</foreignObject>
+            <foreignObject x="840" y=220 class=bcolor style="font-size:50px; font-weight:bold;">$X^t$</foreignObject>
+	          <circle stroke="black" stroke-width="1" cx="32.5" cy="255.5" class=acolor r="30"/>
+	          <circle stroke="black" stroke-width="1" fill="none" cx="209.5" cy="180.5" r="30"/>
+	          <circle stroke="black" stroke-width="1" fill="none" cx="379.5" cy="135.5" r="30"/>
+	          <ellipse stroke="black" stroke-width="1" fill="none" cx="519.5" cy="180.5" rx="30" ry="30"/>
+	          <circle class=bcolor stroke="black" stroke-width="1" cx="820.5" cy="297.5" r="30"/>
+	          <ellipse stroke="black" stroke-width="1" fill="none" cx="701.5" cy="180.5" rx="30" ry="30"/>
+	          <ellipse stroke="black" stroke-width="1" fill="none" cx="172.5" cy="318.5" rx="30" ry="30"/>
+	          <ellipse stroke="black" stroke-width="1" fill="none" cx="348.5" cy="255.5" rx="30" ry="30"/>
+	          <ellipse stroke="black" stroke-width="1" fill="none" cx="499.5" cy="277.5" rx="30" ry="30"/>
+	          <ellipse stroke="black" stroke-width="1" fill="none" cx="650.5" cy="277.5" rx="30" ry="30"/>
+	          <ellipse stroke="black" stroke-width="1" fill="none" cx="161.5" cy="435.5" rx="30" ry="30"/>
+	          <ellipse stroke="black" stroke-width="1" fill="none" cx="336.5" cy="473.5" rx="30" ry="30"/>
+	          <ellipse stroke="black" stroke-width="1" fill="none" cx="510.5" cy="487.5" rx="30" ry="30"/>
+	          <ellipse stroke="black" stroke-width="1" fill="none" cx="664.5" cy="487.5" rx="30" ry="30"/>
+	          <ellipse stroke="black" stroke-width="1" fill="none" cx="664.5" cy="374.5" rx="30" ry="30"/>
+	          <ellipse stroke="black" stroke-width="1" fill="none" cx="510.5" cy="374.5" rx="30" ry="30"/>
+	          <ellipse stroke="black" stroke-width="1" fill="none" cx="336.5" cy="367.5" rx="30" ry="30"/>
+
+	          <path stroke="#109f9f" marker-end="url(#head1)" stroke-width="8" fill="none" d="M 57.431,238.824 A 434.029,434.029 0 0 1 180.178,186.813"/>
+	          <path stroke="#207f8f" marker-end="url(#head2)" stroke-width="8" fill="none" d="M 237.109,168.773 A 513.443,513.443 0 0 1 349.705,138.968"/>
+	          <path stroke="#305f7f" marker-end="url(#head3)" stroke-width="8" fill="none" d="M 409.446,136.885 A 226.183,226.183 0 0 1 494.355,164.177"/>	
+	          <path stroke="#403f6f" marker-end="url(#head4)" stroke-width="8" fill="none" d="M 547,190 A 215.188,215.188 0 0 0 673.52,191.254"/>
+	          <path stroke="#501f5f" marker-end="url(#head5)" stroke-width="8" fill="none" d="M 727.726,195.033 A 258.268,258.268 0 0 1 805.525,271.524"/>	
+
+            <g>
+	            <path stroke="#ef698f" marker-end="url(#he1)" stroke-width="8" fill="none" d="M 791.087,303.301 A 232.949,232.949 0 0 1 677.763,289.968"/>
+              <path stroke="#df798f" marker-end="url(#he2)" stroke-width="8" fill="none" d="M 621.482,269.961 A 243.025,243.025 0 0 0 528.518,269.961"/>	
+	            <path stroke="#cf898f" marker-end="url(#he3)" stroke-width="8" fill="none" d="M 470.015,282.873 A 195.091,195.091 0 0 1 375.226,269.063"/>
+	            <path stroke="#bf998f" marker-end="url(#he4)" stroke-width="8" fill="none" d="M 318.542,254.457 A 215.739,215.739 0 0 0 194.99,298.682"/>
+	            <path stroke="#afa98f" marker-end="url(#he5)" stroke-width="8" fill="none" d="M 142.554,317.623 A 164.775,164.775 0 0 1 53.017,277.331"/>
+	          </g>
+
+              <foreignObject x="100" y=460 class=acolor style="font-size:50px; font-weight:bold;">$Z$</foreignObject>
+	            <path stroke="#109f9f" marker-end="url(#head1)"  stroke-width="8" fill="none" d="M 40.229,284.472 A 274.094,274.094 0 0 0 136.548,418.871"/>
+	            <!-- 2-->
+	            <path stroke="#207f8f" marker-end="url(#head2)" stroke-width="8" fill="none" d="M 186.674,451.774 A 214.848,214.848 0 0 0 306.844,477.868"/>
+	            <path stroke="#305f7f" marker-end="url(#head3)" stroke-width="8" fill="none" d="M 362.919,487.643 A 184.598,184.598 0 0 0 482.159,497.237"/>
+	            <path stroke="#403f6f" marker-end="url(#head4)" stroke-width="8" fill="none" d="M 538.338,498.58 A 171.238,171.238 0 0 1 636.662,498.58"/>
+	            <path stroke="#df798f" marker-end="url(#he2)" stroke-width="8" fill="none" d="M 637.686,474.058 A 482.022,482.022 0 0 1 531.368,396.046"/>
+	            <path stroke="#403f6f" marker-end="url(#head4)" stroke-width="8" fill="none" d="M 538.623,364.151 A 182.856,182.856 0 0 1 636.377,364.151"/>
+	            <path stroke="#501f5f" marker-end="url(#head5)" stroke-width="8" fill="none" d="M  694.431,373.035  A 184.513,184.513 0 0 0 801.133,320.368"/>
+            </svg>
+          <ul class="prob-setup-list" style="top:400px; width:1040px;">
+            <li>Analyze missing terms $\kldiv{X_t}{B_t} + \;\kldiv{X_{t+1}\mid X_t}{F_{t+1}\mid F_t}$ together.</li>
+            <li class=fragment>Via convexity, $\kldiv{X_t}{B_t} +\;\kldiv{X_{t+1}\mid X_t}{F_{t+1}\mid F_t}\ge -\log\|\nu\|_2^2$.
+            <li class=fragment>Likewise for $\kldiv{X_0}{F_0} +\;\kldiv{X_{-1}\mid X_0}{B_{-1}\mid B_0}$,<br>
+             a lower bound $-\log\|\mu\|_2^2$ holds.
+          </ul>
+        </section>
+
+        <section id=proof-final class=texnify>
+          <h3> Finishing the proof</h3>
+          <p class=mdisplay>
+          <svg id=svg-proof-final2 width=1200 height=600 style="position: absolute;left:0">
+            <defs>
+              <marker id="head" markerWidth="10" markerHeight="10" refX="0" refY="3" orient="auto" markerUnits="strokeWidth">
+                <path d="M0,0 L0,6 L9,3 z" fill="black" />
+              </marker>
+            </defs>
+            <foreignObject x=150 y=300 height=300 width=400>We showed true with a slack <br>$-\;\log\|u\|_2^2 -\log\|v\|_2^2$</foreignObject>
+            <foreignObject x=0 y=100 width=1200 height=120><br>
+              $-\;\frac{t+2}{t}\log\iprod{\nu}{S^t\mu}=\frac{t+2}{t}\kldiv{X^t}{F^t}\gtapprox \;\kldiv{Z}{F^{t+2}}\ge\;\kldiv{X^{t+2}}{F^{t+2}} = -\log\iprod{\nu}{S^{t+2}\mu}$</foreignObject>
+          </svg>
+          <ul style="width: 600px;position: relative; top:400px; left:500px;">
+            <li>But this slack exactly compensates the terms coming from $u\to\mu$ and $v\to\nu$ substitution.</li>
+             <li class=fragment>We get exactly $m_{t+2}\ge m_t^{1+2/t}$</li>
+        </section>
+
+        <section id=conjecture class="texnify">
           <h2>An analogue for continuous time?</h2>
           <div class=fragment>
             <svg id=svg-continuous width=1000 height=200 style="position:absolute; right:0; bottom:0">

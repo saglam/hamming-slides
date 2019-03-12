@@ -233,7 +233,7 @@ function renderInline(texStr, leftAttach, rightAttach) {
         } else if (command == "\\;") {
           output += Spaces.Regular;
         } else if (command == "\\,") {
-          output += Spaces.MediumMath;
+          output += Spaces.ThinSpace;
         }
       }
     } else if (code == "^".charCodeAt(0)) {

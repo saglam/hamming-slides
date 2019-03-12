@@ -239,6 +239,12 @@ let palette = {"1" : "#fee", s: "#DDD"};
     .add(new SvgArrow(730, 37, 210, 100, 500))
 }
 
+//svg-proof-idea
+{
+  getSvgElem('svg-proof-final2')
+    .add(new SvgArrow(350,300, 180, -110, -600))
+}
+
 //svg-continuous
 {
   let y = 100;
