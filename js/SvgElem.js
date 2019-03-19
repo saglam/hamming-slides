@@ -264,7 +264,7 @@ function SvgArrow(x, y, dx, dy, curvature = 0) {
   if (curvature === 0) {
     return new SvgElem('path').withAttributes({"d": "M" + x + "," + y + "l" + dx + "," + dy, "stroke": "black", "marker-end": "url(#head)"});
   } else {
-    /** @type {boolean} */
+    /** @type {number} */
     let direction = 1;
     if (curvature < 0) {
       direction = 0;

@@ -43,7 +43,7 @@ for task in $Tasks; do
                 --include="*.${task}${CompressionToExtension[$comp]}" \
                 --exclude="all.${task}${CompressionToExtension[$comp]}" \
                 build/${TaskToDirectory[$task]} \
-                s3://mert.saglam.id/talks/hamming-ias/${TaskToDirectory[$task]}
+                s3://mert.saglam.id/talks/hamming-nl/${TaskToDirectory[$task]}
   done
 done
 
@@ -53,10 +53,10 @@ for comp in $Compression; do
               --cache-control "public" ${CompressionToEncoding[$comp]} \
               --content-type "text/html; charset=utf-8" \
               build/index.html${CompressionToExtension[$comp]} \
-              s3://mert.saglam.id/talks/hamming-ias/index.html${CompressionToExtension[$comp]}
+              s3://mert.saglam.id/talks/hamming-nl/index.html${CompressionToExtension[$comp]}
 done
 
 aws cloudfront create-invalidation \
     --distribution-id E18VDHOME7TQW8 \
-    --paths "/talks/hamming-ias/" "/talks/hamming-ias/index.html*"
+    --paths "/talks/hamming-nl/" "/talks/hamming-nl/index.html*"
 

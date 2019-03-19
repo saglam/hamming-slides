@@ -207,6 +207,18 @@ position: absolute; left:100px; top:450px;
 }
 
 
+#findings-list > li {
+  margin-bottom: 1em;
+}
+
+#conclusion-list {
+  margin: 0 3em;
+}
+
+#conclusion-list > li {
+  margin: 1.5em;
+}
+
 /*********************************************
  * GLOBAL STYLES
  *********************************************/
